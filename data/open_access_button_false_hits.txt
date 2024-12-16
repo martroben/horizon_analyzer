@@ -1,0 +1,109 @@
+BAD SEARCH INPUT
+
+21bd1269-486a-4e0e-87bc-38431be0ed3e
+Didn't find by URL (pdf). Found by title
+
+c5e4bbb0-efea-49fb-bdfd-d251546f583b
+Didn't find by URL. Found by title
+
+ecf0bd5d-9fe9-47a4-9695-9f6e65c7324f
+Didn't find by URL. Found by title
+
+9b53da29-0a2e-4369-85c5-cce8ea960645
+Didn't find by URL. Found by title
+
+
+
+FALSE NEGATIVES
+
+a6dab915-1cf6-4221-a5b3-3bff096e62ed
+10.15159/ar.20.024
+https://agronomy.emu.ee/wp-content/uploads/2020/04/AR2020_Vol18SI3_Ibrahim.pdf#abstract-7291
+
+bd4b5f0d-d3f0-4131-83aa-4a0841149329
+10.15159/ar.21.033
+https://dspace.emu.ee/server/api/core/bitstreams/3006dd91-2d06-4723-9995-5160af2412ba/content
+
+2fac04a3-1321-4257-b1f5-06bfd2578380
+10.15159/ar.22.008
+https://dspace.emu.ee/items/2903b247-2667-4571-833f-8a17687d8523
+
+8b281f0a-0d8c-4daa-8794-935566c5961d
+10.3917/rfap.167.0613
+https://www.cairn.info/revue-francaise-d-administration-publique-2018-3-page-613.htm
+
+b89ce2f6-e193-4f3a-9ab3-f0d4cb631590
+10.1002/rhc3.12236
+https://onlinelibrary.wiley.com/doi/full/10.1002/rhc3.12236
+
+f61a5133-288a-4960-a38d-c2fa62f84fef
+10.2436/20.2003.02.242
+https://revistes.iec.cat/index.php/EduQ/article/view/150683/148452
+
+ec23f845-f272-419f-85c4-9ccad5a092b4
+10.25969/mediarep/15320
+https://necsus-ejms.org/disciplinary-itineraries-and-digital-methods-examining-the-kinomatics-collaboration-networks/
+
+b2ea537a-486c-4ea8-956b-16c55898a02a
+10.12758/mda.2023.03
+https://mda.gesis.org/index.php/mda/article/view/2023.03/333
+
+b31440cc-1452-4e64-9360-edc56b1847df
+Spectral Variability of Supergiant HD21389
+http://aaj.shao.az/vol17_n2/AAJ_2022_V17_N2.pdf
+
+15e1c7c6-e9c8-45e4-81d9-2e00c50b0d17
+CarbonSink+ - Accounting for multiple climate feedbacks from forests
+http://www.borenv.net/BER/archive/pdfs/ber25/ber25-145-159.pdf
+
+08691a69-6e3e-45dc-b6d9-d71b691e7cf8
+New particle formation in boreal forests of Siberia, Finland and Estonia
+https://www.borenv.net/BER/archive/pdfs/ber28/ber28-147-167.pdf
+
+2bdbb554-dd8e-45de-b990-344fc35f613b
+Deep Diving into the S&P 350 Europe Index Network and Its Reaction to COVID-19
+https://dspace.ut.ee/server/api/core/bitstreams/b8ccb4af-f025-4185-bedf-08ebf339aa48/content
+
+21ea8dbf-b4eb-4a64-aba2-f652e4cc0188
+"If it makes you happy ... It can'\u2019't be that bad" (An explanatory study of participant wellbeing during international exchange).
+https://openjournals.library.usyd.edu.au/index.php/IEJ/article/view/14466
+
+e3dcf8fd-b484-46eb-916d-7372cdc2fa9e
+Tootlikkuse kasvutegurid Euroopa regioonides
+https://rito.riigikogu.ee/wordpress/wp-content/uploads/2017/06/M%C3%A4nnasoo-Hein-Ruubel.pdf
+
+31709f9c-d9ff-4f1b-9a43-0a9bed40340a
+Ettevõtete investeerimismustrid ja roll globaalses väärtusloomes
+https://rito.riigikogu.ee/wordpress/wp-content/uploads/2018/06/M%C3%A4nnasoo-Rungi-Hein-Tasane.pdf
+
+76c9425e-4537-4f9c-a026-6182231a29d9
+Eksport ja innovatsioon ettevõtetes: Euroopa siirderiikide võrdlev uuring
+https://rito.riigikogu.ee/nr-37/eksport-ja-innovatsioon-ettevotetes-euroopa-siirderiikide-vordlev-uuring/
+
+bd816e5a-7bf5-463b-98b7-3e022363b20c
+Avalike teenuste korraldamisest ja nende innovatsioonist koosloome abil
+http://publications.tlu.ee/index.php/actapoliticaestica/article/view/960/pdf
+
+9c63bc3d-0214-48ca-a8e4-0640e2b93e1d
+10.22667/jowua.2022.03.31.087
+https://isyou.info/jowua/papers/jowua-v13n1-4.pdf
+
+2c218ace-9024-4e4a-b26b-a12b6bc08426
+Riigiteaduste veerandsajand Tallinna ülikoolis
+http://publications.tlu.ee/index.php/actapoliticaestica/article/view/962/pdf
+
+96676976-eab6-4683-80f1-f8576fdcca11
+Governing Transnationalisation and the Transformation of Sovereignty
+http://publications.tlu.ee/index.php/eastwest/article/view/1121
+
+dab67cb3-7ecd-4a9e-9010-931e9bdb76bd
+Naised uurisid lilli, liblikaid ja linde
+https://www.vikerkaar.ee/archives/29790
+
+
+
+FALSE POSITIVES
+
+2026fa52-af99-468c-b72f-376debdd18f9
+10.1016/j.inffus.2022.08.016
+https://doi.org/10.1016/j.inffus.2022.08.016

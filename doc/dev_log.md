@@ -1,7 +1,11 @@
 # 2024-12-16
+ETIS API wrong publication GUIDs will be fixed on 20th of Dec.
+
 Started dev log.
 
+Started git repo.
 
+Investigated OpenAccessButton bad hits.
 
 # 2024-12-15
 Pulled project publications.

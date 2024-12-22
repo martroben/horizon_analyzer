@@ -1,3 +1,13 @@
+# 2024-12-22
+Changed data save format to JSON.
+
+Created machine-readable file for manually checked open access publications.
+
+Added summary calculation code.
+
+# 2024-12-20
+ETIS API fix failed. New estimated time unknown.
+
 # 2024-12-16
 ETIS API wrong publication GUIDs will be fixed on 20th of Dec.
 

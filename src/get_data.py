@@ -90,43 +90,6 @@ class OpenAccessButtonSession(requests.Session):
         return response
 
 
-class CrossrefWorksSession(requests.Session):
-    """
-    Class for requesting info from Crossref API works (i.e. publications) route.
-    """
-    BASE_URL = "https://api.crossref.org/works"
-
-    def __init__(self, app_name: str, app_version: str, app_URL: str, mailto: str) -> None:
-        super().__init__()
-        self.app_name = app_name
-        self.app_version = app_version
-        self.app_URL = app_URL
-        self.mailto = mailto
-
-    def get_user_agent_header(self) -> str:
-        """
-        Get the optional User-Agent header for the "polite" pool.
-        """
-        user_agent_header = None
-        if self.app_name and self.app_version and self.mailto:
-            user_agent_header = f'{self.app_name}/{self.app_version} ({self.app_URL}; mailto:{self.mailto})'
-        return user_agent_header
-
-    def get_work_by_DOI(self, DOI: str) -> requests.Response:
-        """
-        Takes the cleaned DOI as input.
-        I.e. the https://doi.org/ part has to be removed and the DOI should be URL-encoded.
-        """
-        URL = f'{self.BASE_URL}/{DOI}'
-        headers = {}
-        user_agent_header = self.get_user_agent_header()
-        if user_agent_header:
-            headers["User-Agent"] = user_agent_header
-
-        response = self.get(URL, headers=headers)
-        return response
-
-
 def clean_DOI(DOI: str) -> str:
     """
     Removes the leading doi.org URL or DOI:.
@@ -248,8 +211,12 @@ for publication in tqdm.tqdm(project_publications, desc="Requesting ETIS publica
         except Exception as exception:
             no_data_publications += [publication]
 
+# Save publication ETIS data
+with open("ETIS_publication_data.json", "w") as save_file:
+    save_file.write(json.dumps(project_publications, indent=2))
+
 # Save info about project publications with no data in ETIS
-with open("no_data_publications.txt", "w") as save_file:
+with open("no_data_publications.json", "w") as save_file:
     save_file.write(json.dumps(no_data_publications, indent=2))
 
 
@@ -308,20 +275,54 @@ for publication in tqdm.tqdm(publication_open_access_info, desc="Requesting publ
     lap_timestamp = time.monotonic()
 
 
-with open("publication_open_access_info.txt", "w") as save_file:
+with open("publication_open_access_info.json", "w") as save_file:
     save_file.write(json.dumps(publication_open_access_info, indent=2))
 
 
 false_open_access_publications = []
 for publication in publication_open_access_info:
+    # Publications where ETIS info and Open Access Button info both agree that publication is available
     if publication["IS_OPEN_ACCESS"] and publication["DATA"].get("url"):
         continue
+
+    # Check for publication where publication is available according to ETIS,
+    # but not according to Open Access Button (or vice versa). Skip the ones that don't have that problem
     if not (publication["IS_OPEN_ACCESS"] or publication["DATA"].get("url")):
         continue
+
+    # All remaining publications have some mismatch in ETIS and Open Access Button info
     false_open_access_publications += [publication]
 
 
-with open("false_open_access_publications.txt", "w") as save_file:
+with open("false_open_access_publications.json", "w") as save_file:
     save_file.write(json.dumps(false_open_access_publications, indent=2))
+
+
+##############################
+# Summarise open access info #
+##############################
+
+with open("./data/publications_manually_checked_20241215.json") as read_file:
+    publications_manually_checked = json.loads(read_file.read())
+
+with open("./data/publication_open_access_info_20241215.json") as read_file:
+    publication_open_access_info = json.loads(read_file.read())
+
+publications_manually_checked_index = {
+    publication["PUBLICATION_GUID"]: {"IS_AVAILABLE_MANUALLY_CHECKED": publication["IS_AVAILABLE_MANUALLY_CHECKED"]}
+    for publication in publications_manually_checked}
+
+n_open = 0
+
+for publication in publication_open_access_info:
+    manually_checked_info = publications_manually_checked_index.get(publication["GUID"])
+    if manually_checked_info:
+        if manually_checked_info["IS_AVAILABLE_MANUALLY_CHECKED"]:
+            n_open += 1
+        continue
+
+    if publication["IS_OPEN_ACCESS"] and publication["DATA"].get("url"):
+        n_open += 1
+        continue
 
 

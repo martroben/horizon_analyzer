@@ -1,4 +1,6 @@
 # 2025-01-11
+Refactored `get_data` to pull publication data from ETIS and save an intermediate raw json with the data.
+
 Refactored `get_data` to pull project data from ETIS and save an intermediate raw json with the data.
 
 ---

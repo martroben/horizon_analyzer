@@ -1,5 +1,8 @@
 # standard
+import datetime
 import json
+import logging
+import os
 import re
 import time
 import urllib
@@ -125,6 +128,26 @@ def limit_rate(last_lap_timestamp: float, requests_per_interval: int = 50, inter
         time.sleep(interval_s / requests_per_interval)
 
 
+def get_timestamp_string() -> str:
+    timestamp_string_format = "%Y%m%d%H%M%S%Z"
+    timestamp = datetime.datetime.now(datetime.timezone.utc)
+    timestamp_string = datetime.datetime.strftime(timestamp, timestamp_string_format)
+    return timestamp_string
+
+
+#########
+# Setup #
+#########
+
+raw_data_directory_path = "./data/raw/"
+
+if not os.path.exists(raw_data_directory_path):
+    # Create the directory
+    os.makedirs(raw_data_directory_path)
+
+logger = logging.getLogger()
+logger.setLevel("DEBUG")
+
 
 ######################
 # Pull ETIS Projects #
@@ -169,11 +192,25 @@ with tqdm.tqdm() as ETIS_progress_bar:
             _ = ETIS_progress_bar.update()
 
 
-########################
-# Get publication info #
-########################
+projects_save_path = f'{raw_data_directory_path.strip("/")}/projects_{get_timestamp_string()}.json'
+logger.info(f'Pulled {len(projects)} projects from ETIS. Saving to {projects_save_path}')
 
-# Create a list of publications from project info
+with open(projects_save_path, "w") as save_file:
+    save_file.write(json.dumps(projects, indent=2))
+
+
+################################
+# Get project publication info #
+################################
+
+projects_save_file_pattern = r'projects_(\d{14})'
+projects_save_files = [file for file in os.listdir(raw_data_directory_path) if re.match(projects_save_file_pattern, file)]
+projects_save_files_latest = sorted(projects_save_files, key=lambda x: re.match(projects_save_file_pattern, x).groups()[0])[-1]
+projects_save_path = f'{raw_data_directory_path.strip("/")}/{projects_save_files_latest}'
+
+with open(projects_save_path) as read_file:
+    projects = json.loads(read_file.read())
+
 project_publications = []
 for project in projects:
     if not project["Publications"]:
@@ -186,8 +223,13 @@ for project in projects:
 
         project_publications += [publication_data]
 
+logger.info(f'Pulled {len(projects)} projects from ETIS. Saving to {projects_save_path}')
 
-# Pull publication info from ETIS
+
+###################################
+# Pull publication info from ETIS #
+###################################
+
 ETIS_publication_session = EtisSession(service="publication")
 
 bad_response_threshold = 10
@@ -195,21 +237,21 @@ n_bad_responses = 0
 bad_responses = []
 no_data_publications = []
 for publication in tqdm.tqdm(project_publications, desc="Requesting ETIS publications"):
-        response = ETIS_publication_session.get_items(
-            parameters={"Guid": publication["GUID"]}
-        )
-        if not response:
-            bad_responses += [response]
-            n_bad_responses += 1
-            if n_bad_responses >= bad_response_threshold:
-                raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
-            continue
+    response = ETIS_publication_session.get_items(
+        parameters={"Guid": publication["GUID"]}
+    )
+    if not response:
+        bad_responses += [response]
+        n_bad_responses += 1
+        if n_bad_responses >= bad_response_threshold:
+            raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
+        continue
 
-        publication["DATA"] = {}
-        try:
-            publication["DATA"] = response.json()[0]
-        except Exception as exception:
-            no_data_publications += [publication]
+    publication["DATA"] = {}
+    try:
+        publication["DATA"] = response.json()[0]
+    except Exception as exception:
+        no_data_publications += [publication]
 
 # Save publication ETIS data
 with open("ETIS_publication_data.json", "w") as save_file:
@@ -266,7 +308,7 @@ for publication in tqdm.tqdm(publication_open_access_info, desc="Requesting publ
     else:
         publication["DATA"] = response.json()
 
-    # Add delay if the pace of requests is coming close to the API rate limit
+    # Add delay if the pace of the requests is coming close to the API rate limit
     limit_rate(
         last_lap_timestamp=lap_timestamp,
         requests_per_interval=1,

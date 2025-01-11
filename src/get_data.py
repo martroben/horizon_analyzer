@@ -129,9 +129,13 @@ def limit_rate(last_lap_timestamp: float, requests_per_interval: int = 50, inter
 
 
 def get_timestamp_string() -> str:
-    timestamp_string_format = "%Y%m%d%H%M%S%Z"
+    """
+    Gives a standard current timestamp string to use in filenames.
+    """
+    timestamp_format = "%Y%m%d%H%M%S%Z"
+
     timestamp = datetime.datetime.now(datetime.timezone.utc)
-    timestamp_string = datetime.datetime.strftime(timestamp, timestamp_string_format)
+    timestamp_string = datetime.datetime.strftime(timestamp, timestamp_format)
     return timestamp_string
 
 
@@ -139,14 +143,14 @@ def get_timestamp_string() -> str:
 # Setup #
 #########
 
-raw_data_directory_path = "./data/raw/"
+# Save directories
+RAW_DATA_DIRECTORY_PATH = "./data/raw/"
+if not os.path.exists(RAW_DATA_DIRECTORY_PATH):
+    os.makedirs(RAW_DATA_DIRECTORY_PATH)
 
-if not os.path.exists(raw_data_directory_path):
-    # Create the directory
-    os.makedirs(raw_data_directory_path)
-
+# Logger
 logger = logging.getLogger()
-logger.setLevel("DEBUG")
+logger.setLevel("INFO")
 
 
 ######################
@@ -159,7 +163,7 @@ ETIS_project_parameters = {
 }
 
 items_per_request = 500             # Get items in batches
-bad_response_threshold = 10         # Throw after this threshold of bad responses
+bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
 n_bad_responses = 0
 bad_responses = []
 projects = []
@@ -184,7 +188,6 @@ with tqdm.tqdm() as ETIS_progress_bar:
 
             items = response.json()
             if not items:
-                # Stop if no more items are returned
                 break
 
             projects += items
@@ -192,28 +195,33 @@ with tqdm.tqdm() as ETIS_progress_bar:
             _ = ETIS_progress_bar.update()
 
 
-projects_save_path = f'{raw_data_directory_path.strip("/")}/projects_{get_timestamp_string()}.json'
-logger.info(f'Pulled {len(projects)} projects from ETIS. Saving to {projects_save_path}')
-
+projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/projects_{get_timestamp_string()}.json'
 with open(projects_save_path, "w") as save_file:
     save_file.write(json.dumps(projects, indent=2))
+
+info_string = f'Found {len(projects)} relevant projects in ETIS. Saved to {projects_save_path}'
+logger.info(info_string)
 
 
 ################################
 # Get project publication info #
 ################################
 
+# Reload data from latest save file
 projects_save_file_pattern = r'projects_(\d{14})'
-projects_save_files = [file for file in os.listdir(raw_data_directory_path) if re.match(projects_save_file_pattern, file)]
+projects_save_files = [file for file in os.listdir(RAW_DATA_DIRECTORY_PATH) if re.match(projects_save_file_pattern, file)]
 projects_save_files_latest = sorted(projects_save_files, key=lambda x: re.match(projects_save_file_pattern, x).groups()[0])[-1]
-projects_save_path = f'{raw_data_directory_path.strip("/")}/{projects_save_files_latest}'
+projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/{projects_save_files_latest}'
 
 with open(projects_save_path) as read_file:
     projects = json.loads(read_file.read())
 
-project_publications = []
+# Parse publications
+projects_with_no_publications = []
+publications = []
 for project in projects:
     if not project["Publications"]:
+        projects_with_no_publications += [project]
         continue
 
     for publication in project["Publications"]:
@@ -221,9 +229,10 @@ for project in projects:
         publication_data["PROJECT_GUID"] = project["Guid"]
         publication_data["GUID"] = publication["Guid"]
 
-        project_publications += [publication_data]
+        publications += [publication_data]
 
-logger.info(f'Pulled {len(projects)} projects from ETIS. Saving to {projects_save_path}')
+info_string = f'Found {len(publications)} publications under the projects. {len(projects_with_no_publications)} of the {len(projects)} projects have no publications'
+logger.info(info_string)
 
 
 ###################################
@@ -232,11 +241,11 @@ logger.info(f'Pulled {len(projects)} projects from ETIS. Saving to {projects_sav
 
 ETIS_publication_session = EtisSession(service="publication")
 
-bad_response_threshold = 10
+bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
 n_bad_responses = 0
 bad_responses = []
-no_data_publications = []
-for publication in tqdm.tqdm(project_publications, desc="Requesting ETIS publications"):
+publications_with_no_data = []
+for publication in tqdm.tqdm(publications, desc="Requesting ETIS publications"):
     response = ETIS_publication_session.get_items(
         parameters={"Guid": publication["GUID"]}
     )
@@ -251,15 +260,20 @@ for publication in tqdm.tqdm(project_publications, desc="Requesting ETIS publica
     try:
         publication["DATA"] = response.json()[0]
     except Exception as exception:
-        no_data_publications += [publication]
+        publications_with_no_data += [publication]
 
-# Save publication ETIS data
-with open("ETIS_publication_data.json", "w") as save_file:
-    save_file.write(json.dumps(project_publications, indent=2))
+publications_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/publications_{get_timestamp_string()}.json'
+with open(publications_save_path, "w") as save_file:
+    save_file.write(json.dumps(publications, indent=2))
 
-# Save info about project publications with no data in ETIS
-with open("no_data_publications.json", "w") as save_file:
-    save_file.write(json.dumps(no_data_publications, indent=2))
+publications_with_no_data_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/publications_with_no_data_{get_timestamp_string()}.json'
+with open(publications_with_no_data_save_path, "w") as save_file:
+    save_file.write(json.dumps(publications_with_no_data, indent=2))
+
+info_string1 = f'Pulled publication data from ETIS. Saved to {publications_save_path}'
+info_string2 = f'ETIS API did not return data for {len(publications_with_no_data)} of the {len(publications)} publications. See {publications_with_no_data_save_path} for details'
+logger.info(info_string1)
+logger.info(info_string2)
 
 
 ########################

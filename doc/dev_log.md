@@ -1,4 +1,8 @@
 # 2025-01-12
+TODO: should drop articles with status "Fourthcoming". Not published yet - can't determine open access status.
+
+TODO: deduplicate publcations. It seems that some times same publication is mentioned in several different projects.
+
 Added check for ambiguous publication open access status (when ETIS and Open Access Button disagree).
 
 Added functionality to manually define publication open availability status.

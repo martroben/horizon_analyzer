@@ -238,21 +238,31 @@ logger.info(info_string)
 projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "projects")
 
 # Parse publications
+# Select unique publications (same publications can be reported under several projects)
+n_publications = 0
 projects_with_no_publications = []
-publications = []
+publications_index = {}
 for project in projects:
     if not project["Publications"]:
         projects_with_no_publications += [project]
         continue
 
+    project_GUID = project["Guid"]
     for publication in project["Publications"]:
-        publication_data = {}
-        publication_data["PROJECT_GUID"] = project["Guid"]
-        publication_data["GUID"] = publication["Guid"]
+        n_publications += 1
+        GUID = publication["Guid"]
+        publication_data = publications_index.get(GUID) or {}
 
-        publications += [publication_data]
+        if not publication_data:
+            publication_data["GUID"] = GUID
+            publication_data["PROJECT_GUIDS"] = []
 
-info_string = f'Found {len(publications)} publications under the projects. {len(projects_with_no_publications)} of the {len(projects)} projects have no publications'
+        publication_data["PROJECT_GUIDS"] += [project_GUID]
+        publications_index[GUID] = publication_data
+
+publications = list(publications_index.values())
+
+info_string = f'Found {n_publications} publications under the projects. {len(publications)} of these are unique. {len(projects_with_no_publications)} of the {len(projects)} projects have no publications'
 logger.info(info_string)
 
 
@@ -306,7 +316,7 @@ logger.info(info_string2)
 publications = read_latest_file(RAW_DATA_DIRECTORY_PATH, "publications")
 
 # Select only already published scientific articles
-scientific_articles_raw = []
+scientific_articles = []
 for publication in publications:
     if not publication["DATA"]:
         continue
@@ -315,34 +325,13 @@ for publication in publications:
     if not publication["DATA"]["PublicationStatusEng"].lower() == "published":
         continue
 
-    scientific_articles_raw += [publication]
-
-info_string = f'{len(scientific_articles_raw)} of the {len(publications)} publications are classified as scientific articles'
-logger.info(info_string)
-
-# Select unique scientific articles
-# Some articles can be reported under several projects
-scientific_articles_index = {}
-for article in scientific_articles_raw:
-    GUID = article["GUID"]
-
-    # Convert the project GUID key to list
-    article["PROJECT_GUIDS"] = [article.pop("PROJECT_GUID")]
-
-    if GUID not in scientific_articles_index:
-        scientific_articles_index[GUID] = article
-        continue
-
-    existing_article = scientific_articles_index[GUID]
-    existing_article["PROJECT_GUIDS"] += article["PROJECT_GUIDS"]
-
-scientific_articles = list(scientific_articles_index.values())
+    scientific_articles += [publication]
 
 scientific_articles_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/scientific_articles_{get_timestamp_string()}.json'
 with open(scientific_articles_save_path, "w") as save_file:
     save_file.write(json.dumps(scientific_articles, indent=2))
 
-info_string = f'{len(scientific_articles)} out of the {len(scientific_articles_raw)} scientific articles are unique. Saved to {scientific_articles_save_path}'
+info_string = f'{len(scientific_articles)} of the {len(publications)} publications are classified as scientific articles. Saved to {scientific_articles_save_path}'
 logger.info(info_string)
 
 
@@ -434,7 +423,7 @@ for article in scientific_articles:
 
     open_access_datum = {
         "GUID": article["GUID"],
-        "PROJECT_GUID": article["PROJECT_GUID"],
+        "PROJECT_GUIDS": article["PROJECT_GUIDS"],
         "TITLE": ETIS_data["Title"],
         "PERIODICAL": ETIS_data["Periodical"],
         "DOI": clean_DOI(ETIS_data["Doi"]),

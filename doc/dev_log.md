@@ -1,4 +1,6 @@
 # 2025-01-12
+Added functionality to deduplicate publications.
+
 TODO: should drop articles with status "Fourthcoming". Not published yet - can't determine open access status.
 
 TODO: deduplicate publcations. It seems that some times same publication is mentioned in several different projects.

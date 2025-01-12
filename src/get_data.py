@@ -16,17 +16,19 @@ import tqdm
 # Inputs #
 ##########
 
-ETIS_SCIENTIFIC_ARTICLES_CLASSIFICATION_CODES = ["1.1.", "1.2.", "1.3."]
-    # 1.1. - Web of Science & Scopus scientific articles
-    # 1.2. - Other international scientific articles
-    # 1.3. - scientific articles in Estonian journals
-ETIS_HORIZON_PROGRAM_CODES = ["136", "137", "442", "443", "450", "451"]
-    # 136 - Horizon 2020 EIT support
-    # 137 - Horisont 2020 ERA \u00f5ppetoolide toetus
-    # 442 - Horizon 2020
-    # 443 - ERA-NET (Horizon 2020)
-    # 450 - Horizon Europe Programme
-    # 451 - ERA-NET (Horizon Europe)
+ETIS_SCIENTIFIC_ARTICLES_CLASSIFICATION_CODES = [
+    "1.1.",     # Web of Science & Scopus scientific articles
+    "1.2.",     # Other international scientific articles
+    "1.3."      # scientific articles in Estonian journals
+]
+ETIS_HORIZON_PROGRAM_CODES = [
+    "136",      # Horizon 2020 EIT support
+    "137",      # Horisont 2020 ERA \u00f5ppetoolide toetus
+    "442",      # Horizon 2020
+    "443",      # ERA-NET (Horizon 2020)
+    "450",      # Horizon Europe Programme
+    "451"       # ERA-NET (Horizon Europe)
+]
 ETIS_FINISHED_PROJECT_STATUS_CODE = 3
     # 1 - all projects
     # 2 - ongoing projects
@@ -161,9 +163,9 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
     return data
 
 
-#########
-# Setup #
-#########
+#####################
+# Environment setup #
+#####################
 
 # Create directories
 if not os.path.exists(RAW_DATA_DIRECTORY_PATH):
@@ -303,13 +305,16 @@ logger.info(info_string2)
 # Reload data from save file
 publications = read_latest_file(RAW_DATA_DIRECTORY_PATH, "publications")
 
-# Select only scientific articles
+# Select only already published scientific articles
 scientific_articles = []
 for publication in publications:
     if not publication["DATA"]:
         continue
     if not publication["DATA"]["ClassificationCode"] in ETIS_SCIENTIFIC_ARTICLES_CLASSIFICATION_CODES:
         continue
+    if not publication["DATA"]["PublicationStatusEng"].lower() == "published":
+        continue
+
     scientific_articles += [publication]
 
 scientific_articles_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/scientific_articles_{get_timestamp_string()}.json'
@@ -450,6 +455,7 @@ for publication in open_access_data:
     if not (publication["IS_OPEN_ACCESS"] or publication["OA_BUTTON_URL"]):
         continue
 
+    # Publications with manually checked availability are not ambiguous
     if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is not None:
         continue
 

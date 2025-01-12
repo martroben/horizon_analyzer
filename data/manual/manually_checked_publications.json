@@ -262,5 +262,20 @@
   {
     "GUID": "247a2dfc-c5cb-4909-baa1-7354c7e21e30",
     "IS_AVAILABLE": false
+  },
+  {
+    "GUID": "32677db1-b2d6-4de3-9a90-5a050a0346e0",
+    "IS_AVAILABLE": false,
+    "NOTES": "OA Button URL isn't open: https://doi.org/10.1111/boer.12419"
+  },
+  {
+    "GUID": "e23aa51a-4b39-45ce-b6f2-e3df2fb3752b",
+    "IS_AVAILABLE": true,
+    "NOTES": "https://arxiv.org/pdf/2403.11794"
+  },
+  {
+    "GUID": "1da23a38-4fc7-46f2-8368-9c6f6b5fc91a",
+    "IS_AVAILABLE": true,
+    "NOTES": "https://www.biorxiv.org/content/biorxiv/early/2021/12/23/2021.12.21.473684.full.pdf"
   }
 ]

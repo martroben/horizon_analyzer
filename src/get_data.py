@@ -472,11 +472,12 @@ for publication in open_access_data:
     # All remaining publications have some mismatch in ETIS and Open Access Button info
     open_access_data_ambiguous += [publication]
 
-open_access_data_ambiguous_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_ambiguous_{get_timestamp_string()}.json'
-with open(open_access_data_ambiguous_save_path, "w") as save_file:
-    save_file.write(json.dumps(open_access_data_ambiguous, indent=2))
+if open_access_data_ambiguous:
+    open_access_data_ambiguous_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_ambiguous_{get_timestamp_string()}.json'
+    with open(open_access_data_ambiguous_save_path, "w") as save_file:
+        save_file.write(json.dumps(open_access_data_ambiguous, indent=2))
 
-info_string1 = f'{len(open_access_data_ambiguous)} publications have ambiguous open access status. See details in {open_access_data_ambiguous_save_path}'
-info_string2 = f'You can manually set the publication availability status in {MANUALLY_CHECKED_PUBLICATIONS_PATH}'
-logger.info(info_string1)
-logger.info(info_string2)
+    info_string1 = f'{len(open_access_data_ambiguous)} publications have ambiguous open access status. See details in {open_access_data_ambiguous_save_path}'
+    info_string2 = f'You can manually override the publication availability status in {MANUALLY_CHECKED_PUBLICATIONS_PATH}'
+    logger.info(info_string1)
+    logger.info(info_string2)

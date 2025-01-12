@@ -277,5 +277,25 @@
     "GUID": "1da23a38-4fc7-46f2-8368-9c6f6b5fc91a",
     "IS_AVAILABLE": true,
     "NOTES": "https://www.biorxiv.org/content/biorxiv/early/2021/12/23/2021.12.21.473684.full.pdf"
+  },
+  {
+    "GUID": "513166b9-8c90-4e4d-961b-4e973e8ed5ab",
+    "IS_AVAILABLE": true,
+    "NOTES": "https://www.isa-afp.org/entries/With_Type.html"
+  },
+  {
+    "GUID": "80c18bf1-4993-4937-a351-5affdc16a5fd",
+    "IS_AVAILABLE": true,
+    "NOTES": "https://www.isa-afp.org/entries/Wlog.html"
+  },
+  {
+    "GUID": "a68ff868-04f3-461f-be03-d11231c30e3d",
+    "IS_AVAILABLE": true,
+    "NOTES": "https://www.isa-afp.org/entries/Hilbert_Space_Tensor_Product.html"
+  },
+  {
+    "GUID": "9d57ac16-37e9-4aa9-bc34-699a0f1257c6",
+    "IS_AVAILABLE": false,
+    "NOTES": ""
   }
 ]

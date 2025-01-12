@@ -1,4 +1,6 @@
 # 2025-01-12
+"Free to read" is a great term for what I've been calling "available".
+
 Added functionality to deduplicate publications.
 
 TODO: should drop articles with status "Fourthcoming". Not published yet - can't determine open access status.

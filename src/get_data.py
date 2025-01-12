@@ -157,7 +157,7 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
     path = f'{dir_path.strip("/")}/{files_latest}'
 
-    with open(path) as read_file:
+    with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
     
     return data
@@ -223,8 +223,8 @@ with tqdm.tqdm() as ETIS_progress_bar:
 
 
 projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/projects_{get_timestamp_string()}.json'
-with open(projects_save_path, "w") as save_file:
-    save_file.write(json.dumps(projects, indent=2))
+with open(projects_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(projects, indent=2, ensure_ascii=False))
 
 info_string = f'Found {len(projects)} relevant projects in ETIS. Saved to {projects_save_path}'
 logger.info(info_string)
@@ -295,12 +295,12 @@ for publication in tqdm.tqdm(publications, desc="Requesting ETIS publications"):
         publications_with_no_data += [publication]
 
 publications_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/publications_{get_timestamp_string()}.json'
-with open(publications_save_path, "w") as save_file:
-    save_file.write(json.dumps(publications, indent=2))
+with open(publications_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(publications, indent=2, ensure_ascii=False))
 
 publications_with_no_data_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/publications_with_no_data_{get_timestamp_string()}.json'
-with open(publications_with_no_data_save_path, "w") as save_file:
-    save_file.write(json.dumps(publications_with_no_data, indent=2))
+with open(publications_with_no_data_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(publications_with_no_data, indent=2, ensure_ascii=False))
 
 info_string1 = f'Pulled publication data from ETIS. Saved to {publications_save_path}'
 info_string2 = f'ETIS API failed to return data for {len(publications_with_no_data)} of the {len(publications)} publications. See {publications_with_no_data_save_path} for details'
@@ -328,8 +328,8 @@ for publication in publications:
     scientific_articles += [publication]
 
 scientific_articles_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/scientific_articles_{get_timestamp_string()}.json'
-with open(scientific_articles_save_path, "w") as save_file:
-    save_file.write(json.dumps(scientific_articles, indent=2))
+with open(scientific_articles_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(scientific_articles, indent=2, ensure_ascii=False))
 
 info_string = f'{len(scientific_articles)} of the {len(publications)} publications are classified as scientific articles. Saved to {scientific_articles_save_path}'
 logger.info(info_string)
@@ -389,8 +389,8 @@ for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication O
     oa_button_reponses += [oa_button_reponse]
 
 oa_button_reponses_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/oa_button_reponses_{get_timestamp_string()}.json'
-with open(oa_button_reponses_save_path, "w") as save_file:
-    save_file.write(json.dumps(oa_button_reponses, indent=2))
+with open(oa_button_reponses_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(oa_button_reponses, indent=2, ensure_ascii=False))
 
 info_string1 = f'Checked publication open access status by Open Access Button API. Saved results to {oa_button_reponses_save_path}'
 info_string2 = f'Open Access Button API failed to return data for {len(bad_responses)} of the {len(scientific_articles)} scientific articles'
@@ -438,8 +438,8 @@ for article in scientific_articles:
     open_access_data += [open_access_datum]
 
 open_access_data_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_{get_timestamp_string()}.json'
-with open(open_access_data_save_path, "w") as save_file:
-    save_file.write(json.dumps(open_access_data, indent=2))
+with open(open_access_data_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(open_access_data, indent=2, ensure_ascii=False))
 
 info_string = f'Summarised publication open access data. Saved results to {open_access_data_save_path}'
 logger.info(info_string)
@@ -456,26 +456,25 @@ open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_da
 
 open_access_data_ambiguous = []
 for publication in open_access_data:
-    # Publications where ETIS info and Open Access Button info both agree that publication is available
+    # Skip publications where ETIS and Open Access Button info both agree that publication is available
     if publication["IS_OPEN_ACCESS"] and publication["OA_BUTTON_URL"]:
         continue
 
-    # Check for publication where publication is available according to ETIS,
-    # but not according to Open Access Button (or vice versa). Skip the ones that don't have that problem
+    # Skip publications where ETIS and Open Access Button info both agree that publication is not available
     if not (publication["IS_OPEN_ACCESS"] or publication["OA_BUTTON_URL"]):
         continue
 
-    # Publications with manually checked availability are not ambiguous
+    # Skip publications that have manually checked availability status
     if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is not None:
         continue
 
-    # All remaining publications have some mismatch in ETIS and Open Access Button info
+    # All remaining publications have ambiguous open access status
     open_access_data_ambiguous += [publication]
 
 if open_access_data_ambiguous:
     open_access_data_ambiguous_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_ambiguous_{get_timestamp_string()}.json'
-    with open(open_access_data_ambiguous_save_path, "w") as save_file:
-        save_file.write(json.dumps(open_access_data_ambiguous, indent=2))
+    with open(open_access_data_ambiguous_save_path, "w", encoding="utf8") as save_file:
+        save_file.write(json.dumps(open_access_data_ambiguous, indent=2, ensure_ascii=False))
 
     info_string1 = f'{len(open_access_data_ambiguous)} publications have ambiguous open access status. See details in {open_access_data_ambiguous_save_path}'
     info_string2 = f'You can manually override the publication availability status in {MANUALLY_CHECKED_PUBLICATIONS_PATH}'

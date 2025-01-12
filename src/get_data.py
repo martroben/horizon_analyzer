@@ -306,7 +306,7 @@ logger.info(info_string2)
 publications = read_latest_file(RAW_DATA_DIRECTORY_PATH, "publications")
 
 # Select only already published scientific articles
-scientific_articles = []
+scientific_articles_raw = []
 for publication in publications:
     if not publication["DATA"]:
         continue
@@ -315,13 +315,34 @@ for publication in publications:
     if not publication["DATA"]["PublicationStatusEng"].lower() == "published":
         continue
 
-    scientific_articles += [publication]
+    scientific_articles_raw += [publication]
+
+info_string = f'{len(scientific_articles_raw)} of the {len(publications)} publications are classified as scientific articles'
+logger.info(info_string)
+
+# Select unique scientific articles
+# Some articles can be reported under several projects
+scientific_articles_index = {}
+for article in scientific_articles_raw:
+    GUID = article["GUID"]
+
+    # Convert the project GUID key to list
+    article["PROJECT_GUIDS"] = [article.pop("PROJECT_GUID")]
+
+    if GUID not in scientific_articles_index:
+        scientific_articles_index[GUID] = article
+        continue
+
+    existing_article = scientific_articles_index[GUID]
+    existing_article["PROJECT_GUIDS"] += article["PROJECT_GUIDS"]
+
+scientific_articles = list(scientific_articles_index.values())
 
 scientific_articles_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/scientific_articles_{get_timestamp_string()}.json'
 with open(scientific_articles_save_path, "w") as save_file:
     save_file.write(json.dumps(scientific_articles, indent=2))
 
-info_string = f'{len(scientific_articles)} of the {len(publications)} publications are classified as scientific articles. Saved to {scientific_articles_save_path}'
+info_string = f'{len(scientific_articles)} out of the {len(scientific_articles_raw)} scientific articles are unique. Saved to {scientific_articles_save_path}'
 logger.info(info_string)
 
 

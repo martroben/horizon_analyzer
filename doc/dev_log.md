@@ -1,4 +1,12 @@
 # 2025-01-12
+Added check for ambiguous publication open access status (when ETIS and Open Access Button disagree).
+
+Added functionality to manually define publication open availability status.
+
+Restructured project directories.
+
+Created the data structure for publication open access info.
+
 Refactored `get_data` to pull publication open access url from Open Access Button API and save an intermediate raw json with the data.
 
 # 2025-01-11

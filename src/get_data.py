@@ -32,6 +32,10 @@ ETIS_FINISHED_PROJECT_STATUS_CODE = 3
     # 2 - ongoing projects
     # 3 - finished projects
 
+RAW_DATA_DIRECTORY_PATH = "./data/raw/"
+RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
+MANUALLY_CHECKED_PUBLICATIONS_PATH = "./data/manual/manually_checked_publications.json"
+
 
 #########################
 # Classes and functions #
@@ -161,10 +165,12 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 # Setup #
 #########
 
-# Save directories
-RAW_DATA_DIRECTORY_PATH = "./data/raw/"
+# Create directories
 if not os.path.exists(RAW_DATA_DIRECTORY_PATH):
     os.makedirs(RAW_DATA_DIRECTORY_PATH)
+
+if not os.path.exists(RESULTS_DATA_DIRECTORY_PATH):
+    os.makedirs(RESULTS_DATA_DIRECTORY_PATH)
 
 # Logger
 logger = logging.getLogger()
@@ -328,7 +334,7 @@ bad_response_threshold = 10         # Throw after this threshold of bad response
 requests_per_second_limit = 1       # Limit requests that can be made per second to respect API rules
 
 bad_responses = []
-oa_button_results = []
+oa_button_reponses = []
 lap_timestamp = time.monotonic()
 for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication Open Access Button data"):
     inputs = [
@@ -338,11 +344,11 @@ for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication O
     ]
     inputs = [input for input in inputs if input]       # Drop null inputs
 
-    oa_button_result = {
+    oa_button_reponse = {
         "GUID": publication["GUID"],
         "UNSUCCESSFUL_INPUTS": [],
         "SUCCESSFUL_INPUT": None,
-        "URL": None}
+        "DATA": None}
     
     for input in inputs:
         # Add delay if the pace of the requests is coming close to the API rate limit
@@ -357,131 +363,104 @@ for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication O
                 raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
             continue
 
-        if URL := response.json().get("url"):
-            oa_button_result["URL"] = URL
-            oa_button_result["SUCCESSFUL_INPUT"] = input
+        oa_button_reponse["DATA"] = response.json()
+
+        if response.json().get("url"):
+            oa_button_reponse["SUCCESSFUL_INPUT"] = input
             break
 
-        oa_button_result["UNSUCCESSFUL_INPUTS"] += [input]
+        oa_button_reponse["UNSUCCESSFUL_INPUTS"] += [input]
     
-    oa_button_results += [oa_button_result]
+    oa_button_reponses += [oa_button_reponse]
 
-oa_button_results_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/oa_button_results_{get_timestamp_string()}.json'
-with open(oa_button_results_save_path, "w") as save_file:
-    save_file.write(json.dumps(oa_button_results, indent=2))
+oa_button_reponses_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/oa_button_reponses_{get_timestamp_string()}.json'
+with open(oa_button_reponses_save_path, "w") as save_file:
+    save_file.write(json.dumps(oa_button_reponses, indent=2))
 
-info_string1 = f'Checked publication open access status by Open Access Button API. Saved results to {oa_button_results_save_path}'
+info_string1 = f'Checked publication open access status by Open Access Button API. Saved results to {oa_button_reponses_save_path}'
 info_string2 = f'Open Access Button API failed to return data for {len(bad_responses)} of the {len(scientific_articles)} scientific articles'
 logger.info(info_string1)
 logger.info(info_string2)
 
 
 ##############################
-# Summarise open access info #
+# Summarise open access data #
 ##############################
 
 # Reload data from save file
-oa_button_results = read_latest_file(RAW_DATA_DIRECTORY_PATH, "oa_button_results")
+oa_button_reponses = read_latest_file(RAW_DATA_DIRECTORY_PATH, "oa_button_reponses")
 scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_articles")
 
-oa_button_results_index = {item["GUID"]: item for item in oa_button_results}
+manually_checked_publications = []
+if os.path.exists(MANUALLY_CHECKED_PUBLICATIONS_PATH):
+    with open(MANUALLY_CHECKED_PUBLICATIONS_PATH) as read_file:
+        manually_checked_publications = json.loads(read_file.read())
 
+oa_button_reponses_index = {item["GUID"]: item for item in oa_button_reponses}
+open_access_manual_check_results_index = {item["GUID"]: item for item in manually_checked_publications}
 
+open_access_data = []
+for article in scientific_articles:
+    ETIS_data = article["DATA"]
+    oa_button_reponse = oa_button_reponses_index.get(article["GUID"]) or {}
+    oa_button_data = oa_button_reponse.get("DATA") or {}
+    manual_check_result = open_access_manual_check_results_index.get(article["GUID"]) or {}
 
-
-# TODO: continue here
-
-
-# Parse publication open access data
-publications_open_access_data = []
-for publication in scientific_articles:
-    data = publication["DATA"]
-    open_access_data = {
-        "GUID": publication["GUID"],
-        "PROJECT_GUID": publication["PROJECT_GUID"],
-        "TITLE": data["Title"],
-        "PERIODICAL": data["Periodical"],
-        "DOI": clean_DOI(data["Doi"]),
-        "URL": data["Url"],
-        "IS_OPEN_ACCESS": data["IsOpenAccessEng"].lower() == "yes",
-        "OPEN_ACCESS_TYPE": data["OpenAccessTypeNameEng"],
-        "LICENSE": data.get("OpenAccessLicenceNameEng"),
-        "IS_PUBLIC_FILE": data["PublicFile"]
+    open_access_datum = {
+        "GUID": article["GUID"],
+        "PROJECT_GUID": article["PROJECT_GUID"],
+        "TITLE": ETIS_data["Title"],
+        "PERIODICAL": ETIS_data["Periodical"],
+        "DOI": clean_DOI(ETIS_data["Doi"]),
+        "URL": ETIS_data["Url"],
+        "IS_OPEN_ACCESS": ETIS_data["IsOpenAccessEng"].lower() == "yes",
+        "OPEN_ACCESS_TYPE": ETIS_data["OpenAccessTypeNameEng"],
+        "LICENSE": ETIS_data.get("OpenAccessLicenceNameEng"),
+        "IS_PUBLIC_FILE": ETIS_data["PublicFile"],
+        "OA_BUTTON_URL": oa_button_data.get("url"),
+        "IS_AVAILABLE_MANUALLY_CHECKED": manual_check_result.get("IS_AVAILABLE")
     }
-    publications_open_access_data += [open_access_data]
+    open_access_data += [open_access_datum]
+
+open_access_data_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_{get_timestamp_string()}.json'
+with open(open_access_data_save_path, "w") as save_file:
+    save_file.write(json.dumps(open_access_data, indent=2))
+
+info_string = f'Summarised publication open access data. Saved results to {open_access_data_save_path}'
+logger.info(info_string)
 
 
-# Pull open access info from Open Access Button
-open_access_button_session = OpenAccessButtonSession()
+########################################
+# Check for ambiguous open access data #
+########################################
 
-lap_timestamp = time.monotonic()
-for publication in tqdm.tqdm(publication_open_access_info, desc="Requesting publication Open Access Button data"):
-    ID = publication["DOI"] or publication["URL"] or publication["TITLE"]
-    response = open_access_button_session.find(ID)
+# Reload data from save file
+open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
 
-    if not response:
-        bad_responses += [response]
-        publication["DATA"] = {}
-    else:
-        publication["DATA"] = response.json()
+# A publication has ambiguous open access data if it's ETIS and Open Access Button information doesn't align.
 
-    # Add delay if the pace of the requests is coming close to the API rate limit
-    limit_rate(
-        last_lap_timestamp=lap_timestamp,
-        requests_per_interval=1,
-        interval_s=1
-    )
-    lap_timestamp = time.monotonic()
-
-
-with open("publication_open_access_info.json", "w") as save_file:
-    save_file.write(json.dumps(publication_open_access_info, indent=2))
-
-
-false_open_access_publications = []
-for publication in publication_open_access_info:
+open_access_data_ambiguous = []
+for publication in open_access_data:
     # Publications where ETIS info and Open Access Button info both agree that publication is available
-    if publication["IS_OPEN_ACCESS"] and publication["DATA"].get("url"):
+    if publication["IS_OPEN_ACCESS"] and publication["OA_BUTTON_URL"]:
         continue
 
     # Check for publication where publication is available according to ETIS,
     # but not according to Open Access Button (or vice versa). Skip the ones that don't have that problem
-    if not (publication["IS_OPEN_ACCESS"] or publication["DATA"].get("url")):
+    if not (publication["IS_OPEN_ACCESS"] or publication["OA_BUTTON_URL"]):
+        continue
+
+    if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is not None:
         continue
 
     # All remaining publications have some mismatch in ETIS and Open Access Button info
-    false_open_access_publications += [publication]
+    open_access_data_ambiguous += [publication]
 
+open_access_data_ambiguous_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_ambiguous_{get_timestamp_string()}.json'
+with open(open_access_data_ambiguous_save_path, "w") as save_file:
+    save_file.write(json.dumps(open_access_data_ambiguous, indent=2))
 
-with open("false_open_access_publications.json", "w") as save_file:
-    save_file.write(json.dumps(false_open_access_publications, indent=2))
-
-
-##############################
-# Summarise open access info #
-##############################
-
-with open("./data/publications_manually_checked_20241215.json") as read_file:
-    publications_manually_checked = json.loads(read_file.read())
-
-with open("./data/publication_open_access_info_20241215.json") as read_file:
-    publication_open_access_info = json.loads(read_file.read())
-
-publications_manually_checked_index = {
-    publication["PUBLICATION_GUID"]: {"IS_AVAILABLE_MANUALLY_CHECKED": publication["IS_AVAILABLE_MANUALLY_CHECKED"]}
-    for publication in publications_manually_checked}
-
-n_open = 0
-
-for publication in publication_open_access_info:
-    manually_checked_info = publications_manually_checked_index.get(publication["GUID"])
-    if manually_checked_info:
-        if manually_checked_info["IS_AVAILABLE_MANUALLY_CHECKED"]:
-            n_open += 1
-        continue
-
-    if publication["IS_OPEN_ACCESS"] and publication["DATA"].get("url"):
-        n_open += 1
-        continue
-
-
+info_string1 = f'{len(open_access_data_ambiguous)} publications have ambiguous open access status. See details in {open_access_data_ambiguous_save_path}'
+info_string2 = f'You can manually set the publication availability status in {MANUALLY_CHECKED_PUBLICATIONS_PATH}'
+logger.info(info_string1)
+logger.info(info_string2)

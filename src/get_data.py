@@ -408,7 +408,7 @@ scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_arti
 
 manually_checked_publications = []
 if os.path.exists(MANUALLY_CHECKED_PUBLICATIONS_PATH):
-    with open(MANUALLY_CHECKED_PUBLICATIONS_PATH) as read_file:
+    with open(MANUALLY_CHECKED_PUBLICATIONS_PATH, encoding="utf8") as read_file:
         manually_checked_publications = json.loads(read_file.read())
 
 oa_button_reponses_index = {item["GUID"]: item for item in oa_button_reponses}

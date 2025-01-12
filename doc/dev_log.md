@@ -1,3 +1,6 @@
+# 2025-01-12
+Refactored `get_data` to pull publication open access url from Open Access Button API and save an intermediate raw json with the data.
+
 # 2025-01-11
 Refactored `get_data` to pull publication data from ETIS and save an intermediate raw json with the data.
 

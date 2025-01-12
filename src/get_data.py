@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import re
+import sys
 import time
 import urllib
 # external
@@ -112,20 +113,18 @@ def clean_DOI(DOI: str) -> str:
     return URL_safe_DOI
 
 
-def limit_rate(last_lap_timestamp: float, requests_per_interval: int = 50, interval_s: int = 1) -> None:
+def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -> None:
     """
     Adds sleep to request cycles to adher to the rate limits.
-    E.g. requests_per_interval = 1, interval = 10: 1 request per 10 seconds.
-    Takes the end timestamp of the last cycle and limit information from the request response headers.
     Uses monotonic timestamps.
     """
     # Safety margin 0.1 triggers slowing down when request frequency is within 90% of rate limit
     safety_margin = 0.1
 
     requests_per_second_current = 1 / (time.monotonic() - last_lap_timestamp)
-    requests_per_second_limit = requests_per_interval / interval_s * (1 - safety_margin)
-    if requests_per_second_current >= requests_per_second_limit:
-        time.sleep(interval_s / requests_per_interval)
+    requests_per_second_limit_safe = requests_per_second_limit * (1 - safety_margin)
+    if requests_per_second_current >= requests_per_second_limit_safe:
+        time.sleep(1 / requests_per_second_limit)
 
 
 def get_timestamp_string() -> str:
@@ -137,6 +136,25 @@ def get_timestamp_string() -> str:
     timestamp = datetime.datetime.now(datetime.timezone.utc)
     timestamp_string = datetime.datetime.strftime(timestamp, timestamp_format)
     return timestamp_string
+
+
+def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
+    """
+    Reads file with the latest timestamp in filename from given dir_path.
+    If file_handle is given, checks only filenames with the given file_handle followed by a timestamp.
+    """
+    if not file_handle:
+        file_handle = ".+"
+    name_pattern = file_handle + r'_(\d+)'
+
+    files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
+    files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
+    path = f'{dir_path.strip("/")}/{files_latest}'
+
+    with open(path) as read_file:
+        data = json.loads(read_file.read())
+    
+    return data
 
 
 #########
@@ -151,6 +169,7 @@ if not os.path.exists(RAW_DATA_DIRECTORY_PATH):
 # Logger
 logger = logging.getLogger()
 logger.setLevel("INFO")
+logger.addHandler(logging.StreamHandler(sys.stdout))
 
 
 ######################
@@ -162,12 +181,12 @@ ETIS_project_parameters = {
     "ProjectStatus": ETIS_FINISHED_PROJECT_STATUS_CODE,
 }
 
-items_per_request = 500             # Get items in batches
-bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
 n_bad_responses = 0
+bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
+items_per_request = 500             # Get items in batches
+
 bad_responses = []
 projects = []
-
 with tqdm.tqdm() as ETIS_progress_bar:
     _ = ETIS_progress_bar.set_description_str("Requesting ETIS projects")
     for program_code in ETIS_HORIZON_PROGRAM_CODES:
@@ -207,14 +226,8 @@ logger.info(info_string)
 # Get project publication info #
 ################################
 
-# Reload data from latest save file
-projects_save_file_pattern = r'projects_(\d{14})'
-projects_save_files = [file for file in os.listdir(RAW_DATA_DIRECTORY_PATH) if re.match(projects_save_file_pattern, file)]
-projects_save_files_latest = sorted(projects_save_files, key=lambda x: re.match(projects_save_file_pattern, x).groups()[0])[-1]
-projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/{projects_save_files_latest}'
-
-with open(projects_save_path) as read_file:
-    projects = json.loads(read_file.read())
+# Reload data from save file
+projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "projects")
 
 # Parse publications
 projects_with_no_publications = []
@@ -241,8 +254,9 @@ logger.info(info_string)
 
 ETIS_publication_session = EtisSession(service="publication")
 
-bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
 n_bad_responses = 0
+bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
+
 bad_responses = []
 publications_with_no_data = []
 for publication in tqdm.tqdm(publications, desc="Requesting ETIS publications"):
@@ -271,26 +285,115 @@ with open(publications_with_no_data_save_path, "w") as save_file:
     save_file.write(json.dumps(publications_with_no_data, indent=2))
 
 info_string1 = f'Pulled publication data from ETIS. Saved to {publications_save_path}'
-info_string2 = f'ETIS API did not return data for {len(publications_with_no_data)} of the {len(publications)} publications. See {publications_with_no_data_save_path} for details'
+info_string2 = f'ETIS API failed to return data for {len(publications_with_no_data)} of the {len(publications)} publications. See {publications_with_no_data_save_path} for details'
 logger.info(info_string1)
 logger.info(info_string2)
 
 
-########################
-# Get open access info #
-########################
+###########################
+# Get scientific articles #
+###########################
 
-# Select only scientific publications
+# Reload data from save file
+publications = read_latest_file(RAW_DATA_DIRECTORY_PATH, "publications")
+
+# Select only scientific articles
 scientific_articles = []
-for publication in project_publications:
+for publication in publications:
     if not publication["DATA"]:
         continue
     if not publication["DATA"]["ClassificationCode"] in ETIS_SCIENTIFIC_ARTICLES_CLASSIFICATION_CODES:
         continue
     scientific_articles += [publication]
 
-# Parse publication open access info
-publication_open_access_info = []
+scientific_articles_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/scientific_articles_{get_timestamp_string()}.json'
+with open(scientific_articles_save_path, "w") as save_file:
+    save_file.write(json.dumps(scientific_articles, indent=2))
+
+info_string = f'{len(scientific_articles)} of the {len(publications)} publications are classified as scientific articles. Saved to {scientific_articles_save_path}'
+logger.info(info_string)
+
+
+#################################################
+# Pull publication info from Open Access Button #
+#################################################
+
+# Reload data from save file
+scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_articles")
+
+open_access_button_session = OpenAccessButtonSession()
+
+n_bad_responses = 0
+bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
+requests_per_second_limit = 1       # Limit requests that can be made per second to respect API rules
+
+bad_responses = []
+oa_button_results = []
+lap_timestamp = time.monotonic()
+for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication Open Access Button data"):
+    inputs = [
+        clean_DOI(publication["DATA"]["Doi"]),
+        publication["DATA"]["Url"],
+        publication["DATA"]["Title"]
+    ]
+    inputs = [input for input in inputs if input]       # Drop null inputs
+
+    oa_button_result = {
+        "GUID": publication["GUID"],
+        "UNSUCCESSFUL_INPUTS": [],
+        "SUCCESSFUL_INPUT": None,
+        "URL": None}
+    
+    for input in inputs:
+        # Add delay if the pace of the requests is coming close to the API rate limit
+        limit_rate(lap_timestamp, requests_per_second_limit)
+        lap_timestamp = time.monotonic()
+        response = open_access_button_session.find(input)
+        
+        if not response:
+            bad_responses += [response]
+            n_bad_responses += 1
+            if n_bad_responses >= bad_response_threshold:
+                raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
+            continue
+
+        if URL := response.json().get("url"):
+            oa_button_result["URL"] = URL
+            oa_button_result["SUCCESSFUL_INPUT"] = input
+            break
+
+        oa_button_result["UNSUCCESSFUL_INPUTS"] += [input]
+    
+    oa_button_results += [oa_button_result]
+
+oa_button_results_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/oa_button_results_{get_timestamp_string()}.json'
+with open(oa_button_results_save_path, "w") as save_file:
+    save_file.write(json.dumps(oa_button_results, indent=2))
+
+info_string1 = f'Checked publication open access status by Open Access Button API. Saved results to {oa_button_results_save_path}'
+info_string2 = f'Open Access Button API failed to return data for {len(bad_responses)} of the {len(scientific_articles)} scientific articles'
+logger.info(info_string1)
+logger.info(info_string2)
+
+
+##############################
+# Summarise open access info #
+##############################
+
+# Reload data from save file
+oa_button_results = read_latest_file(RAW_DATA_DIRECTORY_PATH, "oa_button_results")
+scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_articles")
+
+oa_button_results_index = {item["GUID"]: item for item in oa_button_results}
+
+
+
+
+# TODO: continue here
+
+
+# Parse publication open access data
+publications_open_access_data = []
 for publication in scientific_articles:
     data = publication["DATA"]
     open_access_data = {
@@ -305,7 +408,7 @@ for publication in scientific_articles:
         "LICENSE": data.get("OpenAccessLicenceNameEng"),
         "IS_PUBLIC_FILE": data["PublicFile"]
     }
-    publication_open_access_info += [open_access_data]
+    publications_open_access_data += [open_access_data]
 
 
 # Pull open access info from Open Access Button

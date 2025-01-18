@@ -1,3 +1,9 @@
+# 2025-01-18
+Selected random publication GUIDs to check for data manually.
+
+# 2025-01-13
+ETIS support said the wrong publication GUIDs under projects should be fixed now.
+
 # 2025-01-12
 "Free to read" is a great term for what I've been calling "available".
 

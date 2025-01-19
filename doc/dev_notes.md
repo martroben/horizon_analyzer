@@ -1,3 +1,8 @@
+# 2025-01-19
+Analysed one of the random publications.
+
+Sent inquiry to Cordis helpdesk about the of information in the project pages.
+
 # 2025-01-18
 Selected random publication GUIDs to check for data manually.
 

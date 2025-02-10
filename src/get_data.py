@@ -5,8 +5,6 @@ import logging
 import os
 import re
 import sys
-import time
-import urllib
 # external
 import requests
 import tqdm
@@ -21,22 +19,20 @@ ETIS_SCIENTIFIC_ARTICLES_CLASSIFICATION_CODES = [
     "1.2.",     # Other international scientific articles
     "1.3."      # scientific articles in Estonian journals
 ]
-ETIS_HORIZON_PROGRAM_CODES = [
-    "136",      # Horizon 2020 EIT support
-    "137",      # Horisont 2020 ERA \u00f5ppetoolide toetus
-    "442",      # Horizon 2020
-    "443",      # ERA-NET (Horizon 2020)
-    "450",      # Horizon Europe Programme
-    "451"       # ERA-NET (Horizon Europe)
-]
 ETIS_FINISHED_PROJECT_STATUS_CODE = 3
     # 1 - all projects
     # 2 - ongoing projects
     # 3 - finished projects
 
+ETIS_INSTITUTION_IDS = {
+    "University of Tartu": "2ca97556-276a-49f3-a225-789f48beaa00",
+    "Tallinn University of Technology": "4f907bd8-9919-4906-989b-d913b93837f8",
+    "Tallinn University": "8a1f0a81-fba5-4276-9a5e-99bf4e21869f",
+    "Estonian University of Life Sciences": "72d2775c-5744-49bf-8bab-629b4e8da721"
+}
+
 RAW_DATA_DIRECTORY_PATH = "./data/raw/"
 RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
-MANUALLY_CHECKED_PUBLICATIONS_PATH = "./data/manual/manually_checked_publications.json"
 
 
 #########################
@@ -73,64 +69,6 @@ class EtisSession(requests.Session):
         URL = f'{self.service_URL}/{endpoint}'
         response = self.get(URL, params=query_parameters)
         return response
-
-
-class OpenAccessButtonSession(requests.Session):
-    """
-    Class for requesting info from Open Access Button API.
-    https://openaccessbutton.org/api
-    """
-    BASE_URL = "https://api.openaccessbutton.org"
-
-    def __init__(self, API_key: str = None) -> None:
-        super().__init__()
-        self.API_key = API_key
-
-    def find(self, ID: str) -> requests.Response:
-        """
-        Gives URL to any Open Access paper.
-        Accepts a single parameter called "id", which should contain (in order of preference)
-        a URL-encoded doi, pmc, pmid, url, title, or citation.
-        """
-        query_parameters = {
-            "id": ID
-        }
-        URL = f'{self.BASE_URL}/find'
-        response = self.get(URL, params=query_parameters)
-        return response
-
-
-def clean_DOI(DOI: str) -> str:
-    """
-    Removes the leading doi.org URL or DOI:.
-    URL-encodes the DOI.
-    """
-    DOI = DOI.strip(" ").lower()
-    if not DOI:
-        return DOI
-    if DOI[:4] == "doi:":
-        # Drop leading "DOI: "
-        DOI = DOI[4:].strip(" ")
-    if "doi.org" in DOI:
-        # Drop leading http://dx.doi.org/ or https://doi.org/
-        DOI = re.sub(r"^.+doi.org/\s*", "", DOI)
-        
-    URL_safe_DOI = urllib.parse.quote(DOI)
-    return URL_safe_DOI
-
-
-def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -> None:
-    """
-    Adds sleep to request cycles to adher to the rate limits.
-    Uses monotonic timestamps.
-    """
-    # Safety margin 0.1 triggers slowing down when request frequency is within 90% of rate limit
-    safety_margin = 0.1
-
-    requests_per_second_current = 1 / (time.monotonic() - last_lap_timestamp)
-    requests_per_second_limit_safe = requests_per_second_limit * (1 - safety_margin)
-    if requests_per_second_current >= requests_per_second_limit_safe:
-        time.sleep(1 / requests_per_second_limit)
 
 
 def get_timestamp_string() -> str:
@@ -186,7 +124,7 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 
 ETIS_project_session = EtisSession(service="project")
 ETIS_project_parameters = {
-    "ProjectStatus": ETIS_FINISHED_PROJECT_STATUS_CODE,
+    "ProjectStatus": ETIS_FINISHED_PROJECT_STATUS_CODE
 }
 
 n_bad_responses = 0
@@ -197,8 +135,8 @@ bad_responses = []
 projects = []
 with tqdm.tqdm() as ETIS_progress_bar:
     _ = ETIS_progress_bar.set_description_str("Requesting ETIS projects")
-    for program_code in ETIS_HORIZON_PROGRAM_CODES:
-        ETIS_project_parameters["ProgrammeCode"] = program_code
+    for institution_ID in ETIS_INSTITUTION_IDS.values():
+        ETIS_project_parameters["InstitutionId"] = institution_ID
         i = 0
         while True:
             response = ETIS_project_session.get_items(
@@ -230,23 +168,44 @@ info_string = f'Found {len(projects)} relevant projects in ETIS. Saved to {proje
 logger.info(info_string)
 
 
-################################
-# Get project publication info #
-################################
+############################
+# Filter relevant projects #
+############################
 
 # Reload data from save file
 projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "projects")
 
-# Parse publications
-# Select unique publications (same publications can be reported under several projects)
-n_publications = 0
-projects_with_no_publications = []
-publications_index = {}
+# Filter projects with publications and duration between 2.5 and 3.5 years
+relevant_projects = []
 for project in projects:
     if not project["Publications"]:
-        projects_with_no_publications += [project]
         continue
 
+    start_date = datetime.datetime.strptime(project["ProjectStartDate"], "%d.%m.%Y")
+    end_date = datetime.datetime.strptime(project["ProjectEndDate"], "%d.%m.%Y")
+    project_duration = end_date - start_date
+    project_duration_months = project_duration.days // 30
+    # Skip projects with duration outside the interval of 2.5 years to 3.5 years
+    if not (2.5 * 12 <= project_duration_months <= 3.5 * 12):
+        continue
+
+    relevant_projects += [project]
+
+relevant_projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/relevant_projects_{get_timestamp_string()}.json'
+with open(relevant_projects_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(relevant_projects, indent=2, ensure_ascii=False))
+
+
+################################
+# Get project publication info #
+################################
+
+relevant_projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "relevant_projects")
+
+# Select unique publications (same publications can be reported under several projects)
+n_publications = 0
+publications_index = {}
+for project in relevant_projects:
     project_GUID = project["Guid"]
     for publication in project["Publications"]:
         n_publications += 1
@@ -262,7 +221,7 @@ for project in projects:
 
 publications = list(publications_index.values())
 
-info_string = f'Found {n_publications} publications under the projects. {len(publications)} of these are unique. {len(projects_with_no_publications)} of the {len(projects)} projects have no publications'
+info_string = f'Found {n_publications} publications under the projects. {len(publications)} of these are unique.'
 logger.info(info_string)
 
 
@@ -273,7 +232,7 @@ logger.info(info_string)
 ETIS_publication_session = EtisSession(service="publication")
 
 n_bad_responses = 0
-bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
+bad_response_threshold = 100        # Throw after this threshold of bad responses (don't spam API)
 
 bad_responses = []
 publications_with_no_data = []
@@ -298,25 +257,22 @@ publications_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/publications_{ge
 with open(publications_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(publications, indent=2, ensure_ascii=False))
 
-publications_with_no_data_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/publications_with_no_data_{get_timestamp_string()}.json'
-with open(publications_with_no_data_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(publications_with_no_data, indent=2, ensure_ascii=False))
-
 info_string1 = f'Pulled publication data from ETIS. Saved to {publications_save_path}'
-info_string2 = f'ETIS API failed to return data for {len(publications_with_no_data)} of the {len(publications)} publications. See {publications_with_no_data_save_path} for details'
+info_string2 = f'ETIS API failed to return data for {len(publications_with_no_data)} of the {len(publications)} publications'
 logger.info(info_string1)
 logger.info(info_string2)
 
 
-###########################
-# Get scientific articles #
-###########################
+################
+# Process data #
+################
 
 # Reload data from save file
+relevant_projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "relevant_projects")
 publications = read_latest_file(RAW_DATA_DIRECTORY_PATH, "publications")
 
 # Select only already published scientific articles
-scientific_articles = []
+relevalt_publications = []
 for publication in publications:
     if not publication["DATA"]:
         continue
@@ -325,158 +281,47 @@ for publication in publications:
     if not publication["DATA"]["PublicationStatusEng"].lower() == "published":
         continue
 
-    scientific_articles += [publication]
+    relevalt_publications += [publication]
 
-scientific_articles_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/scientific_articles_{get_timestamp_string()}.json'
-with open(scientific_articles_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(scientific_articles, indent=2, ensure_ascii=False))
+publication_timestamps = {publication["GUID"]: datetime.datetime.fromisoformat(publication["DATA"]["DateCreated"]) for publication in relevalt_publications}
 
-info_string = f'{len(scientific_articles)} of the {len(publications)} publications are classified as scientific articles. Saved to {scientific_articles_save_path}'
+# Get relative times
+project_publication_relative_times = []
+for project in relevant_projects:
+    project_relevant_publications = [publication for publication in project["Publications"] if publication["Guid"] in publication_timestamps]
+    if not project_relevant_publications:
+        continue
+
+    result = {}
+    project_publication_timestamps = [publication_timestamps[publication["Guid"]] for publication in project_relevant_publications]
+    end_date = datetime.datetime.strptime(project["ProjectEndDate"], "%d.%m.%Y")
+    start_date = datetime.datetime.strptime(project["ProjectStartDate"], "%d.%m.%Y")
+    duration_days = (end_date - start_date).days
+    # Days from project end to publication
+    relative_time_days = [(end_date - timestamp).days for timestamp in project_publication_timestamps]
+
+    result["DURATION_DAYS"] = duration_days
+    result["RELATIVE_TIME_DAYS"] = relative_time_days
+    result["EARLIEST_RELATIVE_TIME_DAYS"] = min(
+        [n_days for n_days in relative_time_days if n_days + duration_days > 0],
+        default=None
+    )
+    result["FUNDING_EUR"] = project["FinancingInPeriodsTotal"]
+    result["INSTITUTION"] = project["Institutions"]
+    project_publication_relative_times += [result]
+
+# Process institutions
+n_ambiguous_institution_projects = 0
+for project in project_publication_relative_times:
+    unique_institutions = set([institution["HeadInstitutionNameEng"].strip(" ") for institution in project["INSTITUTION"]])
+    known_institutions = [institution for institution in unique_institutions if institution in ETIS_INSTITUTION_IDS.keys()]
+    if len(known_institutions) > 1:
+        n_ambiguous_institution_projects += 1
+    project["INSTITUTION"] = known_institutions[0]
+
+info_string = f'Found {n_ambiguous_institution_projects} projects out of {len(project_publication_relative_times)} with more than 1 institutions. Selected only the first one.'
 logger.info(info_string)
 
-
-#################################################
-# Pull publication info from Open Access Button #
-#################################################
-
-# Reload data from save file
-scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_articles")
-
-open_access_button_session = OpenAccessButtonSession()
-
-n_bad_responses = 0
-bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
-requests_per_second_limit = 1       # Limit requests that can be made per second to respect API rules
-
-bad_responses = []
-oa_button_reponses = []
-lap_timestamp = time.monotonic()
-for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication Open Access Button data"):
-    inputs = [
-        clean_DOI(publication["DATA"]["Doi"]),
-        publication["DATA"]["Url"],
-        publication["DATA"]["Title"]
-    ]
-    inputs = [input for input in inputs if input]       # Drop null inputs
-
-    oa_button_reponse = {
-        "GUID": publication["GUID"],
-        "UNSUCCESSFUL_INPUTS": [],
-        "SUCCESSFUL_INPUT": None,
-        "DATA": None}
-    
-    for input in inputs:
-        # Add delay if the pace of the requests is coming close to the API rate limit
-        limit_rate(lap_timestamp, requests_per_second_limit)
-        lap_timestamp = time.monotonic()
-        response = open_access_button_session.find(input)
-        
-        if not response:
-            bad_responses += [response]
-            n_bad_responses += 1
-            if n_bad_responses >= bad_response_threshold:
-                raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
-            continue
-
-        oa_button_reponse["DATA"] = response.json()
-
-        if response.json().get("url"):
-            oa_button_reponse["SUCCESSFUL_INPUT"] = input
-            break
-
-        oa_button_reponse["UNSUCCESSFUL_INPUTS"] += [input]
-    
-    oa_button_reponses += [oa_button_reponse]
-
-oa_button_reponses_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/oa_button_reponses_{get_timestamp_string()}.json'
-with open(oa_button_reponses_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(oa_button_reponses, indent=2, ensure_ascii=False))
-
-info_string1 = f'Checked publication open access status by Open Access Button API. Saved results to {oa_button_reponses_save_path}'
-info_string2 = f'Open Access Button API failed to return data for {len(bad_responses)} of the {len(scientific_articles)} scientific articles'
-logger.info(info_string1)
-logger.info(info_string2)
-
-
-##############################
-# Summarise open access data #
-##############################
-
-# Reload data from save file
-oa_button_reponses = read_latest_file(RAW_DATA_DIRECTORY_PATH, "oa_button_reponses")
-scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_articles")
-
-manually_checked_publications = []
-if os.path.exists(MANUALLY_CHECKED_PUBLICATIONS_PATH):
-    with open(MANUALLY_CHECKED_PUBLICATIONS_PATH, encoding="utf8") as read_file:
-        manually_checked_publications = json.loads(read_file.read())
-
-oa_button_reponses_index = {item["GUID"]: item for item in oa_button_reponses}
-open_access_manual_check_results_index = {item["GUID"]: item for item in manually_checked_publications}
-
-open_access_data = []
-for article in scientific_articles:
-    ETIS_data = article["DATA"]
-    oa_button_reponse = oa_button_reponses_index.get(article["GUID"]) or {}
-    oa_button_data = oa_button_reponse.get("DATA") or {}
-    manual_check_result = open_access_manual_check_results_index.get(article["GUID"]) or {}
-
-    open_access_datum = {
-        "GUID": article["GUID"],
-        "PROJECT_GUIDS": article["PROJECT_GUIDS"],
-        "TITLE": ETIS_data["Title"],
-        "PERIODICAL": ETIS_data["Periodical"],
-        "DOI": clean_DOI(ETIS_data["Doi"]),
-        "URL": ETIS_data["Url"],
-        "IS_OPEN_ACCESS": ETIS_data["IsOpenAccessEng"].lower() == "yes",
-        "OPEN_ACCESS_TYPE": ETIS_data["OpenAccessTypeNameEng"],
-        "LICENSE": ETIS_data.get("OpenAccessLicenceNameEng"),
-        "IS_PUBLIC_FILE": ETIS_data["PublicFile"],
-        "OA_BUTTON_URL": oa_button_data.get("url"),
-        "IS_AVAILABLE_MANUALLY_CHECKED": manual_check_result.get("IS_AVAILABLE")
-    }
-    open_access_data += [open_access_datum]
-
-open_access_data_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_{get_timestamp_string()}.json'
-with open(open_access_data_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(open_access_data, indent=2, ensure_ascii=False))
-
-info_string = f'Summarised publication open access data. Saved results to {open_access_data_save_path}'
-logger.info(info_string)
-
-
-########################################
-# Check for ambiguous open access data #
-########################################
-
-# Reload data from save file
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
-
-# A publication has ambiguous open access data if it's ETIS and Open Access Button information doesn't align.
-
-open_access_data_ambiguous = []
-for publication in open_access_data:
-    # Skip publications where ETIS and Open Access Button info both agree that publication is available
-    if publication["IS_OPEN_ACCESS"] and publication["OA_BUTTON_URL"]:
-        continue
-
-    # Skip publications where ETIS and Open Access Button info both agree that publication is not available
-    if not (publication["IS_OPEN_ACCESS"] or publication["OA_BUTTON_URL"]):
-        continue
-
-    # Skip publications that have manually checked availability status
-    if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is not None:
-        continue
-
-    # All remaining publications have ambiguous open access status
-    open_access_data_ambiguous += [publication]
-
-if open_access_data_ambiguous:
-    open_access_data_ambiguous_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_ambiguous_{get_timestamp_string()}.json'
-    with open(open_access_data_ambiguous_save_path, "w", encoding="utf8") as save_file:
-        save_file.write(json.dumps(open_access_data_ambiguous, indent=2, ensure_ascii=False))
-
-    info_string1 = f'{len(open_access_data_ambiguous)} publications have ambiguous open access status. See details in {open_access_data_ambiguous_save_path}'
-    info_string2 = f'You can manually override the publication availability status in {MANUALLY_CHECKED_PUBLICATIONS_PATH}'
-    logger.info(info_string1)
-    logger.info(info_string2)
+project_publication_relative_times_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/project_publication_relative_times_{get_timestamp_string()}.json'
+with open(project_publication_relative_times_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(project_publication_relative_times, indent=2, ensure_ascii=False))

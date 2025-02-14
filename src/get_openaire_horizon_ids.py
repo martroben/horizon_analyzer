@@ -45,6 +45,8 @@ RAW_DATA_DIRECTORY_PATH = "./data/raw/"
 class OpenAireSession(requests.Session):
     """
     Class for requesting info from OpenAIRE search API.
+    https://graph.openaire.eu/docs/apis/search-api/projects
+    https://zenodo.org/records/2643199
     """
     BASE_URL = "https://api.openaire.eu/search"
 

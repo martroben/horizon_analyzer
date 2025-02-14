@@ -1,3 +1,12 @@
+# 2025-02-14
+It seems that a lot of Horizon projects in ETIS don't have Horizon project IDs. That means there is no way to join data from openAIRE.
+
+Made a POC script to get Horizon ID from openAIRE API by project acronym or title. It also double-checks the Horizon project ID if provided.
+
+Acronyms work well, but searching by title needs to be improved.
+
+This will be included in the `get_data` script in due course.
+
 # 2025-01-19
 Analysed one of the random publications.
 

@@ -6,7 +6,6 @@ import os
 import re
 import sys
 import time
-import urllib
 # external
 import requests
 import tqdm
@@ -61,7 +60,7 @@ class OpenAireSession(requests.Session):
         """
         query_parameters = {
             "format": "json"
-        }
+        }   
         if i_page:
             query_parameters.update({"page": i_page})
         if n_per_page:
@@ -136,9 +135,6 @@ for project in projects:
     openaire_inputs += [{parameter: project[parameter] for parameter in input_parameters}]
 
 
-# https://api.openaire.eu/search/projects?format=json&grantID=892270
-
-
 #########################
 # Request OpenAIRE data #
 #########################
@@ -147,15 +143,15 @@ openaire_session = OpenAireSession("projects")
 
 openaire_results = []
 for input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
-    result = {key: value for key, value in input.items()}
+    result = {key: {"input": value} for key, value in input.items()}  
     for input_key, input_value in input.items():
         if not input_value or input_key == "Guid":
             continue
 
         response = openaire_session.get_items(parameters={ETIS_openaire_map[input_key]: input_value})
 
-        result[f'{input_key}_status'] = response.status_code
-        result[f'{input_key}_result'] = []
+        result[input_key]["status"] = response.status_code
+        result[input_key]["result"] = []
         if not response:
             continue
 
@@ -164,15 +160,13 @@ for input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
         if n_items == 0:
            continue
 
-        result[f'{input_key}_result'] = [item["metadata"]["oaf:entity"]["oaf:project"]["code"]["$"] for item in response_json["response"]["results"]["result"]]
+        result[input_key]["result"] = [item["metadata"]["oaf:entity"]["oaf:project"]["code"]["$"] for item in response_json["response"]["results"]["result"]]
 
         n_used_requests = int(response.headers["x-ratelimit-used"])
         n_request_limit = int(response.headers["x-ratelimit-limit"])
 
         if n_used_requests >= n_request_limit:
-            sleep_minutes = 1
-            logger.warning(f'Request limit reached. Used {n_used_requests} of {n_request_limit} requests. Sleeping for {sleep_minutes} minute.')
-            time.sleep(sleep_minutes * 60)
+            raise RuntimeError("OpenAIRE request limit reached.")
 
     openaire_results += [result]
 

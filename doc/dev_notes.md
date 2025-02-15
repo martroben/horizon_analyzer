@@ -1,3 +1,8 @@
+# 2025-02-15
+Improved OpenAIRE request data structure.
+
+Tested getting Horizon project code by project title from OpenAIRE API. Ran into various undocumented problems. Sent a help request to the OpenAIRE graph helpdesk.
+
 # 2025-02-14
 It seems that a lot of Horizon projects in ETIS don't have Horizon project IDs. That means there is no way to join data from openAIRE.
 

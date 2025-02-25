@@ -1,3 +1,6 @@
+# 2025-02-25
+Apparently OpenAIRE API returns information about whether the project participated in the open data pilot program (and should have raw data available). Unfortunately it's hard to link it to ETIS info due to the undocumented problems in OpenAIRE API mentioned below. Still no answer from support.
+
 # 2025-02-15
 Improved OpenAIRE request data structure.
 

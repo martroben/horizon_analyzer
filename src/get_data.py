@@ -194,7 +194,7 @@ bad_response_threshold = 10         # Throw after this threshold of bad response
 items_per_request = 500             # Get items in batches
 
 bad_responses = []
-projects = []
+ETIS_projects = []
 with tqdm.tqdm() as ETIS_progress_bar:
     _ = ETIS_progress_bar.set_description_str("Requesting ETIS projects")
     for program_code in ETIS_HORIZON_PROGRAM_CODES:
@@ -217,16 +217,16 @@ with tqdm.tqdm() as ETIS_progress_bar:
             if not items:
                 break
 
-            projects += items
+            ETIS_projects += items
             i += items_per_request
             _ = ETIS_progress_bar.update()
 
 
-projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/projects_{get_timestamp_string()}.json'
-with open(projects_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(projects, indent=2, ensure_ascii=False))
+ETIS_projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/etis_projects_{get_timestamp_string()}.json'
+with open(ETIS_projects_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(ETIS_projects, indent=2, ensure_ascii=False))
 
-info_string = f'Found {len(projects)} relevant projects in ETIS. Saved to {projects_save_path}'
+info_string = f'Found {len(ETIS_projects)} relevant projects in ETIS. Saved to {ETIS_projects_save_path}'
 logger.info(info_string)
 
 
@@ -235,14 +235,14 @@ logger.info(info_string)
 ################################
 
 # Reload data from save file
-projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "projects")
+ETIS_projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "etis_projects")
 
 # Parse publications
 # Select unique publications (same publications can be reported under several projects)
 n_publications = 0
 projects_with_no_publications = []
 publications_index = {}
-for project in projects:
+for project in ETIS_projects:
     if not project["Publications"]:
         projects_with_no_publications += [project]
         continue
@@ -262,7 +262,7 @@ for project in projects:
 
 publications = list(publications_index.values())
 
-info_string = f'Found {n_publications} publications under the projects. {len(publications)} of these are unique. {len(projects_with_no_publications)} of the {len(projects)} projects have no publications'
+info_string = f'Found {n_publications} publications under the projects. {len(publications)} of these are unique. {len(projects_with_no_publications)} of the {len(ETIS_projects)} projects have no publications'
 logger.info(info_string)
 
 

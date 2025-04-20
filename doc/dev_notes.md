@@ -1,3 +1,6 @@
+# 2025-04-20
+Added logic to get Horizon ID matches by OpenAire search API results. Next: match with OpenAire graph API records of EE projects by fuzzy matching titles.
+
 # 2025-04-10
 No answer from OpenAIRE support. Sent a reminder.
 

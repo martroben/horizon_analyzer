@@ -5,7 +5,6 @@ import logging
 import os
 import re
 import sys
-import time
 # external
 import requests
 import tqdm
@@ -60,7 +59,7 @@ class OpenAireSession(requests.Session):
         """
         query_parameters = {
             "format": "json"
-        }   
+        }
         if i_page:
             query_parameters.update({"page": i_page})
         if n_per_page:
@@ -141,7 +140,7 @@ for project in projects:
 
 openaire_session = OpenAireSession("projects")
 
-openaire_results = []
+openaire_search_project_results = []
 for input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
     result = {key: {"input": value} for key, value in input.items()}  
     for input_key, input_value in input.items():
@@ -168,9 +167,9 @@ for input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
         if n_used_requests >= n_request_limit:
             raise RuntimeError("OpenAIRE request limit reached.")
 
-    openaire_results += [result]
+    openaire_search_project_results += [result]
 
 
-openaire_horizon_ids_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/openaire_horizon_ids_{get_timestamp_string()}.json'
-with open(openaire_horizon_ids_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(openaire_results, indent=2, ensure_ascii=False))
+openaire_search_project_results_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/openaire_search_project_results_{get_timestamp_string()}.json'
+with open(openaire_search_project_results_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(openaire_search_project_results, indent=2, ensure_ascii=False))

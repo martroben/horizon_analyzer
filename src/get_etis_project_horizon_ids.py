@@ -7,6 +7,7 @@ import re
 import sys
 # external
 from thefuzz import fuzz
+import tqdm
 
 
 ##########
@@ -147,6 +148,76 @@ logger.info(info_string)
 #################################################
 
 openaire_graph_projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_graph_projects")
+
+
+# Remove leading/trailing parenthesised words
+# Remove leading/trailing words separated by hyphen or colon
+remove_pattern = r"^[\w\d]+\s*[-–:]\s*|^\([^\(\)]+\)\s*|\s*[-–]\s*[\w\d]+$|\s*\([^\(\)]+\)$"
+
+exact_title_matches = []
+fuzzy_title_matches = []
+for project in tqdm.tqdm(no_match_by_search_API, desc="Fuzzy matching project titles"):
+    fuzz_scores = []
+    if not project["TitleEng"]:
+        print("ETIS jama!")
+        continue
+    for openaire_graph_project in openaire_graph_projects:
+        if not openaire_graph_project["title"]:
+            continue
+
+        ETIS_compare_string = re.sub(remove_pattern, "", project["TitleEng"].lower().strip())
+        openaire_graph_compare_string = re.sub(remove_pattern, "", openaire_graph_project["title"].lower().strip())
+
+        # Lower the score for matches that are too short            
+        length_coefficient = 1
+        length_ratio = len(openaire_graph_compare_string) / len(ETIS_compare_string)
+        if length_ratio < 0.7:
+            length_coefficient = length_ratio
+
+        fuzz_score = {
+            "GUID": project["Guid"],
+            "TITLE": project["TitleEng"],
+            "HORIZON_ID": openaire_graph_project["code"],
+            "OPENAIRE_GRAPH_TITLE": openaire_graph_project["title"],
+            "FUZZ_SCORE": fuzz.partial_token_sort_ratio(ETIS_compare_string, openaire_graph_compare_string) * length_coefficient,
+        }
+        fuzz_scores += [fuzz_score]
+
+    fuzz_scores_sorted = sorted(fuzz_scores, key=lambda x: x["FUZZ_SCORE"], reverse=True)
+    if fuzz_scores_sorted[0]["FUZZ_SCORE"] == 100 and fuzz_scores_sorted[1]["FUZZ_SCORE"] <= 85:
+        exact_title_matches += [fuzz_scores_sorted[0]]
+    else:
+        fuzzy_title_matches += [fuzz_scores_sorted]
+
+
+for fuzzy_scores in fuzzy_title_matches:
+    print(f'{fuzzy_scores[0]["TITLE"]} - {fuzzy_scores[0]["OPENAIRE_GRAPH_TITLE"]} ({fuzzy_scores[0]["FUZZ_SCORE"]})\n{fuzzy_scores[1]["TITLE"]} - {fuzzy_scores[1]["OPENAIRE_GRAPH_TITLE"]} ({fuzzy_scores[1]["FUZZ_SCORE"]})\n{fuzzy_scores[2]["TITLE"]} - {fuzzy_scores[2]["OPENAIRE_GRAPH_TITLE"]} ({fuzzy_scores[2]["FUZZ_SCORE"]})\n\n')
+
+
+# TODO: remove exact matches from comparison (2 cysles)
+# TODO: separate setup for patterns
+
+len(exact_title_matches)
+
+> 85, < 70
+
+remove_pattern = r'\b(on|the|a|and|of|for|in|to|with|by|as|at|an|is|are|that|which|what)\b'
+title_cleaned = re.sub(remove_pattern, '', text, flags=re.IGNORECASE)
+
+
+r"^{^-^\s} *- *"
+
+re.sub(r"^[\w\d]+\s*-\s*|^\([^\(\)]+\)\s*|\s*-\s*[\w\d]+$|\s*\([^\(\)]+\)$", "", "Phosphoprocessors - Biological signal processing via multisite phosphorylation networks", flags=re.IGNORECASE)
+
+"Mutated neo-antigens in hepatocellular carcinoma (HEPAMUT)"
+
+len("EIT- Manufacturing Mobilitas 2019")
+len("MOBILITY+")
+
+weird = []
+for openaire_graph_project in openaire_graph_projects:
+    if not openaire_graph_project["title"]:
+        weird += [openaire_graph_project]
 
 # len(ETIS_horizon_projects)
 # len(etis_project_horizon_IDs)

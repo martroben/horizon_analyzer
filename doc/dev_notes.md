@@ -1,3 +1,6 @@
+# 2025-04-22
+Further work on fuzzy title matching between ETIS and OpenAire projects. It seems that many unmatched projects are from Horizon EIT programs. https://etag.ee/en/funding/partnership-funding/horizon-2020-eit-grant/. Maybe just smaller fundings from big umbrella projects.
+
 # 2025-04-21
 Started implementing fuzzy title matching.
 

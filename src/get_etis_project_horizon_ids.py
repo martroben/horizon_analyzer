@@ -149,18 +149,23 @@ logger.info(info_string)
 
 openaire_graph_projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_graph_projects")
 
-
 # Remove leading/trailing parenthesised words
+leading_parenthesis_pattern = r'^\([^\(\)]+\)\s*'
+trailing_parenthesis_pattern = r'\s*\([^\(\)]+\)$'
+
 # Remove leading/trailing words separated by hyphen or colon
-remove_pattern = r"^[\w\d]+\s*[-–:]\s*|^\([^\(\)]+\)\s*|\s*[-–]\s*[\w\d]+$|\s*\([^\(\)]+\)$"
+leading_hyphen_pattern = r'^[\w\d]+\s*[-–:]\s*'
+trailing_hyphen_pattern = r'\s*[-–]\s*[\w\d]+$'
+
+remove_pattern = fr'{leading_parenthesis_pattern}|{trailing_parenthesis_pattern}|{leading_hyphen_pattern}|{trailing_hyphen_pattern}'
 
 exact_title_matches = []
-fuzzy_title_matches = []
+exact_title_match_fails = []
 for project in tqdm.tqdm(no_match_by_search_API, desc="Fuzzy matching project titles"):
     fuzz_scores = []
     if not project["TitleEng"]:
-        print("ETIS jama!")
         continue
+
     for openaire_graph_project in openaire_graph_projects:
         if not openaire_graph_project["title"]:
             continue
@@ -168,7 +173,7 @@ for project in tqdm.tqdm(no_match_by_search_API, desc="Fuzzy matching project ti
         ETIS_compare_string = re.sub(remove_pattern, "", project["TitleEng"].lower().strip())
         openaire_graph_compare_string = re.sub(remove_pattern, "", openaire_graph_project["title"].lower().strip())
 
-        # Lower the score for matches that are too short            
+        # Lower the score for matches that are much shorter than input            
         length_coefficient = 1
         length_ratio = len(openaire_graph_compare_string) / len(ETIS_compare_string)
         if length_ratio < 0.7:
@@ -178,51 +183,36 @@ for project in tqdm.tqdm(no_match_by_search_API, desc="Fuzzy matching project ti
             "GUID": project["Guid"],
             "TITLE": project["TitleEng"],
             "HORIZON_ID": openaire_graph_project["code"],
+            "OPENAIRE_ID": openaire_graph_project["id"],
             "OPENAIRE_GRAPH_TITLE": openaire_graph_project["title"],
             "FUZZ_SCORE": fuzz.partial_token_sort_ratio(ETIS_compare_string, openaire_graph_compare_string) * length_coefficient,
         }
         fuzz_scores += [fuzz_score]
 
     fuzz_scores_sorted = sorted(fuzz_scores, key=lambda x: x["FUZZ_SCORE"], reverse=True)
+
     if fuzz_scores_sorted[0]["FUZZ_SCORE"] == 100 and fuzz_scores_sorted[1]["FUZZ_SCORE"] <= 85:
-        exact_title_matches += [fuzz_scores_sorted[0]]
+        exact_match = fuzz_scores_sorted[0]
+        exact_title_matches += [exact_match]
+        openaire_graph_projects.remove(next(project for project in openaire_graph_projects if project["id"] == exact_match["OPENAIRE_ID"]))
     else:
-        fuzzy_title_matches += [fuzz_scores_sorted]
+        exact_title_match_fails += [fuzz_scores_sorted]
 
 
-for fuzzy_scores in fuzzy_title_matches:
-    print(f'{fuzzy_scores[0]["TITLE"]} - {fuzzy_scores[0]["OPENAIRE_GRAPH_TITLE"]} ({fuzzy_scores[0]["FUZZ_SCORE"]})\n{fuzzy_scores[1]["TITLE"]} - {fuzzy_scores[1]["OPENAIRE_GRAPH_TITLE"]} ({fuzzy_scores[1]["FUZZ_SCORE"]})\n{fuzzy_scores[2]["TITLE"]} - {fuzzy_scores[2]["OPENAIRE_GRAPH_TITLE"]} ({fuzzy_scores[2]["FUZZ_SCORE"]})\n\n')
+approximate_title_matches = []
+approximate_title_match_fails = []
+for fuzz_scores in exact_title_match_fails:
+    if fuzz_scores[0]["FUZZ_SCORE"] >= 85 and fuzz_scores[1]["FUZZ_SCORE"] < 70:
+        fuzzy_title_matches += [fuzz_scores[0]]
+    else:
+        approximate_title_match_fails += [fuzz_scores]
+
+for fuzz_scores in approximate_title_match_fails:
+    print(f'{fuzz_scores[0]["TITLE"]} - {fuzz_scores[0]["OPENAIRE_GRAPH_TITLE"]} ({fuzz_scores[0]["FUZZ_SCORE"]})\n{fuzz_scores[1]["TITLE"]} - {fuzz_scores[1]["OPENAIRE_GRAPH_TITLE"]} ({fuzz_scores[1]["FUZZ_SCORE"]})\n\n')
 
 
-# TODO: remove exact matches from comparison (2 cysles)
-# TODO: separate setup for patterns
-
-len(exact_title_matches)
-
-> 85, < 70
-
-remove_pattern = r'\b(on|the|a|and|of|for|in|to|with|by|as|at|an|is|are|that|which|what)\b'
-title_cleaned = re.sub(remove_pattern, '', text, flags=re.IGNORECASE)
-
-
-r"^{^-^\s} *- *"
-
-re.sub(r"^[\w\d]+\s*-\s*|^\([^\(\)]+\)\s*|\s*-\s*[\w\d]+$|\s*\([^\(\)]+\)$", "", "Phosphoprocessors - Biological signal processing via multisite phosphorylation networks", flags=re.IGNORECASE)
-
-"Mutated neo-antigens in hepatocellular carcinoma (HEPAMUT)"
-
-len("EIT- Manufacturing Mobilitas 2019")
-len("MOBILITY+")
-
-weird = []
-for openaire_graph_project in openaire_graph_projects:
-    if not openaire_graph_project["title"]:
-        weird += [openaire_graph_project]
-
-# len(ETIS_horizon_projects)
-# len(etis_project_horizon_IDs)
-# len(no_match_by_search_API)
-
-# https://github.com/seatgeek/thefuzz
-# fuzz.partial_token_sort_ratio("random random text see on pealkiri", "on pealkisi")
-
+# Manual checks:
+# 0b60c91e-4bce-4afc-a5de-6cca642e82ec Universities for Deep Tech and Entrepreneurship ? https://eit-hei.eu/projects/united/
+# EIT-Health Mobilitas 06ddba63-b2b3-438d-86fe-a5574dacfe81 ?
+# Exploitation of extracellular vesicles for precision diagnostics of prostate cancer fac0ede3-fca1-47e5-b5b3-85510f930a5c: 643638
+# Multi-centre study on Echinococcus multilocularis and Echinococcus granulosus s.l. in Europe: development and harmonization of diagnostic methods in the food chain 5a326ac0-b2ea-4955-8766-0e01bb918909: 773830

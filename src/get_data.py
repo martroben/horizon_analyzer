@@ -6,6 +6,8 @@ import os
 import re
 import sys
 import time
+import unicodedata
+import urllib.parse
 # external
 import requests
 import tqdm
@@ -32,6 +34,27 @@ ETIS_FINISHED_PROJECT_STATUS_CODE = 3
     # 1 - all projects
     # 2 - ongoing projects
     # 3 - finished projects
+
+OPENALEX_API_KEY = os.environ.get("OPENALEX_API_KEY")
+    # Optional. Without a key, title searches are limited by a $0.10 daily budget ($0.001 per search)
+    # A free key raises the budget to $1: https://openalex.org/settings/api
+OPENALEX_WORK_FIELDS = [
+    "id",
+    "doi",
+    "ids",
+    "title",
+    "publication_year",
+    "type",
+    "is_retracted",
+    "open_access",
+    "best_oa_location",
+    "primary_location",
+    "locations",
+    "has_content",
+    "content_urls",
+    "awards",
+    "funders"
+]
 
 RAW_DATA_DIRECTORY_PATH = "./data/raw/"
 RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
@@ -74,27 +97,48 @@ class EtisSession(requests.Session):
         return response
 
 
-class OpenAccessButtonSession(requests.Session):
+class OpenAlexSession(requests.Session):
     """
-    Class for requesting info from Open Access Button API.
-    https://openaccessbutton.org/api
+    Class for requesting info from OpenAlex API.
+    https://docs.openalex.org
+    Single work lookups are free. Searches are charged against a daily budget.
     """
-    BASE_URL = "https://api.openaccessbutton.org"
+    BASE_URL = "https://api.openalex.org"
 
     def __init__(self, API_key: str = None) -> None:
         super().__init__()
-        self.API_key = API_key
+        if API_key:
+            self.headers.update({"Authorization": f'Bearer {API_key}'})
 
-    def find(self, ID: str) -> requests.Response:
+    def get_work(self, DOI: str, fields: list[str] = None) -> requests.Response:
         """
-        Gives URL to any Open Access paper.
-        Accepts a single parameter called "id", which should contain (in order of preference)
-        a URL-encoded doi, pmc, pmid, url, title, or citation.
+        Get a single work by DOI. Responds with status 404 if OpenAlex doesn't know the DOI.
+        Gives only the listed fields if fields are given.
         """
+        query_parameters = {}
+        if fields:
+            query_parameters.update({"select": ",".join(fields)})
+
+        # DOIs can contain characters that have a special meaning in URL paths (e.g. # or ?)
+        URL = f'{self.BASE_URL}/works/doi:{urllib.parse.quote(DOI, safe="/")}'
+        response = self.get(URL, params=query_parameters)
+        return response
+
+    def search_works_by_title(self, title: str, n: int = 5, fields: list[str] = None) -> requests.Response:
+        """
+        Get the n works with the most relevant titles.
+        Gives only the listed fields if fields are given.
+        """
+        # Use only lowercase words: commas would separate filters and uppercase AND, OR, NOT are search operators
+        search_string = " ".join(re.sub(r"[^\w\s]", " ", title).lower().split())
         query_parameters = {
-            "id": ID
+            "filter": f'title.search:{search_string}',
+            "per_page": n
         }
-        URL = f'{self.BASE_URL}/find'
+        if fields:
+            query_parameters.update({"select": ",".join(fields)})
+
+        URL = f'{self.BASE_URL}/works'
         response = self.get(URL, params=query_parameters)
         return response
 
@@ -111,10 +155,20 @@ def clean_DOI(DOI: str) -> str:
         # Drop leading "DOI: "
         DOI = DOI[4:].strip(" ")
     if "doi.org" in DOI:
-        # Drop leading http://dx.doi.org/ or https://doi.org/
-        DOI = re.sub(r"^.+doi.org/\s*", "", DOI)
+        # Drop leading http://dx.doi.org/ or https://doi.org/ (ETIS sometimes has an extra slash)
+        DOI = re.sub(r"^.+doi.org/[/\s]*", "", DOI)
 
     return DOI
+
+
+def normalise_title(title: str) -> str:
+    """
+    Gives a lowercase title with only words, for comparing titles from different sources.
+    """
+    title = unicodedata.normalize("NFKC", title)
+    title = re.sub(r"<[^<>]+>", " ", title)         # Drop html tags, e.g. <i>
+    title = re.sub(r"[^\w\s]", " ", title.lower())
+    return " ".join(title.split())
 
 
 def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -> None:
@@ -334,65 +388,93 @@ info_string = f'{len(scientific_articles)} of the {len(publications)} publicatio
 logger.info(info_string)
 
 
-#################################################
-# Pull publication info from Open Access Button #
-#################################################
+#######################################
+# Pull publication info from OpenAlex #
+#######################################
 
 # Reload data from save file
 scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_articles")
 
-open_access_button_session = OpenAccessButtonSession()
+openalex_session = OpenAlexSession(OPENALEX_API_KEY)
 
 n_bad_responses = 0
 bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
-requests_per_second_limit = 1       # Limit requests that can be made per second to respect API rules
+requests_per_second_limit = 10      # Limit requests that can be made per second to respect API rules
+title_match_max_year_difference = 1 # Title search results must be published about the same year as given in ETIS
 
 bad_responses = []
-oa_button_reponses = []
+openalex_responses = []
+n_title_matches = 0
 lap_timestamp = time.monotonic()
-for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication Open Access Button data"):
-    inputs = [
-        clean_DOI(publication["DATA"]["Doi"]),
-        publication["DATA"]["Url"],
-        publication["DATA"]["Title"]
-    ]
-    inputs = [input for input in inputs if input]       # Drop null inputs
+for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication OpenAlex data"):
+    DOI = clean_DOI(publication["DATA"]["Doi"])
+    title = publication["DATA"]["Title"]
+    year = publication["DATA"]["PublishingYear"]
 
-    oa_button_reponse = {
+    openalex_response = {
         "GUID": publication["GUID"],
         "UNSUCCESSFUL_INPUTS": [],
         "SUCCESSFUL_INPUT": None,
         "DATA": None}
-    
-    for input in inputs:
+
+    # Search by title only if there is no DOI or OpenAlex doesn't know it - searches cost money
+    search_by_title = not DOI
+    if DOI:
         # Add delay if the pace of the requests is coming close to the API rate limit
         limit_rate(lap_timestamp, requests_per_second_limit)
         lap_timestamp = time.monotonic()
-        response = open_access_button_session.find(input)
-        
+        response = openalex_session.get_work(DOI, OPENALEX_WORK_FIELDS)
+
+        if response:
+            openalex_response["DATA"] = response.json()
+            openalex_response["SUCCESSFUL_INPUT"] = DOI
+        elif response.status_code == 404:
+            openalex_response["UNSUCCESSFUL_INPUTS"] += [DOI]
+            search_by_title = True
+        else:
+            bad_responses += [response]
+            n_bad_responses += 1
+            if n_bad_responses >= bad_response_threshold:
+                raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
+
+    if search_by_title and title:
+        limit_rate(lap_timestamp, requests_per_second_limit)
+        lap_timestamp = time.monotonic()
+        response = openalex_session.search_works_by_title(title, fields=OPENALEX_WORK_FIELDS)
+
         if not response:
             bad_responses += [response]
             n_bad_responses += 1
             if n_bad_responses >= bad_response_threshold:
                 raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
-            continue
+        else:
+            # Accept only an unambiguous match: a single work with the same title and publication year
+            title_matches = []
+            for work in response.json()["results"]:
+                if not (work["title"] and work["publication_year"] and year):
+                    continue
+                if normalise_title(work["title"]) != normalise_title(title):
+                    continue
+                if abs(work["publication_year"] - year) > title_match_max_year_difference:
+                    continue
+                title_matches += [work]
 
-        oa_button_reponse["DATA"] = response.json()
+            if len(title_matches) == 1:
+                openalex_response["DATA"] = title_matches[0]
+                openalex_response["SUCCESSFUL_INPUT"] = title
+                n_title_matches += 1
+            else:
+                openalex_response["UNSUCCESSFUL_INPUTS"] += [title]
 
-        if response.json().get("url"):
-            oa_button_reponse["SUCCESSFUL_INPUT"] = input
-            break
+    openalex_responses += [openalex_response]
 
-        oa_button_reponse["UNSUCCESSFUL_INPUTS"] += [input]
-    
-    oa_button_reponses += [oa_button_reponse]
+openalex_responses_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/openalex_responses_{get_timestamp_string()}.json'
+with open(openalex_responses_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(openalex_responses, indent=2, ensure_ascii=False))
 
-oa_button_reponses_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/oa_button_reponses_{get_timestamp_string()}.json'
-with open(oa_button_reponses_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(oa_button_reponses, indent=2, ensure_ascii=False))
-
-info_string1 = f'Checked publication open access status by Open Access Button API. Saved results to {oa_button_reponses_save_path}'
-info_string2 = f'Open Access Button API failed to return data for {len(bad_responses)} of the {len(scientific_articles)} scientific articles'
+n_found = len([item for item in openalex_responses if item["DATA"]])
+info_string1 = f'Checked publication open access status by OpenAlex API. Saved results to {openalex_responses_save_path}'
+info_string2 = f'OpenAlex has data for {n_found} of the {len(scientific_articles)} scientific articles ({n_title_matches} found by title search). OpenAlex API failed to return data for {len(bad_responses)} requests'
 logger.info(info_string1)
 logger.info(info_string2)
 
@@ -402,7 +484,7 @@ logger.info(info_string2)
 ##############################
 
 # Reload data from save file
-oa_button_reponses = read_latest_file(RAW_DATA_DIRECTORY_PATH, "oa_button_reponses")
+openalex_responses = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_responses")
 scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_articles")
 
 manually_checked_publications = []
@@ -410,14 +492,15 @@ if os.path.exists(MANUALLY_CHECKED_PUBLICATIONS_PATH):
     with open(MANUALLY_CHECKED_PUBLICATIONS_PATH, encoding="utf8") as read_file:
         manually_checked_publications = json.loads(read_file.read())
 
-oa_button_reponses_index = {item["GUID"]: item for item in oa_button_reponses}
+openalex_responses_index = {item["GUID"]: item for item in openalex_responses}
 open_access_manual_check_results_index = {item["GUID"]: item for item in manually_checked_publications}
 
 open_access_data = []
 for article in scientific_articles:
     ETIS_data = article["DATA"]
-    oa_button_reponse = oa_button_reponses_index.get(article["GUID"]) or {}
-    oa_button_data = oa_button_reponse.get("DATA") or {}
+    openalex_response = openalex_responses_index.get(article["GUID"]) or {}
+    openalex_data = openalex_response.get("DATA") or {}
+    openalex_open_access = openalex_data.get("open_access") or {}
     manual_check_result = open_access_manual_check_results_index.get(article["GUID"]) or {}
 
     open_access_datum = {
@@ -431,7 +514,11 @@ for article in scientific_articles:
         "OPEN_ACCESS_TYPE": ETIS_data["OpenAccessTypeNameEng"],
         "LICENSE": ETIS_data.get("OpenAccessLicenceNameEng"),
         "IS_PUBLIC_FILE": ETIS_data["PublicFile"],
-        "OA_BUTTON_URL": oa_button_data.get("url"),
+        "OPENALEX_ID": openalex_data.get("id"),
+        "OPENALEX_DOI": clean_DOI(openalex_data.get("doi") or ""),
+        "OPENALEX_IS_OPEN_ACCESS": openalex_open_access.get("is_oa"),
+        "OPENALEX_OPEN_ACCESS_TYPE": openalex_open_access.get("oa_status"),
+        "OPENALEX_OPEN_ACCESS_URL": openalex_open_access.get("oa_url"),
         "IS_AVAILABLE_MANUALLY_CHECKED": manual_check_result.get("IS_AVAILABLE")
     }
     open_access_data += [open_access_datum]
@@ -451,16 +538,16 @@ logger.info(info_string)
 # Reload data from save file
 open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
 
-# A publication has ambiguous open access data if it's ETIS and Open Access Button information doesn't align.
+# A publication has ambiguous open access data if it's ETIS and OpenAlex information doesn't align.
 
 open_access_data_ambiguous = []
 for publication in open_access_data:
-    # Skip publications where ETIS and Open Access Button info both agree that publication is available
-    if publication["IS_OPEN_ACCESS"] and publication["OA_BUTTON_URL"]:
+    # Skip publications where ETIS and OpenAlex info both agree that publication is available
+    if publication["IS_OPEN_ACCESS"] and publication["OPENALEX_IS_OPEN_ACCESS"]:
         continue
 
-    # Skip publications where ETIS and Open Access Button info both agree that publication is not available
-    if not (publication["IS_OPEN_ACCESS"] or publication["OA_BUTTON_URL"]):
+    # Skip publications where ETIS and OpenAlex info both agree that publication is not available
+    if not (publication["IS_OPEN_ACCESS"] or publication["OPENALEX_IS_OPEN_ACCESS"]):
         continue
 
     # Skip publications that have manually checked availability status

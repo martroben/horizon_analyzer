@@ -1,6 +1,8 @@
 # standard
 import json
 import logging
+import os
+import re
 import sys
 
 
@@ -8,7 +10,30 @@ import sys
 # Inputs #
 ##########
 
-OPEN_ACCESS_DATA_PATH = "./data/results/open_access_data_20250112182245UTC.json"
+RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
+
+
+#########################
+# Classes and functions #
+#########################
+
+def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
+    """
+    Reads file with the latest timestamp in filename from given dir_path.
+    If file_handle is given, checks only filenames with the given file_handle followed by a timestamp.
+    """
+    if not file_handle:
+        file_handle = ".+"
+    name_pattern = file_handle + r'_(\d+)'
+
+    files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
+    files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
+    path = f'{dir_path.strip("/")}/{files_latest}'
+
+    with open(path, encoding="utf8") as read_file:
+        data = json.loads(read_file.read())
+
+    return data
 
 
 #####################
@@ -25,8 +50,7 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 # Load data #
 #############
 
-with open(OPEN_ACCESS_DATA_PATH, encoding="utf8") as read_file:
-    open_access_data = json.loads(read_file.read())
+open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
 
 
 ################
@@ -41,8 +65,8 @@ for publication in open_access_data:
         publications_open += [publication]
         continue
 
-    # Publication is open if ETIS and Open Access Button both say that it's open and there is no manually checked info
-    if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is None and publication["OA_BUTTON_URL"] and publication["IS_OPEN_ACCESS"]:
+    # Publication is open if ETIS and OpenAlex both say that it's open and there is no manually checked info
+    if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is None and publication["OPENALEX_IS_OPEN_ACCESS"] and publication["IS_OPEN_ACCESS"]:
         publications_open += [publication]
         continue
 

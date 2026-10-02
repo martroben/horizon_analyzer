@@ -1,3 +1,24 @@
+# 2026-10-03
+Open Access Button API was shut down on 2025-11-18. Replaced it with OpenAlex API in `get_data`. Articles are looked up by DOI (free). Articles without a DOI, or with a DOI that OpenAlex doesn't know, are searched by title. A title search result is accepted only if it's the single work with the same title and publication year (±1 year). Title searches cost $0.001 against a daily budget of $0.10 without an API key or $1 with a free key (`OPENALEX_API_KEY` environment variable).
+
+Open access summary and the ambiguous open access check now compare ETIS with OpenAlex instead of Open Access Button. `analyse_data` reads the latest open access data file instead of a fixed path.
+
+Fixed DOI cleaning for ETIS DOIs with a double slash (http://doi.org//10...).
+
+OpenAIRE graph API project records have the data mandate flag `openAccessMandateForDataset` (same as `ecarticle29_3` in the search API). Removed the `get_open_access_opt_outs` stub that read project.csv. The graph projects download stays on API v1: v3 has the same IDs and flags, but the records are ~20x bigger because of participant links.
+
+Added `get_openaire_research_products`: OpenAIRE graph API v3 research products of the scientific articles by DOI. Only v3 research products have links to the projects that funded them.
+
+`get_etis_project_horizon_ids` now matches ETIS projects to Horizon IDs in this order: OpenAire search API (ETIS financier project number, acronym, title), publication project links, fuzzy title matching. Publication project links come from OpenAIRE research products and OpenAlex awards. Only Horizon projects with an Estonian partner and from the same framework programme as the ETIS project count. The ETIS project gets the linked project with the same title, otherwise the one that most of its articles link to. Title check is needed because articles can link more often to another grant of the same group (e.g. ADOPT BBMRI-ERIC articles link more often to ePerMed). The script saves all ETIS Horizon projects with their Horizon ID, match info and OpenAIRE data mandate flags to results.
+
+OpenAire search API requests are now limited to European Commission projects. Before, e.g. EIT project ADMA3 financier number 22015 matched a Dutch NWO project and ERA-NET projects matched national funders' projects. Fuzzy title matching now compares only with Horizon projects from the same framework programme as the ETIS project. Before, it matched e.g. French ANR projects of ERA-NET calls.
+
+EIT (programme 136) grants are not OpenAIRE projects, so EIT projects are not matched by publication project links or fuzzy titles - their articles link to other grants of the same group.
+
+Decisions: keep using only finished projects. An article's data mandate comes from its ETIS project's own Horizon grant; other grants acknowledged in the article don't count.
+
+ETIS now has 512 finished Horizon projects with 842 scientific articles (592 in Jan 2025).
+
 # 2025-04-22
 Further work on fuzzy title matching between ETIS and OpenAire projects. It seems that many unmatched projects are from Horizon EIT programs. https://etag.ee/en/funding/partnership-funding/horizon-2020-eit-grant/. Maybe just smaller fundings from big umbrella projects.
 

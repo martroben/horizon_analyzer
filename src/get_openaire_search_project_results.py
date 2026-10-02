@@ -147,7 +147,8 @@ for input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
         if not input_value or input_key == "Guid":
             continue
 
-        response = openaire_session.get_items(parameters={ETIS_openaire_map[input_key]: input_value})
+        # Horizon projects are funded by European Commission - other funders' projects can have the same codes
+        response = openaire_session.get_items(parameters={ETIS_openaire_map[input_key]: input_value, "funder": "EC"})
 
         result[input_key]["status"] = response.status_code
         result[input_key]["result"] = []

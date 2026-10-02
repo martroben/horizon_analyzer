@@ -196,7 +196,7 @@ for project in tqdm.tqdm(no_match_by_search_API, desc="Fuzzy matching project ti
     if fuzz_scores_sorted[0]["FUZZ_SCORE"] == 100 and fuzz_scores_sorted[1]["FUZZ_SCORE"] <= 85:
         exact_match = fuzz_scores_sorted[0]
         exact_title_matches += [exact_match]
-        openaire_graph_projects.remove(next(project for project in openaire_graph_projects if project["id"] == exact_match["OPENAIRE_ID"]))
+        # Matched OpenAIRE projects stay in the candidate pool - several ETIS records can be the same Horizon project
     else:
         exact_title_match_fails += [fuzz_scores_sorted]
 

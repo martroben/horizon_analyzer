@@ -135,7 +135,9 @@ for project in ETIS_horizon_projects:
                 match_description = f'Search API Acronym {acronym_input}: {acronym_matches} and ETIS financier project number: {financier_project_number_input}'
                 match["MATCH_DESCRIPTION"] = match_description
                 break
-        continue
+        if "HORIZON_ID" in match:
+            etis_project_horizon_IDs += [match]
+            continue
 
     no_match_by_search_API += [project]
 
@@ -203,7 +205,7 @@ approximate_title_matches = []
 approximate_title_match_fails = []
 for fuzz_scores in exact_title_match_fails:
     if fuzz_scores[0]["FUZZ_SCORE"] >= 85 and fuzz_scores[1]["FUZZ_SCORE"] < 70:
-        fuzzy_title_matches += [fuzz_scores[0]]
+        approximate_title_matches += [fuzz_scores[0]]
     else:
         approximate_title_match_fails += [fuzz_scores]
 

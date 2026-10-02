@@ -6,7 +6,6 @@ import os
 import re
 import sys
 import time
-import urllib
 # external
 import requests
 import tqdm
@@ -103,7 +102,7 @@ class OpenAccessButtonSession(requests.Session):
 def clean_DOI(DOI: str) -> str:
     """
     Removes the leading doi.org URL or DOI:.
-    URL-encodes the DOI.
+    Doesn't URL-encode the DOI - requests encodes query parameters itself.
     """
     DOI = DOI.strip(" ").lower()
     if not DOI:
@@ -114,9 +113,8 @@ def clean_DOI(DOI: str) -> str:
     if "doi.org" in DOI:
         # Drop leading http://dx.doi.org/ or https://doi.org/
         DOI = re.sub(r"^.+doi.org/\s*", "", DOI)
-        
-    URL_safe_DOI = urllib.parse.quote(DOI)
-    return URL_safe_DOI
+
+    return DOI
 
 
 def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -> None:
@@ -278,17 +276,18 @@ bad_response_threshold = 10         # Throw after this threshold of bad response
 bad_responses = []
 publications_with_no_data = []
 for publication in tqdm.tqdm(publications, desc="Requesting ETIS publications"):
+    publication["DATA"] = {}
     response = ETIS_publication_session.get_items(
         parameters={"Guid": publication["GUID"]}
     )
     if not response:
         bad_responses += [response]
+        publications_with_no_data += [publication]
         n_bad_responses += 1
         if n_bad_responses >= bad_response_threshold:
             raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
         continue
 
-    publication["DATA"] = {}
     try:
         publication["DATA"] = response.json()[0]
     except Exception as exception:

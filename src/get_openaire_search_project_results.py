@@ -117,7 +117,7 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 #############################
 
 # Reload data from save file
-projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "projects")
+projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "etis_projects")
 
 ETIS_openaire_map = {
     "FinancierProjectNr": "grantID",

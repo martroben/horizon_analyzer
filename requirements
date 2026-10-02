@@ -1,6 +1,10 @@
 certifi==2024.12.14
 charset-normalizer==3.4.0
 idna==3.10
+polars==1.44.2
+polars-runtime-32==1.44.2
+rapidfuzz==3.14.6
 requests==2.32.3
+thefuzz==0.22.1
 tqdm==4.67.1
 urllib3==2.2.3

@@ -59,7 +59,7 @@ API records are in `DATA` as the API gives them (`etis_projects` and `openaire_p
 | `AUTHORS` | list | ETIS authors (Estonian researchers): `GUID`, `NAME`, `IS_IN_OPENALEX_AUTHORS` (in the published author list; null if OpenAlex has no author list) |
 | `INSTITUTIONS` | list | ETIS institutions: `GUID`, `NAME`, `REGISTRY_CODE` (business registry code of the legal entity) |
 | `HAS_ESTONIAN_AUTHOR` | bool | an author in the published author list has an Estonian affiliation, or an ETIS author is in the list and ETIS gives an Estonian institution. Null if unknown |
-| `ETIS` | object | `DOI`, `URL` (publication URL in ETIS), `IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE` (ETIS value: gold, hybrid, green, bronze, closed), `LICENSE` (ETIS licence name) |
+| `ETIS` | object | `DOI`, `URL` (publication URL in ETIS), `FULLTEXT_URL` (full text location in ETIS), `IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE` (ETIS value: gold, hybrid, green, bronze, closed), `LICENSE` (ETIS licence name) |
 | `OPENALEX` | object | `ID`, `FOUND_BY`, `DOI`, `IS_OPEN_ACCESS` (any open version, incl. preprints), `OPEN_ACCESS_TYPE` (OpenAlex `oa_status`), `OPEN_ACCESS_URL`, `OPEN_VERSIONS` (versions of the open locations, `unknown` if OpenAlex doesn't say), `HAS_OPEN_PEER_REVIEWED_VERSION` (open published version or accepted manuscript - Horizon open access), `HAS_ESTONIAN_AFFILIATION` (null if OpenAlex has no affiliations). All null if OpenAlex doesn't have the article |
 | `MANUAL_CHECK` | object | `IS_OPEN_ACCESS`: Jan 2025 manual check (`data/manual/manually_checked_publications.json`), counted any free version (incl. preprints). Null if not checked |
 
@@ -123,7 +123,7 @@ Everything known automatically about an article, in check order: the 20 articles
 | `GUID`, `TITLE`, `PERIODICAL`, `DOI`, `HAS_ESTONIAN_AUTHOR`, `AUTHORS`, `INSTITUTIONS` | | from `articles` |
 | `ETIS_PAGE_URL` | str | the article's page in the ETIS portal |
 | `PROJECTS` | list | the article's ETIS projects: `GUID`, `TITLE`, `PROGRAMME_CODES`, `FRAMEWORK_PROGRAMME`, `HORIZON_ID`, `ACRONYM`, `HAS_PUBLICATION_MANDATE`, `HAS_DATA_MANDATE` (from `projects`), `IS_GRANT_LINKED` (OpenAIRE or OpenAlex links the article to the project's grant; null if the project has no grant or neither source has the article), `N_GRANT_DATASETS` (from `grant_datasets`) |
-| `OPEN_ACCESS` | object | `AUTOMATIC_VERDICT` (code: status by ETIS, OpenAlex and the Jan 2025 manual check; null if the full text check has to settle it), `CHECK_NEEDED_REASON` (code), `ETIS` (`IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE`, `LICENSE`, `URL`), `OPENALEX` (`IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE`, `HAS_OPEN_PEER_REVIEWED_VERSION`, `OPEN_LOCATIONS`: `VERSION`, `URL`, `HOST`, `HOST_TYPE`, `LICENSE`), `OPENAIRE` (`OPEN_INSTANCES`: open copies that OpenAlex doesn't list: `URL`, `HOST`, `TYPE`), `MANUAL_CHECK` (`IS_OPEN_ACCESS`) |
+| `OPEN_ACCESS` | object | `AUTOMATIC_VERDICT` (code: status by ETIS, OpenAlex and the Jan 2025 manual check; null if the full text check has to settle it), `CHECK_NEEDED_REASON` (code), `ETIS` (`IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE`, `LICENSE`, `URL`, `FULLTEXT_URL`), `OPENALEX` (`IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE`, `HAS_OPEN_PEER_REVIEWED_VERSION`, `OPEN_LOCATIONS`: `VERSION`, `URL`, `HOST`, `HOST_TYPE`, `LICENSE`), `OPENAIRE` (`OPEN_INSTANCES`: open copies that OpenAlex doesn't list: `URL`, `HOST`, `TYPE`), `MANUAL_CHECK` (`IS_OPEN_ACCESS`) |
 | `CANDIDATES` | object | `EUROPEPMC`, `SCHOLEXPLORER`, `DATACITE` from `open_data_candidates` |
 | `FULLTEXT` | object | from `fulltext_index` |
 
@@ -207,10 +207,14 @@ One record per article, for the analysis by article, project, author or institut
 **Full text `SOURCE`** (fulltext_index), in the order they are tried:
 - `pmc` - PMC full text XML (NCBI E-utilities)
 - `openalex_pdf` - PDF of an open OpenAlex location (published versions and accepted manuscripts first, preprints last)
-- `openalex_html` - journal page of an open OpenAlex location
+- `openalex_html` - page of an open OpenAlex location: a journal page with the full text, or the PDF in the page's `citation_pdf_url` tag (journal pages, repository landing pages without a PDF link in OpenAlex)
 - `zenodo` - article file of a Zenodo record that OpenAIRE lists as an open copy
 - `openaire_pdf` - other PDF link that OpenAIRE lists as an open copy
+- `openaire_html` - other link that OpenAIRE lists as an open copy (landing page, journal page): the PDF in the page's `citation_pdf_url` tag
+- `etis` - ETIS full text location or publication URL: a file, a page with the full text or the PDF in the page's `citation_pdf_url` tag. Must have the article title (can be a whole journal issue)
 - `openalex_content` - OpenAlex cached copy (needs an API key, $0.01 each)
+
+Preprints (OpenAlex preprint locations, OpenAIRE and ETIS links to preprint servers) are tried last.
 
 **Full text attempt `RESULT`** (fulltext_index)
 - `ok`
@@ -220,7 +224,8 @@ One record per article, for the analysis by article, project, author or institut
 - `text_too_short` - text shorter than a full text (5000 characters, HTML 20000), e.g. a scanned PDF or an abstract page
 - `no_fulltext_xml` - PMC XML without a body (the publisher doesn't allow full text XML)
 - `no_fulltext_file` - Zenodo record without an open PDF or Word file
-- `title_not_found` - Word file without the article title near its beginning (e.g. a cover letter)
+- `no_pdf_link` - page without a `citation_pdf_url` tag, where the page itself can't be the full text (repository landing pages, OpenAIRE links, PDF links that give a page)
+- `title_not_found` - Word file without the article title near its beginning (e.g. a cover letter), or a file from an ETIS link without the article title
 
 **Open access `VERDICT`** (assessments), **`OPEN_ACCESS_FULLTEXT_VERDICT`**
 - `open` - the published version or the accepted manuscript is free to read

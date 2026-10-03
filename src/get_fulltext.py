@@ -1,6 +1,7 @@
 # standard
 import collections
 import datetime
+import html
 import io
 import json
 import logging
@@ -36,17 +37,18 @@ VERSION_CODES = {
 PEER_REVIEWED_VERSIONS = ["published_version", "accepted_version"]
 MIN_TEXT_LENGTH = 5000          # Shorter PDF or XML text is not a full text (e.g. scanned PDF without text layer)
 MIN_HTML_TEXT_LENGTH = 20000    # Shorter HTML text is not a full text (e.g. abstract page of a paywalled article)
-WORD_TITLE_SIMILARITY_THRESHOLD = 90
-    # A Word file is the article only if the article title is near its beginning (fuzzy match score, 0-100)
-    # Word files on Zenodo can be other documents, e.g. a cover letter or a response to reviewers
-TITLE_SEARCH_CHARACTERS = 5000  # How far from the beginning of the text to look for the title
+TITLE_SIMILARITY_THRESHOLD = 90
+    # Word files and files from ETIS links count as the article only if they have the article title (fuzzy match score, 0-100)
+    # Word files on Zenodo can be other documents, e.g. a cover letter or a response to reviewers. ETIS links are typed in by hand
+TITLE_SEARCH_CHARACTERS = 5000
+    # How far from the beginning of a Word file to look for the title. Files from ETIS links are searched whole (can be a whole journal issue)
 HOST_REQUEST_INTERVAL = 1       # Seconds between requests to the same host
 RETRY_FAILED = True             # Retry articles that had no full text in an earlier run
 ZENODO_RECORD_PATTERN = r"zenodo\.org/records?/(\d+)|10\.5281/zenodo\.(\d+)"
 ZENODO_RECORD_URL = "https://zenodo.org/records/{}"
 PMC_ARTICLE_URL = "https://pmc.ncbi.nlm.nih.gov/articles/{}/"
 PDF_URL_PATTERN = r"\.pdf($|\?)|/bitstream/|/download/|/files/"
-    # OpenAIRE open instance URLs that can be PDF files. The rest are mostly landing pages
+    # OpenAIRE open instance URLs that can be PDF files. The rest are pages (landing pages, journal pages)
 PREPRINT_URL_PATTERN = r"arxiv\.org|biorxiv\.org|medrxiv\.org|chemrxiv\.org|techrxiv\.org|10\.36227/techrxiv|ssrn\.com|preprints\.org|researchsquare\.com|mpra\.ub\.uni-muenchen\.de"
     # Preprint servers and working paper archives. OpenAIRE doesn't always give them the instance type Preprint
 
@@ -251,13 +253,14 @@ def normalise_words(text: str) -> str:
     return " ".join(re.sub(r"\W", " ", text.lower()).split())
 
 
-def text_has_title(text_file_path: str, title: str) -> bool:
+def text_has_title(text_file_path: str, title: str, n_characters: int | None = TITLE_SEARCH_CHARACTERS) -> bool:
     """
-    Tells whether the article title is near the beginning of a text file. Fuzzy, because ETIS titles can differ a little from the article.
+    Tells whether the article title is in the first n_characters of a text file (in the whole text if n_characters is None).
+    Fuzzy, because ETIS titles can differ a little from the article.
     """
     with open(text_file_path, encoding="utf8") as read_file:
-        beginning = read_file.read(TITLE_SEARCH_CHARACTERS)
-    return fuzz.partial_ratio(normalise_words(title or ""), normalise_words(beginning)) >= WORD_TITLE_SIMILARITY_THRESHOLD
+        text = read_file.read(n_characters)
+    return fuzz.partial_ratio(normalise_words(title or ""), normalise_words(text)) >= TITLE_SIMILARITY_THRESHOLD
 
 
 def save_downloaded_fulltext(GUID: str, response: requests.Response, title: str) -> tuple[tuple[str, str, int] | None, str, str | None]:
@@ -283,6 +286,45 @@ def save_downloaded_fulltext(GUID: str, response: requests.Response, title: str)
     return saved, "ok" if saved else "text_too_short", None
 
 
+def get_citation_pdf_URL(page: str, page_URL: str) -> str | None:
+    """
+    Gives the PDF link in the citation_pdf_url meta tag of a page (journal and repository pages have it for Google Scholar).
+    Gives None if the page doesn't have the tag.
+    """
+    for tag in re.findall(r"<meta\b[^>]*>", page, flags=re.IGNORECASE):
+        if not re.search(r"""name\s*=\s*["']citation_pdf_url["']""", tag, flags=re.IGNORECASE):
+            continue
+        content = re.search(r"""content\s*=\s*["']([^"']+)["']""", tag, flags=re.IGNORECASE)
+        if content:
+            return urllib.parse.urljoin(page_URL, html.unescape(content.group(1).strip()))
+    return None
+
+
+def save_linked_fulltext(GUID: str, session: PoliteSession, URL: str, title: str, is_page_accepted: bool) -> tuple[tuple[str, str, int] | None, str, str | None, str]:
+    """
+    Downloads the full text behind a link: a PDF, XML or Word file, or a page.
+    A page is the full text if is_page_accepted and its text is long enough (journal pages).
+    Otherwise the PDF that the page links in its citation_pdf_url meta tag is downloaded.
+    Gives the result of save_fulltext, the result code of the attempt, its detail (see doc/data_schema.md) and the URL that was tried last.
+    """
+    response = session.get_politely(URL)
+    is_page = bool(response) and "html" in response.headers.get("content-type", "").lower() and response.content.lstrip()[:5] != b"%PDF-"
+    if not is_page:
+        saved, result, result_detail = save_downloaded_fulltext(GUID, response, title)
+        return saved, result, result_detail, URL
+
+    page = decode_html(response)
+    if is_page_accepted:
+        saved = save_fulltext(GUID, page, "html", MIN_HTML_TEXT_LENGTH, response.url)
+        if saved:
+            return saved, "ok", None, response.url
+    PDF_URL = get_citation_pdf_URL(page, response.url)
+    if not PDF_URL:
+        return None, "text_too_short" if is_page_accepted else "no_pdf_link", None, response.url
+    saved, result, result_detail = save_downloaded_fulltext(GUID, session.get_politely(PDF_URL), title)
+    return saved, result, result_detail, PDF_URL
+
+
 def get_zenodo_fulltext_URL(record: dict) -> str | None:
     """
     Gives the download URL of the article file in an open Zenodo record: a PDF or, if there is none, a Word file.
@@ -303,7 +345,7 @@ def get_zenodo_fulltext_URL(record: dict) -> str | None:
 
 def get_openaire_attempts(research_products: list[dict]) -> list[dict]:
     """
-    Gives the full text sources in the open instances of an article's OpenAIRE research products: Zenodo records and links to PDF files.
+    Gives the full text sources in the open instances of an article's OpenAIRE research products: Zenodo records, links to PDF files and other links (pages).
     Zenodo records come first, because Horizon projects upload published versions and accepted manuscripts there.
     The version is unknown, except for preprints (instance type Preprint or a preprint server).
     """
@@ -321,14 +363,38 @@ def get_openaire_attempts(research_products: list[dict]) -> list[dict]:
                     attempts += [{"SOURCE": "zenodo", "URL": record_URL, "VERSION": version, "HOST_TYPE": "repository"}]
                 elif re.search(PDF_URL_PATTERN, URL, flags=re.IGNORECASE):
                     attempts += [{"SOURCE": "openaire_pdf", "URL": URL, "VERSION": version, "HOST_TYPE": None}]
-    return sorted(attempts, key=lambda attempt: attempt["SOURCE"] != "zenodo")
+                else:
+                    attempts += [{"SOURCE": "openaire_html", "URL": URL, "VERSION": version, "HOST_TYPE": None}]
+    source_order = ["zenodo", "openaire_pdf", "openaire_html"]
+    return sorted(attempts, key=lambda attempt: source_order.index(attempt["SOURCE"]))
 
 
-def get_fulltext_attempts(open_data_candidate: dict, openalex_data: dict, research_products: list[dict]) -> list[dict]:
+def get_etis_attempts(ETIS_data: dict) -> list[dict]:
+    """
+    Gives the full text sources in the ETIS links of an article: the full text location and the publication URL.
+    The links can be files or pages. The version is unknown, except for preprints (preprint server).
+    """
+    attempts = []
+    for URL in (ETIS_data.get("FULLTEXT_URL"), ETIS_data.get("URL")):
+        if URL:
+            version = "submitted_version" if re.search(PREPRINT_URL_PATTERN, URL, flags=re.IGNORECASE) else None
+            attempts += [{"SOURCE": "etis", "URL": URL, "VERSION": version, "HOST_TYPE": None}]
+    return attempts
+
+
+def get_URL_key(URL: str) -> str:
+    """
+    Gives a URL without the scheme in lowercase, for finding the same link in several sources (e.g. http and https, dx.doi.org and doi.org).
+    """
+    URL_key = re.sub(r"^https?://", "", URL.strip().lower())
+    return re.sub(r"^dx\.doi\.org/", "doi.org/", URL_key).rstrip("/")
+
+
+def get_fulltext_attempts(open_data_candidate: dict, openalex_data: dict, research_products: list[dict], ETIS_data: dict) -> list[dict]:
     """
     Gives the full text sources to try for an article, best first:
-    PMC, open PDFs and pages of published versions and author manuscripts, Zenodo records and PDF links in OpenAIRE,
-    OpenAlex cached copy, open preprint PDFs.
+    PMC, open PDFs and pages of published versions and author manuscripts, Zenodo records, PDF links and pages in OpenAIRE,
+    ETIS links, OpenAlex cached copy, open preprints.
     """
     attempts = []
     europepmc = open_data_candidate.get("EUROPEPMC") or {}
@@ -341,14 +407,15 @@ def get_fulltext_attempts(open_data_candidate: dict, openalex_data: dict, resear
         if get_version_code(location) in PEER_REVIEWED_VERSIONS and location.get("pdf_url"):
             attempts += [{"SOURCE": "openalex_pdf", "URL": location["pdf_url"], "VERSION": get_version_code(location), "HOST_TYPE": get_host_type(location)}]
     for location in open_locations:
-        # Repository landing pages are metadata pages - only journal pages can have the full text in HTML
+        # Journal pages can have the full text in HTML. Repository landing pages can only link the PDF - tried if OpenAlex doesn't have the PDF link
         host_type = get_host_type(location)
-        if get_version_code(location) in PEER_REVIEWED_VERSIONS and location.get("landing_page_url") and host_type != "repository":
+        if get_version_code(location) in PEER_REVIEWED_VERSIONS and location.get("landing_page_url") and (host_type != "repository" or not location.get("pdf_url")):
             attempts += [{"SOURCE": "openalex_html", "URL": location["landing_page_url"], "VERSION": get_version_code(location), "HOST_TYPE": host_type}]
 
-    # OpenAIRE copies are free, so they go before the OpenAlex cached copy
+    # OpenAIRE copies and ETIS links are free, so they go before the OpenAlex cached copy
     openaire_attempts = get_openaire_attempts(research_products)
-    attempts += [attempt for attempt in openaire_attempts if attempt["VERSION"] != "submitted_version"]
+    etis_attempts = get_etis_attempts(ETIS_data)
+    attempts += [attempt for attempt in openaire_attempts + etis_attempts if attempt["VERSION"] != "submitted_version"]
 
     content_URLs = openalex_data.get("content_urls") or {}
     if OPENALEX_API_KEY and content_URLs:
@@ -358,12 +425,12 @@ def get_fulltext_attempts(open_data_candidate: dict, openalex_data: dict, resear
     for location in open_locations:
         if get_version_code(location) not in PEER_REVIEWED_VERSIONS and location.get("pdf_url"):
             attempts += [{"SOURCE": "openalex_pdf", "URL": location["pdf_url"], "VERSION": get_version_code(location), "HOST_TYPE": get_host_type(location)}]
-    attempts += [attempt for attempt in openaire_attempts if attempt["VERSION"] == "submitted_version"]
+    attempts += [attempt for attempt in openaire_attempts + etis_attempts if attempt["VERSION"] == "submitted_version"]
 
     # Same URL can be in several locations
     unique_attempts = []
     for attempt in attempts:
-        if attempt["URL"] not in [unique_attempt["URL"] for unique_attempt in unique_attempts]:
+        if get_URL_key(attempt["URL"]) not in [get_URL_key(unique_attempt["URL"]) for unique_attempt in unique_attempts]:
             unique_attempts += [attempt]
     return unique_attempts
 
@@ -438,7 +505,7 @@ for article in tqdm.tqdm(articles, desc="Getting full texts"):
     }
 
     research_products = openaire_research_products_index.get(GUID) or []
-    for attempt in get_fulltext_attempts(open_data_candidate, openalex_data, research_products):
+    for attempt in get_fulltext_attempts(open_data_candidate, openalex_data, research_products, article["ETIS"]):
         saved = None
         try:
             if attempt["SOURCE"] == "pmc":
@@ -455,10 +522,6 @@ for article in tqdm.tqdm(articles, desc="Getting full texts"):
                     saved = save_fulltext(GUID, response.text, "xml", MIN_TEXT_LENGTH)
                     attempt["RESULT"], attempt["RESULT_DETAIL"] = "ok" if saved else "text_too_short", None
 
-            elif attempt["SOURCE"] in ("openalex_pdf", "openaire_pdf", "openalex_content"):
-                session = openalex_session if attempt["SOURCE"] == "openalex_content" else download_session
-                saved, attempt["RESULT"], attempt["RESULT_DETAIL"] = save_downloaded_fulltext(GUID, session.get_politely(attempt["URL"]), article["TITLE"])
-
             elif attempt["SOURCE"] == "zenodo":
                 # Zenodo record lists its files
                 zenodo_match = re.search(ZENODO_RECORD_PATTERN, attempt["URL"], flags=re.IGNORECASE)
@@ -473,16 +536,17 @@ for article in tqdm.tqdm(articles, desc="Getting full texts"):
                     attempt["URL"] = fulltext_URL
                     saved, attempt["RESULT"], attempt["RESULT_DETAIL"] = save_downloaded_fulltext(GUID, zenodo_session.get_politely(fulltext_URL), article["TITLE"])
 
-            elif attempt["SOURCE"] == "openalex_html":
-                response = download_session.get_politely(attempt["URL"])
-                if not response:
-                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "http_error", str(response.status_code)
-                elif "html" not in response.headers.get("content-type", ""):
-                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "wrong_content_type", response.headers.get("content-type") or None
-                else:
-                    attempt["URL"] = response.url
-                    saved = save_fulltext(GUID, decode_html(response), "html", MIN_HTML_TEXT_LENGTH, response.url)
-                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "ok" if saved else "text_too_short", None
+            else:
+                # Journal pages and the pages that ETIS links to can have the full text in HTML. Other pages can only link the PDF
+                session = openalex_session if attempt["SOURCE"] == "openalex_content" else download_session
+                is_page_accepted = attempt["SOURCE"] in ("openalex_html", "etis") and attempt["HOST_TYPE"] != "repository"
+                saved, attempt["RESULT"], attempt["RESULT_DETAIL"], attempt["URL"] = save_linked_fulltext(GUID, session, attempt["URL"], article["TITLE"], is_page_accepted)
+                if saved and attempt["SOURCE"] == "etis" and not text_has_title(saved[1], article["TITLE"], None):
+                    # ETIS links can point to another document
+                    for path in saved[:2]:
+                        os.remove(path)
+                    saved = None
+                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "title_not_found", None
         except Exception as exception:
             attempt["RESULT"], attempt["RESULT_DETAIL"] = "exception", type(exception).__name__
 

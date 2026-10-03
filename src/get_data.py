@@ -190,6 +190,21 @@ def clean_DOI(DOI: str | None) -> str | None:
     return DOI
 
 
+def clean_URL(URL: str | None) -> str | None:
+    """
+    Gives a usable http(s) URL from a URL typed into ETIS. Gives None if there is no URL with a host.
+    Fixes doubled schemes (http://https://...) and adds a missing scheme (www.example.org/...).
+    """
+    URL = (URL or "").strip()
+    URL = re.sub(r"^https?://+(?=https?://)", "", URL, flags=re.IGNORECASE)
+    if not re.match(r"https?://", URL, flags=re.IGNORECASE):
+        URL = f'http://{URL}'
+    if not re.match(r"https?://[\w-]+(\.[\w-]+)+", URL, flags=re.IGNORECASE):
+        return None
+
+    return URL
+
+
 def normalise_title(title: str) -> str:
     """
     Gives a lowercase title with only words, for comparing titles from different sources.
@@ -648,7 +663,8 @@ for ETIS_article in ETIS_articles:
         "HAS_ESTONIAN_AUTHOR": has_estonian_author,
         "ETIS": {
             "DOI": ETIS_DOI,
-            "URL": ETIS_data["Url"] or None,
+            "URL": clean_URL(ETIS_data["Url"]),
+            "FULLTEXT_URL": clean_URL(ETIS_data["FullTextLocation"]),
             "IS_OPEN_ACCESS": ETIS_data["IsOpenAccessEng"].lower() == "yes",
             "OPEN_ACCESS_TYPE": ETIS_data["OpenAccessTypeNameEng"] or None,
             "LICENSE": ETIS_data.get("OpenAccessLicenceNameEng") or None

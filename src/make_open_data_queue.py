@@ -223,7 +223,8 @@ for article in articles:
                 "IS_OPEN_ACCESS": article["ETIS"]["IS_OPEN_ACCESS"],
                 "OPEN_ACCESS_TYPE": article["ETIS"]["OPEN_ACCESS_TYPE"],
                 "LICENSE": article["ETIS"]["LICENSE"],
-                "URL": article["ETIS"]["URL"]
+                "URL": article["ETIS"]["URL"],
+                "FULLTEXT_URL": article["ETIS"]["FULLTEXT_URL"]
             },
             "OPENALEX": {
                 "IS_OPEN_ACCESS": article["OPENALEX"]["IS_OPEN_ACCESS"],

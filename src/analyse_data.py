@@ -1,4 +1,5 @@
 # standard
+import datetime
 import json
 import logging
 import math
@@ -19,14 +20,36 @@ ASSESSMENTS_PATH = "./data/assessments/open_data_assessments.jsonl"
 OPEN_DATA_LABELS = ["repository", "supplement", "public_source"]
     # Underlying data are freely downloadable (H2020 Art. 29.3 / Horizon Europe bar)
 EXCLUDED_DATA_LABELS = ["no_data", "no_fulltext"]
-    # Articles without underlying data or without a readable full text are left out of the open data rates
+    # Articles without underlying data or without a readable full text have no open data status
 DATA_LABELS = ["repository", "supplement", "public_source", "restricted", "on_request", "in_article", "not_available", "no_data", "no_fulltext"]
-MAIN_DATA_MANDATE_GROUPS = ["H2020 mandate", "H2020 no mandate", "HE"]
+PROJECT_FIELDS = [
+    "GUID",
+    "TITLE",
+    "PROGRAMME_CODES",
+    "HORIZON_ID",
+    "ACRONYM",
+    "FRAMEWORK_PROGRAMME",
+    "OPEN_ACCESS_MANDATE_FOR_PUBLICATIONS",
+    "OPEN_ACCESS_MANDATE_FOR_DATASET",
+    "HORIZON_GRANT_LINKED"
+]
+    # Project info of the open data queue that the article analysis data has for each project of an article
 
 
 #########################
 # Classes and functions #
 #########################
+
+def get_timestamp_string() -> str:
+    """
+    Gives a standard current timestamp string to use in filenames.
+    """
+    timestamp_format = "%Y%m%d%H%M%S%Z"
+
+    timestamp = datetime.datetime.now(datetime.timezone.utc)
+    timestamp_string = datetime.datetime.strftime(timestamp, timestamp_format)
+    return timestamp_string
+
 
 def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
     """
@@ -75,6 +98,57 @@ def wilson_interval(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
     return (centre - half_width, centre + half_width)
 
 
+def get_any(values: list[bool | None]) -> bool | None:
+    """
+    Gives True if any value is True, False if all values are False, otherwise None (unknown).
+    """
+    if any(values):
+        return True
+    if values and all(value is False for value in values):
+        return False
+    return None
+
+
+def get_automatic_open_access(publication: dict, check_needed_reason: str | None) -> bool | None:
+    """
+    Gives the open access status of an article by ETIS, OpenAlex and the Jan 2025 manual checks.
+    Gives None if the full text check has to settle it (see make_open_data_queue).
+    """
+    if check_needed_reason:
+        return None
+    if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is not None:
+        return publication["IS_AVAILABLE_MANUALLY_CHECKED"]
+    # Without a check needed reason ETIS and OpenAlex agree
+    # OpenAlex counts only open published versions and peer-reviewed manuscripts (Horizon open access mandate)
+    return bool(publication["IS_OPEN_ACCESS"])
+
+
+def summarise_rate(data: polars.DataFrame, value_column: str, group_column: str) -> polars.DataFrame:
+    """
+    Gives the number of articles with value_column True, False and unknown (null) by group_column,
+    and the share of True among the known values with a 95% Wilson interval. The first row is all articles.
+    """
+    groups = [("all", data)] + sorted(data.group_by(group_column), key=lambda item: str(item[0]))
+    rows = []
+    for group, group_data in groups:
+        group_value = group if isinstance(group, str) else group[0]
+        group_name = "unknown" if group_value is None else str(group_value).lower()
+        n_yes = group_data.filter(polars.col(value_column)).height
+        n_no = group_data.filter(~polars.col(value_column)).height
+        n_known = n_yes + n_no
+        low, high = wilson_interval(n_yes, n_known)
+        rows += [{
+            group_column: group_name,
+            "ARTICLES": group_data.height,
+            "YES": n_yes,
+            "NO": n_no,
+            "UNKNOWN": group_data.height - n_known,
+            "YES_%": round(n_yes / n_known * 100) if n_known else None,
+            "95%_CI": f'{round(low * 100)}-{round(high * 100)}%' if n_known else None
+        }]
+    return polars.DataFrame(rows)
+
+
 #####################
 # Environment setup #
 #####################
@@ -90,125 +164,131 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 #############
 
 open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
-
-# Open data queue and assessments exist after the open data checks have started
-open_data_queue_index = {}
-if any(file.startswith("open_data_queue_") for file in os.listdir(RESULTS_DATA_DIRECTORY_PATH)):
-    open_data_queue_index = {item["GUID"]: item for item in read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_data_queue")}
+open_data_queue = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_data_queue")
 assessments = read_assessments(ASSESSMENTS_PATH)
+
+open_data_queue_index = {item["GUID"]: item for item in open_data_queue}
+
+
+##############################
+# Make article analysis data #
+##############################
+
+# One record per article: Estonian authors and institutions, ETIS projects with their Horizon grants and open access mandates,
+# open access (publications) and open data verdicts.
+# Article-level mandates and grant links are True if they hold for any of the article's projects
+
+articles = []
+for publication in open_access_data:
+    queue_item = open_data_queue_index[publication["GUID"]]
+    assessment = assessments.get(publication["GUID"]) or {}
+    projects = [{field: project[field] for field in PROJECT_FIELDS} for project in queue_item["PROJECTS"]]
+
+    # Full text check settles open access whenever it finds the status, also when ETIS and OpenAlex agree
+    check_needed_reason = queue_item["OPEN_ACCESS"]["CHECK_NEEDED_REASON"]
+    automatic_open_access = get_automatic_open_access(publication, check_needed_reason)
+    fulltext_check_verdict = (assessment.get("OPEN_ACCESS") or {}).get("VERDICT")
+    if fulltext_check_verdict in ("open", "not_open"):
+        is_open_access = fulltext_check_verdict == "open"
+        open_access_settled_by = "fulltext_check"
+    elif automatic_open_access is not None:
+        is_open_access = automatic_open_access
+        open_access_settled_by = "manual_check" if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is not None else "etis_and_openalex"
+    else:
+        is_open_access = None
+        open_access_settled_by = None
+
+    data_label = assessment.get("DATA_LABEL")
+    is_open_data = None
+    if data_label in OPEN_DATA_LABELS:
+        is_open_data = True
+    elif data_label and data_label not in EXCLUDED_DATA_LABELS:
+        is_open_data = False
+
+    articles += [{
+        "GUID": publication["GUID"],
+        "TITLE": publication["TITLE"],
+        "PERIODICAL": publication["PERIODICAL"],
+        "DOI": queue_item["DOI"],
+        "AUTHORS": publication["AUTHORS"],
+        "INSTITUTIONS": publication["INSTITUTIONS"],
+        "HAS_ESTONIAN_AUTHOR": publication["HAS_ESTONIAN_AUTHOR"],
+        "PROJECTS": projects,
+        "OPEN_ACCESS_MANDATE_FOR_PUBLICATIONS": get_any([project["OPEN_ACCESS_MANDATE_FOR_PUBLICATIONS"] for project in projects]),
+        "OPEN_ACCESS_MANDATE_FOR_DATASET": get_any([project["OPEN_ACCESS_MANDATE_FOR_DATASET"] for project in projects]),
+        "HORIZON_GRANT_LINKED": get_any([project["HORIZON_GRANT_LINKED"] for project in projects]),
+        "HORIZON_GRANT_ACKNOWLEDGED": assessment.get("HORIZON_GRANT_ACKNOWLEDGED"),
+        "IS_OPEN_ACCESS": is_open_access,
+        "OPEN_ACCESS_SETTLED_BY": open_access_settled_by,
+        "OPEN_ACCESS_AUTOMATIC": automatic_open_access,
+        "OPEN_ACCESS_FULLTEXT_CHECK": fulltext_check_verdict,
+        "OPEN_ACCESS_CHECK_NEEDED_REASON": check_needed_reason,
+        "DATA_LABEL": data_label,
+        "DATA_COVERAGE": assessment.get("DATA_COVERAGE"),
+        "IS_OPEN_DATA": is_open_data
+    }]
+
+articles_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/articles_{get_timestamp_string()}.json'
+with open(articles_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(articles, indent=2, ensure_ascii=False))
+
+# Researchers are accountable only for the articles they wrote - articles without an Estonian author are left out
+analysis_columns = [
+    "GUID", "HAS_ESTONIAN_AUTHOR", "OPEN_ACCESS_MANDATE_FOR_DATASET", "HORIZON_GRANT_LINKED", "HORIZON_GRANT_ACKNOWLEDGED", "IS_OPEN_ACCESS",
+    "OPEN_ACCESS_SETTLED_BY", "OPEN_ACCESS_AUTOMATIC", "OPEN_ACCESS_FULLTEXT_CHECK", "DATA_LABEL", "IS_OPEN_DATA"
+]
+articles_data = polars.DataFrame([{column: article[column] for column in analysis_columns} for article in articles], infer_schema_length=None)
+articles_in_scope = articles_data.filter(polars.col("HAS_ESTONIAN_AUTHOR").fill_null(True))
+
+info_string1 = f'Saved analysis data of {len(articles)} articles to {articles_save_path}'
+info_string2 = f'{articles_in_scope.height} of the {len(articles)} articles have an Estonian author (or it is unknown) and are analysed'
+logger.info(info_string1)
+logger.info(info_string2)
 
 
 #######################
 # Analyse open access #
 #######################
 
-publications_open = []
-publications_not_open = []
-publications_settled_by_fulltext_check = []
-for publication in open_access_data:
-    # The full text check settles publications whose open access status needed checking (see make_open_data_queue)
-    queue_item = open_data_queue_index.get(publication["GUID"]) or {}
-    open_access_check_needed = bool((queue_item.get("OPEN_ACCESS") or {}).get("CHECK_NEEDED_REASON"))
-    fulltext_verdict = ((assessments.get(publication["GUID"]) or {}).get("OPEN_ACCESS") or {}).get("VERDICT")
-    if open_access_check_needed and fulltext_verdict in ("open", "not_open"):
-        publications_settled_by_fulltext_check += [publication]
-        if fulltext_verdict == "open":
-            publications_open += [publication]
-        else:
-            publications_not_open += [publication]
-        continue
+# Open access = the published version or the peer-reviewed author manuscript is free to read (Horizon open access mandate)
 
-    # Publication is open if it is manually verified that it's open
-    if publication["IS_AVAILABLE_MANUALLY_CHECKED"]:
-        publications_open += [publication]
-        continue
+open_access_rates = summarise_rate(articles_in_scope, "IS_OPEN_ACCESS", "HORIZON_GRANT_LINKED")
+settled_by_counts = articles_in_scope.group_by("OPEN_ACCESS_SETTLED_BY").len().sort("OPEN_ACCESS_SETTLED_BY")
 
-    # Publication is open if ETIS and OpenAlex both say that it's open and there is no manually checked info
-    # OpenAlex counts only open published versions and peer-reviewed manuscripts (Horizon open access mandate)
-    if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is None and publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"] and publication["IS_OPEN_ACCESS"]:
-        publications_open += [publication]
-        continue
+# Full text check verdicts compared to the automatic status - tells how reliable the automatic status is
+open_access_agreement = (articles_in_scope
+    .filter(polars.col("OPEN_ACCESS_AUTOMATIC").is_not_null() & polars.col("OPEN_ACCESS_FULLTEXT_CHECK").is_in(["open", "not_open"]))
+    .group_by("OPEN_ACCESS_AUTOMATIC", "OPEN_ACCESS_FULLTEXT_CHECK").len()
+    .sort("OPEN_ACCESS_AUTOMATIC", "OPEN_ACCESS_FULLTEXT_CHECK"))
 
-    publications_not_open += [publication]
-
-settled_GUIDs = {publication["GUID"] for publication in publications_settled_by_fulltext_check}
-
-# Not open publications that are pending a full text check because ETIS and OpenAlex disagree
-publications_ambiguous = []
-for publication in publications_not_open:
-    if publication["GUID"] in settled_GUIDs:
-        continue
-    if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is None and bool(publication["IS_OPEN_ACCESS"]) != bool(publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"]):
-        publications_ambiguous += [publication]
-
-# Not open publications that OpenAlex has only as an open preprint or open copy of unknown version
-publications_preprint_only = []
-for publication in publications_not_open:
-    if publication["GUID"] in settled_GUIDs:
-        continue
-    if publication["OPENALEX_IS_OPEN_ACCESS"] and not publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"]:
-        publications_preprint_only += [publication]
-
-n_open_access_checks = len([item for item in open_data_queue_index.values() if item["OPEN_ACCESS"]["CHECK_NEEDED_REASON"]])
-info_string1 = f'{len(publications_open)} of {len(open_access_data)} publications ({round(len(publications_open) / len(open_access_data) * 100)}%) are open to read'
-info_string2 = f'{len(publications_ambiguous)} of the not open publications have ambiguous open access status. These are settled when the full text is checked'
-info_string3 = f'{len(publications_preprint_only)} of the not open publications have only an open preprint or an open copy of unknown version in OpenAlex'
-info_string4 = f'{len(publications_settled_by_fulltext_check)} of the {n_open_access_checks} publications that need an open access check are settled by the full text check'
-logger.info(info_string1)
-logger.info(info_string2)
-logger.info(info_string3)
-logger.info(info_string4)
+with polars.Config(tbl_rows=-1, tbl_cols=-1, tbl_width_chars=200, tbl_hide_dataframe_shape=True, tbl_hide_column_data_types=True, fmt_str_lengths=50):
+    logger.info(f'\nOpen access of the articles by whether OpenAIRE or OpenAlex links the article to its ETIS project\'s Horizon grant:\n{open_access_rates}')
+    logger.info(f'\nHow the open access status was settled (null = pending a full text check):\n{settled_by_counts}')
+    if open_access_agreement.height:
+        logger.info(f'\nAutomatic open access status (ETIS, OpenAlex, Jan 2025 manual checks) vs full text check:\n{open_access_agreement}')
 
 
 #####################
 # Analyse open data #
 #####################
 
-publications_open_GUIDs = {publication["GUID"] for publication in publications_open}
-open_data_rows = []
-for GUID, assessment in assessments.items():
-    if GUID not in open_data_queue_index:
-        continue
-    group = open_data_queue_index[GUID]["DATA_MANDATE_GROUP"]
-    open_data_rows += [{
-        "GUID": GUID,
-        "GROUP": group if group in MAIN_DATA_MANDATE_GROUPS else "mixed or unknown",
-        "DATA_LABEL": assessment["DATA_LABEL"],
-        "IS_OPEN_ACCESS": GUID in publications_open_GUIDs
-    }]
+# Compliance with the data mandate can be derived by comparing the open data status with OPEN_ACCESS_MANDATE_FOR_DATASET
 
-if open_data_rows:
-    open_data = polars.DataFrame(open_data_rows).with_columns(
-        IS_INCLUDED=~polars.col("DATA_LABEL").is_in(EXCLUDED_DATA_LABELS),
-        IS_OPEN_DATA=polars.col("DATA_LABEL").is_in(OPEN_DATA_LABELS))
+articles_assessed = articles_in_scope.filter(polars.col("DATA_LABEL").is_not_null())
+if articles_assessed.height:
+    # Label counts by data mandate
+    label_counts = (articles_assessed
+        .with_columns(polars.col("OPEN_ACCESS_MANDATE_FOR_DATASET").cast(polars.String).fill_null("unknown"))
+        .pivot(on="DATA_LABEL", index="OPEN_ACCESS_MANDATE_FOR_DATASET", values="GUID", aggregate_function="len")
+        .fill_null(0)
+        .sort("OPEN_ACCESS_MANDATE_FOR_DATASET"))
+    label_counts = label_counts.select(["OPEN_ACCESS_MANDATE_FOR_DATASET"] + [label for label in DATA_LABELS if label in label_counts.columns])
 
-    # Label counts by data mandate group
-    label_counts = (open_data
-        .pivot(on="DATA_LABEL", index="GROUP", values="GUID", aggregate_function="len")
-        .fill_null(0))
-    label_counts = label_counts.select(["GROUP"] + [label for label in DATA_LABELS if label in label_counts.columns])
+    # Unknown = no underlying data or no readable full text
+    open_data_rates = summarise_rate(articles_assessed, "IS_OPEN_DATA", "OPEN_ACCESS_MANDATE_FOR_DATASET")
 
-    # Open data rates among articles with underlying data and a readable full text
-    group_rates = []
-    for group, group_data in [("all", open_data)] + sorted(open_data.group_by("GROUP"), key=lambda item: str(item[0])):
-        group_name = group if isinstance(group, str) else group[0]
-        included = group_data.filter(polars.col("IS_INCLUDED"))
-        n = included.height
-        n_open_data = included.filter(polars.col("IS_OPEN_DATA")).height
-        n_open_both = included.filter(polars.col("IS_OPEN_DATA") & polars.col("IS_OPEN_ACCESS")).height
-        low, high = wilson_interval(n_open_data, n)
-        group_rates += [{
-            "GROUP": group_name,
-            "ASSESSED": group_data.height,
-            "WITH_DATA": n,
-            "OPEN_DATA": n_open_data,
-            "OPEN_DATA_%": round(n_open_data / n * 100) if n else None,
-            "95%_CI": f'{round(low * 100)}-{round(high * 100)}%' if n else None,
-            "OPEN_ACCESS_AND_OPEN_DATA": n_open_both
-        }]
-
-    with polars.Config(tbl_rows=-1, tbl_cols=-1, tbl_width_chars=200, tbl_hide_dataframe_shape=True, tbl_hide_column_data_types=True):
-        logger.info(f'\nOpen data labels of {open_data.height} assessed articles by data mandate group:\n{label_counts}')
-        logger.info(f'\nOpen data rates ({", ".join(OPEN_DATA_LABELS)}) of articles with underlying data and a readable full text:\n{polars.DataFrame(group_rates)}')
+    with polars.Config(tbl_rows=-1, tbl_cols=-1, tbl_width_chars=200, tbl_hide_dataframe_shape=True, tbl_hide_column_data_types=True, fmt_str_lengths=50):
+        logger.info(f'\nOpen data labels of {articles_assessed.height} assessed articles by the data mandate of their projects:\n{label_counts}')
+        logger.info(f'\nOpen data ({", ".join(OPEN_DATA_LABELS)}) of the assessed articles by the data mandate of their projects (unknown = {", ".join(EXCLUDED_DATA_LABELS)}):\n{open_data_rates}')
 else:
     logger.info("No open data assessments yet")

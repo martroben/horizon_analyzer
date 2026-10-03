@@ -10,6 +10,7 @@ import unicodedata
 import urllib.parse
 # external
 import requests
+from thefuzz import fuzz
 import tqdm
 
 
@@ -53,7 +54,8 @@ OPENALEX_WORK_FIELDS = [
     "has_content",
     "content_urls",
     "awards",
-    "funders"
+    "funders",
+    "authorships"
 ]
 OPEN_ACCESS_VERSIONS = [
     "publishedVersion",     # Version of record
@@ -61,6 +63,11 @@ OPEN_ACCESS_VERSIONS = [
 ]
     # Horizon open access mandate requires the published version or the peer-reviewed manuscript to be open
     # Open submitted versions (preprints) and open copies of unknown version don't count
+ESTONIAN_AFFILIATION_PATTERN = r"estonia|eesti|tallinn|tartu"
+    # Raw affiliation strings of Estonian institutions. OpenAlex doesn't link every affiliation to an institution with a country
+AUTHOR_SURNAME_SIMILARITY_THRESHOLD = 85
+    # ETIS and OpenAlex can spell names differently (e.g. Šogenov - Shogenov). Fuzzy match score of surnames, 0-100
+NAME_PARTICLES = ["de", "del", "della", "la", "le", "van", "von", "der", "den", "da", "das", "dos", "di", "du"]
 
 RAW_DATA_DIRECTORY_PATH = "./data/raw/"
 RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
@@ -132,6 +139,20 @@ class OpenAlexSession(requests.Session):
         response = self.get(URL, params=query_parameters)
         return response
 
+    def get_work_by_ID(self, openalex_ID: str, fields: list[str] = None) -> requests.Response:
+        """
+        Get a single work by OpenAlex ID (e.g. https://openalex.org/W2741809807). Free like DOI lookups.
+        Gives all authors - search results have at most 100 authors per work.
+        Gives only the listed fields if fields are given.
+        """
+        query_parameters = {}
+        if fields:
+            query_parameters.update({"select": ",".join(fields)})
+
+        URL = f'{self.BASE_URL}/works/{openalex_ID.rsplit("/", 1)[-1]}'
+        response = self.get(URL, params=query_parameters)
+        return response
+
     def search_works_by_title(self, title: str, n: int = 5, fields: list[str] = None) -> requests.Response:
         """
         Get the n works with the most relevant titles.
@@ -177,6 +198,57 @@ def normalise_title(title: str) -> str:
     title = re.sub(r"<[^<>]+>", " ", title)         # Drop html tags, e.g. <i>
     title = re.sub(r"[^\w\s]", " ", title.lower())
     return " ".join(title.split())
+
+
+def split_author_name(name: str) -> list[str]:
+    """
+    Gives the words of an author name in lowercase ASCII, first names first. Hyphenated names are split into words.
+    Names can be in "Name Surname" or "Surname, Name" order. Particles (de, van etc.) are left out.
+    """
+    if "," in name:
+        surname, first_names = name.split(",", 1)
+        name = f'{first_names} {surname}'
+    # Estonian spelling of Russian names, e.g. Semtšenko - Semchenko, Šogenov - Shogenov
+    name = name.lower().replace("tš", "ch").replace("š", "sh").replace("ž", "zh")
+    ascii_name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    return [word for word in re.sub(r"[^a-z\s]", " ", ascii_name).split() if word not in NAME_PARTICLES]
+
+
+def is_same_author(name: str, other_name: str) -> bool:
+    """
+    Tells whether two author names are probably the same person: a similar surname and a common initial of the other names.
+    Any word after the first one can be the surname, because sources shorten double surnames differently
+    (e.g. Ivika Ostonen-Märtin - Ivika Ostonen, Manuel Alejandro Camargo Chavez - Manuel Camargo).
+    """
+    words = split_author_name(name)
+    other_words = split_author_name(other_name)
+    for surname in words[1:] or words:
+        for other_surname in other_words[1:] or other_words:
+            if fuzz.ratio(surname, other_surname) < AUTHOR_SURNAME_SIMILARITY_THRESHOLD:
+                continue
+            initials = {word[0] for word in words if word != surname}
+            other_initials = {word[0] for word in other_words if word != other_surname}
+            # Some sources give only the surname
+            if not (initials and other_initials) or initials & other_initials:
+                return True
+    return False
+
+
+def has_estonian_affiliation(openalex_data: dict) -> bool | None:
+    """
+    Tells whether an author of an OpenAlex work has an Estonian affiliation.
+    Gives None if OpenAlex has no affiliations for the work.
+    """
+    authorships = openalex_data.get("authorships") or []
+    if not any(authorship.get("institutions") or authorship.get("raw_affiliation_strings") for authorship in authorships):
+        return None
+    for authorship in authorships:
+        if "EE" in (authorship.get("countries") or []):
+            return True
+        for affiliation in authorship.get("raw_affiliation_strings") or []:
+            if re.search(ESTONIAN_AFFILIATION_PATTERN, affiliation, flags=re.IGNORECASE):
+                return True
+    return False
 
 
 def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -> None:
@@ -491,6 +563,12 @@ for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication O
                 openalex_response["DATA"] = title_matches[0]
                 openalex_response["SUCCESSFUL_INPUT"] = title
                 n_title_matches += 1
+                # Search results have at most 100 authors per work - get the full work by ID
+                limit_rate(lap_timestamp, requests_per_second_limit)
+                lap_timestamp = time.monotonic()
+                response = openalex_session.get_work_by_ID(title_matches[0]["id"], OPENALEX_WORK_FIELDS)
+                if response:
+                    openalex_response["DATA"] = response.json()
             else:
                 openalex_response["UNSUCCESSFUL_INPUTS"] += [title]
 
@@ -535,6 +613,40 @@ for article in scientific_articles:
         openalex_has_open_peer_reviewed_version = any(version in OPEN_ACCESS_VERSIONS for version in openalex_open_versions)
     manual_check_result = open_access_manual_check_results_index.get(article["GUID"]) or {}
 
+    # ETIS authors and institutions are Estonian researchers and institutions. ETIS can list the same one twice
+    openalex_author_names = []
+    for authorship in openalex_data.get("authorships") or []:
+        openalex_author_names += [name for name in (authorship["author"].get("display_name"), authorship.get("raw_author_name")) if name]
+    authors = []
+    for author in ETIS_data["Authors"] or []:
+        if author["Guid"] in [item["GUID"] for item in authors]:
+            continue
+        authors += [{
+            "GUID": author["Guid"],
+            "NAME": author["Name"],
+            "IN_OPENALEX_AUTHORS": any(is_same_author(author["Name"], name) for name in openalex_author_names) if openalex_author_names else None
+        }]
+    institutions = []
+    for institution in ETIS_data["Institutions"] or []:
+        if institution["Guid"] in [item["GUID"] for item in institutions]:
+            continue
+        institutions += [{
+            "GUID": institution["Guid"],
+            "NAME": institution["NameEng"] or institution["Name"],
+            "REGISTRY_CODE": institution.get("BusinessRegNo") or None     # Business registry code of the legal entity
+        }]
+
+    # An article has an Estonian author if an author in the published author list (OpenAlex) has an Estonian affiliation,
+    # or if an ETIS author is in the list and ETIS gives an Estonian institution (OpenAlex lacks many affiliations).
+    # Without the OpenAlex author list, the Estonian institutions in ETIS decide
+    openalex_has_estonian_affiliation = has_estonian_affiliation(openalex_data) if openalex_data else None
+    if openalex_has_estonian_affiliation:
+        has_estonian_author = True
+    elif openalex_author_names:
+        has_estonian_author = bool(institutions) and any(author["IN_OPENALEX_AUTHORS"] for author in authors)
+    else:
+        has_estonian_author = bool(institutions) or None
+
     open_access_datum = {
         "GUID": article["GUID"],
         "PROJECT_GUIDS": article["PROJECT_GUIDS"],
@@ -546,6 +658,8 @@ for article in scientific_articles:
         "OPEN_ACCESS_TYPE": ETIS_data["OpenAccessTypeNameEng"],
         "LICENSE": ETIS_data.get("OpenAccessLicenceNameEng"),
         "IS_PUBLIC_FILE": ETIS_data["PublicFile"],
+        "AUTHORS": authors,
+        "INSTITUTIONS": institutions,
         "OPENALEX_ID": openalex_data.get("id"),
         "OPENALEX_DOI": clean_DOI(openalex_data.get("doi") or ""),
         "OPENALEX_IS_OPEN_ACCESS": openalex_open_access.get("is_oa"),
@@ -553,6 +667,8 @@ for article in scientific_articles:
         "OPENALEX_OPEN_ACCESS_URL": openalex_open_access.get("oa_url"),
         "OPENALEX_OPEN_VERSIONS": openalex_open_versions,
         "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": openalex_has_open_peer_reviewed_version,
+        "OPENALEX_HAS_ESTONIAN_AFFILIATION": openalex_has_estonian_affiliation,
+        "HAS_ESTONIAN_AUTHOR": has_estonian_author,
         "IS_AVAILABLE_MANUALLY_CHECKED": manual_check_result.get("IS_AVAILABLE")
     }
     open_access_data += [open_access_datum]
@@ -561,8 +677,12 @@ open_access_data_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_acc
 with open(open_access_data_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(open_access_data, indent=2, ensure_ascii=False))
 
-info_string = f'Summarised publication open access data. Saved results to {open_access_data_save_path}'
-logger.info(info_string)
+n_estonian_author = len([item for item in open_access_data if item["HAS_ESTONIAN_AUTHOR"]])
+n_no_estonian_author = len([item for item in open_access_data if item["HAS_ESTONIAN_AUTHOR"] is False])
+info_string1 = f'Summarised publication open access data. Saved results to {open_access_data_save_path}'
+info_string2 = f'{n_estonian_author} of the {len(open_access_data)} articles have an Estonian author, {n_no_estonian_author} don\'t, the rest are unknown'
+logger.info(info_string1)
+logger.info(info_string2)
 
 
 ########################################

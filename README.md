@@ -20,7 +20,7 @@ Add or upgrade dependencies with `uv add <package>` / `uv lock --upgrade-package
 
 ## Running
 Run the scripts from the repository root with `uv run` (e.g. `uv run src/get_data.py`), in this order:
-1. `src/get_data.py` - ETIS projects, publications and scientific articles; open access info from OpenAlex
+1. `src/get_data.py` - ETIS projects, publications and scientific articles; open access info and author affiliations from OpenAlex
 2. `src/get_openaire_graph_projects.py` - OpenAIRE projects with Estonian partners
 3. `src/get_openaire_search_project_results.py` - OpenAIRE search API matches of ETIS projects
 4. `src/get_openaire_research_products.py` - OpenAIRE project links of the scientific articles
@@ -29,7 +29,7 @@ Run the scripts from the repository root with `uv run` (e.g. `uv run src/get_dat
 7. `src/get_fulltext.py` - full texts of the articles to `data/fulltext/` (PMC, open PDFs and pages from OpenAlex locations, Zenodo records and PDF links from OpenAIRE open copies, OpenAlex cached copies). Resumes where an earlier run stopped
 8. `src/make_open_data_queue.py` - queue of articles for the open data check, with everything that the check needs
 9. Open data checks by Claude Code: ask Claude to run the `check-open-data` skill (`.claude/skills/check-open-data/SKILL.md`). Claude appends one record per article to `data/assessments/open_data_assessments.jsonl` and checks them with `src/validate_open_data_assessments.py`
-10. `src/analyse_data.py`
+10. `src/analyse_data.py` - article analysis data (`data/results/articles_<timestamp>.json`, one record per article: Estonian authors and institutions, ETIS projects with Horizon grants and open access mandates, open access and open data status) and summary tables
 
 OpenAlex title searches (for articles without a DOI) cost $0.001 each against a $0.10 daily budget. A free API key raises the daily budget to $1: https://openalex.org/settings/api.
 

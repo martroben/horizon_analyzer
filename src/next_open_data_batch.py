@@ -156,11 +156,13 @@ if __name__ == "__main__":
     project_datasets_index = {item["HORIZON_ID"]: item for item in project_datasets}
     assessed_GUIDs = {assessment["GUID"] for assessment in read_assessments(ASSESSMENTS_PATH)}
 
+    # Researchers are accountable only for the articles they wrote - articles without an Estonian author are left out of the research
+    n_no_estonian_author = len([item for item in queue if item["HAS_ESTONIAN_AUTHOR"] is False])
     if arguments.guids:
         batch = [item for item in queue if item["GUID"] in arguments.guids]
     else:
-        batch = [item for item in queue if item["GUID"] not in assessed_GUIDs][:arguments.n]
+        batch = [item for item in queue if item["GUID"] not in assessed_GUIDs and item["HAS_ESTONIAN_AUTHOR"] is not False][:arguments.n]
 
-    print(f'{len(assessed_GUIDs)} of {len(queue)} articles assessed. Batch: {", ".join(item["GUID"] for item in batch)}')
+    print(f'{len(assessed_GUIDs)} of {len(queue)} articles assessed ({n_no_estonian_author} without an Estonian author are skipped). Batch: {", ".join(item["GUID"] for item in batch)}')
     for item in batch:
         print_dossier(item, project_datasets_index)

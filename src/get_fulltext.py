@@ -41,7 +41,7 @@ RETRY_FAILED = True             # Retry articles that had no full text in an ear
 ZENODO_RECORD_PATTERN = r"zenodo\.org/records?/(\d+)|10\.5281/zenodo\.(\d+)"
 PDF_URL_PATTERN = r"\.pdf($|\?)|/bitstream/|/download/|/files/"
     # OpenAIRE open instance URLs that can be PDF files. The rest are mostly landing pages
-PREPRINT_URL_PATTERN = r"arxiv\.org|biorxiv\.org|medrxiv\.org|chemrxiv\.org|ssrn\.com|preprints\.org|researchsquare\.com|mpra\.ub\.uni-muenchen\.de"
+PREPRINT_URL_PATTERN = r"arxiv\.org|biorxiv\.org|medrxiv\.org|chemrxiv\.org|techrxiv\.org|10\.36227/techrxiv|ssrn\.com|preprints\.org|researchsquare\.com|mpra\.ub\.uni-muenchen\.de"
     # Preprint servers and working paper archives. OpenAIRE doesn't always give them the instance type Preprint
 
 FULLTEXT_DIRECTORY_PATH = "./data/fulltext/"

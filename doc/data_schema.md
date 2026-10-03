@@ -31,7 +31,7 @@
 | `results/projects` | `get_etis_project_horizon_ids` | ETIS Horizon project: grant and mandates |
 | `results/grant_datasets` | `get_open_data_candidates` | grant: OpenAIRE datasets |
 | `results/open_data_candidates` | `get_open_data_candidates` | article: Europe PMC info, candidate data links |
-| `results/fulltext_index` | `get_fulltext` | article: cached full text (same as `fulltext/<GUID>.json`) |
+| `results/fulltext_index` | `get_fulltext`, `get_manual_fulltexts` | article: cached full text (same as `fulltext/<GUID>.json`) |
 | `results/open_data_queue` | `make_open_data_queue` | article: all automatic info, in check order |
 | `assessments/open_data_assessments.jsonl` | Claude (`check-open-data` skill) | open data and open access check of an article (JSON lines, latest record of a GUID wins) |
 | `results/article_analysis` | `analyse_data` | article: final open access and open data status |
@@ -52,14 +52,14 @@ API records are in `DATA` as the API gives them (`etis_projects` and `openaire_p
 
 | Field | Type | |
 |---|---|---|
-| `GUID` | str | ETIS publication GUID |
+| `GUID` | str | ETIS publication GUID (of the first record if ETIS has several records of the article) |
 | `TITLE`, `PERIODICAL` | str | from ETIS |
 | `DOI` | str | ETIS DOI, or the DOI of the OpenAlex work found by title search if ETIS has none. All later steps use it |
 | `PROJECT_GUIDS` | list[str] | ETIS projects that report the article |
 | `AUTHORS` | list | ETIS authors (Estonian researchers): `GUID`, `NAME`, `IS_IN_OPENALEX_AUTHORS` (in the published author list; null if OpenAlex has no author list) |
 | `INSTITUTIONS` | list | ETIS institutions: `GUID`, `NAME`, `REGISTRY_CODE` (business registry code of the legal entity) |
 | `HAS_ESTONIAN_AUTHOR` | bool | an author in the published author list has an Estonian affiliation, or an ETIS author is in the list and ETIS gives an Estonian institution. Null if unknown |
-| `ETIS` | object | `DOI`, `URL` (publication URL in ETIS), `FULLTEXT_URL` (full text location in ETIS), `IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE` (ETIS value: gold, hybrid, green, bronze, closed), `LICENSE` (ETIS licence name) |
+| `ETIS` | object | `DOI`, `URL` (publication URL in ETIS), `FULLTEXT_URL` (full text location in ETIS), `IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE` (ETIS value: gold, hybrid, green, bronze, closed), `LICENSE` (ETIS licence name), `DUPLICATE_GUIDS` (other ETIS records of the article with the same DOI, merged into this one: projects, authors and institutions of all records) |
 | `OPENALEX` | object | `ID`, `FOUND_BY`, `DOI`, `IS_OPEN_ACCESS` (any open version, incl. preprints), `OPEN_ACCESS_TYPE` (OpenAlex `oa_status`), `OPEN_ACCESS_URL`, `OPEN_VERSIONS` (versions of the open locations, `unknown` if OpenAlex doesn't say), `HAS_OPEN_PEER_REVIEWED_VERSION` (open published version or accepted manuscript - Horizon open access), `HAS_ESTONIAN_AFFILIATION` (null if OpenAlex has no affiliations). All null if OpenAlex doesn't have the article |
 | `MANUAL_CHECK` | object | `IS_OPEN_ACCESS`: Jan 2025 manual check (`data/manual/manually_checked_publications.json`), counted any free version (incl. preprints). Null if not checked |
 
@@ -104,14 +104,16 @@ One record per grant of the projects that have articles.
 ## fulltext_index
 Same records as the sidecar files `data/fulltext/<GUID>.json`. The full text is `data/fulltext/<GUID>.<pdf|xml|html|docx>` with a plain text copy `<GUID>.txt`. Files saved during the open data check have a suffix, e.g. `<GUID>.supplement.pdf`.
 
+Full texts saved by hand go into `data/fulltext/inbox/<open|other|library>/` (folder = manual source, see full text `SOURCE`), articles looked for without result into `inbox/<open|library>/not_found.txt` (GUID prefix per line, comment after it). `get_manual_fulltexts` moves the files to `data/fulltext/` and writes the list of articles left to fetch (`inbox/fetch_list.html`).
+
 | Field | Type | |
 |---|---|---|
 | `GUID`, `DOI` | str | |
 | `FILE`, `TEXT_FILE` | str | full text file and its text copy; null if no full text |
 | `N_CHARACTERS` | int | length of the text |
 | `SOURCE`, `URL`, `VERSION`, `HOST_TYPE` | str | of the successful attempt |
-| `RETRIEVED_AT` | str | |
-| `ATTEMPTS` | list | full text sources tried, best first: `SOURCE` (code), `URL`, `VERSION` (code, null if unknown), `HOST_TYPE` (code), `RESULT` (code), `RESULT_DETAIL` (HTTP status, content type or error name) |
+| `RETRIEVED_AT` | str | when the full text was downloaded (manual sources: when the file was saved) |
+| `ATTEMPTS` | list | full text sources tried, best first, then manual sources: `SOURCE` (code), `URL`, `VERSION` (code, null if unknown), `HOST_TYPE` (code), `RESULT` (code), `RESULT_DETAIL` (HTTP status, content type or error name; manual sources: file name or comment) |
 
 ## open_data_queue
 Everything known automatically about an article, in check order: the 20 articles of the Jan 2025 random sample first, then the rest by GUID. ETIS GUIDs are random, so any number of checked articles is a random sample.
@@ -216,6 +218,11 @@ One record per article, for the analysis by article, project, author or institut
 
 Preprints (OpenAlex preprint locations, OpenAIRE and ETIS links to preprint servers) are tried last.
 
+Saved by hand (`get_manual_fulltexts`), no URL or version:
+- `manual_open` - free to read without login on the publisher site or in a repository
+- `manual_other` - other free copy (e.g. ResearchGate, author's website)
+- `manual_library` - library access
+
 **Full text attempt `RESULT`** (fulltext_index)
 - `ok`
 - `http_error` - detail: HTTP status code
@@ -226,6 +233,7 @@ Preprints (OpenAlex preprint locations, OpenAIRE and ETIS links to preprint serv
 - `no_fulltext_file` - Zenodo record without an open PDF or Word file
 - `no_pdf_link` - page without a `citation_pdf_url` tag, where the page itself can't be the full text (repository landing pages, OpenAIRE links, PDF links that give a page)
 - `title_not_found` - Word file without the article title near its beginning (e.g. a cover letter), or a file from an ETIS link without the article title
+- `not_found` - (manual sources) looked for by hand without result: `manual_open` no free published version or accepted manuscript, `manual_library` no library access
 
 **Open access `VERDICT`** (assessments), **`OPEN_ACCESS_FULLTEXT_VERDICT`**
 - `open` - the published version or the accepted manuscript is free to read

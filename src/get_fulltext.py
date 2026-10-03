@@ -481,12 +481,15 @@ n_skipped = 0
 for article in tqdm.tqdm(articles, desc="Getting full texts"):
     GUID = article["GUID"]
     info_file_path = f'{FULLTEXT_DIRECTORY_PATH.rstrip("/")}/{GUID}.json'
+    manual_attempts = []
     if os.path.exists(info_file_path):
         with open(info_file_path, encoding="utf8") as read_file:
             fulltext_info = json.loads(read_file.read())
         if fulltext_info["TEXT_FILE"] or not RETRY_FAILED:
             n_skipped += 1
             continue
+        # Articles that were looked for by hand without result (get_manual_fulltexts) keep that record
+        manual_attempts = [attempt for attempt in fulltext_info["ATTEMPTS"] if attempt["SOURCE"].startswith("manual_")]
 
     open_data_candidate = open_data_candidates_index.get(GUID) or {}
     openalex_data = (openalex_works_index.get(GUID) or {}).get("DATA") or {}
@@ -556,6 +559,7 @@ for article in tqdm.tqdm(articles, desc="Getting full texts"):
             for key in ("SOURCE", "URL", "VERSION", "HOST_TYPE"):
                 fulltext_info[key] = attempt[key]
             break
+    fulltext_info["ATTEMPTS"] += manual_attempts
 
     with open(info_file_path, "w", encoding="utf8") as save_file:
         save_file.write(json.dumps(fulltext_info, indent=2, ensure_ascii=False))

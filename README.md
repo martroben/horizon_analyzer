@@ -3,7 +3,7 @@
 ## How it works
 How often are the scientific articles of Estonian Horizon 2020 and Horizon Europe projects open access, and how often are their research data open, as the Horizon grants require?
 
-1. **Articles**: ETIS (Estonian Research Information System) has the Estonian Horizon projects and the publications they report. The project uses the published scientific articles (ETIS classifications 1.1.-1.3.) of finished projects. OpenAlex (by DOI, or by title if there is no DOI) gives the published author lists with affiliations.
+1. **Articles**: ETIS (Estonian Research Information System) has the Estonian Horizon projects and the publications they report. The project uses the published scientific articles (ETIS classifications 1.1.-1.3.) of finished projects. ETIS records with the same DOI are one article. OpenAlex (by DOI, or by title if there is no DOI) gives the published author lists with affiliations.
 2. **Grants and mandates**: ETIS often lacks the Horizon grant number, so ETIS projects are matched to Horizon grants in OpenAIRE: by the OpenAIRE search API (financier project number, acronym, title), by the grants that the project's articles link to (OpenAIRE, OpenAlex), or by fuzzy title matching. All Horizon grants require open access to publications. OpenAIRE tells which grants also require open research data.
 3. **Open access**: ETIS and OpenAlex say whether an article is free to read. Open access follows the Horizon definition: the published version or the peer-reviewed accepted manuscript is free to read (preprints don't count). OpenAIRE adds repository copies that OpenAlex doesn't know. When the sources disagree, the full text check decides.
 4. **Open data**: no metadata source reliably says whether an article's data are shared, so every article is read. Full texts come from PMC, open copies in OpenAlex and OpenAIRE (e.g. Zenodo), the full text links in ETIS and OpenAlex cached copies. Candidate data links come from ScholeXplorer, DataCite, Europe PMC and the OpenAIRE datasets of the grant. Claude Code reads each article and labels its data (e.g. repository, supplement, on request, not available) with quotes and links that a validator checks. Articles are checked in random order, so the checked ones are a random sample.
@@ -34,8 +34,9 @@ Run the scripts from the repository root with `uv run src/<script>.py`, in this 
 5. `get_etis_project_horizon_ids` - Horizon grants and mandates of the ETIS projects (`projects`)
 6. `get_open_data_candidates` - candidate data links of the articles, OpenAIRE datasets of the grants (`open_data_candidates`, `grant_datasets`)
 7. `get_fulltext` - full texts to `data/fulltext/` (not committed). Resumes where an earlier run stopped (`fulltext_index`)
-8. `make_open_data_queue` - everything known automatically about each article, in check order (`open_data_queue`)
-9. Open data checks: ask Claude Code to run the `check-open-data` skill. It appends records to `data/assessments/open_data_assessments.jsonl` and checks them with `validate_open_data_assessments`
-10. `analyse_data` - final open access and open data status of each article (`article_analysis`) and summary tables
+8. `get_manual_fulltexts` - full texts saved by hand: lists the articles without a full text with links to try (`data/fulltext/inbox/fetch_list.html`). Save the files into `data/fulltext/inbox/open/` (free on the publisher site or in a repository), `other/` (other free copies) or `library/` (library access) and run it again (`fulltext_index`)
+9. `make_open_data_queue` - everything known automatically about each article, in check order (`open_data_queue`)
+10. Open data checks: ask Claude Code to run the `check-open-data` skill. It appends records to `data/assessments/open_data_assessments.jsonl` and checks them with `validate_open_data_assessments`
+11. `analyse_data` - final open access and open data status of each article (`article_analysis`) and summary tables
 
 Data files, fields and codes: [doc/data_schema.md](doc/data_schema.md). Decisions, findings and run results: [doc/dev_notes.md](doc/dev_notes.md).

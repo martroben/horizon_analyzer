@@ -181,7 +181,7 @@ logger.info(info_string)
 openaire_projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_projects")
 openaire_research_products = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_research_products")
 openalex_works = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_works")
-ETIS_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "etis_articles")
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
 
 grant_ID_prefixes = tuple(OPENAIRE_GRANT_ID_PREFIXES.values())
 openaire_grants_index = {project["id"]: project for project in openaire_projects if project["id"].startswith(grant_ID_prefixes)}
@@ -208,7 +208,7 @@ for openalex_work in openalex_works:
 # Sorted, because set order changes between runs and the counts are saved in this order
 grant_link_counts = {}
 project_article_counts = collections.Counter()
-for article in ETIS_articles:
+for article in articles:
     for project_GUID in article["PROJECT_GUIDS"]:
         project_article_counts[project_GUID] += 1
         grant_link_counts.setdefault(project_GUID, collections.Counter()).update(sorted(article_grant_links.get(article["GUID"], set())))

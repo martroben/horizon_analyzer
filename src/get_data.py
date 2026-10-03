@@ -266,6 +266,28 @@ def has_estonian_affiliation(openalex_data: dict) -> bool | None:
     return False
 
 
+def merge_duplicate_articles(articles: list[dict]) -> list[dict]:
+    """
+    Merges articles with the same DOI into the first one (ETIS can have several records of the same article):
+    projects, authors and institutions of all records, an Estonian author if any record has one, the Jan 2025 manual check of any record.
+    The GUIDs of the other records go to ETIS.DUPLICATE_GUIDS.
+    """
+    unique_articles = {}
+    for article in articles:
+        first_article = unique_articles.setdefault(article["DOI"] or article["GUID"], article)
+        if first_article is article:
+            continue
+        first_article["ETIS"]["DUPLICATE_GUIDS"] += [article["GUID"]]
+        first_article["PROJECT_GUIDS"] += [GUID for GUID in article["PROJECT_GUIDS"] if GUID not in first_article["PROJECT_GUIDS"]]
+        for field in ("AUTHORS", "INSTITUTIONS"):
+            first_article[field] += [item for item in article[field] if item["GUID"] not in [first_item["GUID"] for first_item in first_article[field]]]
+        has_estonian_author_values = (first_article["HAS_ESTONIAN_AUTHOR"], article["HAS_ESTONIAN_AUTHOR"])
+        first_article["HAS_ESTONIAN_AUTHOR"] = True if True in has_estonian_author_values else False if False in has_estonian_author_values else None
+        if first_article["MANUAL_CHECK"]["IS_OPEN_ACCESS"] is None:
+            first_article["MANUAL_CHECK"] = article["MANUAL_CHECK"]
+    return list(unique_articles.values())
+
+
 def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -> None:
     """
     Adds sleep to request cycles to adhere to the rate limits.
@@ -667,7 +689,8 @@ for ETIS_article in ETIS_articles:
             "FULLTEXT_URL": clean_URL(ETIS_data["FullTextLocation"]),
             "IS_OPEN_ACCESS": ETIS_data["IsOpenAccessEng"].lower() == "yes",
             "OPEN_ACCESS_TYPE": ETIS_data["OpenAccessTypeNameEng"] or None,
-            "LICENSE": ETIS_data.get("OpenAccessLicenceNameEng") or None
+            "LICENSE": ETIS_data.get("OpenAccessLicenceNameEng") or None,
+            "DUPLICATE_GUIDS": []
         },
         "OPENALEX": {
             "ID": openalex_data.get("id"),
@@ -686,11 +709,15 @@ for ETIS_article in ETIS_articles:
         }
     }]
 
+n_records = len(articles)
+articles = merge_duplicate_articles(articles)
 articles_save_path = save_data(articles, RESULTS_DATA_DIRECTORY_PATH, "articles")
 
 n_estonian_author = len([item for item in articles if item["HAS_ESTONIAN_AUTHOR"]])
 n_no_estonian_author = len([item for item in articles if item["HAS_ESTONIAN_AUTHOR"] is False])
 info_string1 = f'Summarised article data. Saved results to {articles_save_path}'
-info_string2 = f'{n_estonian_author} of the {len(articles)} articles have an Estonian author, {n_no_estonian_author} don\'t, the rest are unknown'
+info_string2 = f'{n_records - len(articles)} ETIS records were merged into articles with the same DOI'
+info_string3 = f'{n_estonian_author} of the {len(articles)} articles have an Estonian author, {n_no_estonian_author} don\'t, the rest are unknown'
 logger.info(info_string1)
 logger.info(info_string2)
+logger.info(info_string3)

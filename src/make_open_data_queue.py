@@ -12,8 +12,7 @@ import sys
 ##########
 
 PILOT_GUIDS_PATH = "./data/manual/manual_check_guids_20250118112133UTC.txt"
-    # Random sample of 20 articles (seed 1913) that was selected for manual open data checks in Jan 2025
-    # These come first in the queue, because some of them have reference results from the manual checks
+    # Random sample of 20 articles (seed 1913) for the Jan 2025 manual open data checks. First in the queue
 OPENAIRE_GRANT_ID_PREFIXES = ["corda__h2020::", "corda_____he::"]
     # OpenAIRE ID prefixes of Horizon 2020 and Horizon Europe grants
 PREPRINT_URL_PATTERN = r"arxiv\.org|biorxiv\.org|medrxiv\.org|chemrxiv\.org|techrxiv\.org|10\.36227/techrxiv|ssrn\.com|preprints\.org|researchsquare\.com|mpra\.ub\.uni-muenchen\.de"
@@ -95,7 +94,6 @@ def get_automatic_open_access(article: dict, openaire_open_instances: list[dict]
             return None, "manual_check_any_version"
         is_open = manual_check_is_open_access
 
-    # Horizon projects often deposit accepted manuscripts in repositories (e.g. Zenodo) that OpenAlex doesn't know
     repository_copies = [instance for instance in openaire_open_instances if not is_preprint(instance)]
     if not is_open and repository_copies:
         return None, "openaire_copy_not_in_openalex"
@@ -131,8 +129,7 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 # Make open data queue #
 ########################
 
-# The queue has everything that is known automatically about each article: the analysis and Claude's open data check
-# (see .claude/skills/check-open-data) use it. See doc/data_schema.md
+# One record per article, in check order. See doc/data_schema.md
 
 # Reload data from save files
 articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
@@ -172,7 +169,7 @@ for article in articles:
             "LICENSE": location.get("license")
         }]
 
-    # OpenAIRE knows many repository copies that OpenAlex doesn't (e.g. accepted manuscripts that Horizon projects upload to Zenodo)
+    # Open copies in OpenAIRE that OpenAlex doesn't list
     known_URLs = {normalise_URL(location[key]) for location in openalex_data.get("locations") or [] for key in ("pdf_url", "landing_page_url") if location.get(key)}
     if article["DOI"]:
         known_URLs.add(normalise_URL(f'https://doi.org/{article["DOI"]}'))
@@ -243,8 +240,7 @@ for article in articles:
         "FULLTEXT": {key: value for key, value in fulltext.items() if key not in ("GUID", "DOI")}
     }]
 
-# Pilot articles first, then the rest by GUID. ETIS GUIDs are random (UUID version 4), so the GUID order is a random order:
-# any number of checked articles is a random sample. Added articles get a random place, the others keep their order
+# Pilot articles first, then the rest by GUID (ETIS GUIDs are random, so this is a random order)
 queue_index = {item["GUID"]: item for item in queue}
 other_GUIDs = sorted(GUID for GUID in queue_index if GUID not in pilot_GUIDs)
 queue_ordered = []

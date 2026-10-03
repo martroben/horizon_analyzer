@@ -71,7 +71,7 @@ One record per ETIS Horizon project (finished projects of the ETIS Horizon progr
 | `GUID` | str | ETIS project GUID |
 | `TITLE` | str | ETIS English title |
 | `PROGRAMME_CODES` | list[str] | ETIS programme codes (136 EIT, 137 ERA chairs, 442 H2020, 443 ERA-NET H2020, 450 Horizon Europe, 451 ERA-NET Horizon Europe, MUU other) |
-| `FRAMEWORK_PROGRAMME` | str | code: framework programme of the grant, or of the ETIS programme codes if the project has no grant (ETIS codes are wrong for a few projects, e.g. Horizon Europe grants under programme 442) |
+| `FRAMEWORK_PROGRAMME` | str | code: framework programme of the grant, or of the ETIS programme codes if the project has no grant |
 | `HORIZON_ID` | str | grant number; null if not matched |
 | `OPENAIRE_ID` | str | OpenAIRE ID of the grant |
 | `ACRONYM` | str | grant acronym in OpenAIRE |
@@ -114,7 +114,7 @@ Same records as the sidecar files `data/fulltext/<GUID>.json`. The full text is 
 | `ATTEMPTS` | list | full text sources tried, best first: `SOURCE` (code), `URL`, `VERSION` (code, null if unknown), `HOST_TYPE` (code), `RESULT` (code), `RESULT_DETAIL` (HTTP status, content type or error name) |
 
 ## open_data_queue
-Everything known automatically about an article. The order is the check order: the 20 articles of the Jan 2025 random sample first, then the rest by GUID. ETIS GUIDs are random (UUID version 4), so this is a random order and any number of checked articles is a random sample. Added articles get a random place, the places of the others stay the same.
+Everything known automatically about an article, in check order: the 20 articles of the Jan 2025 random sample first, then the rest by GUID. ETIS GUIDs are random, so any number of checked articles is a random sample.
 
 | Field | Type | |
 |---|---|---|

@@ -335,10 +335,6 @@ logger.info(info_string2)
 ########################################################
 
 # One record per ETIS Horizon project. See doc/data_schema.md
-# OpenAIRE graph project mandates:
-# openAccessMandateForPublications - project has to give open access to its publications
-# openAccessMandateForDataset - project has to give open access to its research data
-#   (H2020 projects in the Open Research Data Pilot, i.e. Article 29.3 of the grant agreement; all Horizon Europe projects)
 
 horizon_ID_matches = search_API_matches + article_grant_link_matches
 for matched_by, title_matches in (("exact_title", exact_title_matches), ("approximate_title", approximate_title_matches)):
@@ -369,7 +365,7 @@ for project in ETIS_horizon_projects:
         "ARTICLE_GRANT_LINK_COUNTS": dict(grant_link_counts.get(project["Guid"]) or {}),
         "FUNDING_STREAMS": [(funding.get("fundingStream") or {}).get("id") for funding in fundings],
         "CALL_IDENTIFIER": openaire_project.get("callIdentifier"),
-        # All Horizon programmes (incl. ERA-NET and EIT) require open access to publications. OpenAIRE has the flag only for matched projects
+        # All Horizon programmes require open access to publications
         "HAS_PUBLICATION_MANDATE": True,
         "HAS_DATA_MANDATE": openaire_project.get("openAccessMandateForDataset")
     }]

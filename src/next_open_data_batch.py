@@ -165,7 +165,7 @@ if __name__ == "__main__":
     grant_datasets_index = {item["HORIZON_ID"]: item for item in grant_datasets}
     assessed_GUIDs = {assessment["GUID"] for assessment in read_assessments(ASSESSMENTS_PATH)}
 
-    # Researchers are accountable only for the articles they wrote - articles without an Estonian author are left out of the research
+    # Articles without an Estonian author are left out
     n_no_estonian_author = len([item for item in queue if item["HAS_ESTONIAN_AUTHOR"] is False])
     if arguments.guids:
         batch = [item for item in queue if item["GUID"] in arguments.guids]

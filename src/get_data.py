@@ -573,8 +573,7 @@ logger.info(info_string2)
 # Summarise article data #
 ##########################
 
-# One record per article: ETIS info, Estonian authors and institutions, and what ETIS, OpenAlex and the Jan 2025 manual check say about open access
-# See doc/data_schema.md
+# One record per article. See doc/data_schema.md
 
 # Reload data from save files
 openalex_works = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_works")

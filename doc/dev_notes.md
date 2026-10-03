@@ -1,4 +1,8 @@
 # 2026-10-03
+Documentation review: decisions and findings are in this log. README, `doc/data_schema.md`, the `check-open-data` skill and code comments say what things are, without the reasons. Shorter README (setup, secrets and costs together, script list without details). Removed reasons from the schema (queue order, wrong ETIS programme codes), the skill (dossier contents, check reason codes that are in the schema) and code comments (accountability for articles, mandate definitions, OpenAIRE copies, queue order). The notes of `doc/manual_operations_notes.md` are now in the 2024-12-16 entry.
+
+PDFs are converted with pypdfium2 (PDFium, Apache-2.0/BSD-3, the wheel has the library) instead of pdftotext, so no system package (poppler-utils, sudo) is needed. Compared on the 308 cached PDFs: all converted, 15 s (pdftotext 23 s), as few glued words as pdftotext (39 vs 45). PDFium marks hyphens at line breaks with \x02 and joins the lines - the converter drops the mark and joins the word, like pdftotext. The texts differ from pdftotext mostly in the order of tables, formulas and running heads. PyMuPDF was as good, but it's AGPL. pypdf was ~9x slower with 4x more glued words, pdfminer.six ~9x slower. Cached texts were not converted again, so the quotes of the existing assessments still match (with pypdfium2 texts, 1 of the 13 quotes from PDFs would match only approximately: "1 H NMR" vs "1H NMR").
+
 Review step 3: consistent data schema. Data files, fields and codes are described in `doc/data_schema.md`. Conventions: boolean fields start with `IS_` or `HAS_`, lists have plural names, counts start with `N_`, missing values are null (not ""), categorical values are snake case codes. Project = ETIS project, grant = Horizon grant. Top-level fields are the values that the analysis uses; what a single source says is in a block named after the source (`ETIS`, `OPENALEX`, `OPENAIRE`, `EUROPEPMC`, `SCHOLEXPLORER`, `DATACITE`, `MANUAL_CHECK`). Before, `IS_OPEN_ACCESS` was the ETIS status in the article data and the final status in the analysis data.
 - Results: `open_access_data` -> `articles`, `etis_project_horizon_ids` -> `projects`, `project_datasets` -> `grant_datasets`, analysis `articles` -> `article_analysis`. `open_access_data_ambiguous` is dropped - the queue's `CHECK_NEEDED_REASON` replaces it. Raw files have the source as prefix: `etis_publications`, `etis_publications_without_data`, `etis_articles`, `openalex_works`, `openaire_projects`, `openaire_project_searches`, `datacite_records`.
 - `articles`: one `DOI` (ETIS DOI, else the DOI that OpenAlex title search found) instead of `DOI or OPENALEX_DOI` in 4 scripts. `OPENALEX.FOUND_BY` (doi, title_search). Dropped `IS_PUBLIC_FILE` (false for all).
@@ -188,6 +192,10 @@ Started dev log.
 Started git repo.
 
 Investigated OpenAccessButton bad hits.
+
+ETIS publications with IS_PUBLIC_FILE = true and IS_OPEN_ACCESS = false are sometimes open (03a149cb-e0e5-418b-b01d-1b8980d12cc5, https://www.eccomas2016.org/proceedings/pdf/5264.pdf), sometimes not (f0078a05-4621-422b-bd14-1b293447fbfc, http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7743740&isnumber=7743712).
+
+Example of a paper with summary data and code available: https://www.nature.com/articles/s41586-022-05165-3#data-availability
 
 # 2024-12-15
 Pulled project publications.

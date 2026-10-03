@@ -328,7 +328,6 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 ###########################
 
 # ScholeXplorer collects links between publications and datasets/software from Crossref, DataCite, OpenAIRE, PDB, etc.
-# Many links are the article citing other people's data or software - Claude checks them during the open data check
 
 # Reload data from save file
 articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
@@ -468,7 +467,6 @@ logger.info(info_string2)
 ###################################
 
 # Datasets that OpenAIRE links to the grants of the articles' ETIS projects
-# Grant datasets are reported separately - they count as open data of an article only if the article itself links to them
 
 # Reload data from save files
 articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")

@@ -346,8 +346,7 @@ def get_fulltext_attempts(open_data_candidate: dict, openalex_data: dict, resear
         if get_version_code(location) in PEER_REVIEWED_VERSIONS and location.get("landing_page_url") and host_type != "repository":
             attempts += [{"SOURCE": "openalex_html", "URL": location["landing_page_url"], "VERSION": get_version_code(location), "HOST_TYPE": host_type}]
 
-    # OpenAIRE knows many repository copies that OpenAlex doesn't (e.g. accepted manuscripts that Horizon projects upload to Zenodo)
-    # These are free, so they go before the OpenAlex cached copy
+    # OpenAIRE copies are free, so they go before the OpenAlex cached copy
     openaire_attempts = get_openaire_attempts(research_products)
     attempts += [attempt for attempt in openaire_attempts if attempt["VERSION"] != "submitted_version"]
 

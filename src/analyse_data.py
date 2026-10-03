@@ -158,7 +158,6 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 # Load data #
 #############
 
-# The open data queue has all automatic info of the articles, the assessments have the results of Claude's open data checks
 open_data_queue = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_data_queue")
 assessments = read_assessments(ASSESSMENTS_PATH)
 
@@ -167,9 +166,7 @@ assessments = read_assessments(ASSESSMENTS_PATH)
 # Make article analysis data #
 ##############################
 
-# One record per article: Estonian authors and institutions, ETIS projects with their grants and open access mandates,
-# open access (publications) and open data verdicts. See doc/data_schema.md
-# Article-level mandates and grant links are True if they hold for any of the article's projects
+# One record per article. See doc/data_schema.md
 
 article_analysis = []
 for queue_item in open_data_queue:
@@ -226,7 +223,7 @@ article_analysis_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.rstrip("/")}/article
 with open(article_analysis_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(article_analysis, indent=2, ensure_ascii=False))
 
-# Researchers are accountable only for the articles they wrote - articles without an Estonian author are left out
+# Articles without an Estonian author are left out
 analysis_columns = [
     "GUID", "HAS_ESTONIAN_AUTHOR", "HAS_DATA_MANDATE", "IS_GRANT_LINKED", "IS_GRANT_ACKNOWLEDGED", "IS_OPEN_ACCESS",
     "OPEN_ACCESS_SETTLED_BY", "OPEN_ACCESS_AUTOMATIC_VERDICT", "OPEN_ACCESS_FULLTEXT_VERDICT", "DATA_LABEL", "IS_OPEN_DATA"
@@ -243,8 +240,6 @@ logger.info(info_string2)
 #######################
 # Analyse open access #
 #######################
-
-# Open access = the published version or the peer-reviewed author manuscript is free to read (Horizon open access mandate)
 
 open_access_rates = summarise_rate(articles_in_scope, "IS_OPEN_ACCESS", "IS_GRANT_LINKED")
 settled_by_counts = articles_in_scope.group_by("OPEN_ACCESS_SETTLED_BY").len().sort("OPEN_ACCESS_SETTLED_BY")
@@ -265,8 +260,6 @@ with polars.Config(**TABLE_PRINT_OPTIONS):
 #####################
 # Analyse open data #
 #####################
-
-# Compliance with the data mandate can be derived by comparing the open data status with HAS_DATA_MANDATE
 
 articles_assessed = articles_in_scope.filter(polars.col("DATA_LABEL").is_not_null())
 if articles_assessed.height:

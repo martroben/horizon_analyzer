@@ -2,12 +2,12 @@
 import html.parser
 import os
 import re
-import shutil
-import subprocess
 import sys
 import urllib.parse
 import xml.etree.ElementTree as ET
 import zipfile
+# external
+import pypdfium2
 
 
 ##########
@@ -235,12 +235,15 @@ def docx_to_text(docx_path: str) -> str:
 
 def pdf_to_text(pdf_path: str) -> str:
     """
-    Converts a PDF to plain text with pdftotext (poppler-utils).
+    Converts a PDF to plain text with PDFium (pypdfium2).
     """
-    if not shutil.which("pdftotext"):
-        raise RuntimeError("pdftotext not found. Install poppler-utils (e.g. sudo apt install poppler-utils)")
-    result = subprocess.run(["pdftotext", "-q", "-enc", "UTF-8", pdf_path, "-"], capture_output=True, timeout=300)
-    return tidy_text(result.stdout.decode("utf8", errors="replace"))
+    pdf = pypdfium2.PdfDocument(pdf_path)
+    try:
+        text = "\n".join(page.get_textpage().get_text_bounded() for page in pdf)
+    finally:
+        pdf.close()
+    # PDFium marks a hyphen at a line break with \x02 and joins the lines - drop it to join the word
+    return tidy_text(text.replace("\x02", ""))
 
 
 def tidy_text(text: str) -> str:

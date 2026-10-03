@@ -205,8 +205,16 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:23+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:00+00:00",
     "ATTEMPTS": [
+      {
+        "SOURCE": "openalex_html",
+        "URL": "https://ieeexplore.ieee.org/document/8550762/",
+        "VERSION": "accepted_version",
+        "HOST_TYPE": "repository",
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
       {
         "SOURCE": "openaire_pdf",
         "URL": "http://researchopen.lsbu.ac.uk/2873/1/08550762%20%281%29.pdf",
@@ -214,6 +222,14 @@
         "HOST_TYPE": null,
         "RESULT": "exception",
         "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://ieeexplore.ieee.org/abstract/document/8550762",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -405,15 +421,15 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:23+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:01+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
-        "URL": "https://www.scientific.net/MSF.924.302",
+        "URL": "https://www.scientific.net/MSF.924.302.pdf",
         "VERSION": "published_version",
         "HOST_TYPE": "book_series",
-        "RESULT": "text_too_short",
-        "RESULT_DETAIL": null
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -493,8 +509,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:24+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:03+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://ieeexplore.ieee.org/document/7921362",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "19b41208-cb9a-4463-b92f-226a92d36776",
@@ -550,8 +575,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:24+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:03+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/10.1093/comjnl/bxy101",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://academic.oup.com/comjnl/article-abstract/62/6/820/5123536?redirectedFrom=fulltext",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "6f604c65-9805-4267-b97a-b5f306ccb96b",
@@ -563,15 +605,15 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:24+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:04+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
-        "URL": "https://www.scientific.net/MSF.963.357",
+        "URL": "https://www.scientific.net/MSF.963.357.pdf",
         "VERSION": "published_version",
         "HOST_TYPE": "book_series",
-        "RESULT": "text_too_short",
-        "RESULT_DETAIL": null
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -585,7 +627,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:25+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:05+00:00",
     "ATTEMPTS": []
   },
   {
@@ -620,8 +662,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:25+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:05+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.semanticscholar.org/paper/Network-Coding-and-Hierarchical-Modulation-for-WBAN-Waheed-Talha/92de7d6d5fac267f0f8cb7b1b751953bfa0d1e3d?p2df",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.igi-global.com/ViewTitle.aspx?TitleId=232308&isxn=9781522566861",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "wrong_content_type",
+        "RESULT_DETAIL": "text/html; charset=utf-8"
+      }
+    ]
   },
   {
     "GUID": "d465e931-d7d0-4269-9d29-581c8f324113",
@@ -863,8 +922,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:25+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:08+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://onlinelibrary.wiley.com/doi/10.1002/mp.12746/full",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "2c68c631-af52-430b-8628-219862ecc3a8",
@@ -951,14 +1019,14 @@
   {
     "GUID": "6247989b-e1ce-4e4c-8292-25deafb190aa",
     "DOI": "10.3390/fi9040072",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/6247989b-e1ce-4e4c-8292-25deafb190aa.pdf",
+    "TEXT_FILE": "./data/fulltext/6247989b-e1ce-4e4c-8292-25deafb190aa.txt",
+    "N_CHARACTERS": 54042,
+    "SOURCE": "openaire_html",
+    "URL": "https://www.mdpi.com/1999-5903/9/4/72/pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:25+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:08+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -966,6 +1034,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.mdpi.com/1999-5903/9/4/72/pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -995,14 +1071,14 @@
   {
     "GUID": "f3c2119a-58fc-4109-9b3e-bfea5df4cc10",
     "DOI": "10.3390/info8030088",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/f3c2119a-58fc-4109-9b3e-bfea5df4cc10.pdf",
+    "TEXT_FILE": "./data/fulltext/f3c2119a-58fc-4109-9b3e-bfea5df4cc10.txt",
+    "N_CHARACTERS": 97131,
+    "SOURCE": "openaire_html",
+    "URL": "https://www.mdpi.com/2078-2489/8/3/88/pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:26+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:09+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -1010,6 +1086,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.mdpi.com/2078-2489/8/3/88/pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -1090,15 +1174,15 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:28+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
-        "URL": "https://www.scientific.net/MSF.1004.490",
+        "URL": "https://www.scientific.net/MSF.1004.490.pdf",
         "VERSION": "published_version",
         "HOST_TYPE": "book_series",
-        "RESULT": "text_too_short",
-        "RESULT_DETAIL": null
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -1222,8 +1306,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:30+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/ima.22373",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "293ebffc-8337-4fd6-8590-625a5bcd17f5",
@@ -1323,7 +1416,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:30+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
     "ATTEMPTS": []
   },
   {
@@ -1336,7 +1429,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:30+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
     "ATTEMPTS": []
   },
   {
@@ -1387,7 +1480,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:30+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
     "ATTEMPTS": []
   },
   {
@@ -1460,8 +1553,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:30+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://www.ijbem.org/volume17/number2/ijbem_vol17_no2_pp87-89.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "404"
+      }
+    ]
   },
   {
     "GUID": "f742017f-deee-4a21-89ef-a979e99fee0b",
@@ -1570,14 +1672,14 @@
   {
     "GUID": "38339a43-ec05-4b9d-a11c-f3c3406b6868",
     "DOI": "10.3390/cryst10080636",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/38339a43-ec05-4b9d-a11c-f3c3406b6868.pdf",
+    "TEXT_FILE": "./data/fulltext/38339a43-ec05-4b9d-a11c-f3c3406b6868.txt",
+    "N_CHARACTERS": 35653,
+    "SOURCE": "openaire_html",
+    "URL": "https://www.mdpi.com/2073-4352/10/8/636/pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:30+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:12+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -1585,6 +1687,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.mdpi.com/2073-4352/10/8/636/pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -1621,15 +1731,15 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:32+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:13+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
-        "URL": "https://www.scientific.net/MSF.924.862",
+        "URL": "https://www.scientific.net/MSF.924.862.pdf",
         "VERSION": "published_version",
         "HOST_TYPE": "book_series",
-        "RESULT": "text_too_short",
-        "RESULT_DETAIL": null
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -1643,8 +1753,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:33+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:14+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://ieeexplore.ieee.org/document/8654701",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "ae591667-ceb0-4b0f-9f98-9c63a9d03eb7",
@@ -1782,8 +1901,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:33+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:15+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.scientific.net/MSF.897.447.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "0e94c1ab-2360-457e-a1ab-5370d20ef055",
@@ -1795,8 +1923,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:33+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:17+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://www.ijbem.org/volume17/number2/ijbem_vol17_no2_pp64-74.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "404"
+      }
+    ]
   },
   {
     "GUID": "05f75f14-a2a2-4dd8-a50a-27060a4a4d01",
@@ -1830,8 +1967,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:33+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:17+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://ieeexplore.ieee.org/document/10616260",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "1eeb1ec8-764c-479b-bb35-ada3a494bbff",
@@ -2000,28 +2146,86 @@
   {
     "GUID": "a6dab915-1cf6-4221-a5b3-3bff096e62ed",
     "DOI": "10.15159/ar.20.024",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/a6dab915-1cf6-4221-a5b3-3bff096e62ed.pdf",
+    "TEXT_FILE": "./data/fulltext/a6dab915-1cf6-4221-a5b3-3bff096e62ed.txt",
+    "N_CHARACTERS": 34084,
+    "SOURCE": "etis",
+    "URL": "https://agronomy.emu.ee/wp-content/uploads/2020/04/AR2020_Vol18SI3_Ibrahim.pdf#abstract-7291",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:33+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:17+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/10492/5613",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/10.15159/ar.20.024",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://agronomy.emu.ee/wp-content/uploads/2020/04/AR2020_Vol18SI3_Ibrahim.pdf#abstract-7291",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "2fac04a3-1321-4257-b1f5-06bfd2578380",
     "DOI": "10.15159/ar.22.008",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/2fac04a3-1321-4257-b1f5-06bfd2578380.pdf",
+    "TEXT_FILE": "./data/fulltext/2fac04a3-1321-4257-b1f5-06bfd2578380.txt",
+    "N_CHARACTERS": 42863,
+    "SOURCE": "etis",
+    "URL": "https://dspace.emu.ee/bitstream/handle/10492/7265/AR2022_Ibrahim_doi_008.pdf?sequence=4&isAllowed=y",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:33+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:26+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/10.15159/ar.22.008",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/10492/7265",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/http://hdl.handle.net/10492/7265",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://dspace.emu.ee/bitstream/handle/10492/7265/AR2022_Ibrahim_doi_008.pdf?sequence=4&isAllowed=y",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "639d8809-c6e2-4915-9bdb-71a2993b96d1",
@@ -2055,7 +2259,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:33+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:36+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2064,21 +2268,62 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://virtualibiblioteka.ktu.edu/discovery/fulldisplay?docid=alma993573499208453&vid=370LABT_KTU:KTU&lang=en&scope=KTUIR&tab=KTUIR",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
       }
     ]
   },
   {
     "GUID": "bd4b5f0d-d3f0-4131-83aa-4a0841149329",
     "DOI": "10.15159/ar.21.033",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/bd4b5f0d-d3f0-4131-83aa-4a0841149329.pdf",
+    "TEXT_FILE": "./data/fulltext/bd4b5f0d-d3f0-4131-83aa-4a0841149329.txt",
+    "N_CHARACTERS": 18016,
+    "SOURCE": "etis",
+    "URL": "https://dspace.emu.ee/bitstream/handle/10492/6426/Vol19_S1_Jogi.pdf?sequence=4&isAllowed=y",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:34+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:38+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/10.15159/ar.21.033",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/10492/6484",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/10492/6426",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://dspace.emu.ee/bitstream/handle/10492/6426/Vol19_S1_Jogi.pdf?sequence=4&isAllowed=y",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "01ba05b6-ab83-468d-9163-8f189260dfa9",
@@ -2090,8 +2335,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:34+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:50+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://www.sciencedirect.com/science/article/pii/S1364032120302562",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "6acc8178-3638-4554-afae-095ce419a2cf",
@@ -2103,7 +2357,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:34+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:51+00:00",
     "ATTEMPTS": []
   },
   {
@@ -2456,8 +2710,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:34+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:27:51+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc8b2ceb-bc46bce7-0813-40e6-a025-a55b829bae59",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S0045653523018969?via%3Dihub",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "80e81e88-0111-4008-bed0-f2c6c6990d28",
@@ -2537,7 +2808,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:34+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:52+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2546,6 +2817,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/4c65f59ce236413a8df473127e81fc0e",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -2559,7 +2838,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:36+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:52+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2603,7 +2882,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:37+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:54+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2611,6 +2890,22 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://virtualibiblioteka.ktu.edu/discovery/fulldisplay?docid=alma993578218608453&vid=370LABT_KTU:KTU&lang=en&scope=KTUIR&tab=KTUIR",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc94c642-a0133e18-869f-4ae1-88ab-7046c8bbbcc7",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
       }
     ]
@@ -2625,7 +2920,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:38+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:57+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2983,7 +3278,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:39+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:57+00:00",
     "ATTEMPTS": []
   },
   {
@@ -2996,7 +3291,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:39+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:57+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -3033,14 +3328,14 @@
   {
     "GUID": "979f9c7c-8f3c-435c-800d-c81ca832ff6a",
     "DOI": "10.1016/j.solmat.2024.113279",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/979f9c7c-8f3c-435c-800d-c81ca832ff6a.pdf",
+    "TEXT_FILE": "./data/fulltext/979f9c7c-8f3c-435c-800d-c81ca832ff6a.txt",
+    "N_CHARACTERS": 59929,
+    "SOURCE": "openaire_html",
+    "URL": "https://www.helmholtz-berlin.de/pubbin/oai_publication?VT=1&ID=113056",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:41+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:27:59+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -3048,6 +3343,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.helmholtz-berlin.de/pubbin/oai_publication?VT=1&ID=113056",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -3114,7 +3417,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:42+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -3316,8 +3619,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:43+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.tandfonline.com/doi/full/10.1080/17480272.2019.1635206",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "4eeafc94-e8f9-48ab-b209-094799e3f755",
@@ -3373,7 +3685,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:43+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
     "ATTEMPTS": []
   },
   {
@@ -3446,7 +3758,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:43+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -3455,6 +3767,54 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://tiedejatutkimus.fi/Record/0333949519",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://cris.vtt.fi/en/publications/comparison-of-libs-results-on-iter-relevant-samples-obtained-by-n-2/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/ed576e53b1e34c5e9b97eeb6db7f45f5",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://dspace.lu.lv/dspace/handle/7/52413",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S2352179118301522",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S2352179118301522",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -3506,8 +3866,33 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:44+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:05+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/11311/1158041",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S002231152031268X",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S002231152031268X?via%3Dihub",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "b1ade201-0d6e-4f3a-819a-330b7f626571",
@@ -3519,7 +3904,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:44+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:07+00:00",
     "ATTEMPTS": []
   },
   {
@@ -3584,7 +3969,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:44+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:07+00:00",
     "ATTEMPTS": []
   },
   {
@@ -3597,8 +3982,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:44+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:07+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://link.springer.com/article/10.1007/s10836-016-5589-x",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/11583/2640850",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "55a377d6-8ab1-4fa2-89d2-f93b659cdb53",
@@ -3610,8 +4012,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:44+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:08+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://ieeexplore.ieee.org/document/8031067/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "0b4fd160-e2ad-449e-9f4b-a09ab82085c0",
@@ -3781,8 +4192,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:44+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:09+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/article/10.1007/s43151-021-00059-z",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "994c1bff-7282-431a-a040-2c3cf5a0daf5",
@@ -3809,14 +4229,14 @@
   {
     "GUID": "3f1ddb78-0fb5-4bd4-ad6a-a8ea2298cb7b",
     "DOI": "10.4119/jsse-3146",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/3f1ddb78-0fb5-4bd4-ad6a-a8ea2298cb7b.pdf",
+    "TEXT_FILE": "./data/fulltext/3f1ddb78-0fb5-4bd4-ad6a-a8ea2298cb7b.txt",
+    "N_CHARACTERS": 68968,
+    "SOURCE": "openaire_html",
+    "URL": "https://repositorio-aberto.up.pt/bitstream/10216/139870/2/533060.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:44+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:09+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -3824,6 +4244,22 @@
         "VERSION": "published_version",
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/24e07edc565c45f9a1b0eb13691bec57",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://repositorio-aberto.up.pt/bitstream/10216/139870/2/533060.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -3838,8 +4274,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:11+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://pergamos.lib.uoa.gr/uoa/dl/object/2983165",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.tandfonline.com/eprint/qWqtPIT9gAId3QKjixMy/full",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "caa03fd7-1012-4e34-aef3-ffe9c7c64a42",
@@ -3851,8 +4304,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:14+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.inderscience.com/info/inarticle.php?artid=89355",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "51d889f5-b2bd-4526-b71c-2628805c5c18",
@@ -3932,8 +4394,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:14+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://www.tandfonline.com/loi/tbah20",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "db5b1f99-2e4b-420d-8ff4-55ebcfdd6c18",
@@ -4021,8 +4492,33 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:15+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://link.springer.com/10.1134/S1064229320050026",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/10492/6397",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/article/10.1134/S1064229320050026",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "a7da66c8-bd84-4a95-846b-ab82635fc6e3",
@@ -4078,7 +4574,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:19+00:00",
     "ATTEMPTS": []
   },
   {
@@ -4151,13 +4647,53 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:19+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://doi.org/10.1080/09064710.2021.1973083",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.tandfonline.com/doi/pdf/10.1080/09064710.2021.1973083?needAccess=true",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://tandf.figshare.com/articles/journal_contribution/Cover_crop_residues_effect_on_soil_structural_stability_and_phosphatase_activity/16758542/1",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://tandf.figshare.com/articles/journal_contribution/Cover_crop_residues_effect_on_soil_structural_stability_and_phosphatase_activity/16758542",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/2cf036b77a05499187d9604de4c63974",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.tandfonline.com/doi/full/10.1080/09064710.2021.1973083",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       }
@@ -4219,8 +4755,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://journals.sagepub.com/doi/10.1177/0002716220911890",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "db7c80f0-77e1-46a0-a770-fea970620eb1",
@@ -4366,7 +4911,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
     "ATTEMPTS": []
   },
   {
@@ -4401,8 +4946,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://ieeexplore.ieee.org/document/9095363",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "0517b297-595c-467b-86b8-638343eba8b0",
@@ -4414,13 +4968,21 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:45+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://doi.org/10.1080/10447318.2017.1379240",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.tandfonline.com/doi/pdf/10.1080/10447318.2017.1379240?needAccess=true",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       }
@@ -4568,13 +5130,93 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:47+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:22+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://link.springer.com/10.1007/s10805-022-09469-x",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc6d860a-d3eed44b-1337-4166-b9fa-55cdc9ca0d71",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc6d860a-d3eed44b-1337-4166-b9fa-55cdc9ca0d71",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/2434/953336",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc6d860a-d3eed44b-1337-4166-b9fa-55cdc9ca0d71",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc6d860a-d3eed44b-1337-4166-b9fa-55cdc9ca0d71",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://link.springer.com/article/10.1007/s10805-022-09469-x",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/11572/370036",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/11392/2608991",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://link.springer.com/10.1007/s10805-022-09469-x",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/content/pdf/10.1007/s10805-022-09469-x.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
       },
@@ -4764,7 +5406,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:48+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:33+00:00",
     "ATTEMPTS": []
   },
   {
@@ -4808,15 +5450,32 @@
   {
     "GUID": "18651b92-3219-4e78-93b2-b464962e5a71",
     "DOI": "10.1017/s1752971917000148",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/18651b92-3219-4e78-93b2-b464962e5a71.html",
+    "TEXT_FILE": "./data/fulltext/18651b92-3219-4e78-93b2-b464962e5a71.txt",
+    "N_CHARACTERS": 134301,
+    "SOURCE": "etis",
+    "URL": "https://www.cambridge.org/core/journals/international-theory/article/identity-beyond-othering-crisis-and-the-politics-of-decision-in-the-eus-involvement-in-libya/5F986CF4A38A85E6692EE45C81612AF4/share/f8f4a2dbf0f909e3505573ec07c959a7cf201401",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:48+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:33+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.semanticscholar.org/paper/Identity-beyond-othering%3A-crisis-and-the-politics-Leek-Morozov/b53d393147837c319310829cf94fc17e49f4f16f?p2df",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.cambridge.org/core/journals/international-theory/article/identity-beyond-othering-crisis-and-the-politics-of-decision-in-the-eus-involvement-in-libya/5F986CF4A38A85E6692EE45C81612AF4/share/f8f4a2dbf0f909e3505573ec07c959a7cf201401",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "72beb5a6-e21e-476e-b43e-b9de1a898fb8",
@@ -4918,7 +5577,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:48+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -4931,6 +5590,38 @@
       {
         "SOURCE": "openaire_pdf",
         "URL": "https://cris.unibo.it/bitstream/11585/668189/2/bmm-2017-0431.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.futuremedicine.com/doi/10.2217/bmm-2017-0431",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/11392/2392779",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/11585/668189",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://cris.unibo.it/retrieve/handle/11585/668189/537187/bmm-2017-0431.pdf",
         "VERSION": null,
         "HOST_TYPE": null,
         "RESULT": "http_error",
@@ -5108,8 +5799,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:49+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:38+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/article/10.1007/s00381-017-3491-1",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "8cd1db42-37d7-4ff5-8328-b7421b4b5350",
@@ -5121,7 +5821,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:49+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:38+00:00",
     "ATTEMPTS": []
   },
   {
@@ -5374,23 +6074,71 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:49+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:38+00:00",
     "ATTEMPTS": [
+      {
+        "SOURCE": "openalex_html",
+        "URL": "https://cris.maastrichtuniversity.nl/en/publications/homocysteine-levels-associate-with-subtle-changes-in-leukocyte-dn/",
+        "VERSION": "published_version",
+        "HOST_TYPE": "repository",
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openalex_html",
+        "URL": "https://pure.eur.nl/files/47860148/REPUB_102648_OA.pdf",
+        "VERSION": "published_version",
+        "HOST_TYPE": "repository",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
       {
         "SOURCE": "openaire_pdf",
         "URL": "https://hal-amu.archives-ouvertes.fr/hal-01753870/file/15%20MANDAVIYA.pdf",
         "VERSION": null,
         "HOST_TYPE": null,
-        "RESULT": "wrong_content_type",
-        "RESULT_DETAIL": "text/html; charset=utf-8"
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
       },
       {
-        "SOURCE": "openalex_pdf",
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/10.2217/epi-2017-0038",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
         "URL": "https://amu.hal.science/hal-01753870v1/document",
-        "VERSION": "submitted_version",
-        "HOST_TYPE": "repository",
-        "RESULT": "wrong_content_type",
-        "RESULT_DETAIL": "text/html; charset=utf-8"
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://amu.hal.science/hal-01753870v1",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/https://doi.org/10.2217/epi-2017-0038",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.futuremedicine.com/doi/full/10.2217/epi-2017-0038?url_ver=Z39.88-2003&rfr_id=ori%3Arid%3Acrossref.org&rfr_dat=cr_pub%3Dpubmed",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -6149,15 +6897,24 @@
   {
     "GUID": "21bd1269-486a-4e0e-87bc-38431be0ed3e",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/21bd1269-486a-4e0e-87bc-38431be0ed3e.pdf",
+    "TEXT_FILE": "./data/fulltext/21bd1269-486a-4e0e-87bc-38431be0ed3e.txt",
+    "N_CHARACTERS": 56873,
+    "SOURCE": "etis",
+    "URL": "http://technologygovernance.eu/files/main//2017092108151515.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:50+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:43+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://technologygovernance.eu/files/main//2017092108151515.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "9a43e678-3882-411f-8c2e-5fe7cb28d438",
@@ -6169,7 +6926,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:50+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:43+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_pdf",
@@ -6184,6 +6941,14 @@
         "URL": "https://doi.org/10.1080/09540962.2020.1732027",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.tandfonline.com/doi/full/10.1080/09540962.2020.1732027",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       },
@@ -6342,15 +7107,24 @@
   {
     "GUID": "76c9425e-4537-4f9c-a026-6182231a29d9",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/76c9425e-4537-4f9c-a026-6182231a29d9.html",
+    "TEXT_FILE": "./data/fulltext/76c9425e-4537-4f9c-a026-6182231a29d9.txt",
+    "N_CHARACTERS": 156778,
+    "SOURCE": "etis",
+    "URL": "https://rito.riigikogu.ee/eelmised-numbrid/nr-37/eksport-ja-innovatsioon-ettevotetes-euroopa-siirderiikide-vordlev-uuring/",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:45+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://rito.riigikogu.ee/eelmised-numbrid/nr-37/eksport-ja-innovatsioon-ettevotetes-euroopa-siirderiikide-vordlev-uuring/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "8be02000-14c2-44a0-99e9-b19fef31d49b",
@@ -6362,34 +7136,52 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:46+00:00",
     "ATTEMPTS": []
   },
   {
     "GUID": "31709f9c-d9ff-4f1b-9a43-0a9bed40340a",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/31709f9c-d9ff-4f1b-9a43-0a9bed40340a.pdf",
+    "TEXT_FILE": "./data/fulltext/31709f9c-d9ff-4f1b-9a43-0a9bed40340a.txt",
+    "N_CHARACTERS": 39961,
+    "SOURCE": "etis",
+    "URL": "https://rito.riigikogu.ee/wordpress/wp-content/uploads/2018/06/M%C3%A4nnasoo-Rungi-Hein-Tasane.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:46+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://rito.riigikogu.ee/wordpress/wp-content/uploads/2018/06/M%C3%A4nnasoo-Rungi-Hein-Tasane.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "e3dcf8fd-b484-46eb-916d-7372cdc2fa9e",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/e3dcf8fd-b484-46eb-916d-7372cdc2fa9e.html",
+    "TEXT_FILE": "./data/fulltext/e3dcf8fd-b484-46eb-916d-7372cdc2fa9e.txt",
+    "N_CHARACTERS": 159540,
+    "SOURCE": "etis",
+    "URL": "https://rito.riigikogu.ee/eelmised-numbrid/nr-35/tootlikkuse-kasvutegurid-euroopa-regioonides/",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:47+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://rito.riigikogu.ee/eelmised-numbrid/nr-35/tootlikkuse-kasvutegurid-euroopa-regioonides/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "927903f1-b821-46e8-a995-76fb47c29bca",
@@ -6401,7 +7193,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
     "ATTEMPTS": []
   },
   {
@@ -6436,7 +7228,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
     "ATTEMPTS": []
   },
   {
@@ -6479,7 +7271,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
     "ATTEMPTS": []
   },
   {
@@ -6492,7 +7284,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
     "ATTEMPTS": []
   },
   {
@@ -6527,8 +7319,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/boer.12419",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "9d52b685-eb58-41d1-86c6-3ce5c4b9456a",
@@ -6540,8 +7341,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.tandfonline.com/doi/abs/10.1080/10803548.2018.1504854",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "f51e8355-1cc3-406f-a3cf-9ee218fbeff1",
@@ -6583,7 +7393,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
     "ATTEMPTS": []
   },
   {
@@ -6618,7 +7428,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
     "ATTEMPTS": []
   },
   {
@@ -6669,7 +7479,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -6691,8 +7501,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:52+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:49+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/abs/pii/S0927537122000410?via%3Dihub",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "9356fd26-501a-418e-b0a6-2afcd98abeaa",
@@ -6704,7 +7523,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:52+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:28:49+00:00",
     "ATTEMPTS": []
   },
   {
@@ -6770,15 +7589,24 @@
   {
     "GUID": "646ba765-bc1b-4a20-b711-c849118057de",
     "DOI": "10.1111/gcb.15797",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/646ba765-bc1b-4a20-b711-c849118057de.pdf",
+    "TEXT_FILE": "./data/fulltext/646ba765-bc1b-4a20-b711-c849118057de.txt",
+    "N_CHARACTERS": 73214,
+    "SOURCE": "etis",
+    "URL": "https://vtechworks.lib.vt.edu/bitstream/10919/111965/1/HrycikEarlier.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:52+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:49+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://vtechworks.lib.vt.edu/bitstream/10919/111965/1/HrycikEarlier.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "4cc43b81-828c-43da-8c1d-306ebb746935",
@@ -6812,8 +7640,41 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:52+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:28:51+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S1462901122000855",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/20.500.14243/445908",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "http://www.scopus.com/record/display.url?eid=2-s2.0-85126606336&origin=inward",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectTimeout"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://helda.helsinki.fi/handle/10138/573173",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "62c37e56-24a9-4c65-9b10-aeb3d5d4d20e",
@@ -6856,21 +7717,21 @@
   {
     "GUID": "88af84f6-3592-425f-a3a0-d848d723bdf4",
     "DOI": "10.2478/fsmu-2021-0016",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
-    "VERSION": null,
-    "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:52+00:00",
+    "FILE": "./data/fulltext/88af84f6-3592-425f-a3a0-d848d723bdf4.pdf",
+    "TEXT_FILE": "./data/fulltext/88af84f6-3592-425f-a3a0-d848d723bdf4.txt",
+    "N_CHARACTERS": 32380,
+    "SOURCE": "openalex_html",
+    "URL": "https://reference-global.com/download/article/10.2478/fsmu-2021-0016.pdf",
+    "VERSION": "published_version",
+    "HOST_TYPE": "journal",
+    "RETRIEVED_AT": "2026-10-03T18:31:54+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
-        "URL": "https://reference-global.com/article/10.2478/fsmu-2021-0016",
+        "URL": "https://reference-global.com/download/article/10.2478/fsmu-2021-0016.pdf",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
-        "RESULT": "text_too_short",
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -6900,15 +7761,24 @@
   {
     "GUID": "08691a69-6e3e-45dc-b6d9-d71b691e7cf8",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/08691a69-6e3e-45dc-b6d9-d71b691e7cf8.pdf",
+    "TEXT_FILE": "./data/fulltext/08691a69-6e3e-45dc-b6d9-d71b691e7cf8.txt",
+    "N_CHARACTERS": 77280,
+    "SOURCE": "etis",
+    "URL": "https://www.borenv.net/BER/archive/pdfs/ber28/ber28-147-167.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:55+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:31:55+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.borenv.net/BER/archive/pdfs/ber28/ber28-147-167.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "7da85339-3929-4ccb-8351-3dd29ba5ee97",
@@ -7047,15 +7917,24 @@
   {
     "GUID": "15e1c7c6-e9c8-45e4-81d9-2e00c50b0d17",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/15e1c7c6-e9c8-45e4-81d9-2e00c50b0d17.pdf",
+    "TEXT_FILE": "./data/fulltext/15e1c7c6-e9c8-45e4-81d9-2e00c50b0d17.txt",
+    "N_CHARACTERS": 69077,
+    "SOURCE": "etis",
+    "URL": "http://www.borenv.net/BER/archive/pdfs/ber25/ber25-145-159.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:55+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:31:56+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://www.borenv.net/BER/archive/pdfs/ber25/ber25-145-159.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "77d604a2-940e-47b2-9cc6-9048f36dbbbe",
@@ -7246,15 +8125,24 @@
   {
     "GUID": "c5ec80e1-6ecf-41fd-be64-13fcb368ab2f",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/c5ec80e1-6ecf-41fd-be64-13fcb368ab2f.pdf",
+    "TEXT_FILE": "./data/fulltext/c5ec80e1-6ecf-41fd-be64-13fcb368ab2f.txt",
+    "N_CHARACTERS": 19181,
+    "SOURCE": "etis",
+    "URL": "https://publicgovernance.de/media/Buergerkonten_und_das_Projekt_The_Once_Only_Principle.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:55+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://publicgovernance.de/media/Buergerkonten_und_das_Projekt_The_Once_Only_Principle.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "39cb1d48-36ac-4cbe-a139-3a5e718779ba",
@@ -7266,7 +8154,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7323,8 +8211,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:55+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/epdf/10.1002/rra.3863",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "7cb21b0a-e819-4366-8c63-13548db3123f",
@@ -7358,7 +8255,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7661,7 +8558,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7696,13 +8593,21 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://doi.org/10.1177/0020872820904130",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://journals.sagepub.com/doi/full/10.1177/0020872820904130",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       }
@@ -7718,8 +8623,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:57+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:31:58+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://publications.tlu.ee/index.php/actapoliticaestica",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "e65a0e43-9b8d-4307-96c6-f477a1f487bc",
@@ -7731,8 +8645,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:57+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:31:58+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://publications.tlu.ee/index.php/eastwest/issue/view/113",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "e2cba988-ffc8-40ba-a56d-fee2cb459c28",
@@ -7876,7 +8799,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:57+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:31:59+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7889,13 +8812,21 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:57+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:31:59+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://doi.org/10.1080/10848770.2019.1692598",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.tandfonline.com/doi/pdf/10.1080/10848770.2019.1692598?needAccess=true",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       }
@@ -8074,21 +9005,21 @@
   {
     "GUID": "c35b725b-4061-4af7-9dd5-9445fa18e68f",
     "DOI": "10.1515/bjes-2020-0017",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
-    "VERSION": null,
-    "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:41:58+00:00",
+    "FILE": "./data/fulltext/c35b725b-4061-4af7-9dd5-9445fa18e68f.pdf",
+    "TEXT_FILE": "./data/fulltext/c35b725b-4061-4af7-9dd5-9445fa18e68f.txt",
+    "N_CHARACTERS": 38026,
+    "SOURCE": "openalex_html",
+    "URL": "https://reference-global.com/download/article/10.1515/bjes-2020-0017.pdf",
+    "VERSION": "published_version",
+    "HOST_TYPE": "journal",
+    "RETRIEVED_AT": "2026-10-03T18:31:59+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
-        "URL": "https://reference-global.com:443/article/10.1515/bjes-2020-0017",
+        "URL": "https://reference-global.com/download/article/10.1515/bjes-2020-0017.pdf",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
-        "RESULT": "text_too_short",
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -8118,15 +9049,24 @@
   {
     "GUID": "b48be431-7694-438c-b51b-e0390c67daac",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/b48be431-7694-438c-b51b-e0390c67daac.pdf",
+    "TEXT_FILE": "./data/fulltext/b48be431-7694-438c-b51b-e0390c67daac.txt",
+    "N_CHARACTERS": 1198938,
+    "SOURCE": "etis",
+    "URL": "https://tsu.ge/assets/media/files/8/Publications/LAW-jurnal2020-1.pdf?fbclid=IwAR2GAnznycks9GJ4N8LedW09y8AmgvJVdeAUjZeOjLBOiS79AquW1FQOGM8",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:00+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:01+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://tsu.ge/assets/media/files/8/Publications/LAW-jurnal2020-1.pdf?fbclid=IwAR2GAnznycks9GJ4N8LedW09y8AmgvJVdeAUjZeOjLBOiS79AquW1FQOGM8",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "7427b876-8fed-4efd-9bfe-b4009e465303",
@@ -8182,8 +9122,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:00+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:05+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://pubmed.ncbi.nlm.nih.gov/33001014/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "b7b89fef-78b6-44ec-ae94-1dbd51e51c7e",
@@ -8195,8 +9144,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:00+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:05+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openalex_html",
+        "URL": "https://digital.csic.es/handle/10261/413041",
+        "VERSION": "accepted_version",
+        "HOST_TYPE": "repository",
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://api.elsevier.com/content/abstract/scopus_id/85087529819",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "wrong_content_type",
+        "RESULT_DETAIL": "text/xml;charset=UTF-8"
+      }
+    ]
   },
   {
     "GUID": "be5368e1-3b11-4b0a-84c3-78fa37ee56d0",
@@ -8372,7 +9338,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:00+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:06+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_pdf",
@@ -8387,6 +9353,14 @@
         "URL": "https://doi.org/10.1002/adtp.202000097",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/epdf/10.1002/adtp.202000097",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       },
@@ -8498,8 +9472,16 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:02+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:08+00:00",
     "ATTEMPTS": [
+      {
+        "SOURCE": "openalex_html",
+        "URL": "https://digital.csic.es/handle/10261/412961",
+        "VERSION": "accepted_version",
+        "HOST_TYPE": "repository",
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
       {
         "SOURCE": "openaire_pdf",
         "URL": "https://upcommons.upc.edu/bitstream/2117/172370/1/manuscript_muno_v15tt_ea.pdf",
@@ -8507,6 +9489,46 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "418"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://dx.doi.org/10.1021/acs.jpcb.8b11876",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/2117/172370",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "418"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://api.elsevier.com/content/abstract/scopus_id/85062591419",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "wrong_content_type",
+        "RESULT_DETAIL": "text/xml;charset=UTF-8"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/https://doi.org/10.1021/acs.jpcb.8b11876",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://pubs.acs.org/doi/10.1021/acs.jpcb.8b11876",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -8652,7 +9674,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:02+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:11+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -8660,6 +9682,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://helda.helsinki.fi/handle/10138/565378",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
       }
     ]
@@ -8689,15 +9719,24 @@
   {
     "GUID": "ecf0bd5d-9fe9-47a4-9695-9f6e65c7324f",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/ecf0bd5d-9fe9-47a4-9695-9f6e65c7324f.pdf",
+    "TEXT_FILE": "./data/fulltext/ecf0bd5d-9fe9-47a4-9695-9f6e65c7324f.txt",
+    "N_CHARACTERS": 130414,
+    "SOURCE": "etis",
+    "URL": "https://mjtoimetised.ut.ee/febpdf/febawb139.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:03+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:13+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://mjtoimetised.ut.ee/febpdf/febawb139.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "ee98cf99-9b4c-44de-98d8-3c8140c3ddff",
@@ -8746,15 +9785,24 @@
   {
     "GUID": "2bdbb554-dd8e-45de-b990-344fc35f613b",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/2bdbb554-dd8e-45de-b990-344fc35f613b.pdf",
+    "TEXT_FILE": "./data/fulltext/2bdbb554-dd8e-45de-b990-344fc35f613b.txt",
+    "N_CHARACTERS": 123652,
+    "SOURCE": "etis",
+    "URL": "https://mjtoimetised.ut.ee/febpdf/febawb134.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:03+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:13+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://mjtoimetised.ut.ee/febpdf/febawb134.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "e6b24988-c8b2-493f-a36e-d2fa4bdbf009",
@@ -8766,8 +9814,33 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:03+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:15+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/10.1080/14631377.2021.2006495",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://dspace.ut.ee/bitstreams/18462bd4-ed04-4185-aefd-a14eaed3d7fc/download",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "title_not_found",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/https://doi.org/10.1080/14631377.2021.2006495",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "43f16152-0f57-4217-bba9-1acdf823c64a",
@@ -9003,7 +10076,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:03+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:18+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -9012,6 +10085,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "http://www.sciencedirect.com/science/article/pii/S0378873323000631",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -9167,13 +10248,29 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:04+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:19+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://doi.org/10.1049/ipr2.12806",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/ec6b27a00fc7427494fb5ce73a18e7b8",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1049/ipr2.12806",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       }
@@ -9189,8 +10286,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:06+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:20+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.tandfonline.com/doi/abs/10.1080/14794713.2023.2270790",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "2f969706-9584-4cf7-8302-77c4a13090fd",
@@ -9224,8 +10330,33 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:06+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:21+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/8458a03c186f45bc8bdb7f5ab8dc71a6",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://publish.fid-media.de/handle/doc/16128",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://necsus-ejms.org/disciplinary-itineraries-and-digital-methods-examining-the-kinomatics-collaboration-networks/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "ca97b2d4-8a38-4e3e-b132-3a87021ef7fe",
@@ -9364,14 +10495,14 @@
   {
     "GUID": "89702b42-1684-4526-8515-124562aebcec",
     "DOI": "10.1016/j.stress.2024.100406",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/89702b42-1684-4526-8515-124562aebcec.pdf",
+    "TEXT_FILE": "./data/fulltext/89702b42-1684-4526-8515-124562aebcec.txt",
+    "N_CHARACTERS": 62701,
+    "SOURCE": "openaire_html",
+    "URL": "https://repository.uantwerpen.be/docstore/d:irua:23306",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:06+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:23+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -9379,6 +10510,38 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/47a626a7a4f24e139721344085e86d1d",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://ucrisportal.univie.ac.at/de/publications/influence-of-soil-warming-magnitude-and-duration-on-soluble-sugar/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://repository.uantwerpen.be/desktop/irua/core/index.phtml?language=&euser=&session=&service=opacirua&robot=&deskservice=desktop&desktop=irua&workstation=&extra=c%3Airua%3A205533",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://repository.uantwerpen.be/docstore/d:irua:23306",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -9454,14 +10617,14 @@
   {
     "GUID": "ccf560b7-7f3f-497e-84b8-65790ab275dc",
     "DOI": "10.1007/s11104-025-07306-9",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/ccf560b7-7f3f-497e-84b8-65790ab275dc.pdf",
+    "TEXT_FILE": "./data/fulltext/ccf560b7-7f3f-497e-84b8-65790ab275dc.txt",
+    "N_CHARACTERS": 90509,
+    "SOURCE": "openaire_html",
+    "URL": "https://repozitar.mendelu.cz/bitstreams/2c4c0aa5-bd7a-47c2-82eb-797bbea45539/download",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:07+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:27+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -9469,6 +10632,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://repozitar.mendelu.cz/bitstreams/2c4c0aa5-bd7a-47c2-82eb-797bbea45539/download",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -9483,7 +10654,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:08+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:32+00:00",
     "ATTEMPTS": []
   },
   {
@@ -9578,7 +10749,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:08+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:32+00:00",
     "ATTEMPTS": []
   },
   {
@@ -9665,7 +10836,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:08+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:32+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -9680,8 +10851,24 @@
         "URL": "https://link.springer.com/content/pdf/10.1007/s00450-019-00413-w.pdf",
         "VERSION": null,
         "HOST_TYPE": null,
-        "RESULT": "wrong_content_type",
-        "RESULT_DETAIL": "text/html; charset=utf-8"
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://link.springer.com/article/10.1007/s00450-019-00413-w",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/article/10.1007%2Fs00450-019-00413-w",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -9695,7 +10882,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:09+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -9704,6 +10891,22 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0167739X19330924",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S0167739X19330924",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       },
       {
         "SOURCE": "openalex_pdf",
@@ -9718,15 +10921,24 @@
   {
     "GUID": "b31440cc-1452-4e64-9360-edc56b1847df",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/b31440cc-1452-4e64-9360-edc56b1847df.pdf",
+    "TEXT_FILE": "./data/fulltext/b31440cc-1452-4e64-9360-edc56b1847df.txt",
+    "N_CHARACTERS": 295688,
+    "SOURCE": "etis",
+    "URL": "http://aaj.shao.az/vol17_n2/AAJ_2022_V17_N2.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:11+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:37+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://aaj.shao.az/vol17_n2/AAJ_2022_V17_N2.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "7b96baef-961c-43ba-ba95-c4f536844f38",
@@ -9760,13 +10972,29 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:11+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:42+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://doi.org/10.1093/mnras/stae1950",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://academic.oup.com/mnras/advance-article-pdf/doi/10.1093/mnras/stae1950/58975794/stae1950.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://academic.oup.com/mnras/article/533/3/2867/7737661",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       }
@@ -9843,15 +11071,24 @@
   {
     "GUID": "8385750e-7e86-4749-a21d-62335584f1ec",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/8385750e-7e86-4749-a21d-62335584f1ec.pdf",
+    "TEXT_FILE": "./data/fulltext/8385750e-7e86-4749-a21d-62335584f1ec.txt",
+    "N_CHARACTERS": 10315,
+    "SOURCE": "etis",
+    "URL": "http://astronomiaargentina.fcaglp.unlp.edu.ar/b61b/2020BAAA...61B...99A.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:12+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:32:44+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://astronomiaargentina.fcaglp.unlp.edu.ar/b61b/2020BAAA...61B...99A.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "69fce658-33ab-403c-8717-3dae86271f86",
@@ -10267,8 +11504,16 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:12+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:48+00:00",
     "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://pubs.acs.org/doi/full/10.1021/acssuschemeng.0c05558",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
       {
         "SOURCE": "openaire_pdf",
         "URL": "https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/60c74e50ee301c2a45c7a4a5/original/rapid-mechanochemical-synthesis-of-amides-with-uronium-based-coupling-reagents-a-method-for-hexa-amidation-of-biotin-6-uril.pdf",
@@ -10282,30 +11527,54 @@
   {
     "GUID": "2116e0e4-6054-4c18-bfb7-95cc6943b24d",
     "DOI": "10.1142/s108842461950192x",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/2116e0e4-6054-4c18-bfb7-95cc6943b24d.pdf",
+    "TEXT_FILE": "./data/fulltext/2116e0e4-6054-4c18-bfb7-95cc6943b24d.txt",
+    "N_CHARACTERS": 33787,
+    "SOURCE": "openaire_html",
+    "URL": "https://elib.bsu.by/bitstream/123456789/288179/1/kananovich_man.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:12+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:48+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_pdf",
         "URL": "https://hal.umontpellier.fr/hal-02617498/file/kananovich_man.pdf",
         "VERSION": null,
         "HOST_TYPE": null,
-        "RESULT": "wrong_content_type",
-        "RESULT_DETAIL": "text/html; charset=utf-8"
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
       },
       {
-        "SOURCE": "openalex_pdf",
-        "URL": "https://hal.umontpellier.fr/hal-02617498v1/file/kananovich_man.pdf",
-        "VERSION": "submitted_version",
-        "HOST_TYPE": "repository",
-        "RESULT": "wrong_content_type",
-        "RESULT_DETAIL": "text/html; charset=utf-8"
+        "SOURCE": "openaire_html",
+        "URL": "https://hal.umontpellier.fr/hal-02617498v1/document",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hal.umontpellier.fr/hal-02617498v1",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/10.1142/s108842461950192x",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://elib.bsu.by/bitstream/123456789/288179/1/kananovich_man.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -10595,7 +11864,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:13+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:32:58+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -10604,6 +11873,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openalex_html",
+        "URL": "https://pure.eur.nl/files/98660656/Clinical_Characterization_of_Patients_Diagnosed_with_Prostate_Cancer_and_Undergoing_Conservative_Management.pdf",
+        "VERSION": "published_version",
+        "HOST_TYPE": "repository",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -10655,7 +11932,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:13+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:00+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -10664,6 +11941,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/55ccd81c4c0640b3be9268d9e4b72d20",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -10677,8 +11962,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:15+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:00+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/article/10.1007/s13132-024-02236-w?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=nonoa_20240807&utm_content=10.1007/s13132-024-02236-w",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "dd12aba4-fd8f-4382-a464-9b3b89113398",
@@ -11196,7 +12490,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:15+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:01+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -11205,6 +12499,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/b592794cf1404af8b6cd46620f3f3b5e",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -11388,7 +12690,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:18+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:02+00:00",
     "ATTEMPTS": []
   },
   {
@@ -11401,8 +12703,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:18+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:02+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S1470160X19306818",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S1470160X19306818",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "6e6ef71a-f864-45d9-8030-91f157ca4093",
@@ -11452,8 +12771,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:18+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:03+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/article/10.1007/s10584-021-02967-8",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "6357fd06-831d-4788-889f-bfdd63d95c57",
@@ -11465,8 +12793,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:18+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:03+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/article/10.1007/s10531-020-01955-1",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "c1b03ca7-6b17-432f-9ac7-fa29cfdf1345",
@@ -11478,7 +12815,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:18+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:04+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -11487,6 +12824,22 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/718aaf2f9cce46328701817154f54d42",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S1470160X23010695",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -11500,21 +12853,39 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:18+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:05+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sweetandmaxwell.co.uk/en-gb/products/public-procurement-law-review-journal-and-ejournal-subscription-30927850",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "d44008ea-8f01-49cb-8647-84bae0481db2",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/d44008ea-8f01-49cb-8647-84bae0481db2.pdf",
+    "TEXT_FILE": "./data/fulltext/d44008ea-8f01-49cb-8647-84bae0481db2.txt",
+    "N_CHARACTERS": 52874,
+    "SOURCE": "etis",
+    "URL": "https://urt.cc/wp-content/uploads/2023/03/Simovart-MA-Choice-of-law-applicable-to-joint-cross-border-public-procurement-UrT-2021-p.-1.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:18+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:06+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://urt.cc/wp-content/uploads/2023/03/Simovart-MA-Choice-of-law-applicable-to-joint-cross-border-public-procurement-UrT-2021-p.-1.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "b89ce2f6-e193-4f3a-9ab3-f0d4cb631590",
@@ -11526,13 +12897,53 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:18+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:06+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://doi.org/10.1002/rhc3.12236",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/rhc3.12236",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc73ddf3-954d85a8-2f78-4835-8b6c-055fba1f0b77",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc73ddf3-954d85a8-2f78-4835-8b6c-055fba1f0b77",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://uis.brage.unit.no/uis-xmlui/bitstream/11250/2836828/1/Postnr%2b1936685.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/full/10.1002/rhc3.12236",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       }
@@ -11654,13 +13065,53 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:19+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:09+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://doi.org/10.1080/13669877.2020.1871058",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.tandfonline.com/doi/pdf/10.1080/13669877.2020.1871058?needAccess=true",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc82fba3-3ed01f9f-27a4-4906-a232-ea751f2a3cf6",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/11572/293333",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.tandfonline.com/doi/epdf/10.1080/13669877.2020.1871058",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.tandfonline.com/doi/full/10.1080/13669877.2020.1871058",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       },
@@ -11684,7 +13135,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:20+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:13+00:00",
     "ATTEMPTS": []
   },
   {
@@ -11772,15 +13223,24 @@
   {
     "GUID": "9c63bc3d-0214-48ca-a8e4-0640e2b93e1d",
     "DOI": "10.22667/jowua.2022.03.31.087",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/9c63bc3d-0214-48ca-a8e4-0640e2b93e1d.pdf",
+    "TEXT_FILE": "./data/fulltext/9c63bc3d-0214-48ca-a8e4-0640e2b93e1d.txt",
+    "N_CHARACTERS": 80366,
+    "SOURCE": "etis",
+    "URL": "https://isyou.info/jowua/papers/jowua-v13n1-4.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:20+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:13+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://isyou.info/jowua/papers/jowua-v13n1-4.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "07c03c23-6607-4208-a54f-d1c95f212580",
@@ -11852,8 +13312,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:20+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/abs/pii/S0169534722002282",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "836e74a6-8790-4bf9-a5fc-02782ff8ad03",
@@ -12129,7 +13598,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:20+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -12151,7 +13620,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:21+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
     "ATTEMPTS": []
   },
   {
@@ -12164,20 +13633,20 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:21+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
     "ATTEMPTS": []
   },
   {
     "GUID": "442aa929-2e11-43c5-82bf-4cbf2a3c22bc",
     "DOI": "10.1016/j.datak.2021.101897",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/442aa929-2e11-43c5-82bf-4cbf2a3c22bc.pdf",
+    "TEXT_FILE": "./data/fulltext/442aa929-2e11-43c5-82bf-4cbf2a3c22bc.txt",
+    "N_CHARACTERS": 98301,
+    "SOURCE": "openaire_html",
+    "URL": "https://idus.us.es/bitstreams/c4df89fe-3ebe-46c8-ab43-0401af3958a7/download",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:21+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -12185,6 +13654,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://idus.us.es/bitstreams/c4df89fe-3ebe-46c8-ab43-0401af3958a7/download",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -12243,7 +13720,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:23+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:38+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -12252,6 +13729,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/860b4a9b91df419588959da22a081b3e",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -12379,20 +13864,20 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:24+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:39+00:00",
     "ATTEMPTS": []
   },
   {
     "GUID": "e86074d1-4548-43f9-a70d-f4721c4c8e9d",
     "DOI": "10.1016/j.is.2022.102161",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
-    "VERSION": null,
+    "FILE": "./data/fulltext/e86074d1-4548-43f9-a70d-f4721c4c8e9d.pdf",
+    "TEXT_FILE": "./data/fulltext/e86074d1-4548-43f9-a70d-f4721c4c8e9d.txt",
+    "N_CHARACTERS": 105206,
+    "SOURCE": "openaire_html",
+    "URL": "https://arxiv.org/pdf/2201.03010",
+    "VERSION": "submitted_version",
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:24+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:39+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -12400,6 +13885,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://arxiv.org/pdf/2201.03010",
+        "VERSION": "submitted_version",
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -12414,7 +13907,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:25+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -12471,13 +13964,21 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:25+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:41+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://link.springer.com/10.1007/s12599-024-00868-5",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/content/pdf/10.1007/s12599-024-00868-5.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
       }
@@ -12493,7 +13994,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:27+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:42+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -12629,7 +14130,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:28+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:43+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -12638,6 +14139,22 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/ee5d437f34ad4d4f8460b9233e5d63d9",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S2211467X23002328",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -12651,8 +14168,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:29+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:44+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S235271022201227X",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "457e1da8-187f-4418-b3dd-dd1562a21280",
@@ -12664,7 +14190,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:29+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:45+00:00",
     "ATTEMPTS": []
   },
   {
@@ -12714,21 +14240,21 @@
   {
     "GUID": "e17d2464-90f2-4484-b232-850bfbc5f174",
     "DOI": "10.5755/j01.sace.35.2.35825",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
-    "VERSION": null,
-    "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:29+00:00",
+    "FILE": "./data/fulltext/e17d2464-90f2-4484-b232-850bfbc5f174.pdf",
+    "TEXT_FILE": "./data/fulltext/e17d2464-90f2-4484-b232-850bfbc5f174.txt",
+    "N_CHARACTERS": 77928,
+    "SOURCE": "openalex_html",
+    "URL": "https://sace.ktu.lt/index.php/DAS/article/download/35825/16424",
+    "VERSION": "published_version",
+    "HOST_TYPE": "journal",
+    "RETRIEVED_AT": "2026-10-03T18:33:45+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
-        "URL": "https://sace.ktu.lt/index.php/DAS/article/view/35825",
+        "URL": "https://sace.ktu.lt/index.php/DAS/article/download/35825/16424",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
-        "RESULT": "text_too_short",
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -13045,21 +14571,39 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:31+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:48+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://openjournals.library.usyd.edu.au/index.php/IEJ/article/view/14466",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "96676976-eab6-4683-80f1-f8576fdcca11",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/96676976-eab6-4683-80f1-f8576fdcca11.pdf",
+    "TEXT_FILE": "./data/fulltext/96676976-eab6-4683-80f1-f8576fdcca11.txt",
+    "N_CHARACTERS": 60454,
+    "SOURCE": "etis",
+    "URL": "http://publications.tlu.ee/index.php/eastwest/article/download/1121/843",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:31+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:49+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://publications.tlu.ee/index.php/eastwest/article/download/1121/843",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "43ec9a35-8026-4a9c-ba88-c8f19bf31417",
@@ -13071,7 +14615,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:31+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:49+00:00",
     "ATTEMPTS": []
   },
   {
@@ -13153,15 +14697,24 @@
   {
     "GUID": "2c218ace-9024-4e4a-b26b-a12b6bc08426",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/2c218ace-9024-4e4a-b26b-a12b6bc08426.pdf",
+    "TEXT_FILE": "./data/fulltext/2c218ace-9024-4e4a-b26b-a12b6bc08426.txt",
+    "N_CHARACTERS": 75694,
+    "SOURCE": "etis",
+    "URL": "http://publications.tlu.ee/index.php/actapoliticaestica/article/download/962/pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:31+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:33:49+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://publications.tlu.ee/index.php/actapoliticaestica/article/download/962/pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "ce3c3252-2c43-4537-8986-22de75c9191e",
@@ -13321,7 +14874,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:31+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:52+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -13478,30 +15031,22 @@
   {
     "GUID": "8007a8c1-b4b8-49d1-a94d-e3551e516932",
     "DOI": "10.22601/pet.2021.06.01",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
-    "VERSION": null,
-    "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:32+00:00",
+    "FILE": "./data/fulltext/8007a8c1-b4b8-49d1-a94d-e3551e516932.pdf",
+    "TEXT_FILE": "./data/fulltext/8007a8c1-b4b8-49d1-a94d-e3551e516932.txt",
+    "N_CHARACTERS": 47627,
+    "SOURCE": "openalex_html",
+    "URL": "https://publications.tlulib.ee/index.php/philologia/article/download/486/485",
+    "VERSION": "published_version",
+    "HOST_TYPE": "journal",
+    "RETRIEVED_AT": "2026-10-03T18:33:52+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
-        "URL": "https://publications.tlulib.ee/index.php/philologia/article/view/486",
+        "URL": "https://publications.tlulib.ee/index.php/philologia/article/download/486/485",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
-        "RESULT": "text_too_short",
+        "RESULT": "ok",
         "RESULT_DETAIL": null
-      },
-      {
-        "SOURCE": "openalex_pdf",
-        "URL": "https://zenodo.org/record/7018961",
-        "VERSION": "submitted_version",
-        "HOST_TYPE": "repository",
-        "RESULT": "wrong_content_type",
-        "RESULT_DETAIL": "text/html; charset=utf-8"
       }
     ]
   },
@@ -13575,7 +15120,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:34+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -13597,7 +15142,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:34+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
     "ATTEMPTS": []
   },
   {
@@ -13632,7 +15177,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:36+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
     "ATTEMPTS": []
   },
   {
@@ -13711,7 +15256,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:36+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -13720,6 +15265,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S0022395623004569",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -13865,13 +15418,45 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:36+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:33:56+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://digitalcommons.uri.edu/jmle/vol15/iss1/1/",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openalex_html",
+        "URL": "https://kuleuven.limo.libis.be/discovery/search?query=any,contains,LIRIAS3739930&tab=LIRIAS&search_scope=lirias_profile&vid=32KUL_KUL:Lirias&offset=0",
+        "VERSION": "accepted_version",
+        "HOST_TYPE": "repository",
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://digitalcommons.uri.edu/jmle/vol15/iss1/1/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://digitalcommons.uri.edu/cgi/viewcontent.cgi?article=1580&context=jmle",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://digitalcommons.uri.edu/jmle/vol15/iss1/1/",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
       }
@@ -13953,8 +15538,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:38+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:00+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://isa-afp.org/entries/Wlog.html",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://isa-afp.org/entries/Wlog.html",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "c6350434-e465-4c99-bbe1-84d187df4c43",
@@ -14004,8 +15606,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:38+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:01+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://isa-afp.org/entries/With_Type.html",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://isa-afp.org/entries/With_Type.html",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "a68ff868-04f3-461f-be03-d11231c30e3d",
@@ -14017,8 +15636,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:38+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:03+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://isa-afp.org/entries/Hilbert_Space_Tensor_Product.html",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "410b1efc-34c1-4042-9aa8-5ec8c5c5dc7d",
@@ -14096,7 +15724,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:38+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:04+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -14140,8 +15768,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:39+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:04+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://sotsiaalkindlustusamet.ee/sotsiaaltoo",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "b71abd4d-5238-49ef-8957-278c6ba26daf",
@@ -14213,13 +15850,21 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:39+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:05+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://doi.org/10.1002/clen.70162",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/10.1002/clen.70162",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
       }
@@ -14257,7 +15902,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:41+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:05+00:00",
     "ATTEMPTS": []
   },
   {
@@ -14270,13 +15915,21 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:41+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:05+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://www.mdpi.com/2673-7418/5/4/70",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.mdpi.com/2673-7418/5/4/70",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
       }
@@ -14512,7 +16165,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:42+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
     "ATTEMPTS": []
   },
   {
@@ -14525,7 +16178,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:42+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
     "ATTEMPTS": []
   },
   {
@@ -14582,7 +16235,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:42+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
     "ATTEMPTS": []
   },
   {
@@ -14617,8 +16270,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:42+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.nature.com/articles/s41591-025-03543-8",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "7f6c8898-e0e1-42d1-94f1-4ec991dfa038",
@@ -14630,8 +16292,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:42+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:08+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://tuna.ra.ee/2026-3/tuna-1-2026/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "90fbd9a8-2426-4b24-b317-4827c9db0913",
@@ -14711,7 +16382,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:42+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:08+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -14720,6 +16391,22 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/61a63fb1ca5849838870b427397144aa",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S2405880723000237",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -14829,7 +16516,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:43+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:09+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -14838,6 +16525,22 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://research.wur.nl/en/publications/three-case-studies-of-policy-interventions-in-grassland-based-pro/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S0308521X26001873",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -15015,7 +16718,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:44+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:11+00:00",
     "ATTEMPTS": []
   },
   {
@@ -15296,8 +16999,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:44+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:11+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.arheoloogia.ee/ave2021/AVE2021_20_Kurisoojt_Finds.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "fb4184d5-5e49-4cf8-a814-2d364f8e4254",
@@ -15309,8 +17021,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:44+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:11+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://arheoloogia.ee/ave2019/AVE2019_22_Kurisoo.etal.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "2391ef97-8d65-4f7a-8a15-f74deaa5500e",
@@ -15322,13 +17043,29 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:44+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:11+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://intarch.ac.uk/journal/issue68/3/",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/0144486ac86e457d8d963553a8a4c590",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://intarch.ac.uk/journal/issue68/3/",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
       }
@@ -15366,7 +17103,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:46+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:12+00:00",
     "ATTEMPTS": []
   },
   {
@@ -15379,8 +17116,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:46+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:12+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.arheoloogia.ee/ave2020/AVE2020_22_Kurisoo.jt_Finds.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "0a3d0bf1-a040-4e1c-ac78-9f88082efbc7",
@@ -15414,7 +17160,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:46+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:12+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -15496,7 +17242,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:47+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:13+00:00",
     "ATTEMPTS": []
   },
   {
@@ -15554,15 +17300,32 @@
   {
     "GUID": "f61a5133-288a-4960-a38d-c2fa62f84fef",
     "DOI": "10.2436/20.2003.02.242",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/f61a5133-288a-4960-a38d-c2fa62f84fef.pdf",
+    "TEXT_FILE": "./data/fulltext/f61a5133-288a-4960-a38d-c2fa62f84fef.txt",
+    "N_CHARACTERS": 36618,
+    "SOURCE": "etis",
+    "URL": "https://revistes.iec.cat/index.php/EduQ/article/download/150683/148452",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:47+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:13+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://revistes.iec.cat/index.php/EduQ/article/view/150683/148452",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://revistes.iec.cat/index.php/EduQ/article/download/150683/148452",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "c4792812-b9eb-42d2-b187-a0713af23784",
@@ -15796,8 +17559,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:47+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:17+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.tandfonline.com/action/journalInformation?journalCode=rgab20",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "f0824204-370c-4792-b5f1-328271cfe13e",
@@ -15824,14 +17596,14 @@
   {
     "GUID": "c70f734c-8e38-47e1-a754-580a11baf66a",
     "DOI": "10.1016/j.jmoneco.2025.103800",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/c70f734c-8e38-47e1-a754-580a11baf66a.pdf",
+    "TEXT_FILE": "./data/fulltext/c70f734c-8e38-47e1-a754-580a11baf66a.txt",
+    "N_CHARACTERS": 87217,
+    "SOURCE": "openaire_html",
+    "URL": "https://aaltodoc.aalto.fi/bitstreams/4d75961a-9cfb-441b-bc70-0509db84e17f/download",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:47+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:17+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -15842,12 +17614,12 @@
         "RESULT_DETAIL": null
       },
       {
-        "SOURCE": "openalex_pdf",
-        "URL": "https://research.aalto.fi/files/186576742/BIZ_Kukk-et-al_Beyond_the_headline_2025.pdf",
-        "VERSION": "submitted_version",
-        "HOST_TYPE": "repository",
-        "RESULT": "http_error",
-        "RESULT_DETAIL": "403"
+        "SOURCE": "openaire_html",
+        "URL": "https://aaltodoc.aalto.fi/bitstreams/4d75961a-9cfb-441b-bc70-0509db84e17f/download",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -15861,7 +17633,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:49+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:20+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -15869,6 +17641,30 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://pubmed.ncbi.nlm.nih.gov/40319553/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/5cc437ddab4e46ac9422a2638fd81ac4",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://helda.helsinki.fi/handle/10138/595932",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
       }
     ]
@@ -15883,8 +17679,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:50+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:21+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/10.1002/ijfe.2565",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "dc50592e-3c45-4549-8c29-25d37b05f367",
@@ -15962,7 +17767,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:50+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:21+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16035,8 +17840,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:50+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:21+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/10.1002/mde.3334",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "2252e378-e9d9-4b2c-9955-9e5a0fa3cb31",
@@ -16048,7 +17862,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:50+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16061,7 +17875,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:50+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16074,20 +17888,20 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:50+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
     "ATTEMPTS": []
   },
   {
     "GUID": "7f16fcda-7921-4e24-8323-b5e9ef53e27f",
     "DOI": "10.1016/j.sleep.2025.106811",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/7f16fcda-7921-4e24-8323-b5e9ef53e27f.pdf",
+    "TEXT_FILE": "./data/fulltext/7f16fcda-7921-4e24-8323-b5e9ef53e27f.txt",
+    "N_CHARACTERS": 49361,
+    "SOURCE": "openaire_html",
+    "URL": "https://aaltodoc.aalto.fi/bitstreams/ec3ba266-86d4-48aa-b62e-e1fd283be81e/download",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:50+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -16098,12 +17912,20 @@
         "RESULT_DETAIL": null
       },
       {
-        "SOURCE": "openalex_pdf",
-        "URL": "https://www.utupub.fi/bitstream/10024/195257/1/1-s2.0-S1389945725004861-main.pdf",
-        "VERSION": "submitted_version",
-        "HOST_TYPE": "repository",
-        "RESULT": "http_error",
-        "RESULT_DETAIL": "403"
+        "SOURCE": "openaire_html",
+        "URL": "https://helda.helsinki.fi/handle/10138/601711",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://aaltodoc.aalto.fi/bitstreams/ec3ba266-86d4-48aa-b62e-e1fd283be81e/download",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -16191,7 +18013,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:28+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16242,7 +18064,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:28+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -16251,6 +18073,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S1877050922011875",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -16295,14 +18125,14 @@
   {
     "GUID": "0cdf28b1-a362-42d8-a223-622b6c1dcc80",
     "DOI": "10.1016/j.jksuci.2023.101789",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
-    "VERSION": null,
+    "FILE": "./data/fulltext/0cdf28b1-a362-42d8-a223-622b6c1dcc80.pdf",
+    "TEXT_FILE": "./data/fulltext/0cdf28b1-a362-42d8-a223-622b6c1dcc80.txt",
+    "N_CHARACTERS": 61631,
+    "SOURCE": "openaire_html",
+    "URL": "https://arxiv.org/pdf/2310.11161",
+    "VERSION": "submitted_version",
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:52+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:28+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -16310,6 +18140,22 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/c4eb64dab0fc4c8d912cf0b7bac82ae7",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://arxiv.org/pdf/2310.11161",
+        "VERSION": "submitted_version",
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -16324,7 +18170,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:54+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -16333,6 +18179,22 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/00a8483c76334956b20d77a5610da06f",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S2199853124000829",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -16346,7 +18208,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16381,7 +18243,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16394,7 +18256,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16475,7 +18337,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16488,7 +18350,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16577,8 +18439,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:55+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://aperta.ulakbim.gov.tr/records/254841",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "2ea87964-5c9e-407f-9dd3-0f1c7d505a82",
@@ -16590,7 +18461,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:55+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:32+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -16599,6 +18470,22 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/0449bc4fd6d7459591308553264d0b46",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://iwaponline.com/hr/article-pdf/53/12/1468/1153594/nh0531468.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -16612,7 +18499,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:56+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:33+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16663,8 +18550,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:56+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:33+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/abs/pii/S0378112721004692?via%3Dihub",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "bf7c7c6d-4331-4583-bb93-ca6d127857fc",
@@ -16764,8 +18660,33 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:56+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:33+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S156713482100160X",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://pubmed.ncbi.nlm.nih.gov/33857665/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.scopus.com/pages/publications/85104923346",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "b1174a72-98b7-47f3-a9b5-72892ca963cc",
@@ -16845,8 +18766,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:56+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:36+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0304401725002894",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "c4bbbaba-6ac3-4472-bf5f-9d5b8b3168e8",
@@ -16948,7 +18878,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:56+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:36+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -16956,6 +18886,30 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://pubmed.ncbi.nlm.nih.gov/41421571/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://anses.hal.science/anses-05450184v1",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://anses.hal.science/anses-05450184v1/document",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
       }
     ]
@@ -17080,8 +19034,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:57+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:39+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.nature.com/articles/s41380-025-03357-7",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "c6b3ccd7-2a14-40ab-9397-d8f4cbb5f14a",
@@ -17175,7 +19138,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:57+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:39+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -17241,8 +19204,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:59+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:40+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://link.springer.com/article/10.1007/s11760-025-03992-1",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "834d7f19-d0d3-4bc2-9184-b5750c120939",
@@ -17269,15 +19241,24 @@
   {
     "GUID": "b1a521ed-9e73-4bd8-b10b-0a4c843adb63",
     "DOI": "10.1007/s10661-024-12540-2",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/b1a521ed-9e73-4bd8-b10b-0a4c843adb63.pdf",
+    "TEXT_FILE": "./data/fulltext/b1a521ed-9e73-4bd8-b10b-0a4c843adb63.txt",
+    "N_CHARACTERS": 64427,
+    "SOURCE": "openaire_html",
+    "URL": "https://www.researchsquare.com/article/rs-3252103/latest.pdf",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:59+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:40+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.researchsquare.com/article/rs-3252103/latest.pdf",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "33c71a0a-4e86-42e6-bfbb-07893a5bde82",
@@ -17319,8 +19300,25 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:59+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:43+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://tandf.figshare.com/articles/journal_contribution/The_effects_of_competition_and_competitors_location_on_growth_and_mortality_in_middle-aged_i_Betula_pendula_i_plantations/28416040/1",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://tandf.figshare.com/articles/journal_contribution/The_effects_of_competition_and_competitors_location_on_growth_and_mortality_in_middle-aged_i_Betula_pendula_i_plantations/28416040",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "f26eb31e-56ce-43fd-8a9b-ec319672532e",
@@ -17376,7 +19374,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:59+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:44+00:00",
     "ATTEMPTS": []
   },
   {
@@ -17404,15 +19402,32 @@
   {
     "GUID": "e23aa51a-4b39-45ce-b6f2-e3df2fb3752b",
     "DOI": "10.1103/physrevlett.132.176201",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
-    "VERSION": null,
+    "FILE": "./data/fulltext/e23aa51a-4b39-45ce-b6f2-e3df2fb3752b.pdf",
+    "TEXT_FILE": "./data/fulltext/e23aa51a-4b39-45ce-b6f2-e3df2fb3752b.txt",
+    "N_CHARACTERS": 32807,
+    "SOURCE": "openaire_html",
+    "URL": "https://arxiv.org/pdf/2403.11794",
+    "VERSION": "submitted_version",
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:59+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:44+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://helda.helsinki.fi/handle/10138/590579",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://arxiv.org/pdf/2403.11794",
+        "VERSION": "submitted_version",
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "da169381-7a80-45fd-a256-c800c1c0993b",
@@ -17424,7 +19439,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:59+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
     "ATTEMPTS": []
   },
   {
@@ -17437,8 +19452,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:59+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://onlinelibrary.wiley.com/doi/epdf/10.1002/smll.202304614",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "fb5124ba-8cd4-4c6e-872d-b17ce66681c8",
@@ -17450,7 +19474,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:42:59+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -17459,6 +19483,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S0021979722011419?via%3Dihub",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -17546,7 +19578,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:00+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
     "ATTEMPTS": []
   },
   {
@@ -17603,7 +19635,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:00+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
     "ATTEMPTS": []
   },
   {
@@ -17735,14 +19767,14 @@
   {
     "GUID": "3cdaf4e4-281a-45b7-8fa0-28a514551d5f",
     "DOI": "10.1109/ojpel.2024.3466936",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/3cdaf4e4-281a-45b7-8fa0-28a514551d5f.pdf",
+    "TEXT_FILE": "./data/fulltext/3cdaf4e4-281a-45b7-8fa0-28a514551d5f.txt",
+    "N_CHARACTERS": 232609,
+    "SOURCE": "openaire_html",
+    "URL": "https://publikationen.bibliothek.kit.edu/1000174594/154886593",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:00+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -17750,6 +19782,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://publikationen.bibliothek.kit.edu/1000174594/154886593",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -17764,7 +19804,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:01+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:49+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -17786,7 +19826,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:02+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:49+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -17795,20 +19835,28 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/5de1c22ee06d48b2b4f9cb192e32436e",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
   {
     "GUID": "a1f77c1c-1f97-4db9-ae84-3fcc54ab1316",
     "DOI": "10.1016/j.enbuild.2023.113386",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/a1f77c1c-1f97-4db9-ae84-3fcc54ab1316.pdf",
+    "TEXT_FILE": "./data/fulltext/a1f77c1c-1f97-4db9-ae84-3fcc54ab1316.txt",
+    "N_CHARACTERS": 64345,
+    "SOURCE": "openaire_html",
+    "URL": "https://aaltodoc.aalto.fi/bitstreams/9fcba10b-fb03-46e2-bb81-9db82d901588/download",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:04+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:34:51+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -17819,12 +19867,36 @@
         "RESULT_DETAIL": null
       },
       {
-        "SOURCE": "openalex_pdf",
-        "URL": "https://oda.oslomet.no/oda-xmlui/bitstream/11250/3103977/1/1-s2.0-S0378778823006163-main.pdf",
-        "VERSION": "submitted_version",
-        "HOST_TYPE": "repository",
-        "RESULT": "wrong_content_type",
-        "RESULT_DETAIL": "text/html;charset=utf-8"
+        "SOURCE": "openaire_html",
+        "URL": "https://tiedejatutkimus.fi/Record/0675261623",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc7c4e19-8434be86-2786-4d1e-95f8-97a52e3cc84c",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nva.sikt.no/registration/0198cc7c4e19-8434be86-2786-4d1e-95f8-97a52e3cc84c",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://aaltodoc.aalto.fi/bitstreams/9fcba10b-fb03-46e2-bb81-9db82d901588/download",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -17875,15 +19947,24 @@
   {
     "GUID": "dab67cb3-7ecd-4a9e-9010-931e9bdb76bd",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/dab67cb3-7ecd-4a9e-9010-931e9bdb76bd.html",
+    "TEXT_FILE": "./data/fulltext/dab67cb3-7ecd-4a9e-9010-931e9bdb76bd.txt",
+    "N_CHARACTERS": 43932,
+    "SOURCE": "etis",
+    "URL": "https://www.vikerkaar.ee/naised-uurisid-lilli-liblikaid-ja-linde/",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:05+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:35:01+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.vikerkaar.ee/naised-uurisid-lilli-liblikaid-ja-linde/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "eb6681c2-2061-4579-94be-82f2b4d98205",
@@ -18029,15 +20110,47 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:05+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:01+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_pdf",
         "URL": "https://epub.wupperinst.org/files/8831/8831_Hermwille.pdf",
         "VERSION": null,
         "HOST_TYPE": null,
-        "RESULT": "wrong_content_type",
-        "RESULT_DETAIL": "text/html; charset=utf-8"
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://www.nature.com/articles/s41560-025-01785-x",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://nbn-resolving.org/urn:nbn:de:bsz:wup4-opus-88311",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://epub.wupperinst.org/frontdoor/index/index/docId/8831",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.nature.com/articles/s41560-025-01785-x",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -18073,7 +20186,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:05+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:03+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -18088,15 +20201,40 @@
   {
     "GUID": "62ab403a-1fda-459c-a45d-7a01d5a596a4",
     "DOI": "10.15159/ar.25.054",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/62ab403a-1fda-459c-a45d-7a01d5a596a4.pdf",
+    "TEXT_FILE": "./data/fulltext/62ab403a-1fda-459c-a45d-7a01d5a596a4.txt",
+    "N_CHARACTERS": 46062,
+    "SOURCE": "etis",
+    "URL": "https://agronomy.emu.ee/wp-content/uploads/2025/06/Aleksandrova-1031-1046.pdf#abstract-10810",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:06+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:35:03+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/10.15159/ar.25.054",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/10492/10080",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://agronomy.emu.ee/wp-content/uploads/2025/06/Aleksandrova-1031-1046.pdf#abstract-10810",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "40f80fb3-d8dc-46ca-bbd9-2da411b8c553",
@@ -18130,21 +20268,47 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:06+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:35:12+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doi.org/10.15159/ar.24.096",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/10492/9521",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "exception",
+        "RESULT_DETAIL": "ConnectionError"
+      }
+    ]
   },
   {
     "GUID": "f662102b-df24-4ace-8a19-f2c81f63b385",
     "DOI": "10.17169/fqs-26.2.4182",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
-    "VERSION": null,
-    "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:06+00:00",
-    "ATTEMPTS": []
+    "FILE": "./data/fulltext/f662102b-df24-4ace-8a19-f2c81f63b385.pdf",
+    "TEXT_FILE": "./data/fulltext/f662102b-df24-4ace-8a19-f2c81f63b385.txt",
+    "N_CHARACTERS": 86066,
+    "SOURCE": "openalex_html",
+    "URL": "https://www.qualitative-research.net/index.php/fqs/article/download/4182/5207",
+    "VERSION": "published_version",
+    "HOST_TYPE": "repository",
+    "RETRIEVED_AT": "2026-10-03T18:35:21+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openalex_html",
+        "URL": "https://www.qualitative-research.net/index.php/fqs/article/download/4182/5207",
+        "VERSION": "published_version",
+        "HOST_TYPE": "repository",
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "52dfb924-c99d-42c0-a7ce-0cf47590d88d",
@@ -18156,8 +20320,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:06+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:35:24+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.vikerkaar.ee/issues/10-11-2025/",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "9e1eb133-c3f9-4ff3-9e59-c3ad23abe9de",
@@ -18199,13 +20372,45 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:06+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:25+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://kirj.ee/proceedings-of-the-estonian-academy-of-sciences-publications/?filter[year]=2025&filter[issue]=1816&filter[publication]=16429",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/b456f1fa70fa4f268e679ad2e9a2919b",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://kirj.ee/proceedings-of-the-estonian-academy-of-sciences-publications/?filter%5Byear%5D=2025&filter%5Bissue%5D=1816&filter%5Bpublication%5D=16429&v=cd32106bcb6d",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://hdl.handle.net/11585/1005920",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://kirj.ee/proceedings-of-the-estonian-academy-of-sciences-publications/?filter%5Byear%5D=2025&filter%5Bissue%5D=1816&filter%5Bpublication%5D=16429&v=a57b8491d1d8",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
       }
@@ -18243,7 +20448,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:07+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:26+00:00",
     "ATTEMPTS": []
   },
   {
@@ -18382,7 +20587,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:07+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:26+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -18560,13 +20765,21 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:08+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:27+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
         "URL": "https://ieeexplore.ieee.org/document/11264511/",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
+        "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://ieeexplore.ieee.org/document/11264511",
+        "VERSION": null,
+        "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
       }
@@ -18775,14 +20988,14 @@
   {
     "GUID": "982379ca-d4e4-4a88-8e37-bbd44a067ae2",
     "DOI": "10.3390/socsci13120649",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/982379ca-d4e4-4a88-8e37-bbd44a067ae2.pdf",
+    "TEXT_FILE": "./data/fulltext/982379ca-d4e4-4a88-8e37-bbd44a067ae2.txt",
+    "N_CHARACTERS": 54973,
+    "SOURCE": "etis",
+    "URL": "https://www.mdpi.com/2076-0760/13/12/649/pdf?version=1732880494",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:10+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:30+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -18790,6 +21003,22 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/7054a850ca4747cd87e7c6689e9bad14",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.mdpi.com/2076-0760/13/12/649/pdf?version=1732880494",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -18880,8 +21109,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:11+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:35:31+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "https://journals.sagepub.com/doi/abs/10.1177/15701255261423332",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      }
+    ]
   },
   {
     "GUID": "ca9b5867-9529-4f4d-8089-d0e9696c98c3",
@@ -18893,7 +21131,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:11+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:31+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -18902,6 +21140,22 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://kuleuven.limo.libis.be/discovery/search?query=any,contains,LIRIAS4391174&tab=LIRIAS&search_scope=lirias_profile&vid=32KUL_KUL:Lirias&offset=0",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.sciencedirect.com/science/article/pii/S2210422426000456?via%3Dihub",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
       }
     ]
   },
@@ -18915,7 +21169,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:12+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:32+00:00",
     "ATTEMPTS": []
   },
   {
@@ -18950,7 +21204,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:12+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:32+00:00",
     "ATTEMPTS": []
   },
   {
@@ -19327,7 +21581,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:12+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:32+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -19596,15 +21850,24 @@
   {
     "GUID": "2862a001-78d4-483f-b486-b8d19ccba138",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/2862a001-78d4-483f-b486-b8d19ccba138.pdf",
+    "TEXT_FILE": "./data/fulltext/2862a001-78d4-483f-b486-b8d19ccba138.txt",
+    "N_CHARACTERS": 41297,
+    "SOURCE": "etis",
+    "URL": "http://publications.tlu.ee/index.php/eastwest/article/viewFile/1352/984",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:13+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T18:35:33+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "etis",
+        "URL": "http://publications.tlu.ee/index.php/eastwest/article/viewFile/1352/984",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "7c90ad68-6946-4edc-a835-da956867b2cb",
@@ -19631,14 +21894,14 @@
   {
     "GUID": "e4baf28a-eb1c-44f7-a4d8-f61636de5dee",
     "DOI": "10.3390/heritage8060220",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
+    "FILE": "./data/fulltext/e4baf28a-eb1c-44f7-a4d8-f61636de5dee.pdf",
+    "TEXT_FILE": "./data/fulltext/e4baf28a-eb1c-44f7-a4d8-f61636de5dee.txt",
+    "N_CHARACTERS": 60699,
+    "SOURCE": "etis",
+    "URL": "https://www.mdpi.com/2571-9408/8/6/220/pdf?version=1749560378",
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:13+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:33+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -19647,27 +21910,43 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "openaire_html",
+        "URL": "https://doaj.org/article/5af9af60f023404f933380e54bc928e9",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "http_error",
+        "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "etis",
+        "URL": "https://www.mdpi.com/2571-9408/8/6/220/pdf?version=1749560378",
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
       }
     ]
   },
   {
     "GUID": "10918b1f-3c74-4c45-ae5f-d754615d0a8d",
     "DOI": "10.7146/atr.67.166261",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
-    "URL": null,
-    "VERSION": null,
-    "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:15+00:00",
+    "FILE": "./data/fulltext/10918b1f-3c74-4c45-ae5f-d754615d0a8d.pdf",
+    "TEXT_FILE": "./data/fulltext/10918b1f-3c74-4c45-ae5f-d754615d0a8d.txt",
+    "N_CHARACTERS": 46225,
+    "SOURCE": "openalex_html",
+    "URL": "https://tidsskrift.dk/atr/article/download/166261/207385",
+    "VERSION": "published_version",
+    "HOST_TYPE": "journal",
+    "RETRIEVED_AT": "2026-10-03T18:35:38+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
-        "URL": "https://tidsskrift.dk/atr/article/view/166261",
+        "URL": "https://tidsskrift.dk/atr/article/download/166261/207385",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
-        "RESULT": "text_too_short",
+        "RESULT": "ok",
         "RESULT_DETAIL": null
       }
     ]
@@ -19830,7 +22109,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:17+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:38+00:00",
     "ATTEMPTS": []
   },
   {
@@ -19947,7 +22226,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T11:43:17+00:00",
+    "RETRIEVED_AT": "2026-10-03T18:35:38+00:00",
     "ATTEMPTS": []
   },
   {

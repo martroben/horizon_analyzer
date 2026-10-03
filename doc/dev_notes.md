@@ -1,4 +1,23 @@
 # 2026-10-03
+Started open data checks (step 3). Claude Code checks the articles one by one with the `check-open-data` skill (`.claude/skills/check-open-data/SKILL.md`) and appends one record per article to `data/assessments/open_data_assessments.jsonl`. The full text check also settles open access of the articles where it's unclear.
+
+Open data = the data needed to validate the article's results can be freely downloaded (H2020 Art. 29.3 / Horizon Europe bar). Labels: repository, supplement, public_source (count as open data), restricted, on_request, in_article, not_available, no_data, no_fulltext (left out of the rates). Records also say whether the open data are full or partial, raw or processed. Datasets of the Horizon project count only if the article itself links to them (AHEAD case). All 842 articles will be checked eventually.
+
+Added scripts:
+- `get_open_data_candidates` - candidate data links by DOI: ScholeXplorer dataset and software links, DataCite records that are supplements to the article, Europe PMC records (PMC IDs, text-mined accession numbers), OpenAIRE datasets of the Horizon projects.
+- `get_fulltext` - full texts to `data/fulltext/` (not committed): PMC XML via NCBI E-utilities, open PDFs and journal pages of published versions and author manuscripts from OpenAlex locations, OpenAlex cached copies (needs `OPENALEX_API_KEY`), open preprint PDFs. PDFs are converted with pdftotext (`fulltext_conversion`). Uses a browser user agent - many publishers (e.g. MDPI) refuse open access PDFs to scripts.
+- `make_open_data_queue` - everything that the check needs per article. The 20 articles of the Jan 2025 random sample come first, the rest are in a fixed random order, so that any number of checked articles is a random sample.
+- `next_open_data_batch` - prints the next articles to check. `validate_open_data_assessments` - checks that quotes are in the cached full texts and that links work.
+- `analyse_data` uses the open access verdicts of the full text check and gives open data rates with 95% confidence intervals by data mandate group.
+
+Open access check list: 66 articles where ETIS and OpenAlex disagree and 42 articles with a Jan 2025 manual "free to read" verdict but no open published version or author manuscript in OpenAlex (19 only preprint or unknown version, 17 not in OpenAlex, 6 closed in OpenAlex).
+
+272 of 842 articles have candidate data links (ScholeXplorer 172, DataCite 58). Europe PMC has 297 of the articles, 207 with a PMC ID. 114 of 179 Horizon projects with articles have datasets in OpenAIRE. Full texts for 420 articles (359 published version or author manuscript). Many publishers block scripts (403, captchas, JavaScript challenges: Elsevier, Wiley, T&F, ACS, Springer, A&A, IEEE).
+
+DataCite answers 429 after ~500 requests in 5 minutes without identification. Added retries with waits.
+
+Pilot of the first 10 articles: 2 repository, 1 supplement, 1 public_source, 1 restricted, 1 on_request, 3 not_available, 1 no_fulltext. Same results as the Jan 2025 manual checks for 5bd15d8a and 81f611f3. 9087611f is now public_source (archival XMM-Newton and Chandra data); in Jan 2025 it counted as available because of AHEAD project data. Found an accepted manuscript of 371f55d4 in Zenodo through OpenAIRE that OpenAlex doesn't know.
+
 Open Access Button API was shut down on 2025-11-18. Replaced it with OpenAlex API in `get_data`. Articles are looked up by DOI (free). Articles without a DOI, or with a DOI that OpenAlex doesn't know, are searched by title. A title search result is accepted only if it's the single work with the same title and publication year (±1 year). Title searches cost $0.001 against a daily budget of $0.10 without an API key or $1 with a free key (`OPENALEX_API_KEY` environment variable).
 
 Open access summary and the ambiguous open access check now compare ETIS with OpenAlex instead of Open Access Button. `analyse_data` reads the latest open access data file instead of a fixed path.

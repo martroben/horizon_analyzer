@@ -2,3 +2,5 @@
 .vscode
 _scratch*
 data/raw/*
+data/fulltext/
+__pycache__/

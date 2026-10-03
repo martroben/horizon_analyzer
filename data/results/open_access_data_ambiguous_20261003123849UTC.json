@@ -1,0 +1,3690 @@
+[
+  {
+    "GUID": "854b11bf-448c-429b-b3d9-39d5d28e53b0",
+    "PROJECT_GUIDS": [
+      "06ddba63-b2b3-438d-86fe-a5574dacfe81",
+      "8e62e988-62e0-4c93-9cfc-25b5d6ff67e1",
+      "f57a35a2-159a-4a13-8555-46b380937cc4"
+    ],
+    "TITLE": "Ultra-rare disruptive and damaging mutations influence educational attainment in the general population",
+    "PERIODICAL": "Nature Neuroscience",
+    "DOI": "10.1038/nn.4404",
+    "URL": "http://http://www.nature.com/neuro/journal/v19/n12/full/nn.4404.html",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "4b12ef48-3a3b-4189-b5a5-1123a1a89f67",
+        "NAME": "Andres Metspalu",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "4d741707-ed8b-4261-ad61-745e40d5168c",
+        "NAME": "Tõnu Esko",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "4e050e83-3f71-4b44-b9e3-90425493085e",
+        "NAME": "Mart Kals",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "ce1a4d2c-8764-492b-8602-56f050a57b3e",
+        "NAME": "Reedik Mägi",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "4e0b8b55-20ac-4178-ace5-d59e3c8540ea",
+        "NAME": "University of Tartu, Estonian Genome Center",
+        "REGISTRY_CODE": null
+      },
+      {
+        "GUID": "7a3dd85d-bef5-4847-9322-570bd8dd9b05",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Molecular and Cell Biology",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2527792085",
+    "OPENALEX_DOI": "10.1038/nn.4404",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/5127781",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "757b6854-be4c-44aa-882b-ebc21bd6e8b2",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5"
+    ],
+    "TITLE": "Radio Resource Management in NB-IoT Systems: Empowered by Interference Prediction and Flexible Duplexing",
+    "PERIODICAL": "IEEE Network",
+    "DOI": "10.1109/mnet.001.1900087",
+    "URL": "https://ieeexplore.ieee.org/document/8839971",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "5584a043-ba8f-4677-b47f-6b5ec1c9c1fe",
+        "NAME": "Yannick Le Moullec",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "ce99bb3d-abcc-40c0-97d5-006730270b0a",
+        "NAME": "Sven Pärand",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "dc5ceb06-414d-4031-a712-c385a1ca2807",
+        "NAME": "Muhammad Mahtab Alam",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "dead85e2-6395-4915-9e3f-b735f6690834",
+        "NAME": "Hassan Malik",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "9135c7a1-32d3-43c2-b033-b0079f24340d",
+        "NAME": "Telia Estonia Ltd",
+        "REGISTRY_CODE": "10234957"
+      },
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2973584236",
+    "OPENALEX_DOI": "10.1109/mnet.001.1900087",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://eprints.lancs.ac.uk/id/eprint/141664/1/IEEE_Networks_Revised_3_.pdf",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "325fc02b-5160-4b87-b90a-cd765e9bab8e",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5"
+    ],
+    "TITLE": "Simulations of heterostructures based on 3C-4H and 6H-4H silicon carbide polytypes",
+    "PERIODICAL": "Materials Science Forum",
+    "DOI": "10.4028/www.scientific.net/msf.924.302",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "closed",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "070a9ab2-9421-475d-8c88-0a0d39f46d21",
+        "NAME": "Ants Koel",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "de90203d-2bea-4106-9772-10ccfbf6dd3a",
+        "NAME": "Muhammad Haroon Rashid",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "f0769497-565b-4abc-852a-beac18ad8de2",
+        "NAME": "Toomas Rang",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2810883883",
+    "OPENALEX_DOI": "10.4028/www.scientific.net/msf.924.302",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.4028/www.scientific.net/msf.924.302",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "b8e3759b-36a8-422c-9c79-c4daf07948f8",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5"
+    ],
+    "TITLE": "Estimating Sparse Signals Using Integrated Wideband Dictionaries",
+    "PERIODICAL": "IEEE Transactions on Signal Processing",
+    "DOI": "10.1109/tsp.2018.2835426",
+    "URL": "https://ieeexplore.ieee.org/document/8359108",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "6b244ca4-b09a-4688-bea9-3c02981dc692",
+        "NAME": "Maksim Butsenko",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2608478631",
+    "OPENALEX_DOI": "10.1109/tsp.2018.2835426",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://arxiv.org/pdf/1704.07584",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion",
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "6f604c65-9805-4267-b97a-b5f306ccb96b",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5"
+    ],
+    "TITLE": "Nano and Micro-Scale Simulations of Si/4H-SiC and Si/3C-SiC NN-Heterojunction Diodes",
+    "PERIODICAL": "Materials Science Forum",
+    "DOI": "10.4028/www.scientific.net/msf.963.357",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "closed",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "070a9ab2-9421-475d-8c88-0a0d39f46d21",
+        "NAME": "Ants Koel",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "de90203d-2bea-4106-9772-10ccfbf6dd3a",
+        "NAME": "Muhammad Haroon Rashid",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2962808367",
+    "OPENALEX_DOI": "10.4028/www.scientific.net/msf.963.357",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.4028/www.scientific.net/msf.963.357",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "ccf19b16-2a27-4290-a9be-26b2b494767b",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5"
+    ],
+    "TITLE": "Nano- and Micro-Scale Simulations of Ge/3C-SiC and Ge/4H-SiC NN-Heterojunction Diodes",
+    "PERIODICAL": "Materials Science Forum",
+    "DOI": "10.4028/www.scientific.net/msf.1004.490",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "070a9ab2-9421-475d-8c88-0a0d39f46d21",
+        "NAME": "Ants Koel",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "de90203d-2bea-4106-9772-10ccfbf6dd3a",
+        "NAME": "Muhammad Haroon Rashid",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "f0769497-565b-4abc-852a-beac18ad8de2",
+        "NAME": "Toomas Rang",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2995344957",
+    "OPENALEX_DOI": "10.4028/www.scientific.net/msf.1004.490",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.4028/www.scientific.net/msf.1004.490",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "40605a10-b27e-436b-a394-c504c6a216cc",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5",
+      "eab4ed3a-281e-43ed-acb4-083151bc7d0b"
+    ],
+    "TITLE": "Cooperative Scheduler to Enhance Massive Connectivity in 5G and Beyond by Minimizing Interference in OMA and NOMA",
+    "PERIODICAL": "IEEE Systems Journal",
+    "DOI": "10.1109/jsyst.2021.3114338",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "5584a043-ba8f-4677-b47f-6b5ec1c9c1fe",
+        "NAME": "Yannick Le Moullec",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "60c2ea2f-65d9-43a7-9f8e-bfda3206a1a9",
+        "NAME": "Osama Mohamed Mostafa Elgarhy",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "750c7207-ed02-49e1-a2c3-65e5a2330d47",
+        "NAME": "Collins Burton Mwakwata",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "dc5ceb06-414d-4031-a712-c385a1ca2807",
+        "NAME": "Muhammad Mahtab Alam",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3206210095",
+    "OPENALEX_DOI": "10.1109/jsyst.2021.3114338",
+    "OPENALEX_IS_OPEN_ACCESS": false,
+    "OPENALEX_OPEN_ACCESS_TYPE": "closed",
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "7f2fd5c8-06b7-4b71-b62b-6edfba4866b1",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5"
+    ],
+    "TITLE": "Analysis of Barrier Inhomogeneities of P-Type Al/4H-SiC Schottky Barrier Diodes",
+    "PERIODICAL": "Materials Science Forum",
+    "DOI": "10.4028/www.scientific.net/msf.1004.960",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "closed",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "070a9ab2-9421-475d-8c88-0a0d39f46d21",
+        "NAME": "Ants Koel",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5dd9141f-01a4-4e73-8ec8-5b1e4223dd38",
+        "NAME": "Jana Toompuu",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e4ee2919-4e2b-4488-a4c6-2bf5464ea14c",
+        "NAME": "Mehadi Hasan Ziko",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "f0769497-565b-4abc-852a-beac18ad8de2",
+        "NAME": "Toomas Rang",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3045607183",
+    "OPENALEX_DOI": "10.4028/www.scientific.net/msf.1004.960",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.4028/www.scientific.net/msf.1004.960",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "80563d09-0d5e-4c5d-b8bf-d4af65de00c8",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5"
+    ],
+    "TITLE": "SiC JBS Diode Symmetrical Voltage Doubler Represented as the Diffusion-Welded Stack",
+    "PERIODICAL": "Materials Science Forum",
+    "DOI": "10.4028/www.scientific.net/msf.924.862",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "closed",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "1510bf11-108d-4f02-a473-56aee580c790",
+        "NAME": "Natalja Sleptšuk",
+        "IN_OPENALEX_AUTHORS": false
+      },
+      {
+        "GUID": "34a085bf-87d3-4747-8635-0043c9a44107",
+        "NAME": "Raul Land",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5dd9141f-01a4-4e73-8ec8-5b1e4223dd38",
+        "NAME": "Jana Toompuu",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "6f1f0536-7d32-4f5a-8ab4-27d61aaa13de",
+        "NAME": "Oleg Korolkov",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "f0769497-565b-4abc-852a-beac18ad8de2",
+        "NAME": "Toomas Rang",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2808536332",
+    "OPENALEX_DOI": "10.4028/www.scientific.net/msf.924.862",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.4028/www.scientific.net/msf.924.862",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "1eeb1ec8-764c-479b-bb35-ada3a494bbff",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5",
+      "eab4ed3a-281e-43ed-acb4-083151bc7d0b"
+    ],
+    "TITLE": "Novel Active-Passive Two-Way Ranging Protocols for UWB Positioning Systems",
+    "PERIODICAL": "IEEE Sensors Journal",
+    "DOI": "10.1109/jsen.2021.3125570",
+    "URL": "https://ieeexplore.ieee.org/document/9600859",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "532b6ef0-8601-4616-864c-ccbb127feaa4",
+        "NAME": "Taavi Laadung",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5584a043-ba8f-4677-b47f-6b5ec1c9c1fe",
+        "NAME": "Yannick Le Moullec",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "8cea4a7b-9144-4798-89c0-7481001d7396",
+        "NAME": "Sander Ulp",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "dc5ceb06-414d-4031-a712-c385a1ca2807",
+        "NAME": "Muhammad Mahtab Alam",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "1398051f-9e88-4a75-8ce7-8ad9a82d09bf",
+        "NAME": "ELIKO Competence Centre in Electronics-, Info- and Communication Technologies",
+        "REGISTRY_CODE": "11054022"
+      },
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3214570700",
+    "OPENALEX_DOI": "10.1109/jsen.2021.3125570",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://zenodo.org/record/6555963",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "ec195c53-9e60-42fe-ae4f-f048e066aab1",
+    "PROJECT_GUIDS": [
+      "deb9be51-cc55-4d3b-8bf2-55d03c2305d0"
+    ],
+    "TITLE": "Enhanced photocatalytic activity of chemically deposited ZnO nanowires using doping and annealing strategies for water remediation",
+    "PERIODICAL": "Applied Surface Science",
+    "DOI": "10.1016/j.apsusc.2021.152323",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "closed",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "5a89038d-4c7a-4bd8-8365-2e5967997160",
+        "NAME": "Tatjana Dedova",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "edc4fd63-b3f9-4c0a-b74d-93e0c13ff32d",
+        "NAME": "Ilona Oja Açik",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "fba2a1ef-6a8a-4e02-9b95-5cd86258cb38",
+        "NAME": "Mati Danilson",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "f4fd2b70-3d3d-43ce-8a32-de0337936e65",
+        "NAME": "Tallinn University of Technology, School of Engineering, Department of Materials and Environmental Technology",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4200076935",
+    "OPENALEX_DOI": "10.1016/j.apsusc.2021.152323",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "bronze",
+    "OPENALEX_OPEN_ACCESS_URL": "https://www.sciencedirect.com/science/article/pii/S0169433221033444",
+    "OPENALEX_OPEN_VERSIONS": [
+      "acceptedVersion",
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "7f6b3c77-8344-48cd-8a27-bb34a54661e9",
+    "PROJECT_GUIDS": [
+      "f79d5ee6-3550-44e4-a15f-130abdc1f653"
+    ],
+    "TITLE": "Carbide-derived carbon in polypyrrole changing the elastic modulus with a huge impact on actuation",
+    "PERIODICAL": "RSC Advances",
+    "DOI": "10.1039/c6ra01511e",
+    "URL": "http://pubs.rsc.org/en/Content/ArticleLanding/2016/RA/C6RA01511E?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fra+%28RSC+-+RSC+Adv.+latest+articles%29#!divAbstract",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "103ea06e-4afa-4073-a54b-d89784f9ed1f",
+        "NAME": "Tarmo Tamm",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "1998d841-3df4-48d5-8a27-94cf533d5ead",
+        "NAME": "Robert Valner",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "821bbb1c-55c2-426c-b382-af74c05b2088",
+        "NAME": "Rudolf Kiefer",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "9324af20-7ef0-4776-bab3-a773e145698a",
+        "NAME": "Alvo Aabloo",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "b90ceb89-040c-4e05-9864-90e9b2bcfc7b",
+        "NAME": "Zane Zondaka",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "2ca97556-276a-49f3-a225-789f48beaa00",
+        "NAME": "University of Tartu",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2293533882",
+    "OPENALEX_DOI": "10.1039/c6ra01511e",
+    "OPENALEX_IS_OPEN_ACCESS": false,
+    "OPENALEX_OPEN_ACCESS_TYPE": "closed",
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "4c3c466f-66e3-420e-8031-01ccc6179dbc",
+    "PROJECT_GUIDS": [
+      "42ef9513-f2f8-4f93-83d2-4ede1a108b36"
+    ],
+    "TITLE": "Being both – A European and a national citizen? Comparing young people’s identification with Europe and their home country across eight European countries.",
+    "PERIODICAL": "European Journal of Developmental Psychology",
+    "DOI": "10.1080/17405629.2017.1391087",
+    "URL": "http://http://www.tandfonline.com/doi/full/10.1080/17405629.2017.1391087",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "2c56c32f-ee86-4edf-8571-02f2e9bc5b29",
+        "NAME": "Andu Rämmer",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "d8afa4c5-4ca2-41e8-b485-1b9a92ed2616",
+        "NAME": "University of Tartu, Faculty of Social Sciences, Institute of Social Studies",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2761563621",
+    "OPENALEX_DOI": "10.1080/17405629.2017.1391087",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://researchonline.lse.ac.uk/id/eprint/85929/1/Being%20both%20%C2%AD%20A%20European%20and%20a%20national%20citizen%20%28Manuscript%29_final.pdf",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "5f1bedc2-3034-49b8-a2e3-ac64dffd51fe",
+    "PROJECT_GUIDS": [
+      "be8d2462-2c53-4a29-a5e9-b8102f75a6f5"
+    ],
+    "TITLE": "Multimodal Teaching Analytics: Automated Extraction of Orchestration Graphs from Wearable Sensor Data",
+    "PERIODICAL": "Journal of Computer Assisted Learning",
+    "DOI": "10.1111/jcal.12232",
+    "URL": "https://onlinelibrary.wiley.com/doi/abs/10.1111/jcal.12232",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "1a636b40-d98b-45a2-828e-8fb7a09cf8b8",
+        "NAME": "Maria Jesus Rodriguez Triana",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e82e01aa-4073-4bcc-8fe2-631b6e48c084",
+        "NAME": "Luis Pablo Prieto Santos",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "2613d2e8-b7a6-4985-a609-67599b5ead65",
+        "NAME": "Tallinn University, School of Educational Sciences",
+        "REGISTRY_CODE": "74000122"
+      },
+      {
+        "GUID": "cedd19cd-0d62-4d8a-abce-38eb9f47f259",
+        "NAME": "Tallinn University, School of Digital Technologies",
+        "REGISTRY_CODE": "74000122"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2793185901",
+    "OPENALEX_DOI": "10.1111/jcal.12232",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/5909982",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "49eab2fe-8c10-40f2-b6ae-08fc44ff9025",
+    "PROJECT_GUIDS": [
+      "be8d2462-2c53-4a29-a5e9-b8102f75a6f5"
+    ],
+    "TITLE": "Monitoring for awareness and reflection in ubiquitous learning environments.",
+    "PERIODICAL": "International Journal of Human-Computer Interaction",
+    "DOI": "10.1080/10447318.2017.1331536",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "1a636b40-d98b-45a2-828e-8fb7a09cf8b8",
+        "NAME": "Maria Jesus Rodriguez Triana",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "cedd19cd-0d62-4d8a-abce-38eb9f47f259",
+        "NAME": "Tallinn University, School of Digital Technologies",
+        "REGISTRY_CODE": "74000122"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2616033174",
+    "OPENALEX_DOI": "10.1080/10447318.2017.1331536",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "http://uvadoc.uva.es/handle/10324/24842",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "493a3733-3874-4883-a20d-f4f27ccc0c53",
+    "PROJECT_GUIDS": [
+      "7f226f0c-6912-48a3-9c55-6b19c8570782"
+    ],
+    "TITLE": "MUC20 expression marks the receptive phase of the human endometrium.",
+    "PERIODICAL": "Reproductive BioMedicine Online",
+    "DOI": "10.1016/j.rbmo.2019.05.004",
+    "URL": "https://www.rbmojournal.com/article/S1472-6483(19)30538-3/fulltext",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "01a52228-2059-4193-aba0-8efb764a6d58",
+        "NAME": "Kersti Jääger",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "180e083a-f6ad-434a-a90b-836778c8a1e2",
+        "NAME": "Merli Saare",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "275b8c0c-5a69-4244-8f3d-6f31eb5b71d8",
+        "NAME": "Sulev Ingerpuu",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "564d3e8c-3dc1-4624-a6b6-268ddf0b492e",
+        "NAME": "Martin Pook",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "586bd728-a68e-4161-95f0-ad982db833c8",
+        "NAME": "Mariann Võsa",
+        "IN_OPENALEX_AUTHORS": false
+      },
+      {
+        "GUID": "80df64df-4ef4-4519-99e6-54ede4d0dab9",
+        "NAME": "Andres Salumets",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "9088ca42-bb45-4daa-b839-b483c666d0c0",
+        "NAME": "Kaarel Krjutškov",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "a60d60ec-c969-4028-8d03-8063bda2e63e",
+        "NAME": "Maire Peters",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "d6db5375-c164-4845-b986-60ce683c831e",
+        "NAME": "Artjom Stepanjuk",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "4cd90053-381d-4fbe-ae70-12b802ebca06",
+        "NAME": "University of Tartu, Faculty of Medicine, Institute of Biomedicine and Translational Medicine",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "52af6fc8-b84b-4d4e-9a3f-b8ed5ef4fd60",
+        "NAME": "University of Helsinki",
+        "REGISTRY_CODE": "00000000"
+      },
+      {
+        "GUID": "7a3dd85d-bef5-4847-9322-570bd8dd9b05",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Molecular and Cell Biology",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "9f04b804-38b4-4798-850c-92b91f220d69",
+        "NAME": "Celvia CC AS",
+        "REGISTRY_CODE": "11673707"
+      },
+      {
+        "GUID": "b43fb520-a3f3-425e-b368-fa761f420082",
+        "NAME": "University of Tartu, Faculty of Medicine, Institute of Clinical Medicine",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2944491346",
+    "OPENALEX_DOI": "10.1016/j.rbmo.2019.05.004",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "http://hdl.handle.net/10138/314747",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "5f45e52d-731e-4924-a72e-92b3fc93f10a",
+    "PROJECT_GUIDS": [
+      "7f226f0c-6912-48a3-9c55-6b19c8570782"
+    ],
+    "TITLE": "Chemosensitivity and chemoresistance in endometriosis – differences for ectopic versus eutopic cells",
+    "PERIODICAL": "Reproductive BioMedicine Online",
+    "DOI": "10.1016/j.rbmo.2019.05.019",
+    "URL": "https://www.sciencedirect.com/science/article/pii/S1472648319305838",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "67a9f6bc-1ba0-4e10-876f-79fcc7b7ca0a",
+        "NAME": "Külli Samuel",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "80df64df-4ef4-4519-99e6-54ede4d0dab9",
+        "NAME": "Andres Salumets",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "9c0dbf85-6549-4200-8605-71ac00a3748d",
+        "NAME": "Arina Lavrits",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "a60d60ec-c969-4028-8d03-8063bda2e63e",
+        "NAME": "Maire Peters",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "b87f4196-fcab-4078-8c0b-36076ae3eac4",
+        "NAME": "Deniss Sõritsa",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "d308f0bd-1b96-46f4-95a9-79a0bcef9a04",
+        "NAME": "Darja Lavõgina",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e2f2804e-5791-450e-a89f-e7da4ea0541d",
+        "NAME": "Ago Rinken",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e986ca0b-66b7-409f-a94a-a37e2b32328b",
+        "NAME": "Ülle Kadastik",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "4cd90053-381d-4fbe-ae70-12b802ebca06",
+        "NAME": "University of Tartu, Faculty of Medicine, Institute of Biomedicine and Translational Medicine",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "7a3dd85d-bef5-4847-9322-570bd8dd9b05",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Molecular and Cell Biology",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "8d4a8e6d-7f2b-48be-81ca-e61d8a59ace2",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Chemistry",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "9f04b804-38b4-4798-850c-92b91f220d69",
+        "NAME": "Celvia CC AS",
+        "REGISTRY_CODE": "11673707"
+      },
+      {
+        "GUID": "b43fb520-a3f3-425e-b368-fa761f420082",
+        "NAME": "University of Tartu, Faculty of Medicine, Institute of Clinical Medicine",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "dd536e7e-91d0-4c17-a06f-5ef62f286322",
+        "NAME": "Tartu University Hospital, Women's Clinic of Tartu University Hospital",
+        "REGISTRY_CODE": "90001478"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2947231105",
+    "OPENALEX_DOI": "10.1016/j.rbmo.2019.05.019",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "http://hdl.handle.net/10138/320966",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "6db340a9-09c7-4131-b7e6-0419b6b71cde",
+    "PROJECT_GUIDS": [
+      "f57a35a2-159a-4a13-8555-46b380937cc4"
+    ],
+    "TITLE": "Educational Attainment and Personality Are Genetically Intertwined",
+    "PERIODICAL": "Psychological Science",
+    "DOI": "10.1177/0956797617719083",
+    "URL": "",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "0beb37e9-520e-42c1-a890-168b41d2a8b9",
+        "NAME": "Jüri Allik",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "0ff30c7e-b0c5-4ee8-9e40-e6ae4c8c86a0",
+        "NAME": "Rene Mõttus",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "4d741707-ed8b-4261-ad61-745e40d5168c",
+        "NAME": "Tõnu Esko",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "c1910ad4-c3ef-4aed-93a5-1a80a74b3695",
+        "NAME": "Uku Vainik",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "d8e4a0be-fc2c-4154-b5ec-549dd0da620f",
+        "NAME": "Anu Realo",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "2ca97556-276a-49f3-a225-789f48beaa00",
+        "NAME": "University of Tartu",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2950233054",
+    "OPENALEX_DOI": "10.1177/0956797617719083",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://hdl.handle.net/20.500.11820/1f35ca80-729d-45c5-9a85-57a3cb2f92ad",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "dbb924d9-0f6d-415f-ba53-2855c69e2b59",
+    "PROJECT_GUIDS": [
+      "f57a35a2-159a-4a13-8555-46b380937cc4"
+    ],
+    "TITLE": "Circulating glucuronic acid predicts healthspan and longevity in humans and mice",
+    "PERIODICAL": "Aging",
+    "DOI": "10.18632/aging.102281",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "4d741707-ed8b-4261-ad61-745e40d5168c",
+        "NAME": "Tõnu Esko",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "7c9ac8d0-9216-422f-80c1-8a8e2740198b",
+        "NAME": "Krista Fischer",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "dcd0acac-de81-471a-b967-999baba78083",
+        "NAME": "University of Tartu, Institute of Genomics",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2976398633",
+    "OPENALEX_DOI": "10.18632/aging.102281",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/6781977",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "94530f88-3d1a-46ca-b623-79055eb5e542",
+    "PROJECT_GUIDS": [
+      "f57a35a2-159a-4a13-8555-46b380937cc4"
+    ],
+    "TITLE": "Analytical strategies to include the X-chromosome in variance heterogeneity analyses: Evidence for trait-specific polygenic variance structure",
+    "PERIODICAL": "Genetic Epidemiology",
+    "DOI": "10.1002/gepi.22247",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "4b12ef48-3a3b-4189-b5a5-1123a1a89f67",
+        "NAME": "Andres Metspalu",
+        "IN_OPENALEX_AUTHORS": false
+      },
+      {
+        "GUID": "4d741707-ed8b-4261-ad61-745e40d5168c",
+        "NAME": "Tõnu Esko",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "c7e920b0-0486-44dd-b58b-de90a0c61858",
+        "NAME": "Anette Kalnapenkis",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "ce1a4d2c-8764-492b-8602-56f050a57b3e",
+        "NAME": "Reedik Mägi",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "dcd0acac-de81-471a-b967-999baba78083",
+        "NAME": "University of Tartu, Institute of Genomics",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2963728041",
+    "OPENALEX_DOI": "10.1002/gepi.22247",
+    "OPENALEX_IS_OPEN_ACCESS": false,
+    "OPENALEX_OPEN_ACCESS_TYPE": "closed",
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "9087611f-3dd3-4bd5-a127-f38a91a5f35a",
+    "PROJECT_GUIDS": [
+      "50c54142-34fd-47f7-b375-145a7b28ecd4"
+    ],
+    "TITLE": "To be or not to be: the case of the hot WHIM absorption in the blazar PKS 2155–304 sight line",
+    "PERIODICAL": "Astronomy and Astrophysics",
+    "DOI": "10.1051/0004-6361/201833109",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "bronze",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "00a49655-4729-47bb-b01d-1d084adc093c",
+        "NAME": "Lauri Juhan Liivamägi",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "7bb5d6f8-06a8-4019-9e8b-5aff4398c155",
+        "NAME": "Elmo Tempel",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "af6a8625-f687-4069-8dc3-bb5e4a2e00d4",
+        "NAME": "Jukka Henry Petteri Nevalainen",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "2ca97556-276a-49f3-a225-789f48beaa00",
+        "NAME": "University of Tartu",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "c067002a-b7ab-4b3c-9940-722eedd143c3",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Tartu Observatory",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2901074956",
+    "OPENALEX_DOI": "10.1051/0004-6361/201833109",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://arxiv.org/pdf/1811.09080",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion",
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "96874994-e4b7-4661-9955-eb122b396fc7",
+    "PROJECT_GUIDS": [
+      "91fff33f-545e-4310-bdc3-4978419cc349"
+    ],
+    "TITLE": "Human activities and resultant pressures on key European marine habitats: an analysis of mapped resources.",
+    "PERIODICAL": "Marine Policy",
+    "DOI": "10.1016/j.marpol.2018.08.038",
+    "URL": "",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "93630007-e5f9-488d-ba04-bedd6221b2f3",
+        "NAME": "Jonne Kotta",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e9c71b1c-0b0e-4e5e-8d94-69f62b9da21f",
+        "NAME": "Henn Ojaveer",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "2946a788-2e90-486f-b655-d82e181a276f",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Estonian Marine Institute",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2891387770",
+    "OPENALEX_DOI": "10.1016/j.marpol.2018.08.038",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://research.abo.fi/ws/files/25000887/JMPO_2018_246_Revision%201_Postprint.pdf",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "e822e5cd-d25e-4fc1-9157-c8d9bcd71dea",
+    "PROJECT_GUIDS": [
+      "159bb210-fd51-4c79-9334-82fea07affa8"
+    ],
+    "TITLE": "Uncovered Interest Parity in Central and Eastern Europe: Expectations and Structural Breaks",
+    "PERIODICAL": "Review of International Economics",
+    "DOI": "10.1111/roie.12280",
+    "URL": "http://onlinelibrary.wiley.com/doi/10.1111/roie.12280/abstract",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "4bcb420c-b3a8-4744-a0ab-c7d2697d8e24",
+        "NAME": "Juan Carlos Cuestas Olivares",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "fbeeb134-0330-4074-bc96-f6daeab1b2fb",
+        "NAME": "Fabio Filipozzi",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "fbf25a12-124c-4b71-b6ab-5a3b13c1375c",
+        "NAME": "Karsten Staehr",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "81b2aae3-1107-4477-99d3-08f32d304811",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Department of Economics and Finance",
+        "REGISTRY_CODE": "74000323"
+      },
+      {
+        "GUID": "acf4a825-916b-4986-89a0-440965ab71ab",
+        "NAME": "Bank of Estonia",
+        "REGISTRY_CODE": "74000174"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2268577974",
+    "OPENALEX_DOI": "10.1111/roie.12280",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "http://www.eestipank.ee/sites/eestipank.ee/files/publication/en/WorkingPapers/2015/wp04_2015.pdf",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "7933dcbf-514e-4434-8d91-7369348a7202",
+    "PROJECT_GUIDS": [
+      "159bb210-fd51-4c79-9334-82fea07affa8"
+    ],
+    "TITLE": "The contributions of human capital, R&D spending and convergence to total factor productivity growth",
+    "PERIODICAL": "Regional Studies",
+    "DOI": "10.1080/00343404.2018.1445848",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "626a088e-9a22-4ada-9b68-adb498eed882",
+        "NAME": "Raul Ruubel",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "bc19f8be-99bd-446e-ac91-3a905d73d5c8",
+        "NAME": "Heili Hein-Sula",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "f2c6eb6c-8fdc-4d49-ab79-1b392888e649",
+        "NAME": "Kadri Männasoo",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "81b2aae3-1107-4477-99d3-08f32d304811",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Department of Economics and Finance",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2794663430",
+    "OPENALEX_DOI": "10.1080/00343404.2018.1445848",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://zenodo.org/record/5602436",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "0c6c1fd0-a09a-4799-bfdc-ecab852262a3",
+    "PROJECT_GUIDS": [
+      "159bb210-fd51-4c79-9334-82fea07affa8",
+      "4bd2e2ca-0739-49ac-9f14-f7f04a8dfeef"
+    ],
+    "TITLE": "Digitalization and CO2 emissions: Dynamics under R&D and technology innovation regimes",
+    "PERIODICAL": "Technology in Society",
+    "DOI": "10.1016/j.techsoc.2023.102323",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "f933e08f-4b38-4ca3-a782-eff55d78c424",
+        "NAME": "Artjom Saia",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "81b2aae3-1107-4477-99d3-08f32d304811",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Department of Economics and Finance",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4385164257",
+    "OPENALEX_DOI": "10.1016/j.techsoc.2023.102323",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.1016/j.techsoc.2023.102323",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "646ba765-bc1b-4a20-b711-c849118057de",
+    "PROJECT_GUIDS": [
+      "94a5322b-8d3a-4ef8-89f9-811d7135f829"
+    ],
+    "TITLE": "Earlier winter/spring runoff and snowmelt during warmer winters lead to lower summer chlorophyll-a in north temperate lakes",
+    "PERIODICAL": "Global Change Biology",
+    "DOI": "10.1111/gcb.15797",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "c8b3dae0-241e-48a0-aed4-4e67860fd421",
+        "NAME": "Alo Laas",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "f16a80b7-9199-4cdd-8df3-5c4ce1618812",
+        "NAME": "Peeter Nõges",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "d45e7e06-d673-4d7b-a175-cc0556f293e2",
+        "NAME": "Estonian University of Life Sciences, Institute of Agricultural and Environmental Sciences, Chair of Hydrobiology and Fishery",
+        "REGISTRY_CODE": "74001086"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3179175789",
+    "OPENALEX_DOI": "10.1111/gcb.15797",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "http://hdl.handle.net/10919/111965",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "c5ec80e1-6ecf-41fd-be64-13fcb368ab2f",
+    "PROJECT_GUIDS": [
+      "0eb440e6-3842-4f29-a508-36921c992a01"
+    ],
+    "TITLE": "Bürgerkonten und das Projekt „The Once-Only Principle”",
+    "PERIODICAL": "Public Governance",
+    "DOI": "",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "bronze",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "4b6e4981-0157-4742-9a27-b8855d5e5cf4",
+        "NAME": "Dirk-Hinnerk Fischer",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "85c73c1d-9af3-4c81-ad4e-934a0a4da54f",
+        "NAME": "Robert Krimmer",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "f21161ad-a948-4639-bee7-e6c3d9a237d5",
+        "NAME": "Carsten Schmidt",
+        "IN_OPENALEX_AUTHORS": null
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0afd17eb-3fdb-45d3-9fb1-4d644d58f79b",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Ragnar Nurkse Department of Innovation and Governance",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": null,
+    "OPENALEX_DOI": "",
+    "OPENALEX_IS_OPEN_ACCESS": null,
+    "OPENALEX_OPEN_ACCESS_TYPE": null,
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": null,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "e65a0e43-9b8d-4307-96c6-f477a1f487bc",
+    "PROJECT_GUIDS": [
+      "0146412a-07af-46bf-b885-e7c22f2512f3"
+    ],
+    "TITLE": "Media as a Promoter of Co-Creation and Innovation of Services in\r\nVõru County in Estonia",
+    "PERIODICAL": "East-West Studies: Journal of Social Sciences of Tallinn University Law School",
+    "DOI": "",
+    "URL": "http://publications.tlu.ee/index.php/eastwest/issue/view/113",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "gold",
+    "LICENSE": "Attribution-NonCommercial (CC BY-NC)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "32c58731-5ff4-4a2b-ab76-86184e6f807f",
+        "NAME": "Kadri Kangro",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "4f082b6e-5d85-459a-b037-b8a6e7de62d8",
+        "NAME": "Marju Medar",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "56df7e00-77e2-4c5b-b31f-13df45005275",
+        "NAME": "Katri-Liis Lepik",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "6de1ad48-c5ea-489e-bff1-0ed839c2b1db",
+        "NAME": "Zsolt Bugarszki",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "9750304b-e308-44cd-9f83-79074235e679",
+        "NAME": "Koidu Saia",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "b5ec2d04-7ef8-484b-8dfa-a91dad4440f1",
+        "NAME": "Karmen Toros",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "ed8ddd35-0f6e-4412-97cf-f46cb60a3ad3",
+        "NAME": "Esta Kaal",
+        "IN_OPENALEX_AUTHORS": null
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0fc4c171-5faa-4b4a-a069-b8af1ed7e1d6",
+        "NAME": "Tallinn University, School of Governance, Law and Society",
+        "REGISTRY_CODE": "74000122"
+      },
+      {
+        "GUID": "c6d12c5d-9267-49d6-af62-4728e30eaf2b",
+        "NAME": "Tallinn University, Baltic Film, Media and Arts School",
+        "REGISTRY_CODE": "74000122"
+      }
+    ],
+    "OPENALEX_ID": null,
+    "OPENALEX_DOI": "",
+    "OPENALEX_IS_OPEN_ACCESS": null,
+    "OPENALEX_OPEN_ACCESS_TYPE": null,
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": null,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "b7b89fef-78b6-44ec-ae94-1dbd51e51c7e",
+    "PROJECT_GUIDS": [
+      "6921c6e6-4bf4-4aba-b120-6836bc172bb0"
+    ],
+    "TITLE": "Targeting pro-tumoral macrophages in early primary and metastatic breast tumors with CD206-binding mUNO peptide",
+    "PERIODICAL": "Molecular Pharmaceutics",
+    "DOI": "10.1021/acs.molpharmaceut.0c00226",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "b8743323-ec34-4b32-861d-155654c35a3a",
+        "NAME": "Pablo David Scodeller",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "b88d2fb1-8037-4086-a45b-c25ef2349682",
+        "NAME": "Valeria Sidorenko",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "d6415b86-41d6-4d7b-8a28-9f33ce967520",
+        "NAME": "Anni Lepland",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "dac1dc84-6919-4aa5-b7c5-95f006f6be60",
+        "NAME": "Lorena Simon Gracia",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "eb147b12-3e79-48a4-bce1-f400233a246f",
+        "NAME": "Tambet Teesalu",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "4cd90053-381d-4fbe-ae70-12b802ebca06",
+        "NAME": "University of Tartu, Faculty of Medicine, Institute of Biomedicine and Translational Medicine",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3027520248",
+    "OPENALEX_DOI": "10.1021/acs.molpharmaceut.0c00226",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "http://hdl.handle.net/10261/413041",
+    "OPENALEX_OPEN_VERSIONS": [
+      "acceptedVersion",
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "be5368e1-3b11-4b0a-84c3-78fa37ee56d0",
+    "PROJECT_GUIDS": [
+      "6921c6e6-4bf4-4aba-b120-6836bc172bb0"
+    ],
+    "TITLE": "Peptide-guided nanoparticles for glioblastoma targeting",
+    "PERIODICAL": "Journal of Controlled Release",
+    "DOI": "10.1016/j.jconrel.2019.06.018",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "08cff87f-73ff-4f26-ba0f-a99ba59d775c",
+        "NAME": "Päärn Paiste",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "0d5e9d9a-26ee-401f-a933-728a333c53bb",
+        "NAME": "Allan Tobi",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "2211275b-b003-46c2-acdb-c087cdc16efa",
+        "NAME": "Toomas Asser",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "8298d9b7-9ffb-49f4-9c44-bacd3f227bc9",
+        "NAME": "Prakash Lingasamy",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "9f4e420f-4540-44d8-8378-a32a47d787f4",
+        "NAME": "Tõnu Rätsep",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "dac1dc84-6919-4aa5-b7c5-95f006f6be60",
+        "NAME": "Lorena Simon Gracia",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e13bbf0a-dc86-4f26-84e5-b13f97d78301",
+        "NAME": "Pille Säälik",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "eb147b12-3e79-48a4-bce1-f400233a246f",
+        "NAME": "Tambet Teesalu",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "20aa7c81-83ae-4b47-b195-75172d5086dd",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Ecology and Earth Sciences",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2954433902",
+    "OPENALEX_DOI": "10.1016/j.jconrel.2019.06.018",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://lirias.kuleuven.be/retrieve/8aac6de1-4228-42de-b54d-4794717136d5",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "b9082faa-1240-4cd6-a85f-9b18cb79e4f4",
+    "PROJECT_GUIDS": [
+      "6921c6e6-4bf4-4aba-b120-6836bc172bb0"
+    ],
+    "TITLE": "Neuropilin-1 is a host factor for SARS-CoV-2 infection.",
+    "PERIODICAL": "Science",
+    "DOI": "10.1126/science.abd3072",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "hybrid",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "dac1dc84-6919-4aa5-b7c5-95f006f6be60",
+        "NAME": "Lorena Simon Gracia",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "eb147b12-3e79-48a4-bce1-f400233a246f",
+        "NAME": "Tambet Teesalu",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "2ca97556-276a-49f3-a225-789f48beaa00",
+        "NAME": "University of Tartu",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W7212069056",
+    "OPENALEX_DOI": "10.1126/science.abd3072",
+    "OPENALEX_IS_OPEN_ACCESS": false,
+    "OPENALEX_OPEN_ACCESS_TYPE": "closed",
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "372ef27c-a963-4835-ae0c-fe294ebfc828",
+    "PROJECT_GUIDS": [
+      "6921c6e6-4bf4-4aba-b120-6836bc172bb0"
+    ],
+    "TITLE": "Neuropilin-1 facilitates SARS-CoV-2 cell entry and infectivity.",
+    "PERIODICAL": "Science",
+    "DOI": "10.1126/science.abd2985",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "hybrid",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "0d5e9d9a-26ee-401f-a933-728a333c53bb",
+        "NAME": "Allan Tobi",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "eb147b12-3e79-48a4-bce1-f400233a246f",
+        "NAME": "Tambet Teesalu",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "2ca97556-276a-49f3-a225-789f48beaa00",
+        "NAME": "University of Tartu",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W7212055269",
+    "OPENALEX_DOI": "10.1126/science.abd2985",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://www.zora.uzh.ch/handle/20.500.14742/182234",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "3be44126-d754-430c-be8c-05d8ce8fdbf7",
+    "PROJECT_GUIDS": [
+      "69354f00-f14a-4193-8feb-e666a8c157b1"
+    ],
+    "TITLE": "Paclitaxel-Loaded Cationic Fluid Lipid Nanodiscs and Liposomes with Brush-Conformation PEG Chains Penetrate Breast Tumors and Trigger Caspase-3 Activation",
+    "PERIODICAL": "ACS Applied Materials & Interfaces",
+    "DOI": "10.1021/acsami.2c17961",
+    "URL": "https://pubs.acs.org/doi/full/10.1021/acsami.2c17961",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution-NonCommercial-NoDerivs (CC BY-NC-ND)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "b88d2fb1-8037-4086-a45b-c25ef2349682",
+        "NAME": "Valeria Sidorenko",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "eb147b12-3e79-48a4-bce1-f400233a246f",
+        "NAME": "Tambet Teesalu",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "4cd90053-381d-4fbe-ae70-12b802ebca06",
+        "NAME": "University of Tartu, Faculty of Medicine, Institute of Biomedicine and Translational Medicine",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4311674932",
+    "OPENALEX_DOI": "10.1021/acsami.2c17961",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/9879205",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "cfbde423-437d-4ad2-b823-f23e6216b894",
+    "PROJECT_GUIDS": [
+      "c8781641-ae91-4f0e-9246-f9d6d2d9aea4"
+    ],
+    "TITLE": "New member in the boardroom and subsequent strategic change in the product-market scope of the firm",
+    "PERIODICAL": "Review of International Business and Strategy",
+    "DOI": "10.1108/ribs-09-2019-0130",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution-NonCommercial-NoDerivs (CC BY-NC-ND)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "4fb5402f-709b-40d0-b495-adddd6245951",
+        "NAME": "Virgo Süsi",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e140f22f-fe70-4094-b87e-c72789b2ba66",
+        "NAME": "Oliver Lukason",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "94ad766e-4611-40fc-abb3-52db79f3404d",
+        "NAME": "University of Tartu, Faculty of Social Sciences, School of Economics and Business Administration",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3025420572",
+    "OPENALEX_DOI": "10.1108/ribs-09-2019-0130",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://dspace.ut.ee/bitstreams/543325df-eaed-440f-8604-b395860e4c61/download",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "16b0ff52-f997-44e7-82d6-2533301808bd",
+    "PROJECT_GUIDS": [
+      "b86be8dc-49aa-42fc-ade5-a30788130fc6"
+    ],
+    "TITLE": "Soil Warming Shifts Seasonal and Soil Depth-Related Root Growth Dynamics in Subarctic Grasslands",
+    "PERIODICAL": "Global Change Biology",
+    "DOI": "10.1111/gcb.71055",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution-NonCommercial (CC BY-NC)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "d0bb854e-9cb9-463c-afb7-603aa6edc365",
+        "NAME": "Ivika Ostonen-Märtin",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "20aa7c81-83ae-4b47-b195-75172d5086dd",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Ecology and Earth Sciences",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W7196972158",
+    "OPENALEX_DOI": "10.1111/gcb.71055",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13490761/pdf/GCB-32-e71055.pdf",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion",
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "32093e7e-6da9-4755-9d01-667b90ce9b5a",
+    "PROJECT_GUIDS": [
+      "b86be8dc-49aa-42fc-ade5-a30788130fc6"
+    ],
+    "TITLE": "Soil warming duration and magnitude affect the dynamics of fine roots and rhizomes and associated C and N pools in subarctic grasslands",
+    "PERIODICAL": "Annals of Botany",
+    "DOI": "10.1093/aob/mcad102",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "23728045-e324-473a-a99b-fbaeb98a4ded",
+        "NAME": "Biplabi Bhattarai",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5802efb4-d0d6-499d-b02f-e64207b1b7e6",
+        "NAME": "Jaak Truu",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "7ce0c518-e09c-4ac4-bbd8-857adbadd0e6",
+        "NAME": "Arun Kumar Devarajan",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "a3eb2a50-820b-49df-a69f-ad3dffb8fe6d",
+        "NAME": "Marika Truu",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "d0bb854e-9cb9-463c-afb7-603aa6edc365",
+        "NAME": "Ivika Ostonen-Märtin",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "20aa7c81-83ae-4b47-b195-75172d5086dd",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Ecology and Earth Sciences",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "7a3dd85d-bef5-4847-9322-570bd8dd9b05",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Molecular and Cell Biology",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4384922394",
+    "OPENALEX_DOI": "10.1093/aob/mcad102",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "bronze",
+    "OPENALEX_OPEN_ACCESS_URL": "https://academic.oup.com/aob/article-pdf/132/2/269/52210747/mcad102.pdf",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion",
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "829f59a6-ebb9-465c-ab9a-5b06da607766",
+    "PROJECT_GUIDS": [
+      "73b035ae-226d-4e92-8cea-33be6f9931b1",
+      "bb3ffa16-1b24-4631-a7dc-50bb1601cbe4"
+    ],
+    "TITLE": "A decade of radial-velocity monitoring of rho Leo: moment analysis and periodic variability",
+    "PERIODICAL": "Universe",
+    "DOI": "10.3390/universe12090000",
+    "URL": "https://www.mdpi.com/2218-1997/12/9/263",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "gold",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "53f121fb-7f64-43be-978e-66cdfdcaa5bc",
+        "NAME": "Vitalii Checha",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "d9f2ffc6-756c-4ab7-b281-2de3780e281a",
+        "NAME": "Anna Aret",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "c067002a-b7ab-4b3c-9940-722eedd143c3",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Tartu Observatory",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W7204856456",
+    "OPENALEX_DOI": "10.48550/arxiv.2608.28039",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://arxiv.org/pdf/2608.28039",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion",
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "8385750e-7e86-4749-a21d-62335584f1ec",
+    "PROJECT_GUIDS": [
+      "73b035ae-226d-4e92-8cea-33be6f9931b1"
+    ],
+    "TITLE": "Spectroscopic study of the sgB[e]-high mass X-ray binary CI Cam",
+    "PERIODICAL": "Boletin de la Asociacion Argentina de Astronomia",
+    "DOI": "",
+    "URL": "https://ui.adsabs.harvard.edu/abs/2020BAAA...61B..99A/abstract",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "bronze",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "6f74c412-a0d8-4122-8fae-da57e84610f1",
+        "NAME": "Tõnis Eenmäe",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "d9f2ffc6-756c-4ab7-b281-2de3780e281a",
+        "NAME": "Anna Aret",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "c067002a-b7ab-4b3c-9940-722eedd143c3",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Tartu Observatory",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3157443359",
+    "OPENALEX_DOI": "",
+    "OPENALEX_IS_OPEN_ACCESS": false,
+    "OPENALEX_OPEN_ACCESS_TYPE": "closed",
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "65452e59-328b-4363-837d-54a92e169409",
+    "PROJECT_GUIDS": [
+      "a535003a-03b5-45c8-8168-49d68ffdb3ec"
+    ],
+    "TITLE": "Formation and trapping of the thermodynamically unfavoured inverted-hemicucurbit[6]uril",
+    "PERIODICAL": "Chemical Communications",
+    "DOI": "10.1039/c9cc04990h",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "07a20b06-69f4-4ce7-968b-af359c1e35c5",
+        "NAME": "Triin Narva",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "160ac764-dfd2-4367-9272-fb14d481d0f5",
+        "NAME": "Elena Prigorchenko",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5be3bfea-4e2c-4706-a152-aa5936bff85e",
+        "NAME": "Jasper Adamson",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "c622accd-2d09-41a0-bab7-b93d6b123d3c",
+        "NAME": "Riina Aav",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "c7d3291d-6786-4e6d-b95b-37126b95e76b",
+        "NAME": "Toomas Tamm",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "db04a6a4-6079-4862-bb9f-9449fc6d90ea",
+        "NAME": "Sandra Kaabel",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "92e75bd4-aa3b-4716-b872-b6c2fb208044",
+        "NAME": "National Institute of Chemical Physics and Biophysics",
+        "REGISTRY_CODE": "74000257"
+      },
+      {
+        "GUID": "9d860fde-a968-4193-bb66-56556b51813a",
+        "NAME": "Tallinn University of Technology, School of Science, Department of Chemistry and Biotechnology",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2960179229",
+    "OPENALEX_DOI": "10.1039/c9cc04990h",
+    "OPENALEX_IS_OPEN_ACCESS": false,
+    "OPENALEX_OPEN_ACCESS_TYPE": "closed",
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "2116e0e4-6054-4c18-bfb7-95cc6943b24d",
+    "PROJECT_GUIDS": [
+      "a535003a-03b5-45c8-8168-49d68ffdb3ec"
+    ],
+    "TITLE": "Supramolecular chirogenesis in zinc porphyrins: complexation with enantiopure thiourea derivatives, binding studies and chirality transfer mechanism",
+    "PERIODICAL": "Journal of Porphyrins and Phthalocyanines",
+    "DOI": "10.1142/s108842461950192x",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "540d61a1-34a4-42e4-9b06-2a31cefaa6db",
+        "NAME": "Nele Konrad",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5be3bfea-4e2c-4706-a152-aa5936bff85e",
+        "NAME": "Jasper Adamson",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "6ab71c37-4332-4936-8bbc-ff699513f123",
+        "NAME": "Victor Borovkov",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "97ede073-b515-4a95-bc84-ea5b83af31e2",
+        "NAME": "Dzmitry Kananovich",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "c622accd-2d09-41a0-bab7-b93d6b123d3c",
+        "NAME": "Riina Aav",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "ca7b65c7-3ac3-44fc-b003-48b861eba95f",
+        "NAME": "Irina Osadchuk",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "cc26a921-55c5-4ae7-aee1-91e4d9170c1e",
+        "NAME": "Mohammed Hasan -",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "9d860fde-a968-4193-bb66-56556b51813a",
+        "NAME": "Tallinn University of Technology, School of Science, Department of Chemistry and Biotechnology",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W2995197122",
+    "OPENALEX_DOI": "10.1142/s108842461950192x",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://hal.umontpellier.fr/hal-02617498v1/file/kananovich_man.pdf",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "41a04001-8e8c-4a71-98de-044297d08d8b",
+    "PROJECT_GUIDS": [
+      "cb9f0516-34f2-4d8c-984a-431a2a745440"
+    ],
+    "TITLE": "Bridging barriers in sustainability research: Α review from sustainability science to life cycle sustainability assessment",
+    "PERIODICAL": "Ecological Economics",
+    "DOI": "10.1016/j.ecolecon.2021.107007",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "322de8ba-6bba-4b7d-b358-b42a2a44afca",
+        "NAME": "Vasileios Kostakis",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "aa3200fb-1182-4ab9-98a7-c5436bebd1d6",
+        "NAME": "Katerina Troullaki",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0afd17eb-3fdb-45d3-9fb1-4d644d58f79b",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Ragnar Nurkse Department of Innovation and Governance",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3133658882",
+    "OPENALEX_DOI": "10.1016/j.ecolecon.2021.107007",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://zenodo.org/record/5075694",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "a10a1162-071c-45cb-a79d-13add9b4a231",
+    "PROJECT_GUIDS": [
+      "cb9f0516-34f2-4d8c-984a-431a2a745440"
+    ],
+    "TITLE": "How to reap the benefits of the “digital revolution”? Modularity and the commons",
+    "PERIODICAL": "Halduskultuur",
+    "DOI": "10.32994/hk.v20i1.228",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "322de8ba-6bba-4b7d-b358-b42a2a44afca",
+        "NAME": "Vasileios Kostakis",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0afd17eb-3fdb-45d3-9fb1-4d644d58f79b",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Ragnar Nurkse Department of Innovation and Governance",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3157522253",
+    "OPENALEX_DOI": "10.32994/hk.v20i1.228",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://zenodo.org/record/3924235",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "27e25b31-f6a9-4a80-a3a1-fbb9c4fc479b",
+    "PROJECT_GUIDS": [
+      "cb9f0516-34f2-4d8c-984a-431a2a745440"
+    ],
+    "TITLE": "From private to public governance: The case for reconfiguring energy systems as a commons",
+    "PERIODICAL": "Energy Research & Social Science",
+    "DOI": "10.1016/j.erss.2020.101737",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "bronze",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "322de8ba-6bba-4b7d-b358-b42a2a44afca",
+        "NAME": "Vasileios Kostakis",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e6022550-894d-4501-9ebe-82cc8adcf8ab",
+        "NAME": "Christos Giotitsas",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0afd17eb-3fdb-45d3-9fb1-4d644d58f79b",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Ragnar Nurkse Department of Innovation and Governance",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3048345185",
+    "OPENALEX_DOI": "10.1016/j.erss.2020.101737",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://arxiv.org/pdf/2008.04028",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion",
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "888ac777-f979-4f78-b4a3-910efec09b84",
+    "PROJECT_GUIDS": [
+      "cb9f0516-34f2-4d8c-984a-431a2a745440"
+    ],
+    "TITLE": "Who creates value? Insights on value theory from the last dance",
+    "PERIODICAL": "Halduskultuur",
+    "DOI": "10.32994/hk.v21i1.253",
+    "URL": "https://halduskultuur.eu/journal/index.php/HKAC/article/view/253/180",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "322de8ba-6bba-4b7d-b358-b42a2a44afca",
+        "NAME": "Vasileios Kostakis",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "ff26a0e6-cca3-4af0-9e23-b2b3bef06bb9",
+        "NAME": "Alexandros Pazaitis",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0afd17eb-3fdb-45d3-9fb1-4d644d58f79b",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Ragnar Nurkse Department of Innovation and Governance",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3111504509",
+    "OPENALEX_DOI": "10.32994/hk.v21i1.253",
+    "OPENALEX_IS_OPEN_ACCESS": false,
+    "OPENALEX_OPEN_ACCESS_TYPE": "closed",
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "47a190ff-62ac-466d-8ff8-3608cf6c5bd4",
+    "PROJECT_GUIDS": [
+      "46c301fc-d58e-4a28-b12d-b655ca85abd3"
+    ],
+    "TITLE": "Light availability and plant shade tolerance modify plant-microbial interactions and feedbacks in subtropical trees",
+    "PERIODICAL": "New Phytologist",
+    "DOI": "10.1111/nph.18737",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "closed",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "42b136f9-b660-4057-9ce8-048c1100676d",
+        "NAME": "Marina Semtšenko",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "20aa7c81-83ae-4b47-b195-75172d5086dd",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Ecology and Earth Sciences",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4316669082",
+    "OPENALEX_DOI": "10.1111/nph.18737",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "bronze",
+    "OPENALEX_OPEN_ACCESS_URL": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.18737",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "de468b3e-7025-4ad2-9417-3dbd8efe0f34",
+    "PROJECT_GUIDS": [
+      "6bf19ff7-ff30-4997-bbf1-1c4708257a93"
+    ],
+    "TITLE": "NEET-staatuses noored teenuste ja programmide võrgusilmas: kuidas paremini toetada mitteõppivaid ja -töötavaid noori?",
+    "PERIODICAL": "Sotsiaaltöö",
+    "DOI": "",
+    "URL": "https://tai.ee/et/sotsiaaltoo/neet-staatuses-noored-teenuste-ja-programmide-vorgusilmas-kuidas-paremini-toetada",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "bronze",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "8513d629-c0a2-4518-a07b-06864a699033",
+        "NAME": "Kerli Kõiv",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "c43e9931-e197-4357-9c25-2dbb0f9cb4d7",
+        "NAME": "Sirje Otstavel",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "eba79158-3d1c-46f2-b7c0-5f7e0e84604d",
+        "NAME": "Heidi Paabort",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "f9a23117-2e08-4668-a570-7e4d54101bac",
+        "NAME": "Mai Beilmann",
+        "IN_OPENALEX_AUTHORS": null
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "d8afa4c5-4ca2-41e8-b485-1b9a92ed2616",
+        "NAME": "University of Tartu, Faculty of Social Sciences, Institute of Social Studies",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": null,
+    "OPENALEX_DOI": "",
+    "OPENALEX_IS_OPEN_ACCESS": null,
+    "OPENALEX_OPEN_ACCESS_TYPE": null,
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": null,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "7577fd37-a3b4-4e44-864d-84462b6a77de",
+    "PROJECT_GUIDS": [
+      "c8e43a6c-5e63-4790-994d-e3cf95179651"
+    ],
+    "TITLE": "Atlas of genetic and phenotypic associations across 42 female reproductive health diagnoses",
+    "PERIODICAL": "Nature Medicine",
+    "DOI": "10.1038/s41591-025-03543-8",
+    "URL": "https://doi.org/10.1038/s41591-025-03543-8",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "gold",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "0a4e77e0-e73f-4b27-bf1f-851d53fed9d0",
+        "NAME": "Mari Nelis",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "0fab0d68-dce7-4729-adaa-79581d031c15",
+        "NAME": "Georgi Hudjašov",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "2650dcf9-84d4-46f8-8617-ac144ade542a",
+        "NAME": "Lili Milani",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "2b25270e-4186-412b-87b9-d27261afbb65",
+        "NAME": "Jelisaveta Džigurski",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "4b12ef48-3a3b-4189-b5a5-1123a1a89f67",
+        "NAME": "Andres Metspalu",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "4d741707-ed8b-4261-ad61-745e40d5168c",
+        "NAME": "Tõnu Esko",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "4f52b2c9-2dbb-47f6-b7db-204635ca20e8",
+        "NAME": "Lisette Haug",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "586bd728-a68e-4161-95f0-ad982db833c8",
+        "NAME": "Mariann Võsa",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5d284cb6-411f-4060-ad50-057507a72e8e",
+        "NAME": "Valentina Rukins",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "7b120adf-2c34-4258-962f-5bd6a6d8dcea",
+        "NAME": "Priit Palta",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "7e0013cd-c8c7-460e-8bea-671966f7c563",
+        "NAME": "Kristi Läll",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "85f7de95-9f16-4709-9651-c2ac84a6ef2c",
+        "NAME": "Triin Laisk",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "a60d60ec-c969-4028-8d03-8063bda2e63e",
+        "NAME": "Maire Peters",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "b715ecf5-4945-4bde-a389-ca8581959c0b",
+        "NAME": "Natalia Pujol Gualdo",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "bc9f204c-9192-4cd6-8888-11c416b0e3ae",
+        "NAME": "Fanny-Dhelia Pajuste",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "ce1a4d2c-8764-492b-8602-56f050a57b3e",
+        "NAME": "Reedik Mägi",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "fed02c0f-dad9-4d56-ac66-7f30fd41a1bd",
+        "NAME": "Maris Alver",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "54595d72-86cf-4d78-9a16-a74c973dc836",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Genomics",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4408341879",
+    "OPENALEX_DOI": "10.1038/s41591-025-03543-8",
+    "OPENALEX_IS_OPEN_ACCESS": false,
+    "OPENALEX_OPEN_ACCESS_TYPE": "closed",
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "4effb36f-7424-4a6d-b997-9096b380af95",
+    "PROJECT_GUIDS": [
+      "4b86f437-c485-4853-90ef-0090e36b6d67"
+    ],
+    "TITLE": "Public finds in 2021: marshalling new data, managing ongoing challenges",
+    "PERIODICAL": "Arheoloogilised välitööd Eestis = Archeological fieldwork in Estonia",
+    "DOI": "",
+    "URL": "http://www.arheoloogia.ee/ave2021/AVE2021_20_Kurisoojt_Finds.pdf",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "bronze",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "50c54092-a603-457c-b991-82adee549840",
+        "NAME": "Nele Kangert",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "5d9ad91f-a3f4-4da9-b224-64f44e33342a",
+        "NAME": "Mari-Liis Posti",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "883803c9-9fe6-4bd2-8a12-2b505f901bb5",
+        "NAME": "Krista Karro",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "dd7d33e4-c34f-4ac1-97c0-8d89e38277e3",
+        "NAME": "Tuuli Kurisoo",
+        "IN_OPENALEX_AUTHORS": null
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0884f086-2f0e-476b-a01b-05052732c33e",
+        "NAME": "Tallinn University, School of Humanities",
+        "REGISTRY_CODE": "74000122"
+      },
+      {
+        "GUID": "269b2c8b-187e-4fc6-8b9a-e1f1a16520ef",
+        "NAME": "Tallinn University, Archaeological Research Collection",
+        "REGISTRY_CODE": "74000122"
+      },
+      {
+        "GUID": "e54684d4-eb7c-4b6a-817e-b781eb9ba2ee",
+        "NAME": "Estonian National Heritage Board",
+        "REGISTRY_CODE": "70000958"
+      }
+    ],
+    "OPENALEX_ID": null,
+    "OPENALEX_DOI": "",
+    "OPENALEX_IS_OPEN_ACCESS": null,
+    "OPENALEX_OPEN_ACCESS_TYPE": null,
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": null,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "fb4184d5-5e49-4cf8-a814-2d364f8e4254",
+    "PROJECT_GUIDS": [
+      "4b86f437-c485-4853-90ef-0090e36b6d67"
+    ],
+    "TITLE": "Discoveries made by the users of searching devices and the public in 2019 and the new Heritage Conservation Act",
+    "PERIODICAL": "Archaeological Fieldwork in Estonia",
+    "DOI": "",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "bronze",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "1572cf48-e815-49cc-b1c6-4ecc5866255e",
+        "NAME": "Riina Rammo",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "2a993acc-d297-4ad9-a80b-cd9911fffc0a",
+        "NAME": "Maria Smirnova",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "dd7d33e4-c34f-4ac1-97c0-8d89e38277e3",
+        "NAME": "Tuuli Kurisoo",
+        "IN_OPENALEX_AUTHORS": null
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0884f086-2f0e-476b-a01b-05052732c33e",
+        "NAME": "Tallinn University, School of Humanities",
+        "REGISTRY_CODE": "74000122"
+      },
+      {
+        "GUID": "636852af-9954-412d-b957-64aa2d18895a",
+        "NAME": "University of Tartu, Faculty of Arts and Humanities, Institute of History and Archaeology",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "e54684d4-eb7c-4b6a-817e-b781eb9ba2ee",
+        "NAME": "Estonian National Heritage Board",
+        "REGISTRY_CODE": "70000958"
+      }
+    ],
+    "OPENALEX_ID": null,
+    "OPENALEX_DOI": "",
+    "OPENALEX_IS_OPEN_ACCESS": null,
+    "OPENALEX_OPEN_ACCESS_TYPE": null,
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": null,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "8fe7108f-a263-479d-8205-3344cd351b2c",
+    "PROJECT_GUIDS": [
+      "4b86f437-c485-4853-90ef-0090e36b6d67"
+    ],
+    "TITLE": "Searching devices, new discoveries, and issues related to them in Estonian archaeology in 2020",
+    "PERIODICAL": "Archaeological Fieldwork in Estonia",
+    "DOI": "",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "bronze",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "1572cf48-e815-49cc-b1c6-4ecc5866255e",
+        "NAME": "Riina Rammo",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "2a993acc-d297-4ad9-a80b-cd9911fffc0a",
+        "NAME": "Maria Smirnova",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "dd7d33e4-c34f-4ac1-97c0-8d89e38277e3",
+        "NAME": "Tuuli Kurisoo",
+        "IN_OPENALEX_AUTHORS": null
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0884f086-2f0e-476b-a01b-05052732c33e",
+        "NAME": "Tallinn University, School of Humanities",
+        "REGISTRY_CODE": "74000122"
+      },
+      {
+        "GUID": "636852af-9954-412d-b957-64aa2d18895a",
+        "NAME": "University of Tartu, Faculty of Arts and Humanities, Institute of History and Archaeology",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "e54684d4-eb7c-4b6a-817e-b781eb9ba2ee",
+        "NAME": "Estonian National Heritage Board",
+        "REGISTRY_CODE": "70000958"
+      }
+    ],
+    "OPENALEX_ID": null,
+    "OPENALEX_DOI": "",
+    "OPENALEX_IS_OPEN_ACCESS": null,
+    "OPENALEX_OPEN_ACCESS_TYPE": null,
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": null,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "0a3d0bf1-a040-4e1c-ac78-9f88082efbc7",
+    "PROJECT_GUIDS": [
+      "4b86f437-c485-4853-90ef-0090e36b6d67"
+    ],
+    "TITLE": "New public discoveries in 2022 against a backdrop of concerns about reporting and processing of finds",
+    "PERIODICAL": "Archaeological Fieldwork in Estonia",
+    "DOI": "10.5281/zenodo.10131863",
+    "URL": "https://arheoloogia.ee/kirjandus/arheoloogilised-valitood-eestis/ave-2022/",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "bronze",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "50c54092-a603-457c-b991-82adee549840",
+        "NAME": "Nele Kangert",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5bea6d10-1f34-4a91-a51f-3478c9567c8b",
+        "NAME": "Sander Jegorov",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5d9ad91f-a3f4-4da9-b224-64f44e33342a",
+        "NAME": "Mari-Liis Posti",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "dd7d33e4-c34f-4ac1-97c0-8d89e38277e3",
+        "NAME": "Tuuli Kurisoo",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0884f086-2f0e-476b-a01b-05052732c33e",
+        "NAME": "Tallinn University, School of Humanities",
+        "REGISTRY_CODE": "74000122"
+      },
+      {
+        "GUID": "269b2c8b-187e-4fc6-8b9a-e1f1a16520ef",
+        "NAME": "Tallinn University, Archaeological Research Collection",
+        "REGISTRY_CODE": "74000122"
+      },
+      {
+        "GUID": "e54684d4-eb7c-4b6a-817e-b781eb9ba2ee",
+        "NAME": "Estonian National Heritage Board",
+        "REGISTRY_CODE": "70000958"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W6948851868",
+    "OPENALEX_DOI": "10.5281/zenodo.10131863",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.5281/zenodo.10131863",
+    "OPENALEX_OPEN_VERSIONS": [
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "371f55d4-8474-468d-8c56-c454d6b34e58",
+    "PROJECT_GUIDS": [
+      "4bd2e2ca-0739-49ac-9f14-f7f04a8dfeef"
+    ],
+    "TITLE": "Local governments’ efficiency and educational results: empirical evidence from Italian primary schools",
+    "PERIODICAL": "Applied Economics",
+    "DOI": "10.1080/00036846.2021.1896672",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "07732a31-85fc-4c59-9e12-9785e1377b02",
+        "NAME": "Simona Ferraro",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "81b2aae3-1107-4477-99d3-08f32d304811",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Department of Economics and Finance",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3021559236",
+    "OPENALEX_DOI": "10.1080/00036846.2021.1896672",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "http://hdl.handle.net/11311/1208904",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "1c077514-a786-4a9a-88e5-7d458865beb8",
+    "PROJECT_GUIDS": [
+      "855f27e7-a040-4620-b638-8a1cb0c02556"
+    ],
+    "TITLE": "Atomic layer deposition of nanometric alumina for corrosion protection of heterogeneous metallic surfaces - The case of aeronautical grade aluminium alloy 2024-T3",
+    "PERIODICAL": "Corrosion Science",
+    "DOI": "10.1016/j.corsci.2022.110773",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "47d86e78-9ef9-40e6-a1a8-0b95e3d1b0a3",
+        "NAME": "Silvar Kallip",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "8d4a8e6d-7f2b-48be-81ca-e61d8a59ace2",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Chemistry",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4307039086",
+    "OPENALEX_DOI": "10.1016/j.corsci.2022.110773",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "bronze",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.1016/j.corsci.2022.110773",
+    "OPENALEX_OPEN_VERSIONS": [
+      "acceptedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "b1a521ed-9e73-4bd8-b10b-0a4c843adb63",
+    "PROJECT_GUIDS": [
+      "6dbfdec9-a1b0-4173-a74e-bf4626bc1b8c"
+    ],
+    "TITLE": "Phytoremediation capacity of hybrid aspen at sites affected by industry and agriculture",
+    "PERIODICAL": "Environmental Monitoring and Assessment",
+    "DOI": "10.1007/s10661-024-12540-2",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "20a7414b-06ae-48d2-8f12-c4260ccd3e52",
+        "NAME": "Tea Tullus",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "22b1237c-32cb-43fd-a7b5-cbe697e9645c",
+        "NAME": "Aivo Vares",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "47fdfb9e-89e0-40b0-8d91-5c72e272d500",
+        "NAME": "Reimo Lutter",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "4c1e889d-f151-4ea4-80f5-26eac94798f6",
+        "NAME": "Eele Õunapuu-Pikas",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "9b82b79e-85ad-4171-9af8-b1c0455cbfcd",
+        "NAME": "Marju Kaivapalu-Kaasik",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "9cd7964d-6f11-4fc4-a1f1-366a02ee6516",
+        "NAME": "Heiki Hepner",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "a63a77a5-d4af-4ec6-9a20-558994973e66",
+        "NAME": "Arvo Tullus",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "bad74b66-78d4-48de-9cee-54369369c1e3",
+        "NAME": "Katri Ots",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "cfacca02-22de-4ae9-910e-14dfe6ff2f76",
+        "NAME": "Mari-Liis Siller",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "d89ef0be-5c4f-4d9b-9f7e-09fb4da5ae52",
+        "NAME": "Reeno Sopp",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "dd75a968-ca01-476f-92b7-08a89a08311c",
+        "NAME": "Hardi Tullus",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e3a39ca0-8b09-4234-88ef-71e15b3b92cb",
+        "NAME": "Kristjan Täll",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "f359fb77-2c2d-4556-98ca-ac4e18d3b3a1",
+        "NAME": "Maris Hordo",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "7a2b75bc-aa13-4a3b-9a83-02e7d3927136",
+        "NAME": "Estonian University of Life Sciences, Institute of Forestry and Engineering, Chair of Forest and Land Management and Wood Processing Technologies",
+        "REGISTRY_CODE": "74001086"
+      },
+      {
+        "GUID": "b3449f06-9002-4d33-bc05-a4eda343a2c5",
+        "NAME": "University of Tartu, Faculty of Science and Technology (old), Institute of Ecology and Earth Sciences, Tartu University, Department of Botany",
+        "REGISTRY_CODE": null
+      },
+      {
+        "GUID": "f7e3a3ed-fbd0-454c-ab09-e6d0932f4f11",
+        "NAME": "Estonian University of Life Sciences, Institute of Forestry and Engineering, Chair of Silviculture and Forest Ecology",
+        "REGISTRY_CODE": "74001086"
+      },
+      {
+        "GUID": "fe4be95e-6a35-4371-b7ff-43379bce0ad5",
+        "NAME": "State Forest Management Centre",
+        "REGISTRY_CODE": "70004459"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4393009760",
+    "OPENALEX_DOI": "10.1007/s10661-024-12540-2",
+    "OPENALEX_IS_OPEN_ACCESS": false,
+    "OPENALEX_OPEN_ACCESS_TYPE": "closed",
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "1b4bf2a5-5aa7-45c4-8b47-8d77523a4f02",
+    "PROJECT_GUIDS": [
+      "2b73675a-2eca-4a36-9828-82ebb9c9327c"
+    ],
+    "TITLE": "Nano1D: An accurate Computer Vision software for analysis and segmentation of low-dimensional nanostructures",
+    "PERIODICAL": "Ultramicroscopy",
+    "DOI": "10.1016/j.ultramic.2024.113949",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "57c47fa5-1c67-4088-bd4d-043380be9bac",
+        "NAME": "Elyad Damerchi",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "656b191a-0477-4fe4-930a-ee09ee8aabcd",
+        "NAME": "Sven Oras",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "786affc3-69c8-4c30-8337-7c024dc87845",
+        "NAME": "Veronika Zadin",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "a5cd361a-d85d-4b2a-b938-2f4f9c61c2a7",
+        "NAME": "Andreas Kyritsakis",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "ab0b562e-4a0c-4cab-bd68-d8f0f3bb4068",
+        "NAME": "Ehsan Moradpur Tari",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "5d6c4c01-71df-4389-bbd4-8271a1124547",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Technology",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4392766798",
+    "OPENALEX_DOI": "10.1016/j.ultramic.2024.113949",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://arxiv.org/pdf/2306.15319",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion",
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "15c2c172-7e75-4026-add6-20e6b288d5b4",
+    "PROJECT_GUIDS": [
+      "09812cd1-92a8-40ff-a24e-7051576559b6"
+    ],
+    "TITLE": "Lifetime effects and satellites in the photoelectron spectrum of tungsten metal",
+    "PERIODICAL": "Physical Review B",
+    "DOI": "10.1103/physrevb.105.045129",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "de14abe6-1b73-492b-9092-c97173c36d20",
+        "NAME": "Juhan Matthias Kahk",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "edd8273f-2bf0-41f6-a4e8-167597dffdf5",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Physics",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W3200520313",
+    "OPENALEX_DOI": "10.1103/physrevb.105.045129",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://arxiv.org/pdf/2109.04761",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion",
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "157fa43f-ca19-4f91-be08-566017cb5616",
+    "PROJECT_GUIDS": [
+      "f96490d9-c0d0-4c66-9110-7be62dfb5ef4"
+    ],
+    "TITLE": "Energy Router: A Sustainable Solution for Future Residential Buildings",
+    "PERIODICAL": "IEEE Power Electronics Magazine",
+    "DOI": "10.1109/mpel.2024.3525349",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "3e7dd625-285d-4da7-b7d0-8e92caa8a655",
+        "NAME": "Oleksandr Husev",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [],
+    "OPENALEX_ID": "https://openalex.org/W4408017320",
+    "OPENALEX_DOI": "10.1109/mpel.2024.3525349",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://cnrs.hal.science/hal-05069005v1/document",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": false,
+    "HAS_ESTONIAN_AUTHOR": false,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "dfb88d00-6cc1-4ec8-be45-f621f8ab24ae",
+    "PROJECT_GUIDS": [
+      "f96490d9-c0d0-4c66-9110-7be62dfb5ef4"
+    ],
+    "TITLE": "Original Generic residential load profile generator based on weather data and occupancy",
+    "PERIODICAL": "Mathematics and Computers in Simulation",
+    "DOI": "10.1016/j.matcom.2025.04.044",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "3e7dd625-285d-4da7-b7d0-8e92caa8a655",
+        "NAME": "Oleksandr Husev",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [],
+    "OPENALEX_ID": "https://openalex.org/W4410397600",
+    "OPENALEX_DOI": "10.1016/j.matcom.2025.04.044",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.1016/j.matcom.2025.04.044",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "62ab403a-1fda-459c-a45d-7a01d5a596a4",
+    "PROJECT_GUIDS": [
+      "644191b3-58c0-4c72-9bf8-06d2e4b8082d",
+      "405f2e75-8c82-4e97-a9cd-f199e475b68c"
+    ],
+    "TITLE": "The role of ICT and animal welfare concerns in Estonian food purchasing channel preferences",
+    "PERIODICAL": "Agronomy Research",
+    "DOI": "10.15159/ar.25.054",
+    "URL": "https://agronomy.emu.ee/wp-content/uploads/2025/06/Aleksandrova-1031-1046.pdf#abstract-10810",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "gold",
+    "LICENSE": "Attribution-NonCommercial-NoDerivs (CC BY-NC-ND)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "1d7468f7-db98-4f78-9cc9-7b5d66cd1245",
+        "NAME": "Ants-Hannes Viira",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "6e5e5c1c-507a-486f-8a79-3a2d4c935ceb",
+        "NAME": "Anne Põder",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "7286acb8-b098-4439-bce0-f6f23c02518f",
+        "NAME": "Olha Aleksandrova",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "9bea56c4-5629-4d1e-a2a5-f86426c51590",
+        "NAME": "Hardi Tamm",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "ecf7a203-ecf8-4e05-9669-3b584e6ab707",
+        "NAME": "Martin Kukk",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "59a6d8a3-be90-46ab-9ea9-7893ae2d753c",
+        "NAME": "Estonian University of Life Sciences, Institute of Agricultural and Environmental Sciences, Chair of Economics in Rural Economy",
+        "REGISTRY_CODE": "74001086"
+      },
+      {
+        "GUID": "f55b26b6-ad41-408c-903a-5bfc6a7726e8",
+        "NAME": "Estonian Dairy Cluster",
+        "REGISTRY_CODE": "80391546"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W6961885335",
+    "OPENALEX_DOI": "10.15159/ar.25.054",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "gold",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.15159/ar.25.054",
+    "OPENALEX_OPEN_VERSIONS": [
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "2d274e6c-c868-4946-a114-55771653d8ea",
+    "PROJECT_GUIDS": [
+      "6634a73e-f006-44ba-ba35-5e9c7dfe1741"
+    ],
+    "TITLE": "Can intercropping alter cereal grains dietary fiber composition",
+    "PERIODICAL": "Agronomy Research",
+    "DOI": "10.15159/ar.24.096",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "gold",
+    "LICENSE": "Attribution-NonCommercial-NoDerivs (CC BY-NC-ND)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "0c19b59e-eafc-42fe-a609-69b19037b543",
+        "NAME": "Keyvan Esmaeilzadeh Salestani",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "30f9ef84-e6a6-402d-b535-35147069c4f5",
+        "NAME": "Mailiis Korge",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "488fd9ab-b93c-41c2-b465-318d3ee0d174",
+        "NAME": "Banafsheh Khalegh Doust",
+        "IN_OPENALEX_AUTHORS": false
+      },
+      {
+        "GUID": "aa6cc297-3e83-402b-b56d-f8325ed55cbd",
+        "NAME": "Maarika Alaru",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "c44f006d-71ed-41af-b4b8-3bab16d09850",
+        "NAME": "Evelin Loit-Harro",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "36e1eccf-80c5-4698-b3cf-41e3a9ce1887",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Computer Science",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "679f4161-af84-43ae-ba87-63bb7b4896f2",
+        "NAME": "Estonian University of Life Sciences, Institute of Agricultural and Environmental Sciences, Chair of Plant and Crop Science",
+        "REGISTRY_CODE": "74001086"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W6905518976",
+    "OPENALEX_DOI": "10.15159/ar.24.096",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "gold",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.15159/ar.24.096",
+    "OPENALEX_OPEN_VERSIONS": [
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "52dfb924-c99d-42c0-a7ce-0cf47590d88d",
+    "PROJECT_GUIDS": [
+      "e3ceb34b-b40d-4263-a984-bb2bd478c644"
+    ],
+    "TITLE": "Sotsiaalmeedia välimääraja",
+    "PERIODICAL": "Vikerkaar",
+    "DOI": "",
+    "URL": "https://www.vikerkaar.ee/issues/10-11-2025/",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "gold",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "06675203-fd16-4065-81e8-6769b879b54e",
+        "NAME": "Airi-Alina Allaste",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "590c6d76-c585-4ccc-a378-edbf477526c3",
+        "NAME": "Kerli Kirch Schneider",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "5fbde379-5856-4d02-9557-69d90128f082",
+        "NAME": "Katrin Tiidenberg",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "6ea07a4c-1897-47cc-8ec9-a74b63b2abec",
+        "NAME": "Mari-Liis Madisson",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "7f74653d-ef13-4a9a-afc2-f5a9dfd7e716",
+        "NAME": "Andreas Ventsel",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "93eeb025-3afc-4baa-bc78-2b90c453152b",
+        "NAME": "Jaana Davidjants",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "a2db42fb-bbe3-48c3-a9c5-ad12b67c6b16",
+        "NAME": "Maili Pilt",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "ce6c88be-fe9b-4442-92b9-97ec65c04fd7",
+        "NAME": "Kaarel Lott",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "d59e834b-5439-4db1-a11f-152ec240aeaf",
+        "NAME": "Maria Murumaa-Mengel",
+        "IN_OPENALEX_AUTHORS": null
+      },
+      {
+        "GUID": "ea6b2f2f-6ed3-4c2e-82f4-dbcfff7d0a2c",
+        "NAME": "Liisi Laineste",
+        "IN_OPENALEX_AUTHORS": null
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "402735a9-1f13-4e43-ba16-d1364bea4f9e",
+        "NAME": "University of Tartu, Faculty of Arts and Humanities, Institute of Philosophy and Semiotics",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "c6d12c5d-9267-49d6-af62-4728e30eaf2b",
+        "NAME": "Tallinn University, Baltic Film, Media and Arts School",
+        "REGISTRY_CODE": "74000122"
+      }
+    ],
+    "OPENALEX_ID": null,
+    "OPENALEX_DOI": "",
+    "OPENALEX_IS_OPEN_ACCESS": null,
+    "OPENALEX_OPEN_ACCESS_TYPE": null,
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": null,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "ca9b5867-9529-4f4d-8089-d0e9696c98c3",
+    "PROJECT_GUIDS": [
+      "d44a3076-0de5-4696-921f-cbca14d49379"
+    ],
+    "TITLE": "The twin transition puzzle: Can city governments align digital and sustainability paradigms?",
+    "PERIODICAL": "Environmental Innovation and Societal Transitions",
+    "DOI": "10.1016/j.eist.2026.101144",
+    "URL": "https://www.sciencedirect.com/science/article/pii/S2210422426000456?via%3Dihub",
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "08c759ab-f99f-444e-a319-8893d5b2b65d",
+        "NAME": "Marc Kristerson",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "27240779-daf4-4b84-8800-2fce417b13c5",
+        "NAME": "Erkki Karo",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "78265e16-176f-4188-a4e1-1f64995764e3",
+        "NAME": "Veiko Lember",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e4579c57-14ed-42a1-b52f-91e784c1cf3f",
+        "NAME": "Peeter Vihma",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0afd17eb-3fdb-45d3-9fb1-4d644d58f79b",
+        "NAME": "Tallinn University of Technology, School of Business and Governance, Ragnar Nurkse Department of Innovation and Governance",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W7160597647",
+    "OPENALEX_DOI": "10.1016/j.eist.2026.101144",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.1016/j.eist.2026.101144",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "c10f05f5-22f7-4239-8b5f-ee34fa62078f",
+    "PROJECT_GUIDS": [
+      "89622f96-94d9-48b6-a467-7a618f362ff9"
+    ],
+    "TITLE": "Industrialized district-level renovation of similar buildings in proximity: Environmental, economic, and renovation production implications",
+    "PERIODICAL": "Energy and Buildings",
+    "DOI": "10.1016/j.enbuild.2025.116790",
+    "URL": null,
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "54b1f60b-2ae9-4f01-ac28-9daaea107e28",
+        "NAME": "Ergo Pikas",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "8782479b-d414-46e9-af81-69d94056bace",
+        "NAME": "Kädi-Riin Vendel",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "b220f336-2b7c-4658-b106-64994cadd6de",
+        "NAME": "Lauri Jaakko Koskela",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "cfd2f753-5281-49b8-bada-a4fe845814fb",
+        "NAME": "Jarek Kurnitski",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "56062625-e55f-4416-a80b-831fa7dd0ed1",
+        "NAME": "Tallinn University of Technology, School of Engineering, Department of Civil Engineering and Architecture",
+        "REGISTRY_CODE": "74000323"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4416746101",
+    "OPENALEX_DOI": "10.1016/j.enbuild.2025.116790",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "hybrid",
+    "OPENALEX_OPEN_ACCESS_URL": "https://doi.org/10.1016/j.enbuild.2025.116790",
+    "OPENALEX_OPEN_VERSIONS": [
+      "publishedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "4671cc06-8e3c-43bc-a723-00f6078a3e00",
+    "PROJECT_GUIDS": [
+      "bb3ffa16-1b24-4631-a7dc-50bb1601cbe4"
+    ],
+    "TITLE": "Investigating Circumstellar Atomic Radiation-Driven Dynamics",
+    "PERIODICAL": "Astronomische Nachrichten",
+    "DOI": "10.1002/asna.70071",
+    "URL": null,
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "green",
+    "LICENSE": "Attribution (CC BY)",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "578ef84a-5c99-4465-8568-b24e1afa7efb",
+        "NAME": "Mihkel Kama",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "982a90f6-3771-4207-8eab-e5e74168d8c8",
+        "NAME": "Alexandra Lehtmets",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "d9f2ffc6-756c-4ab7-b281-2de3780e281a",
+        "NAME": "Anna Aret",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "c067002a-b7ab-4b3c-9940-722eedd143c3",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Tartu Observatory",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4416964986",
+    "OPENALEX_DOI": "10.1002/asna.70071",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://arxiv.org/pdf/2512.01474",
+    "OPENALEX_OPEN_VERSIONS": [
+      "submittedVersion",
+      "unknown"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": false,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "2862a001-78d4-483f-b486-b8d19ccba138",
+    "PROJECT_GUIDS": [
+      "97e364f6-898b-4e88-a2a0-1b48a3489060"
+    ],
+    "TITLE": "Statehood 3.0: Temptations and Restraints",
+    "PERIODICAL": "East-West Studies: Journal of Social Sciences of Tallinn University Law School",
+    "DOI": "",
+    "URL": "http://publications.tlu.ee/index.php/eastwest/issue/view/139/showToc",
+    "IS_OPEN_ACCESS": true,
+    "OPEN_ACCESS_TYPE": "gold",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "23c70bb4-958b-444e-9257-61920e84ef88",
+        "NAME": "Leif Kalev",
+        "IN_OPENALEX_AUTHORS": null
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "0fc4c171-5faa-4b4a-a069-b8af1ed7e1d6",
+        "NAME": "Tallinn University, School of Governance, Law and Society",
+        "REGISTRY_CODE": "74000122"
+      }
+    ],
+    "OPENALEX_ID": null,
+    "OPENALEX_DOI": "",
+    "OPENALEX_IS_OPEN_ACCESS": null,
+    "OPENALEX_OPEN_ACCESS_TYPE": null,
+    "OPENALEX_OPEN_ACCESS_URL": null,
+    "OPENALEX_OPEN_VERSIONS": [],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": null,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": null,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  },
+  {
+    "GUID": "6978f787-8be7-4ea5-9a9a-bbd0e3028518",
+    "PROJECT_GUIDS": [
+      "da27ad80-5344-4f14-b249-c7276b6ef978"
+    ],
+    "TITLE": "Glaciation of liquid clouds, snowfall, and reduced cloud cover at industrial aerosol hot spots",
+    "PERIODICAL": "Science (new York, N.y.)",
+    "DOI": "10.1126/science.adl0303",
+    "URL": "http://",
+    "IS_OPEN_ACCESS": false,
+    "OPEN_ACCESS_TYPE": "closed",
+    "LICENSE": "",
+    "IS_PUBLIC_FILE": false,
+    "AUTHORS": [
+      {
+        "GUID": "115b0eb4-09ca-487a-956f-aa36e5cff6fb",
+        "NAME": "Markku Tapio Kulmala",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "1af94758-d2f8-49b0-bc3a-cf1ab342bda8",
+        "NAME": "Heido Trofimov",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "1b2219f2-d406-41a9-a4b6-ec433840827d",
+        "NAME": "Velle Toll",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "65fd1b1d-b41e-47f5-bf51-655f5cabdbe7",
+        "NAME": "Tanel Voormansik",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "84e6225c-53ff-4966-bb07-664d74f02c97",
+        "NAME": "Jorma Rahu",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "da6abffa-bace-44a8-b38c-9f6e672425e2",
+        "NAME": "Heikki Junninen",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "e080e7cf-d9a5-4567-9e17-18a506630b09",
+        "NAME": "Hannes Keernik",
+        "IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "efdf7edc-497a-46cc-a728-ac7106d95583",
+        "NAME": "Piia Post",
+        "IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "2ca97556-276a-49f3-a225-789f48beaa00",
+        "NAME": "University of Tartu",
+        "REGISTRY_CODE": "74001073"
+      },
+      {
+        "GUID": "edd8273f-2bf0-41f6-a4e8-167597dffdf5",
+        "NAME": "University of Tartu, Faculty of Science and Technology, Institute of Physics",
+        "REGISTRY_CODE": "74001073"
+      }
+    ],
+    "OPENALEX_ID": "https://openalex.org/W4404349924",
+    "OPENALEX_DOI": "10.1126/science.adl0303",
+    "OPENALEX_IS_OPEN_ACCESS": true,
+    "OPENALEX_OPEN_ACCESS_TYPE": "green",
+    "OPENALEX_OPEN_ACCESS_URL": "https://centaur.reading.ac.uk/118984/1/Toll_et_al_glaciation_r2_merged.pdf",
+    "OPENALEX_OPEN_VERSIONS": [
+      "acceptedVersion",
+      "submittedVersion"
+    ],
+    "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": true,
+    "OPENALEX_HAS_ESTONIAN_AFFILIATION": true,
+    "HAS_ESTONIAN_AUTHOR": true,
+    "IS_AVAILABLE_MANUALLY_CHECKED": null
+  }
+]

@@ -1,4 +1,5 @@
 # standard
+import collections
 import datetime
 import json
 import logging
@@ -15,8 +16,8 @@ PILOT_GUIDS_PATH = "./data/manual/manual_check_guids_20250118112133UTC.txt"
     # Random sample of 20 articles (seed 1913) for the Jan 2025 manual open data checks. First in the queue
 OPENAIRE_GRANT_ID_PREFIXES = ["corda__h2020::", "corda_____he::"]
     # OpenAIRE ID prefixes of Horizon 2020 and Horizon Europe grants
-PREPRINT_URL_PATTERN = r"arxiv\.org|biorxiv\.org|medrxiv\.org|chemrxiv\.org|techrxiv\.org|10\.36227/techrxiv|ssrn\.com|preprints\.org|researchsquare\.com|mpra\.ub\.uni-muenchen\.de"
-    # Preprint servers and working paper archives. OpenAIRE doesn't always give them the instance type Preprint
+PUBLISHER_OPEN_ACCESS_TYPES = ["gold", "diamond", "hybrid", "bronze"]
+    # OpenAlex oa_status values of articles that are free to read on the publisher site (green: only elsewhere)
 ABSTRACT_DATABASE_URL_PATTERN = r"scopus\.com|webofscience\.com|webofknowledge\.com"
     # OpenAIRE marks some abstract database records open, but they are not copies of the article
 
@@ -65,39 +66,54 @@ def normalise_URL(URL: str) -> str:
     return re.sub(r"^https?://(dx\.)?(www\.)?", "", URL.strip().lower()).rstrip("/")
 
 
-def is_preprint(openaire_instance: dict) -> bool:
+def get_ETIS_link_status(article: dict, open_URLs: set[str], openalex_URLs: set[str], fulltext_attempts: list[dict]) -> str | None:
     """
-    Tells whether an OpenAIRE open instance is a preprint: instance type Preprint or a preprint server.
+    Tells whether ETIS links to a free copy of the article: open (a free copy in OpenAlex or OpenAIRE, or get_fulltext got the full text from an ETIS link),
+    closed (only links to the DOI or OpenAlex locations that aren't free), unverified (a link that no source knows), None (no link).
+    open_URLs, openalex_URLs: normalised URLs of the free copies and of all OpenAlex locations and the DOI.
     """
-    if openaire_instance["TYPE"] == "Preprint":
-        return True
-    return bool(re.search(PREPRINT_URL_PATTERN, openaire_instance["URL"], flags=re.IGNORECASE))
+    ETIS_URLs = [normalise_URL(URL) for URL in (article["ETIS"]["URL"], article["ETIS"]["FULLTEXT_URL"]) if URL]
+    if not ETIS_URLs:
+        return None
+    if any(URL in open_URLs for URL in ETIS_URLs) or any(attempt["SOURCE"] == "etis" and attempt["RESULT"] == "ok" for attempt in fulltext_attempts):
+        return "open"
+    if all(URL in openalex_URLs for URL in ETIS_URLs):
+        return "closed"
+    return "unverified"
 
 
-def get_automatic_open_access(article: dict, openaire_open_instances: list[dict]) -> tuple[str | None, str | None]:
+def get_automatic_open_access(article: dict, ETIS_link_status: str | None, fulltext_attempts: list[dict]) -> tuple[str | None, str | None, str | None]:
     """
-    Gives the automatic open access verdict of an article (open, not_open) by ETIS, OpenAlex and the Jan 2025 manual check,
-    and the code of the reason why the full text check has to settle it (codes in doc/data_schema.md). The verdict is None if the full text check has to settle it.
-    Open access follows the Horizon mandate: the published version or the peer-reviewed author manuscript is free to read.
-    openaire_open_instances: open copies in OpenAIRE that OpenAlex doesn't list.
+    Gives the automatic open access verdict of an article (open, not_open; None if the full text check has to settle it),
+    the source that the verdict rests on, and the reason why the full text check has to settle it (codes in doc/data_schema.md).
+    Open access: free to read on the publisher site (DOI) or through a link in ETIS (any version).
     """
+    manual_open_results = {attempt["RESULT"] for attempt in fulltext_attempts if attempt["SOURCE"] == "manual_open"}
+    is_publisher_open = article["OPENALEX"]["OPEN_ACCESS_TYPE"] in PUBLISHER_OPEN_ACCESS_TYPES
     ETIS_is_open_access = bool(article["ETIS"]["IS_OPEN_ACCESS"])
-    openalex_has_open_peer_reviewed_version = bool(article["OPENALEX"]["HAS_OPEN_PEER_REVIEWED_VERSION"])
     manual_check_is_open_access = article["MANUAL_CHECK"]["IS_OPEN_ACCESS"]
-    if manual_check_is_open_access is None:
-        if ETIS_is_open_access != openalex_has_open_peer_reviewed_version:
-            return None, "etis_openalex_disagree"
-        is_open = ETIS_is_open_access
-    else:
-        # Jan 2025 manual checks counted any free version (incl. preprints)
-        if manual_check_is_open_access and not openalex_has_open_peer_reviewed_version:
-            return None, "manual_check_any_version"
-        is_open = manual_check_is_open_access
+    is_found_closed_by_hand = "not_found" in manual_open_results or manual_check_is_open_access is False
 
-    repository_copies = [instance for instance in openaire_open_instances if not is_preprint(instance)]
-    if not is_open and repository_copies:
-        return None, "openaire_copy_not_in_openalex"
-    return "open" if is_open else "not_open", None
+    if "ok" in manual_open_results:
+        return "open", "manual_open", None
+    if is_publisher_open and (ETIS_is_open_access or manual_check_is_open_access) and not is_found_closed_by_hand:
+        return "open", "openalex_publisher", None
+    if ETIS_link_status == "open":
+        return "open", "etis_link", None
+    if is_publisher_open:
+        return None, None, "manual_check_disagrees" if is_found_closed_by_hand else "etis_openalex_disagree"
+    if ETIS_link_status == "unverified":
+        return None, None, "etis_link_unverified"
+    if "not_found" in manual_open_results:
+        return "not_open", "manual_not_found", None
+    if ETIS_is_open_access:
+        return None, None, "etis_openalex_disagree"
+    # Jan 2025 manual checks counted any free version anywhere
+    if manual_check_is_open_access:
+        return None, None, "manual_check_any_version"
+    if manual_check_is_open_access is False:
+        return "not_open", "manual_check", None
+    return "not_open", "etis_and_openalex", None
 
 
 def get_linked_horizon_IDs(research_products: list[dict], openalex_data: dict) -> set[str]:
@@ -170,9 +186,10 @@ for article in articles:
         }]
 
     # Open copies in OpenAIRE that OpenAlex doesn't list
-    known_URLs = {normalise_URL(location[key]) for location in openalex_data.get("locations") or [] for key in ("pdf_url", "landing_page_url") if location.get(key)}
+    openalex_URLs = {normalise_URL(location[key]) for location in openalex_data.get("locations") or [] for key in ("pdf_url", "landing_page_url") if location.get(key)}
     if article["DOI"]:
-        known_URLs.add(normalise_URL(f'https://doi.org/{article["DOI"]}'))
+        openalex_URLs.add(normalise_URL(f'https://doi.org/{article["DOI"]}'))
+    known_URLs = set(openalex_URLs)
     research_products = openaire_research_products_index.get(article["GUID"]) or []
     openaire_open_instances = []
     for research_product in research_products:
@@ -189,7 +206,13 @@ for article in articles:
                     "TYPE": instance.get("type")
                 }]
 
-    automatic_verdict, check_needed_reason = get_automatic_open_access(article, openaire_open_instances)
+    # Free copies: open OpenAlex locations, open OpenAIRE copies and links that get_fulltext got a full text from
+    fulltext_attempts = fulltext.get("ATTEMPTS") or []
+    open_URLs = {normalise_URL(location[key]) for location in openalex_data.get("locations") or [] if location.get("is_oa") for key in ("pdf_url", "landing_page_url") if location.get(key)}
+    open_URLs |= {normalise_URL(instance["URL"]) for instance in openaire_open_instances}
+    open_URLs |= {normalise_URL(attempt["URL"]) for attempt in fulltext_attempts if attempt["RESULT"] == "ok" and attempt["URL"]}
+    ETIS_link_status = get_ETIS_link_status(article, open_URLs, openalex_URLs, fulltext_attempts)
+    automatic_verdict, automatic_verdict_source, check_needed_reason = get_automatic_open_access(article, ETIS_link_status, fulltext_attempts)
 
     # Articles don't always acknowledge the ETIS project's grant. Unknown if neither OpenAIRE nor OpenAlex has the article
     linked_horizon_IDs = get_linked_horizon_IDs(research_products, openalex_data)
@@ -218,6 +241,7 @@ for article in articles:
         } for project in article_projects],
         "OPEN_ACCESS": {
             "AUTOMATIC_VERDICT": automatic_verdict,
+            "AUTOMATIC_VERDICT_SOURCE": automatic_verdict_source,
             "CHECK_NEEDED_REASON": check_needed_reason,
             "ETIS": {
                 "IS_OPEN_ACCESS": article["ETIS"]["IS_OPEN_ACCESS"],
@@ -257,5 +281,9 @@ n_open_access_check = len([item for item in queue_ordered if item["OPEN_ACCESS"]
 n_no_estonian_author = len([item for item in queue_ordered if item["HAS_ESTONIAN_AUTHOR"] is False])
 info_string1 = f'Saved open data queue of {len(queue_ordered)} articles ({len([item for item in queue_ordered if item["IS_PILOT"]])} pilot articles first) to {queue_save_path}'
 info_string2 = f'{n_fulltext} articles have a cached full text. {n_open_access_check} articles need an open access check. {n_no_estonian_author} articles have no Estonian author and are skipped by next_open_data_batch'
+info_string3 = f'Automatic open access verdicts by source: {dict(collections.Counter((item["OPEN_ACCESS"]["AUTOMATIC_VERDICT"], item["OPEN_ACCESS"]["AUTOMATIC_VERDICT_SOURCE"]) for item in queue_ordered if item["OPEN_ACCESS"]["AUTOMATIC_VERDICT"]))}'
+info_string4 = f'Open access checks needed by reason: {dict(collections.Counter(item["OPEN_ACCESS"]["CHECK_NEEDED_REASON"] for item in queue_ordered if item["OPEN_ACCESS"]["CHECK_NEEDED_REASON"]))}'
 logger.info(info_string1)
 logger.info(info_string2)
+logger.info(info_string3)
+logger.info(info_string4)

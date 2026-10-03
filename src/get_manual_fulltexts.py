@@ -21,8 +21,8 @@ import fulltext_conversion
 ##########
 
 MANUAL_SOURCES = {
-    "open": "manual_open",          # Free to read without login on the publisher site or in a repository
-    "other": "manual_other",        # Other free copies (e.g. ResearchGate, author's website)
+    "open": "manual_open",          # Free to read without login on the publisher site (DOI) or through an ETIS link
+    "other": "manual_other",        # Other free copies (e.g. repository or ResearchGate copies that ETIS doesn't link to)
     "library": "manual_library"     # Library access
 }
     # Inbox folders and the full text source codes of the files saved into them
@@ -266,9 +266,9 @@ After a run, this list has only the articles that are left.</p>
 <h2>Open round ({len(open_round)})</h2>
 <p>From home, not logged in to any library. Try the links of each article (DOI = publisher page).</p>
 <ul>
-<li>Published version or accepted manuscript free to read on the publisher site or in a repository: save it into <code>{inbox}/open/</code>.</li>
-<li>Free copy only elsewhere (e.g. ResearchGate, author's website): save it into <code>{inbox}/other/</code>.</li>
-<li>Only a preprint or nothing free: add the GUID prefix to <code>{inbox}/open/{NOT_FOUND_FILE_NAME}</code> (one per line, a comment can follow the prefix). The article moves to the library round.</li>
+<li>Free to read on the publisher site (DOI link) or through a link on the ETIS page (any version): save it into <code>{inbox}/open/</code>.</li>
+<li>Free copy only elsewhere (e.g. a repository or ResearchGate copy that ETIS doesn't link to): save it into <code>{inbox}/other/</code>.</li>
+<li>Nothing free: add the GUID prefix to <code>{inbox}/open/{NOT_FOUND_FILE_NAME}</code> (one per line, a comment can follow the prefix). The article moves to the library round.</li>
 </ul>
 {make_fetch_list_table(open_round)}
 

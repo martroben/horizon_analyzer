@@ -32,9 +32,7 @@ DATA_LABELS = [
 ]
 LABELS_NEEDING_QUOTES = ["repository", "supplement", "public_source", "restricted", "on_request", "in_article"]
 LABELS_NEEDING_COVERAGE = ["repository", "supplement", "public_source", "restricted"]
-PEER_REVIEWED_VERSIONS = ["published_version", "accepted_version"]
-    # Open access needs the published version or the peer-reviewed author manuscript (Horizon open access mandate)
-VERSIONS = PEER_REVIEWED_VERSIONS + ["submitted_version", "unknown"]
+VERSIONS = ["published_version", "accepted_version", "submitted_version", "unknown"]
 DATA_COVERAGE_VALUES = ["full", "partial"]
 DATA_LEVEL_VALUES = ["raw", "processed"]
 OPEN_ACCESS_VERDICTS = ["open", "not_open", "unclear"]
@@ -174,11 +172,8 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
         errors += [f'unknown OPEN_ACCESS.VERDICT {open_access.get("VERDICT")}']
     if open_access.get("VERSION") not in VERSIONS + [None]:
         errors += [f'unknown OPEN_ACCESS.VERSION {open_access.get("VERSION")}']
-    if open_access.get("VERDICT") == "open":
-        if open_access.get("VERSION") not in PEER_REVIEWED_VERSIONS:
-            errors += ["open access verdict open needs the published version or the accepted manuscript"]
-        if not open_access.get("URL"):
-            errors += ["open access verdict open needs the URL of the free copy"]
+    if open_access.get("VERDICT") == "open" and not open_access.get("URL"):
+        errors += ["open access verdict open needs the URL of the free copy (publisher site or ETIS link)"]
     if not open_access.get("EVIDENCE"):
         errors += ["OPEN_ACCESS.EVIDENCE is empty"]
 

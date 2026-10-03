@@ -60,7 +60,7 @@ API records are in `DATA` as the API gives them (`etis_projects` and `openaire_p
 | `INSTITUTIONS` | list | ETIS institutions: `GUID`, `NAME`, `REGISTRY_CODE` (business registry code of the legal entity) |
 | `HAS_ESTONIAN_AUTHOR` | bool | an author in the published author list has an Estonian affiliation, or an ETIS author is in the list and ETIS gives an Estonian institution. Null if unknown |
 | `ETIS` | object | `DOI`, `URL` (publication URL in ETIS), `FULLTEXT_URL` (full text location in ETIS), `IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE` (ETIS value: gold, hybrid, green, bronze, closed), `LICENSE` (ETIS licence name), `DUPLICATE_GUIDS` (other ETIS records of the article with the same DOI, merged into this one: projects, authors and institutions of all records) |
-| `OPENALEX` | object | `ID`, `FOUND_BY`, `DOI`, `IS_OPEN_ACCESS` (any open version, incl. preprints), `OPEN_ACCESS_TYPE` (OpenAlex `oa_status`), `OPEN_ACCESS_URL`, `OPEN_VERSIONS` (versions of the open locations, `unknown` if OpenAlex doesn't say), `HAS_OPEN_PEER_REVIEWED_VERSION` (open published version or accepted manuscript - Horizon open access), `HAS_ESTONIAN_AFFILIATION` (null if OpenAlex has no affiliations). All null if OpenAlex doesn't have the article |
+| `OPENALEX` | object | `ID`, `FOUND_BY`, `DOI`, `IS_OPEN_ACCESS` (any open version, incl. preprints), `OPEN_ACCESS_TYPE` (OpenAlex `oa_status`), `OPEN_ACCESS_URL`, `OPEN_VERSIONS` (versions of the open locations, `unknown` if OpenAlex doesn't say), `HAS_OPEN_PEER_REVIEWED_VERSION` (open published version or accepted manuscript), `HAS_ESTONIAN_AFFILIATION` (null if OpenAlex has no affiliations). All null if OpenAlex doesn't have the article |
 | `MANUAL_CHECK` | object | `IS_OPEN_ACCESS`: Jan 2025 manual check (`data/manual/manually_checked_publications.json`), counted any free version (incl. preprints). Null if not checked |
 
 ## projects
@@ -125,7 +125,7 @@ Everything known automatically about an article, in check order: the 20 articles
 | `GUID`, `TITLE`, `PERIODICAL`, `DOI`, `HAS_ESTONIAN_AUTHOR`, `AUTHORS`, `INSTITUTIONS` | | from `articles` |
 | `ETIS_PAGE_URL` | str | the article's page in the ETIS portal |
 | `PROJECTS` | list | the article's ETIS projects: `GUID`, `TITLE`, `PROGRAMME_CODES`, `FRAMEWORK_PROGRAMME`, `HORIZON_ID`, `ACRONYM`, `HAS_PUBLICATION_MANDATE`, `HAS_DATA_MANDATE` (from `projects`), `IS_GRANT_LINKED` (OpenAIRE or OpenAlex links the article to the project's grant; null if the project has no grant or neither source has the article), `N_GRANT_DATASETS` (from `grant_datasets`) |
-| `OPEN_ACCESS` | object | `AUTOMATIC_VERDICT` (code: status by ETIS, OpenAlex and the Jan 2025 manual check; null if the full text check has to settle it), `CHECK_NEEDED_REASON` (code), `ETIS` (`IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE`, `LICENSE`, `URL`, `FULLTEXT_URL`), `OPENALEX` (`IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE`, `HAS_OPEN_PEER_REVIEWED_VERSION`, `OPEN_LOCATIONS`: `VERSION`, `URL`, `HOST`, `HOST_TYPE`, `LICENSE`), `OPENAIRE` (`OPEN_INSTANCES`: open copies that OpenAlex doesn't list: `URL`, `HOST`, `TYPE`), `MANUAL_CHECK` (`IS_OPEN_ACCESS`) |
+| `OPEN_ACCESS` | object | `AUTOMATIC_VERDICT` (code: status by OpenAlex, ETIS links and hand checks; null if the full text check has to settle it), `AUTOMATIC_VERDICT_SOURCE` (code: what the verdict rests on), `CHECK_NEEDED_REASON` (code), `ETIS` (`IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE`, `LICENSE`, `URL`, `FULLTEXT_URL`), `OPENALEX` (`IS_OPEN_ACCESS`, `OPEN_ACCESS_TYPE`, `HAS_OPEN_PEER_REVIEWED_VERSION`, `OPEN_LOCATIONS`: `VERSION`, `URL`, `HOST`, `HOST_TYPE`, `LICENSE`), `OPENAIRE` (`OPEN_INSTANCES`: open copies that OpenAlex doesn't list: `URL`, `HOST`, `TYPE`), `MANUAL_CHECK` (`IS_OPEN_ACCESS`) |
 | `CANDIDATES` | object | `EUROPEPMC`, `SCHOLEXPLORER`, `DATACITE` from `open_data_candidates` |
 | `FULLTEXT` | object | from `fulltext_index` |
 
@@ -139,7 +139,7 @@ One JSON object per line, written by Claude with the `check-open-data` skill (`.
 | `ASSESSOR` | str | model ID |
 | `TEXT_FILES` | list[str] | cached text files that the quotes come from (`./data/fulltext/<GUID>*.txt`) |
 | `FULLTEXT_VERSION` | str | version code of the full text that was read; null if none |
-| `OPEN_ACCESS` | object | `VERDICT` (code), `VERSION` (version code of the free copy), `URL` (of the free copy), `EVIDENCE` |
+| `OPEN_ACCESS` | object | `VERDICT` (code), `VERSION` (version code of the free copy), `URL` (publisher page or ETIS link of the free copy), `EVIDENCE` |
 | `DATA_LABEL` | str | code |
 | `DATA_COVERAGE`, `DATA_LEVEL` | str | codes; null for labels that aren't open or restricted data |
 | `DATA_LINKS` | list | links that were checked: `URL`, `DESCRIPTION`, `IS_OWN_DATA` (the article's own data), `IS_OPENLY_DOWNLOADABLE` |
@@ -185,18 +185,24 @@ One record per article, for the analysis by article, project, author or institut
 - `title_search` - the single work with the same title and publication year (±1)
 
 **`AUTOMATIC_VERDICT`**, **`OPEN_ACCESS_AUTOMATIC_VERDICT`**
-- `open` - the published version or the accepted manuscript is free to read
+- `open` - free to read on the publisher site (DOI), or ETIS links to a free copy (any version)
 - `not_open`
 
-**`CHECK_NEEDED_REASON`** (queue), **`OPEN_ACCESS_CHECK_NEEDED_REASON`** - why the full text check has to settle open access:
-- `etis_openalex_disagree` - ETIS and OpenAlex (open published version or accepted manuscript) disagree
-- `manual_check_any_version` - the Jan 2025 manual check counted any free version, and OpenAlex has no open published version or accepted manuscript
-- `openaire_copy_not_in_openalex` - not open by ETIS and OpenAlex, but OpenAIRE has an open copy (not a preprint) that OpenAlex doesn't list
+**`AUTOMATIC_VERDICT_SOURCE`** (queue) - what the automatic verdict rests on, in this order:
+- `manual_open` - full text saved by hand from the publisher site or an ETIS link
+- `etis_link` - an ETIS link is a free copy in OpenAlex or OpenAIRE, or `get_fulltext` got the full text from an ETIS link
+- `openalex_publisher` - OpenAlex: free on the publisher site (`OPEN_ACCESS_TYPE` gold, diamond, hybrid or bronze), and ETIS or the Jan 2025 manual check says open access
+- `manual_not_found` - nothing free on the publisher site by hand search (`manual_open` attempt `not_found`), no ETIS link to a free copy
+- `manual_check` - nothing free by the Jan 2025 manual check, not free on the publisher site by OpenAlex, no ETIS link to a free copy
+- `etis_and_openalex` - not free on the publisher site by OpenAlex, no ETIS link to a free copy, ETIS doesn't say open access
 
-**`OPEN_ACCESS_SETTLED_BY`** (article_analysis)
-- `fulltext_check` - open data assessment verdict (`open` or `not_open`)
-- `manual_check` - Jan 2025 manual check
-- `etis_and_openalex` - ETIS and OpenAlex agree
+**`CHECK_NEEDED_REASON`** (queue), **`OPEN_ACCESS_CHECK_NEEDED_REASON`** - why the full text check has to settle open access:
+- `manual_check_disagrees` - OpenAlex: free on the publisher site, but a hand check (Jan 2025 or the `manual_open` search) found nothing free
+- `etis_openalex_disagree` - ETIS open access status and OpenAlex (free on the publisher site) disagree
+- `etis_link_unverified` - not free on the publisher site by OpenAlex, and ETIS has a link that no source knows as free or not
+- `manual_check_any_version` - the Jan 2025 manual check found a free copy (any version, anywhere), but neither OpenAlex nor the ETIS links show one
+
+**`OPEN_ACCESS_SETTLED_BY`** (article_analysis) - `fulltext_check` (open data assessment verdict `open` or `not_open`), else the queue's `AUTOMATIC_VERDICT_SOURCE`
 
 **Versions** (`VERSION` and `FULLTEXT_VERSION` outside source blocks)
 - `published_version` - version of record
@@ -219,8 +225,8 @@ One record per article, for the analysis by article, project, author or institut
 Preprints (OpenAlex preprint locations, OpenAIRE and ETIS links to preprint servers) are tried last.
 
 Saved by hand (`get_manual_fulltexts`), no URL or version:
-- `manual_open` - free to read without login on the publisher site or in a repository
-- `manual_other` - other free copy (e.g. ResearchGate, author's website)
+- `manual_open` - free to read without login on the publisher site (DOI) or through an ETIS link
+- `manual_other` - other free copy (e.g. repository or ResearchGate copy that ETIS doesn't link to)
 - `manual_library` - library access
 
 **Full text attempt `RESULT`** (fulltext_index)
@@ -233,11 +239,11 @@ Saved by hand (`get_manual_fulltexts`), no URL or version:
 - `no_fulltext_file` - Zenodo record without an open PDF or Word file
 - `no_pdf_link` - page without a `citation_pdf_url` tag, where the page itself can't be the full text (repository landing pages, OpenAIRE links, PDF links that give a page)
 - `title_not_found` - Word file without the article title near its beginning (e.g. a cover letter), or a file from an ETIS link without the article title
-- `not_found` - (manual sources) looked for by hand without result: `manual_open` no free published version or accepted manuscript, `manual_library` no library access
+- `not_found` - (manual sources) looked for by hand without result: `manual_open` nothing free on the publisher site (until 2026-10-04: no free published version or accepted manuscript), `manual_library` no library access
 
 **Open access `VERDICT`** (assessments), **`OPEN_ACCESS_FULLTEXT_VERDICT`**
-- `open` - the published version or the accepted manuscript is free to read
-- `not_open` - only a preprint or nothing is free
+- `open` - free to read on the publisher site (DOI), or through an ETIS link (any version)
+- `not_open` - nothing free on the publisher site and no ETIS link to a free copy
 - `unclear` - the copies couldn't be checked
 
 **`DATA_LABEL`** (assessments)

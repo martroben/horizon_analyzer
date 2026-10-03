@@ -7,7 +7,7 @@ description: Run the next batch of open data (and open access) checks of Estonia
 
 For each article decide:
 1. **Open data**: are the data needed to validate the article's results freely downloadable? (H2020 Art. 29.3 / Horizon Europe bar.)
-2. **Open access**: is the published version or the peer-reviewed accepted manuscript free to read? (Horizon open access definition. Preprints don't count. Bronze counts. Licence, repository deposit and embargo are not checked.)
+2. **Open access**: is the article free to read on the publisher site (DOI), or does ETIS link to a free copy? (Any version through an ETIS link, preprints included. Copies elsewhere that ETIS doesn't link to don't count. Bronze counts. Licence and embargo are not checked.)
 
 Every verdict must rest on evidence that someone else can check: verbatim quotes from cached files and working links. The validator checks both.
 
@@ -30,7 +30,7 @@ Budget about 15 tool calls per article. If it's still unclear after that, record
 
 - Start with the hint passages. Then read the relevant parts of the cached text file: data availability / data and code availability statement, supplementary material, methods (data sources, sample, instruments), acknowledgements and funding. Use Grep on the file (e.g. `availab|deposit|repositor|accession|request|supplement|zenodo|figshare|github`) before reading large parts.
 - Look at the beginning of the text to judge what kind of paper it is (empirical, review, theory, essay).
-- If there is no cached full text, or only a preprint while the open access check needs a published version, try the open locations in the dossier, the ETIS links (`OPEN_ACCESS.ETIS.FULLTEXT_URL`, `URL`), the DOI landing page and ETIS_PAGE_URL. Save any page or file you rely on into `data/fulltext/` with a suffix, e.g. `curl -sL -A "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0" -o data/fulltext/<GUID>.publisher.html <URL>`, then `uv run src/fulltext_conversion.py data/fulltext/<GUID>.publisher.html` to make `data/fulltext/<GUID>.publisher.txt`. Quotes can only come from `data/fulltext/<GUID>*.txt` files. WebFetch output is a summary, not a source - use it only to find things, then save the real page.
+- If there is no cached full text, or only a preprint, try the open locations in the dossier, the ETIS links (`OPEN_ACCESS.ETIS.FULLTEXT_URL`, `URL`), the DOI landing page and ETIS_PAGE_URL. Save any page or file you rely on into `data/fulltext/` with a suffix, e.g. `curl -sL -A "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0" -o data/fulltext/<GUID>.publisher.html <URL>`, then `uv run src/fulltext_conversion.py data/fulltext/<GUID>.publisher.html` to make `data/fulltext/<GUID>.publisher.txt`. Quotes can only come from `data/fulltext/<GUID>*.txt` files. WebFetch output is a summary, not a source - use it only to find things, then save the real page.
 - Supplementary files and data repository pages can be saved the same way (`<GUID>.supplement.pdf`, `<GUID>.zenodo.html`) when the label depends on what's in them.
 - Publishers that refuse scripts (403, captcha or JS challenge: MDPI pages and supplements, T&F, ACS, OUP, Wiley, Elsevier, IEEE, Springer pages, A&A) can't be checked from here. Use PMC, repository copies or the OpenAlex open locations instead.
 - OpenAIRE often knows repository copies that OpenAlex doesn't (e.g. Zenodo uploads of accepted manuscripts by Horizon projects): see `OPEN_ACCESS.OPENAIRE.OPEN_INSTANCES`. `get_fulltext` already tried them (see FULLTEXT.FAILED_ATTEMPTS). Zenodo files can be listed with `https://zenodo.org/api/records/<record id>`.
@@ -38,12 +38,16 @@ Budget about 15 tool calls per article. If it's still unclear after that, record
 
 ### B. Open access
 
-Record this for every article. An `open` or `not_open` verdict replaces the automatic status from ETIS and OpenAlex. It matters most when `OPEN_ACCESS.CHECK_NEEDED_REASON` is set (codes in `doc/data_schema.md`); for `openaire_copy_not_in_openalex`, check what version that copy is.
+Record this for every article. An `open` or `not_open` verdict replaces the automatic verdict (`OPEN_ACCESS.AUTOMATIC_VERDICT`, its source in `AUTOMATIC_VERDICT_SOURCE`). It matters most when `OPEN_ACCESS.CHECK_NEEDED_REASON` is set (codes in `doc/data_schema.md`).
 
-- `open`: you found the published version or the accepted author manuscript free to read without login or payment: publisher site, PMC, institutional or subject repository. A file that was downloaded to the cache from a public URL without credentials counts as free (dossier FULLTEXT.URL).
-- Full texts saved by hand (FULLTEXT.SOURCE): `manual_open` = the user got it without login from the publisher site or a repository, so it counts as free if it's the published version or the accepted manuscript. The user doesn't record the link: give the dossier link where that version is (DOI link for a publisher version, repository link for a manuscript) and say in EVIDENCE that the user saved it by hand. `manual_other` (e.g. ResearchGate, author's website) and `manual_library` (library access) are not evidence of open access. A `manual_open` attempt with result `not_found` means the user found no free published version or accepted manuscript: `not_open`, unless you find one.
-- `not_open`: only a preprint (submitted version) or nothing is free.
-- `unclear`: couldn't get to the copies (e.g. the publisher blocks scripts and there is no other copy).
+- `open`: the article is free to read without login or payment
+  - on the publisher site: the DOI landing page, or the journal's website for articles without a DOI, or
+  - through a link in ETIS (`OPEN_ACCESS.ETIS.URL`, `FULLTEXT_URL`, or a link or file on the ETIS page `ETIS_PAGE_URL`): any version (preprints count) on any site (repository, preprint server, ResearchGate, author's website).
+  A file that was downloaded to the cache from one of these links without credentials counts as free (dossier FULLTEXT.URL).
+- Copies that neither the publisher site nor ETIS links to don't count: repositories, PMC, preprint servers, ResearchGate. They can still be read for the data check.
+- Full texts saved by hand (FULLTEXT.SOURCE): `manual_open` = the user got it without login from the publisher site or an ETIS link, so it counts as free. The user doesn't record the link: give the DOI link for a publisher version, else the ETIS link, and say in EVIDENCE that the user saved it by hand. `manual_other` (other free copies) and `manual_library` (library access) are not evidence of open access. A `manual_open` attempt with result `not_found` means the user found nothing free on the publisher site: `not_open`, unless an ETIS link leads to a free copy (until 2026-10-04 the hand search ignored preprints at ETIS links).
+- `not_open`: nothing free on the publisher site and no ETIS link to a free copy.
+- `unclear`: couldn't get to the publisher page or the ETIS links (e.g. the publisher blocks scripts).
 
 Tell the version from the document itself, not only from metadata (FULLTEXT.VERSION is null when the source doesn't say, e.g. Zenodo, OpenAIRE PDF links, OpenAlex cached copies). Version codes: `published_version`, `accepted_version`, `submitted_version`, `unknown` (a full text whose version can't be told): journal layout, volume/page numbers and publisher copyright line = published version; "accepted manuscript", "author's version", "post-print", PMC author manuscript = accepted version; arXiv/bioRxiv/SSRN without a statement that it's the accepted version = submitted version. A PMC copy that Europe PMC marks as an author manuscript (`CANDIDATES.EUROPEPMC.IS_AUTHOR_MANUSCRIPT`) is the accepted version. Write in OPEN_ACCESS.EVIDENCE what you saw.
 
@@ -118,7 +122,7 @@ Candidate links need judgement:
 
 - TEXT_FILES: the cached text files you quote from (`./data/fulltext/<GUID>*.txt`).
 - FULLTEXT_VERSION: version code of the full text you read; null if none.
-- OPEN_ACCESS.URL: where the free published version or accepted manuscript is; null if none.
+- OPEN_ACCESS.URL: the publisher page or the ETIS link where the article is free; null if none. OPEN_ACCESS.VERSION: version code of that copy.
 - DATA_LINKS: links you checked, including ones that turned out not to be the article's own data (`IS_OWN_DATA: false`) when they explain the label. Give resolvable URLs (`https://doi.org/...`, `https://www.rcsb.org/structure/7JJC`, `https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE...`), not bare accession numbers.
 - QUOTES: 1-3 verbatim passages (each up to ~300 characters) copied from a cached text file, including the data availability statement if there is one. Required for `repository`, `supplement`, `public_source`, `restricted`, `on_request`, `in_article`. For `not_available` and `no_data` without a statement, quotes are optional, but RATIONALE must say which sections were searched.
 - RATIONALE: 1-3 sentences.

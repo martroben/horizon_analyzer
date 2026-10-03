@@ -173,7 +173,7 @@ for queue_item in open_data_queue:
     assessment = assessments.get(queue_item["GUID"]) or {}
     projects = [{field: project[field] for field in PROJECT_FIELDS} for project in queue_item["PROJECTS"]]
 
-    # Full text check settles open access whenever it finds the status, also when ETIS and OpenAlex agree
+    # Full text check settles open access whenever it finds the status, also when there is an automatic verdict
     automatic_verdict = queue_item["OPEN_ACCESS"]["AUTOMATIC_VERDICT"]
     fulltext_verdict = (assessment.get("OPEN_ACCESS") or {}).get("VERDICT")
     if fulltext_verdict in ("open", "not_open"):
@@ -181,7 +181,7 @@ for queue_item in open_data_queue:
         open_access_settled_by = "fulltext_check"
     elif automatic_verdict:
         is_open_access = automatic_verdict == "open"
-        open_access_settled_by = "manual_check" if queue_item["OPEN_ACCESS"]["MANUAL_CHECK"]["IS_OPEN_ACCESS"] is not None else "etis_and_openalex"
+        open_access_settled_by = queue_item["OPEN_ACCESS"]["AUTOMATIC_VERDICT_SOURCE"]
     else:
         is_open_access = None
         open_access_settled_by = None
@@ -254,7 +254,7 @@ with polars.Config(**TABLE_PRINT_OPTIONS):
     logger.info(f'\nOpen access of the articles by whether OpenAIRE or OpenAlex links the article to its ETIS project\'s Horizon grant:\n{open_access_rates}')
     logger.info(f'\nHow the open access status was settled (null = pending a full text check):\n{settled_by_counts}')
     if open_access_agreement.height:
-        logger.info(f'\nAutomatic open access verdict (ETIS, OpenAlex, Jan 2025 manual checks) vs full text check:\n{open_access_agreement}')
+        logger.info(f'\nAutomatic open access verdict (OpenAlex, ETIS links, hand checks) vs full text check:\n{open_access_agreement}')
 
 
 #####################

@@ -34,7 +34,7 @@ EUROPEPMC_RECORD_FIELDS = [
     "hasData", "hasTMAccessionNumbers", "tmAccessionTypeList", "dbCrossReferenceList", "license", "authMan",
     "epmcAuthMan", "nihAuthMan", "fullTextUrlList"
 ]
-PROJECT_DATASETS_MAX = 100              # Number of project datasets to save per project (one page)
+GRANT_DATASETS_MAX = 100                # Number of grant datasets to save per grant (one page)
 
 RAW_DATA_DIRECTORY_PATH = "./data/raw/"
 RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
@@ -223,17 +223,11 @@ def save_data(data: list[dict], dir_path: str, file_handle: str) -> str:
     return save_path
 
 
-def get_article_DOIs(open_access_data: list[dict]) -> list[dict]:
+def get_article_DOIs(articles: list[dict]) -> list[dict]:
     """
     Gives GUID and DOI of the articles that have a DOI.
-    Uses the DOI found by OpenAlex title search if ETIS doesn't have a DOI.
     """
-    article_DOIs = []
-    for publication in open_access_data:
-        DOI = publication["DOI"] or publication["OPENALEX_DOI"]
-        if DOI:
-            article_DOIs += [{"GUID": publication["GUID"], "DOI": DOI}]
-    return article_DOIs
+    return [{"GUID": article["GUID"], "DOI": article["DOI"]} for article in articles if article["DOI"]]
 
 
 def check_bad_response(response: requests.Response, bad_responses: list, bad_response_threshold: int = 10) -> bool:
@@ -337,7 +331,7 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 # Many links are the article citing other people's data or software - Claude checks them during the open data check
 
 # Reload data from save file
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
 
 scholexplorer_session = ScholexplorerSession()
 requests_per_second_limit = 5
@@ -345,7 +339,7 @@ requests_per_second_limit = 5
 bad_responses = []
 scholexplorer_links = []
 lap_timestamp = time.monotonic()
-for article in tqdm.tqdm(get_article_DOIs(open_access_data), desc="Requesting ScholeXplorer links"):
+for article in tqdm.tqdm(get_article_DOIs(articles), desc="Requesting ScholeXplorer links"):
     links = {target_type: [] for target_type in SCHOLEXPLORER_TARGET_TYPES}
     for target_type in SCHOLEXPLORER_TARGET_TYPES:
         i_page = 0
@@ -383,7 +377,7 @@ logger.info(info_string2)
 # DataCite records (datasets in Zenodo, Figshare, Dryad, CCDC, institutional repositories) can name the article as a related identifier
 
 # Reload data from save file
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
 
 datacite_session = DataCiteSession()
 requests_per_second_limit = 1.5         # DataCite allows 500 requests in 5 minutes without identification: https://support.datacite.org/docs/rate-limit
@@ -391,7 +385,7 @@ requests_per_second_limit = 1.5         # DataCite allows 500 requests in 5 minu
 bad_responses = []
 datacite_records = []
 lap_timestamp = time.monotonic()
-for article in tqdm.tqdm(get_article_DOIs(open_access_data), desc="Requesting DataCite related records"):
+for article in tqdm.tqdm(get_article_DOIs(articles), desc="Requesting DataCite related records"):
     limit_rate(lap_timestamp, requests_per_second_limit)
     lap_timestamp = time.monotonic()
     response = request_with_retry(datacite_session.get_related_records, article["DOI"], DATACITE_RELATION_TYPES)
@@ -406,7 +400,7 @@ for article in tqdm.tqdm(get_article_DOIs(open_access_data), desc="Requesting Da
         "DATA": response_data.get("data") or []
     }]
 
-datacite_records_save_path = save_data(datacite_records, RAW_DATA_DIRECTORY_PATH, "datacite_related_records")
+datacite_records_save_path = save_data(datacite_records, RAW_DATA_DIRECTORY_PATH, "datacite_records")
 n_found = len([item for item in datacite_records if any(summarise_datacite_record(record, item["DOI"]) for record in item["DATA"])])
 info_string1 = f'DataCite has related records for {n_found} of the {len(datacite_records)} articles with a DOI. Saved to {datacite_records_save_path}'
 info_string2 = f'DataCite API failed to return data for {len(bad_responses)} requests'
@@ -421,7 +415,7 @@ logger.info(info_string2)
 # Europe PMC gives PMC IDs (needed for full text) and accession numbers that text mining found in PMC full texts
 
 # Reload data from save file
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
 
 europepmc_session = EuropePmcSession()
 requests_per_second_limit = 5
@@ -429,7 +423,7 @@ requests_per_second_limit = 5
 bad_responses = []
 europepmc_records = []
 lap_timestamp = time.monotonic()
-for article in tqdm.tqdm(get_article_DOIs(open_access_data), desc="Requesting Europe PMC records"):
+for article in tqdm.tqdm(get_article_DOIs(articles), desc="Requesting Europe PMC records"):
     limit_rate(lap_timestamp, requests_per_second_limit)
     lap_timestamp = time.monotonic()
     response = request_with_retry(europepmc_session.search_by_DOI, article["DOI"])
@@ -469,47 +463,47 @@ logger.info(info_string1)
 logger.info(info_string2)
 
 
-#####################################
-# Get OpenAIRE datasets of projects #
-#####################################
+###################################
+# Get OpenAIRE datasets of grants #
+###################################
 
-# Datasets that OpenAIRE links to the Horizon projects of the articles
-# Project datasets are reported separately - they count as open data of an article only if the article itself links to them
+# Datasets that OpenAIRE links to the grants of the articles' ETIS projects
+# Grant datasets are reported separately - they count as open data of an article only if the article itself links to them
 
-# Reload data from save file
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
-etis_project_horizon_ids = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "etis_project_horizon_ids")
+# Reload data from save files
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
+projects = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "projects")
 
-article_project_GUIDs = {project_GUID for publication in open_access_data for project_GUID in publication["PROJECT_GUIDS"]}
-OpenAIRE_projects = {}
-for project in etis_project_horizon_ids:
+article_project_GUIDs = {project_GUID for article in articles for project_GUID in article["PROJECT_GUIDS"]}
+grants = {}
+for project in projects:
     if project["GUID"] in article_project_GUIDs and project["OPENAIRE_ID"]:
-        OpenAIRE_projects[project["OPENAIRE_ID"]] = project["HORIZON_ID"]
+        grants[project["OPENAIRE_ID"]] = project["HORIZON_ID"]
 
 openaire_graph_session = OpenAireGraphSession("research-products")
 requests_per_second_limit = 2           # Respect API rate limit (7200 per hour)
 
 bad_responses = []
-project_datasets = []
+grant_datasets = []
 lap_timestamp = time.monotonic()
-for OpenAIRE_ID, horizon_ID in tqdm.tqdm(OpenAIRE_projects.items(), desc="Requesting OpenAIRE project datasets"):
+for OpenAIRE_ID, horizon_ID in tqdm.tqdm(grants.items(), desc="Requesting OpenAIRE grant datasets"):
     limit_rate(lap_timestamp, requests_per_second_limit)
     lap_timestamp = time.monotonic()
-    response = request_with_retry(openaire_graph_session.get_items, n_per_page=PROJECT_DATASETS_MAX, parameters={"type": "dataset", "relProjectId": OpenAIRE_ID})
+    response = request_with_retry(openaire_graph_session.get_items, n_per_page=GRANT_DATASETS_MAX, parameters={"type": "dataset", "relProjectId": OpenAIRE_ID})
     if check_bad_response(response, bad_responses):
         continue
 
     response_data = response.json()
-    project_datasets += [{
-        "OPENAIRE_ID": OpenAIRE_ID,
+    grant_datasets += [{
         "HORIZON_ID": horizon_ID,
+        "OPENAIRE_ID": OpenAIRE_ID,
         "N_FOUND": (response_data.get("header") or {}).get("numFound"),
         "DATA": response_data.get("results") or []
     }]
 
-project_datasets_save_path = save_data(project_datasets, RAW_DATA_DIRECTORY_PATH, "openaire_project_datasets")
-n_found = len([item for item in project_datasets if item["N_FOUND"]])
-info_string1 = f'OpenAIRE has datasets for {n_found} of the {len(project_datasets)} Horizon projects with articles. Saved to {project_datasets_save_path}'
+grant_datasets_save_path = save_data(grant_datasets, RAW_DATA_DIRECTORY_PATH, "openaire_project_datasets")
+n_found = len([item for item in grant_datasets if item["N_FOUND"]])
+info_string1 = f'OpenAIRE has datasets for {n_found} of the {len(grant_datasets)} grants with articles. Saved to {grant_datasets_save_path}'
 info_string2 = f'OpenAIRE graph API failed to return data for {len(bad_responses)} requests'
 logger.info(info_string1)
 logger.info(info_string2)
@@ -519,22 +513,24 @@ logger.info(info_string2)
 # Summarise open data candidate links #
 #######################################
 
+# See doc/data_schema.md
+
 # Reload data from save files
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
 scholexplorer_links = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scholexplorer_links")
-datacite_records = read_latest_file(RAW_DATA_DIRECTORY_PATH, "datacite_related_records")
+datacite_records = read_latest_file(RAW_DATA_DIRECTORY_PATH, "datacite_records")
 europepmc_records = read_latest_file(RAW_DATA_DIRECTORY_PATH, "europepmc_records")
-project_datasets = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_project_datasets")
+grant_datasets = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_project_datasets")
 
 scholexplorer_links_index = {item["GUID"]: item for item in scholexplorer_links}
 datacite_records_index = {item["GUID"]: item for item in datacite_records}
 europepmc_records_index = {item["GUID"]: item for item in europepmc_records}
 
 open_data_candidates = []
-for publication in open_access_data:
-    scholexplorer_item = scholexplorer_links_index.get(publication["GUID"]) or {}
-    datacite_item = datacite_records_index.get(publication["GUID"]) or {}
-    europepmc_item = europepmc_records_index.get(publication["GUID"]) or {}
+for article in articles:
+    scholexplorer_item = scholexplorer_links_index.get(article["GUID"]) or {}
+    datacite_item = datacite_records_index.get(article["GUID"]) or {}
+    europepmc_item = europepmc_records_index.get(article["GUID"]) or {}
     europepmc_record = next((record for record in europepmc_item.get("DATA") or [] if record.get("pmcid")), None)
     europepmc_record = europepmc_record or next(iter(europepmc_item.get("DATA") or []), {})
 
@@ -573,34 +569,40 @@ for publication in open_access_data:
             accession_numbers += [accession_number]
 
     open_data_candidates += [{
-        "GUID": publication["GUID"],
-        "DOI": scholexplorer_item.get("DOI") or datacite_item.get("DOI") or europepmc_item.get("DOI"),
-        "PMID": europepmc_record.get("pmid"),
-        "PMCID": europepmc_record.get("pmcid"),
-        "EUROPEPMC_IS_OPEN_ACCESS": europepmc_record.get("isOpenAccess") == "Y" if europepmc_record else None,
-        "EUROPEPMC_IS_AUTHOR_MANUSCRIPT": europepmc_record.get("authMan") == "Y" if europepmc_record else None,
-        "EUROPEPMC_HAS_SUPPLEMENTARY_FILES": europepmc_record.get("hasSuppl") == "Y" if europepmc_record else None,
-        "EUROPEPMC_LICENSE": europepmc_record.get("license"),
-        "ACCESSION_NUMBERS": accession_numbers,
-        "SCHOLEXPLORER_LINKS": scholexplorer_link_summaries,
-        "DATACITE_RECORDS": datacite_record_summaries
+        "GUID": article["GUID"],
+        "DOI": article["DOI"],
+        "EUROPEPMC": {
+            "PMID": europepmc_record.get("pmid"),
+            "PMCID": europepmc_record.get("pmcid"),
+            "IS_OPEN_ACCESS": europepmc_record.get("isOpenAccess") == "Y" if europepmc_record else None,
+            "IS_AUTHOR_MANUSCRIPT": europepmc_record.get("authMan") == "Y" if europepmc_record else None,
+            "HAS_SUPPLEMENTARY_FILES": europepmc_record.get("hasSuppl") == "Y" if europepmc_record else None,
+            "LICENSE": europepmc_record.get("license"),
+            "ACCESSION_NUMBERS": accession_numbers
+        },
+        "SCHOLEXPLORER": {
+            "LINKS": scholexplorer_link_summaries
+        },
+        "DATACITE": {
+            "RECORDS": datacite_record_summaries
+        }
     }]
 
 open_data_candidates_save_path = save_data(open_data_candidates, RESULTS_DATA_DIRECTORY_PATH, "open_data_candidates")
 
-project_dataset_summaries = []
-for project in project_datasets:
-    project_dataset_summaries += [{
-        "OPENAIRE_ID": project["OPENAIRE_ID"],
-        "HORIZON_ID": project["HORIZON_ID"],
-        "N_FOUND": project["N_FOUND"],
-        "DATASETS": [summarise_openaire_dataset(dataset) for dataset in project["DATA"]]
+grant_dataset_summaries = []
+for grant in grant_datasets:
+    grant_dataset_summaries += [{
+        "HORIZON_ID": grant["HORIZON_ID"],
+        "OPENAIRE_ID": grant["OPENAIRE_ID"],
+        "N_DATASETS": grant["N_FOUND"],
+        "DATASETS": [summarise_openaire_dataset(dataset) for dataset in grant["DATA"]]
     }]
 
-project_datasets_save_path = save_data(project_dataset_summaries, RESULTS_DATA_DIRECTORY_PATH, "project_datasets")
+grant_datasets_save_path = save_data(grant_dataset_summaries, RESULTS_DATA_DIRECTORY_PATH, "grant_datasets")
 
-n_with_candidates = len([item for item in open_data_candidates if item["ACCESSION_NUMBERS"] or item["SCHOLEXPLORER_LINKS"] or item["DATACITE_RECORDS"]])
+n_with_candidates = len([item for item in open_data_candidates if item["EUROPEPMC"]["ACCESSION_NUMBERS"] or item["SCHOLEXPLORER"]["LINKS"] or item["DATACITE"]["RECORDS"]])
 info_string1 = f'{n_with_candidates} of the {len(open_data_candidates)} articles have candidate data links (accession numbers, ScholeXplorer links or DataCite records). Saved to {open_data_candidates_save_path}'
-info_string2 = f'Saved OpenAIRE datasets of {len(project_dataset_summaries)} Horizon projects to {project_datasets_save_path}'
+info_string2 = f'Saved OpenAIRE datasets of {len(grant_dataset_summaries)} grants to {grant_datasets_save_path}'
 logger.info(info_string1)
 logger.info(info_string2)

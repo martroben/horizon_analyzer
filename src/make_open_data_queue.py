@@ -17,10 +17,8 @@ PILOT_GUIDS_PATH = "./data/manual/manual_check_guids_20250118112133UTC.txt"
     # These come first in the queue, because some of them have reference results from the manual checks
 QUEUE_RANDOM_SEED = 20261003
     # The rest of the articles are in a random order, so that any number of checked articles is a random sample
-OPENAIRE_HORIZON_PROJECT_ID_PREFIXES = {
-    "corda__h2020::": "H2020",
-    "corda_____he::": "HE"
-}
+OPENAIRE_GRANT_ID_PREFIXES = ["corda__h2020::", "corda_____he::"]
+    # OpenAIRE ID prefixes of Horizon 2020 and Horizon Europe grants
 PREPRINT_URL_PATTERN = r"arxiv\.org|biorxiv\.org|medrxiv\.org|chemrxiv\.org|techrxiv\.org|10\.36227/techrxiv|ssrn\.com|preprints\.org|researchsquare\.com|mpra\.ub\.uni-muenchen\.de"
     # Preprint servers and working paper archives. OpenAIRE doesn't always give them the instance type Preprint
 ABSTRACT_DATABASE_URL_PATTERN = r"scopus\.com|webofscience\.com|webofknowledge\.com"
@@ -64,35 +62,6 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
     return data
 
 
-def get_framework_programme(OpenAIRE_ID: str) -> str | None:
-    """
-    Gives the framework programme of an OpenAIRE project ID: corda__h2020:: - H2020, corda_____he:: - HE.
-    """
-    if not OpenAIRE_ID:
-        return None
-    for prefix, framework in OPENAIRE_HORIZON_PROJECT_ID_PREFIXES.items():
-        if OpenAIRE_ID.startswith(prefix):
-            return framework
-    return OpenAIRE_ID.split("::")[0]
-
-
-def get_data_mandate_group(projects: list[dict]) -> str:
-    """
-    Gives the data mandate group of an article from the Horizon grants of its ETIS projects:
-    H2020 mandate, H2020 no mandate, HE (all have a mandate), several groups joined with + or unknown.
-    """
-    groups = set()
-    for project in projects:
-        if not project["HORIZON_ID"] or project["OPEN_ACCESS_MANDATE_FOR_DATASET"] is None:
-            continue
-        framework = get_framework_programme(project["OPENAIRE_ID"])
-        if framework == "H2020":
-            groups.add("H2020 mandate" if project["OPEN_ACCESS_MANDATE_FOR_DATASET"] else "H2020 no mandate")
-        else:
-            groups.add(framework)
-    return " + ".join(sorted(groups)) or "unknown"
-
-
 def normalise_URL(URL: str) -> str:
     """
     Gives a URL in lower case without scheme, www. and trailing slash, to compare URLs.
@@ -109,27 +78,31 @@ def is_preprint(openaire_instance: dict) -> bool:
     return bool(re.search(PREPRINT_URL_PATTERN, openaire_instance["URL"], flags=re.IGNORECASE))
 
 
-def get_open_access_check_reason(publication: dict, openaire_open_instances: list[dict]) -> str | None:
+def get_automatic_open_access(article: dict, openaire_open_instances: list[dict]) -> tuple[str | None, str | None]:
     """
-    Gives the reason why the full text check has to settle the open access status of an article, or None.
+    Gives the automatic open access verdict of an article (open, not_open) by ETIS, OpenAlex and the Jan 2025 manual check,
+    and the code of the reason why the full text check has to settle it (codes in doc/data_schema.md). The verdict is None if the full text check has to settle it.
     Open access follows the Horizon mandate: the published version or the peer-reviewed author manuscript is free to read.
     openaire_open_instances: open copies in OpenAIRE that OpenAlex doesn't list.
     """
-    if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is None:
-        if bool(publication["IS_OPEN_ACCESS"]) != bool(publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"]):
-            return "ETIS and OpenAlex disagree"
-        is_open = bool(publication["IS_OPEN_ACCESS"])
+    ETIS_is_open_access = bool(article["ETIS"]["IS_OPEN_ACCESS"])
+    openalex_has_open_peer_reviewed_version = bool(article["OPENALEX"]["HAS_OPEN_PEER_REVIEWED_VERSION"])
+    manual_check_is_open_access = article["MANUAL_CHECK"]["IS_OPEN_ACCESS"]
+    if manual_check_is_open_access is None:
+        if ETIS_is_open_access != openalex_has_open_peer_reviewed_version:
+            return None, "etis_openalex_disagree"
+        is_open = ETIS_is_open_access
     else:
         # Jan 2025 manual checks counted any free version (incl. preprints)
-        if publication["IS_AVAILABLE_MANUALLY_CHECKED"] and not publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"]:
-            return "Jan 2025 manual check counted any free version and OpenAlex has no open published version or author manuscript"
-        is_open = publication["IS_AVAILABLE_MANUALLY_CHECKED"]
+        if manual_check_is_open_access and not openalex_has_open_peer_reviewed_version:
+            return None, "manual_check_any_version"
+        is_open = manual_check_is_open_access
 
     # Horizon projects often deposit accepted manuscripts in repositories (e.g. Zenodo) that OpenAlex doesn't know
     repository_copies = [instance for instance in openaire_open_instances if not is_preprint(instance)]
     if not is_open and repository_copies:
-        return "Not open by ETIS and OpenAlex, but OpenAIRE has an open copy that OpenAlex doesn't list"
-    return None
+        return None, "openaire_copy_not_in_openalex"
+    return "open" if is_open else "not_open", None
 
 
 def get_linked_horizon_IDs(research_products: list[dict], openalex_data: dict) -> set[str]:
@@ -139,7 +112,7 @@ def get_linked_horizon_IDs(research_products: list[dict], openalex_data: dict) -
     horizon_IDs = set()
     for research_product in research_products:
         for project_link in research_product.get("projects") or []:
-            if project_link["id"].startswith(tuple(OPENAIRE_HORIZON_PROJECT_ID_PREFIXES)):
+            if project_link["id"].startswith(tuple(OPENAIRE_GRANT_ID_PREFIXES)):
                 horizon_IDs.add(project_link["code"])
     for award in openalex_data.get("awards") or []:
         # Award IDs are free text, e.g. "ePerMed (grant no. 692145)"
@@ -161,35 +134,34 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 # Make open data queue #
 ########################
 
-# The queue has everything that Claude needs for the open data check of an article (see .claude/skills/check-open-data)
+# The queue has everything that is known automatically about each article: the analysis and Claude's open data check
+# (see .claude/skills/check-open-data) use it. See doc/data_schema.md
 
 # Reload data from save files
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
-etis_project_horizon_ids = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "etis_project_horizon_ids")
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
+projects = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "projects")
 open_data_candidates = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_data_candidates")
-project_datasets = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "project_datasets")
+grant_datasets = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "grant_datasets")
 fulltext_index = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "fulltext_index")
-openalex_responses = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_responses")
-openaire_graph_projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_graph_projects")
+openalex_works = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_works")
 openaire_research_products = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_research_products")
 
 with open(PILOT_GUIDS_PATH, encoding="utf8") as read_file:
     pilot_GUIDs = [line.strip() for line in read_file if line.strip()]
 
-etis_projects_index = {item["GUID"]: item for item in etis_project_horizon_ids}
+projects_index = {item["GUID"]: item for item in projects}
 open_data_candidates_index = {item["GUID"]: item for item in open_data_candidates}
-project_datasets_index = {item["OPENAIRE_ID"]: item for item in project_datasets}
+grant_datasets_index = {item["HORIZON_ID"]: item for item in grant_datasets}
 fulltext_index_index = {item["GUID"]: item for item in fulltext_index}
-openalex_responses_index = {item["GUID"]: item for item in openalex_responses}
-acronyms_index = {item["id"]: item.get("acronym") for item in openaire_graph_projects}
+openalex_works_index = {item["GUID"]: item for item in openalex_works}
 openaire_research_products_index = {item["GUID"]: item["DATA"] for item in openaire_research_products}
 
 queue = []
-for publication in open_access_data:
-    projects = [etis_projects_index[GUID] for GUID in publication["PROJECT_GUIDS"] if GUID in etis_projects_index]
-    candidates = open_data_candidates_index.get(publication["GUID"]) or {}
-    fulltext = fulltext_index_index.get(publication["GUID"]) or {}
-    openalex_data = (openalex_responses_index.get(publication["GUID"]) or {}).get("DATA") or {}
+for article in articles:
+    article_projects = [projects_index[GUID] for GUID in article["PROJECT_GUIDS"] if GUID in projects_index]
+    candidates = open_data_candidates_index.get(article["GUID"]) or {}
+    fulltext = fulltext_index_index.get(article["GUID"]) or {}
+    openalex_data = (openalex_works_index.get(article["GUID"]) or {}).get("DATA") or {}
 
     open_locations = []
     for location in openalex_data.get("locations") or []:
@@ -204,11 +176,10 @@ for publication in open_access_data:
         }]
 
     # OpenAIRE knows many repository copies that OpenAlex doesn't (e.g. accepted manuscripts that Horizon projects upload to Zenodo)
-    DOI = publication["DOI"] or publication["OPENALEX_DOI"]
     known_URLs = {normalise_URL(location[key]) for location in openalex_data.get("locations") or [] for key in ("pdf_url", "landing_page_url") if location.get(key)}
-    if DOI:
-        known_URLs.add(normalise_URL(f'https://doi.org/{DOI}'))
-    research_products = openaire_research_products_index.get(publication["GUID"]) or []
+    if article["DOI"]:
+        known_URLs.add(normalise_URL(f'https://doi.org/{article["DOI"]}'))
+    research_products = openaire_research_products_index.get(article["GUID"]) or []
     openaire_open_instances = []
     for research_product in research_products:
         for instance in research_product.get("instances") or []:
@@ -224,43 +195,52 @@ for publication in open_access_data:
                     "TYPE": instance.get("type")
                 }]
 
-    # Articles don't always acknowledge the ETIS project's Horizon grant. Unknown if neither OpenAIRE nor OpenAlex has the article
+    automatic_verdict, check_needed_reason = get_automatic_open_access(article, openaire_open_instances)
+
+    # Articles don't always acknowledge the ETIS project's grant. Unknown if neither OpenAIRE nor OpenAlex has the article
     linked_horizon_IDs = get_linked_horizon_IDs(research_products, openalex_data)
     has_grant_link_data = bool(research_products or openalex_data)
 
     queue += [{
-        "GUID": publication["GUID"],
-        "TITLE": publication["TITLE"],
-        "PERIODICAL": publication["PERIODICAL"],
-        "DOI": DOI or None,
-        "ETIS_URL": f'https://www.etis.ee/Portal/Publications/Display/{publication["GUID"]}',
-        "HAS_ESTONIAN_AUTHOR": publication["HAS_ESTONIAN_AUTHOR"],
+        "GUID": article["GUID"],
+        "TITLE": article["TITLE"],
+        "PERIODICAL": article["PERIODICAL"],
+        "DOI": article["DOI"],
+        "ETIS_PAGE_URL": f'https://www.etis.ee/Portal/Publications/Display/{article["GUID"]}',
+        "HAS_ESTONIAN_AUTHOR": article["HAS_ESTONIAN_AUTHOR"],
+        "AUTHORS": article["AUTHORS"],
+        "INSTITUTIONS": article["INSTITUTIONS"],
         "PROJECTS": [{
             "GUID": project["GUID"],
             "TITLE": project["TITLE"],
             "PROGRAMME_CODES": project["PROGRAMME_CODES"],
+            "FRAMEWORK_PROGRAMME": project["FRAMEWORK_PROGRAMME"],
             "HORIZON_ID": project["HORIZON_ID"],
-            "ACRONYM": acronyms_index.get(project["OPENAIRE_ID"]),
-            "FRAMEWORK_PROGRAMME": get_framework_programme(project["OPENAIRE_ID"]),
-            # All Horizon programmes (incl. ERA-NET and EIT) require open access to publications. OpenAIRE has the flag only for matched projects
-            "OPEN_ACCESS_MANDATE_FOR_PUBLICATIONS": project["OPEN_ACCESS_MANDATE_FOR_PUBLICATIONS"] if project["OPEN_ACCESS_MANDATE_FOR_PUBLICATIONS"] is not None else True,
-            "OPEN_ACCESS_MANDATE_FOR_DATASET": project["OPEN_ACCESS_MANDATE_FOR_DATASET"],
-            "HORIZON_GRANT_LINKED": project["HORIZON_ID"] in linked_horizon_IDs if project["HORIZON_ID"] and has_grant_link_data else None,
-            "PROJECT_DATASETS_FOUND": (project_datasets_index.get(project["OPENAIRE_ID"]) or {}).get("N_FOUND")
-        } for project in projects],
-        "DATA_MANDATE_GROUP": get_data_mandate_group(projects),
+            "ACRONYM": project["ACRONYM"],
+            "HAS_PUBLICATION_MANDATE": project["HAS_PUBLICATION_MANDATE"],
+            "HAS_DATA_MANDATE": project["HAS_DATA_MANDATE"],
+            "IS_GRANT_LINKED": project["HORIZON_ID"] in linked_horizon_IDs if project["HORIZON_ID"] and has_grant_link_data else None,
+            "N_GRANT_DATASETS": (grant_datasets_index.get(project["HORIZON_ID"]) or {}).get("N_DATASETS")
+        } for project in article_projects],
         "OPEN_ACCESS": {
-            "ETIS_IS_OPEN_ACCESS": publication["IS_OPEN_ACCESS"],
-            "ETIS_OPEN_ACCESS_TYPE": publication["OPEN_ACCESS_TYPE"],
-            "ETIS_LICENSE": publication["LICENSE"],
-            "ETIS_PUBLICATION_URL": publication["URL"],
-            "OPENALEX_IS_OPEN_ACCESS": publication["OPENALEX_IS_OPEN_ACCESS"],
-            "OPENALEX_OPEN_ACCESS_TYPE": publication["OPENALEX_OPEN_ACCESS_TYPE"],
-            "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"],
-            "OPENALEX_OPEN_LOCATIONS": open_locations,
-            "OPENAIRE_OPEN_INSTANCES": openaire_open_instances,
-            "MANUALLY_CHECKED_IS_AVAILABLE": publication["IS_AVAILABLE_MANUALLY_CHECKED"],
-            "CHECK_NEEDED_REASON": get_open_access_check_reason(publication, openaire_open_instances)
+            "AUTOMATIC_VERDICT": automatic_verdict,
+            "CHECK_NEEDED_REASON": check_needed_reason,
+            "ETIS": {
+                "IS_OPEN_ACCESS": article["ETIS"]["IS_OPEN_ACCESS"],
+                "OPEN_ACCESS_TYPE": article["ETIS"]["OPEN_ACCESS_TYPE"],
+                "LICENSE": article["ETIS"]["LICENSE"],
+                "URL": article["ETIS"]["URL"]
+            },
+            "OPENALEX": {
+                "IS_OPEN_ACCESS": article["OPENALEX"]["IS_OPEN_ACCESS"],
+                "OPEN_ACCESS_TYPE": article["OPENALEX"]["OPEN_ACCESS_TYPE"],
+                "HAS_OPEN_PEER_REVIEWED_VERSION": article["OPENALEX"]["HAS_OPEN_PEER_REVIEWED_VERSION"],
+                "OPEN_LOCATIONS": open_locations
+            },
+            "OPENAIRE": {
+                "OPEN_INSTANCES": openaire_open_instances
+            },
+            "MANUAL_CHECK": article["MANUAL_CHECK"]
         },
         "CANDIDATES": {key: value for key, value in candidates.items() if key not in ("GUID", "DOI")},
         "FULLTEXT": {key: value for key, value in fulltext.items() if key not in ("GUID", "DOI")}

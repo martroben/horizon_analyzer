@@ -24,7 +24,7 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
     return data
 
 
-data = read_latest_file("data/results/", "open_access_data")
+data = read_latest_file("data/results/", "articles")
 
 random.seed(1913)
 selected_data = random.sample(data, 20)

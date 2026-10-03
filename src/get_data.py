@@ -23,7 +23,7 @@ ETIS_SCIENTIFIC_ARTICLES_CLASSIFICATION_CODES = [
     "1.2.",     # Other international scientific articles
     "1.3."      # scientific articles in Estonian journals
 ]
-ETIS_HORIZON_PROGRAM_CODES = [
+ETIS_HORIZON_PROGRAMME_CODES = [
     "136",      # Horizon 2020 EIT support
     "137",      # Horisont 2020 ERA \u00f5ppetoolide toetus
     "442",      # Horizon 2020
@@ -57,11 +57,11 @@ OPENALEX_WORK_FIELDS = [
     "funders",
     "authorships"
 ]
-PEER_REVIEWED_VERSIONS = [
+OPENALEX_PEER_REVIEWED_VERSIONS = [
     "publishedVersion",     # Version of record
     "acceptedVersion"       # Peer-reviewed author manuscript
 ]
-    # Horizon open access mandate requires the published version or the peer-reviewed manuscript to be open
+    # OpenAlex location versions that count for the Horizon open access mandate: the published version or the peer-reviewed manuscript
     # Open submitted versions (preprints) and open copies of unknown version don't count
 ESTONIAN_AFFILIATION_PATTERN = r"estonia|eesti|tallinn|tartu"
     # Raw affiliation strings of Estonian institutions. OpenAlex doesn't link every affiliation to an institution with a country
@@ -172,14 +172,14 @@ class OpenAlexSession(requests.Session):
         return response
 
 
-def clean_DOI(DOI: str) -> str:
+def clean_DOI(DOI: str | None) -> str | None:
     """
-    Removes the leading doi.org URL or DOI:.
+    Removes the leading doi.org URL or DOI:. Gives None if there is no DOI.
     Doesn't URL-encode the DOI - requests encodes query parameters itself.
     """
-    DOI = DOI.strip(" ").lower()
+    DOI = (DOI or "").strip(" ").lower()
     if not DOI:
-        return DOI
+        return None
     if DOI[:4] == "doi:":
         # Drop leading "DOI: "
         DOI = DOI[4:].strip(" ")
@@ -366,8 +366,8 @@ bad_responses = []
 ETIS_projects = []
 with tqdm.tqdm() as ETIS_progress_bar:
     _ = ETIS_progress_bar.set_description_str("Requesting ETIS projects")
-    for program_code in ETIS_HORIZON_PROGRAM_CODES:
-        ETIS_project_parameters["ProgrammeCode"] = program_code
+    for programme_code in ETIS_HORIZON_PROGRAMME_CODES:
+        ETIS_project_parameters["ProgrammeCode"] = programme_code
         i = 0
         while True:
             response = ETIS_project_session.get_items(
@@ -435,26 +435,26 @@ logger.info(info_string)
 ETIS_publication_session = EtisSession(service="publication")
 
 bad_responses = []
-publications_with_no_data = []
+publications_without_data = []
 for publication in tqdm.tqdm(publications, desc="Requesting ETIS publications"):
     publication["DATA"] = {}
     response = ETIS_publication_session.get_items(
         parameters={"Guid": publication["GUID"]}
     )
     if check_bad_response(response, bad_responses):
-        publications_with_no_data += [publication]
+        publications_without_data += [publication]
         continue
 
     try:
         publication["DATA"] = response.json()[0]
     except Exception:
-        publications_with_no_data += [publication]
+        publications_without_data += [publication]
 
-publications_save_path = save_data(publications, RAW_DATA_DIRECTORY_PATH, "publications")
-publications_with_no_data_save_path = save_data(publications_with_no_data, RAW_DATA_DIRECTORY_PATH, "publications_with_no_data")
+publications_save_path = save_data(publications, RAW_DATA_DIRECTORY_PATH, "etis_publications")
+publications_without_data_save_path = save_data(publications_without_data, RAW_DATA_DIRECTORY_PATH, "etis_publications_without_data")
 
 info_string1 = f'Pulled publication data from ETIS. Saved to {publications_save_path}'
-info_string2 = f'ETIS API failed to return data for {len(publications_with_no_data)} of the {len(publications)} publications. See {publications_with_no_data_save_path} for details'
+info_string2 = f'ETIS API failed to return data for {len(publications_without_data)} of the {len(publications)} publications. See {publications_without_data_save_path} for details'
 logger.info(info_string1)
 logger.info(info_string2)
 
@@ -464,10 +464,10 @@ logger.info(info_string2)
 ###########################
 
 # Reload data from save file
-publications = read_latest_file(RAW_DATA_DIRECTORY_PATH, "publications")
+publications = read_latest_file(RAW_DATA_DIRECTORY_PATH, "etis_publications")
 
 # Select only already published scientific articles
-scientific_articles = []
+ETIS_articles = []
 for publication in publications:
     if not publication["DATA"]:
         continue
@@ -476,20 +476,20 @@ for publication in publications:
     if publication["DATA"]["PublicationStatusEng"].lower() != "published":
         continue
 
-    scientific_articles += [publication]
+    ETIS_articles += [publication]
 
-scientific_articles_save_path = save_data(scientific_articles, RAW_DATA_DIRECTORY_PATH, "scientific_articles")
+ETIS_articles_save_path = save_data(ETIS_articles, RAW_DATA_DIRECTORY_PATH, "etis_articles")
 
-info_string = f'{len(scientific_articles)} of the {len(publications)} publications are classified as scientific articles. Saved to {scientific_articles_save_path}'
+info_string = f'{len(ETIS_articles)} of the {len(publications)} publications are classified as scientific articles. Saved to {ETIS_articles_save_path}'
 logger.info(info_string)
 
 
-#######################################
-# Pull publication info from OpenAlex #
-#######################################
+###################################
+# Pull article info from OpenAlex #
+###################################
 
 # Reload data from save file
-scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_articles")
+ETIS_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "etis_articles")
 
 openalex_session = OpenAlexSession(OPENALEX_API_KEY)
 
@@ -497,18 +497,18 @@ requests_per_second_limit = 10      # Limit requests that can be made per second
 title_match_max_year_difference = 1 # Title search results must be published about the same year as given in ETIS
 
 bad_responses = []
-openalex_responses = []
+openalex_works = []
 n_title_matches = 0
 lap_timestamp = time.monotonic()
-for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication OpenAlex data"):
-    DOI = clean_DOI(publication["DATA"]["Doi"])
-    title = publication["DATA"]["Title"]
-    year = publication["DATA"]["PublishingYear"]
+for ETIS_article in tqdm.tqdm(ETIS_articles, desc="Requesting article OpenAlex data"):
+    DOI = clean_DOI(ETIS_article["DATA"]["Doi"])
+    title = ETIS_article["DATA"]["Title"]
+    year = ETIS_article["DATA"]["PublishingYear"]
 
-    openalex_response = {
-        "GUID": publication["GUID"],
-        "UNSUCCESSFUL_INPUTS": [],
-        "SUCCESSFUL_INPUT": None,
+    openalex_work = {
+        "GUID": ETIS_article["GUID"],
+        "FOUND_BY": None,
+        "FAILED_QUERIES": [],
         "DATA": None}
 
     # Search by title only if there is no DOI or OpenAlex doesn't know it - searches cost money
@@ -520,10 +520,10 @@ for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication O
         response = openalex_session.get_work(DOI, OPENALEX_WORK_FIELDS)
 
         if response:
-            openalex_response["DATA"] = response.json()
-            openalex_response["SUCCESSFUL_INPUT"] = DOI
+            openalex_work["DATA"] = response.json()
+            openalex_work["FOUND_BY"] = "doi"
         elif response.status_code == 404:
-            openalex_response["UNSUCCESSFUL_INPUTS"] += [DOI]
+            openalex_work["FAILED_QUERIES"] += [DOI]
             search_by_title = True
         else:
             check_bad_response(response, bad_responses)
@@ -546,56 +546,60 @@ for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication O
                 title_matches += [work]
 
             if len(title_matches) == 1:
-                openalex_response["DATA"] = title_matches[0]
-                openalex_response["SUCCESSFUL_INPUT"] = title
+                openalex_work["DATA"] = title_matches[0]
+                openalex_work["FOUND_BY"] = "title_search"
                 n_title_matches += 1
                 # Search results have at most 100 authors per work - get the full work by ID
                 limit_rate(lap_timestamp, requests_per_second_limit)
                 lap_timestamp = time.monotonic()
                 response = openalex_session.get_work_by_ID(title_matches[0]["id"], OPENALEX_WORK_FIELDS)
                 if response:
-                    openalex_response["DATA"] = response.json()
+                    openalex_work["DATA"] = response.json()
             else:
-                openalex_response["UNSUCCESSFUL_INPUTS"] += [title]
+                openalex_work["FAILED_QUERIES"] += [title]
 
-    openalex_responses += [openalex_response]
+    openalex_works += [openalex_work]
 
-openalex_responses_save_path = save_data(openalex_responses, RAW_DATA_DIRECTORY_PATH, "openalex_responses")
+openalex_works_save_path = save_data(openalex_works, RAW_DATA_DIRECTORY_PATH, "openalex_works")
 
-n_found = len([item for item in openalex_responses if item["DATA"]])
-info_string1 = f'Checked publication open access status by OpenAlex API. Saved results to {openalex_responses_save_path}'
-info_string2 = f'OpenAlex has data for {n_found} of the {len(scientific_articles)} scientific articles ({n_title_matches} found by title search). OpenAlex API failed to return data for {len(bad_responses)} requests'
+n_found = len([item for item in openalex_works if item["DATA"]])
+info_string1 = f'Checked article open access status by OpenAlex API. Saved results to {openalex_works_save_path}'
+info_string2 = f'OpenAlex has data for {n_found} of the {len(ETIS_articles)} scientific articles ({n_title_matches} found by title search). OpenAlex API failed to return data for {len(bad_responses)} requests'
 logger.info(info_string1)
 logger.info(info_string2)
 
 
-##############################
-# Summarise open access data #
-##############################
+##########################
+# Summarise article data #
+##########################
 
-# Reload data from save file
-openalex_responses = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_responses")
-scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_articles")
+# One record per article: ETIS info, Estonian authors and institutions, and what ETIS, OpenAlex and the Jan 2025 manual check say about open access
+# See doc/data_schema.md
+
+# Reload data from save files
+openalex_works = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_works")
+ETIS_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "etis_articles")
 
 manually_checked_publications = []
 if os.path.exists(MANUALLY_CHECKED_PUBLICATIONS_PATH):
     with open(MANUALLY_CHECKED_PUBLICATIONS_PATH, encoding="utf8") as read_file:
         manually_checked_publications = json.loads(read_file.read())
 
-openalex_responses_index = {item["GUID"]: item for item in openalex_responses}
-open_access_manual_check_results_index = {item["GUID"]: item for item in manually_checked_publications}
+openalex_works_index = {item["GUID"]: item for item in openalex_works}
+manual_check_results_index = {item["GUID"]: item for item in manually_checked_publications}
 
-open_access_data = []
-for article in scientific_articles:
-    ETIS_data = article["DATA"]
-    openalex_response = openalex_responses_index.get(article["GUID"]) or {}
-    openalex_data = openalex_response.get("DATA") or {}
+articles = []
+for ETIS_article in ETIS_articles:
+    ETIS_data = ETIS_article["DATA"]
+    openalex_work = openalex_works_index.get(ETIS_article["GUID"]) or {}
+    openalex_data = openalex_work.get("DATA") or {}
     openalex_open_access = openalex_data.get("open_access") or {}
-    openalex_open_versions = sorted({location.get("version") or "unknown" for location in openalex_data.get("locations") or [] if location.get("is_oa")})
+    openalex_open_versions = None
     openalex_has_open_peer_reviewed_version = None
     if openalex_data:
-        openalex_has_open_peer_reviewed_version = any(version in PEER_REVIEWED_VERSIONS for version in openalex_open_versions)
-    manual_check_result = open_access_manual_check_results_index.get(article["GUID"]) or {}
+        openalex_open_versions = sorted({location.get("version") or "unknown" for location in openalex_data.get("locations") or [] if location.get("is_oa")})
+        openalex_has_open_peer_reviewed_version = any(version in OPENALEX_PEER_REVIEWED_VERSIONS for version in openalex_open_versions)
+    manual_check_result = manual_check_results_index.get(ETIS_article["GUID"]) or {}
 
     # ETIS authors and institutions are Estonian researchers and institutions. ETIS can list the same one twice
     openalex_author_names = []
@@ -608,7 +612,7 @@ for article in scientific_articles:
         authors += [{
             "GUID": author["Guid"],
             "NAME": author["Name"],
-            "IN_OPENALEX_AUTHORS": any(is_same_author(author["Name"], name) for name in openalex_author_names) if openalex_author_names else None
+            "IS_IN_OPENALEX_AUTHORS": any(is_same_author(author["Name"], name) for name in openalex_author_names) if openalex_author_names else None
         }]
     institutions = []
     for institution in ETIS_data["Institutions"] or []:
@@ -627,78 +631,51 @@ for article in scientific_articles:
     if openalex_has_estonian_affiliation:
         has_estonian_author = True
     elif openalex_author_names:
-        has_estonian_author = bool(institutions) and any(author["IN_OPENALEX_AUTHORS"] for author in authors)
+        has_estonian_author = bool(institutions) and any(author["IS_IN_OPENALEX_AUTHORS"] for author in authors)
     else:
         has_estonian_author = bool(institutions) or None
 
-    open_access_datum = {
-        "GUID": article["GUID"],
-        "PROJECT_GUIDS": article["PROJECT_GUIDS"],
-        "TITLE": ETIS_data["Title"],
-        "PERIODICAL": ETIS_data["Periodical"],
-        "DOI": clean_DOI(ETIS_data["Doi"]),
-        "URL": ETIS_data["Url"],
-        "IS_OPEN_ACCESS": ETIS_data["IsOpenAccessEng"].lower() == "yes",
-        "OPEN_ACCESS_TYPE": ETIS_data["OpenAccessTypeNameEng"],
-        "LICENSE": ETIS_data.get("OpenAccessLicenceNameEng"),
-        "IS_PUBLIC_FILE": ETIS_data["PublicFile"],
+    ETIS_DOI = clean_DOI(ETIS_data["Doi"])
+    openalex_DOI = clean_DOI(openalex_data.get("doi"))
+    articles += [{
+        "GUID": ETIS_article["GUID"],
+        "TITLE": ETIS_data["Title"] or None,
+        "PERIODICAL": ETIS_data["Periodical"] or None,
+        # Without an ETIS DOI, OpenAlex can only have found the article by title search
+        "DOI": ETIS_DOI or openalex_DOI,
+        "PROJECT_GUIDS": ETIS_article["PROJECT_GUIDS"],
         "AUTHORS": authors,
         "INSTITUTIONS": institutions,
-        "OPENALEX_ID": openalex_data.get("id"),
-        "OPENALEX_DOI": clean_DOI(openalex_data.get("doi") or ""),
-        "OPENALEX_IS_OPEN_ACCESS": openalex_open_access.get("is_oa"),
-        "OPENALEX_OPEN_ACCESS_TYPE": openalex_open_access.get("oa_status"),
-        "OPENALEX_OPEN_ACCESS_URL": openalex_open_access.get("oa_url"),
-        "OPENALEX_OPEN_VERSIONS": openalex_open_versions,
-        "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": openalex_has_open_peer_reviewed_version,
-        "OPENALEX_HAS_ESTONIAN_AFFILIATION": openalex_has_estonian_affiliation,
         "HAS_ESTONIAN_AUTHOR": has_estonian_author,
-        "IS_AVAILABLE_MANUALLY_CHECKED": manual_check_result.get("IS_AVAILABLE")
-    }
-    open_access_data += [open_access_datum]
+        "ETIS": {
+            "DOI": ETIS_DOI,
+            "URL": ETIS_data["Url"] or None,
+            "IS_OPEN_ACCESS": ETIS_data["IsOpenAccessEng"].lower() == "yes",
+            "OPEN_ACCESS_TYPE": ETIS_data["OpenAccessTypeNameEng"] or None,
+            "LICENSE": ETIS_data.get("OpenAccessLicenceNameEng") or None
+        },
+        "OPENALEX": {
+            "ID": openalex_data.get("id"),
+            "FOUND_BY": openalex_work.get("FOUND_BY"),
+            "DOI": openalex_DOI,
+            "IS_OPEN_ACCESS": openalex_open_access.get("is_oa"),
+            "OPEN_ACCESS_TYPE": openalex_open_access.get("oa_status"),
+            "OPEN_ACCESS_URL": openalex_open_access.get("oa_url"),
+            "OPEN_VERSIONS": openalex_open_versions,
+            "HAS_OPEN_PEER_REVIEWED_VERSION": openalex_has_open_peer_reviewed_version,
+            "HAS_ESTONIAN_AFFILIATION": openalex_has_estonian_affiliation
+        },
+        "MANUAL_CHECK": {
+            # Jan 2025 manual check counted any free version (incl. preprints)
+            "IS_OPEN_ACCESS": manual_check_result.get("IS_AVAILABLE")
+        }
+    }]
 
-open_access_data_save_path = save_data(open_access_data, RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
+articles_save_path = save_data(articles, RESULTS_DATA_DIRECTORY_PATH, "articles")
 
-n_estonian_author = len([item for item in open_access_data if item["HAS_ESTONIAN_AUTHOR"]])
-n_no_estonian_author = len([item for item in open_access_data if item["HAS_ESTONIAN_AUTHOR"] is False])
-info_string1 = f'Summarised publication open access data. Saved results to {open_access_data_save_path}'
-info_string2 = f'{n_estonian_author} of the {len(open_access_data)} articles have an Estonian author, {n_no_estonian_author} don\'t, the rest are unknown'
+n_estonian_author = len([item for item in articles if item["HAS_ESTONIAN_AUTHOR"]])
+n_no_estonian_author = len([item for item in articles if item["HAS_ESTONIAN_AUTHOR"] is False])
+info_string1 = f'Summarised article data. Saved results to {articles_save_path}'
+info_string2 = f'{n_estonian_author} of the {len(articles)} articles have an Estonian author, {n_no_estonian_author} don\'t, the rest are unknown'
 logger.info(info_string1)
 logger.info(info_string2)
-
-
-########################################
-# Check for ambiguous open access data #
-########################################
-
-# Reload data from save file
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
-
-# A publication has ambiguous open access data if its ETIS and OpenAlex information doesn't align.
-# OpenAlex counts only open published versions and peer-reviewed manuscripts (Horizon open access mandate).
-# Ambiguous publications are settled when their full text is checked.
-
-open_access_data_ambiguous = []
-for publication in open_access_data:
-    # Skip publications where ETIS and OpenAlex info both agree that publication is available
-    if publication["IS_OPEN_ACCESS"] and publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"]:
-        continue
-
-    # Skip publications where ETIS and OpenAlex info both agree that publication is not available
-    if not (publication["IS_OPEN_ACCESS"] or publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"]):
-        continue
-
-    # Skip publications that have manually checked availability status
-    if publication["IS_AVAILABLE_MANUALLY_CHECKED"] is not None:
-        continue
-
-    # All remaining publications have ambiguous open access status
-    open_access_data_ambiguous += [publication]
-
-if open_access_data_ambiguous:
-    open_access_data_ambiguous_save_path = save_data(open_access_data_ambiguous, RESULTS_DATA_DIRECTORY_PATH, "open_access_data_ambiguous")
-
-    info_string1 = f'{len(open_access_data_ambiguous)} publications have ambiguous open access status. See details in {open_access_data_ambiguous_save_path}'
-    info_string2 = f'You can manually override the publication availability status in {MANUALLY_CHECKED_PUBLICATIONS_PATH}'
-    logger.info(info_string1)
-    logger.info(info_string2)

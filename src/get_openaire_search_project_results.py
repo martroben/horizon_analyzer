@@ -14,7 +14,7 @@ import tqdm
 # Inputs #
 ##########
 
-ETIS_HORIZON_PROGRAM_CODES = [
+ETIS_HORIZON_PROGRAMME_CODES = [
     "136",      # Horizon 2020 EIT support
     "137",      # Horisont 2020 ERA \u00f5ppetoolide toetus
     "442",      # Horizon 2020
@@ -102,26 +102,21 @@ logger.setLevel("INFO")
 logger.addHandler(logging.StreamHandler(sys.stdout))
 
 
-####################################
-# Get identifiers of ETIS projects #
-####################################
+########################################
+# Get ETIS Horizon projects to search #
+########################################
 
 # Reload data from save file
 projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "etis_projects")
 
-ETIS_openaire_map = {
-    "FinancierProjectNr": "grantID",
-    "Acronym": "acronym",
-    "TitleEng": "name"
+# ETIS project fields to search: field name in the saved searches, ETIS field and OpenAIRE search API parameter
+search_fields = {
+    "FINANCIER_PROJECT_NUMBER": ("FinancierProjectNr", "grantID"),
+    "ACRONYM": ("Acronym", "acronym"),
+    "TITLE": ("TitleEng", "name")
 }
 
-input_parameters = list(ETIS_openaire_map.keys()) + ["Guid"]
-openaire_inputs = []
-for project in projects:
-    if project["ProgrammeCode"] not in ETIS_HORIZON_PROGRAM_CODES:
-        continue
-
-    openaire_inputs += [{parameter: project[parameter] for parameter in input_parameters}]
+horizon_projects = [project for project in projects if project["ProgrammeCode"] in ETIS_HORIZON_PROGRAMME_CODES]
 
 
 #########################
@@ -130,18 +125,19 @@ for project in projects:
 
 openaire_session = OpenAireSession("projects")
 
-openaire_search_project_results = []
-for openaire_input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
-    result = {key: {"input": value} for key, value in openaire_input.items()}
-    for input_key, input_value in openaire_input.items():
-        if not input_value or input_key == "Guid":
+project_searches = []
+for project in tqdm.tqdm(horizon_projects, desc="OpenAIRE requests"):
+    searches = {}
+    for field, (ETIS_field, search_parameter) in search_fields.items():
+        search = {"QUERY": project[ETIS_field] or None, "STATUS_CODE": None, "HORIZON_IDS": []}
+        searches[field] = search
+        if not search["QUERY"]:
             continue
 
         # Horizon projects are funded by European Commission - other funders' projects can have the same codes
-        response = openaire_session.get_items(parameters={ETIS_openaire_map[input_key]: input_value, "funder": "EC"})
+        response = openaire_session.get_items(parameters={search_parameter: search["QUERY"], "funder": "EC"})
 
-        result[input_key]["status"] = response.status_code
-        result[input_key]["result"] = []
+        search["STATUS_CODE"] = response.status_code
         if not response:
             continue
 
@@ -150,7 +146,7 @@ for openaire_input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
         if n_items == 0:
             continue
 
-        result[input_key]["result"] = [item["metadata"]["oaf:entity"]["oaf:project"]["code"]["$"] for item in response_json["response"]["results"]["result"]]
+        search["HORIZON_IDS"] = [item["metadata"]["oaf:entity"]["oaf:project"]["code"]["$"] for item in response_json["response"]["results"]["result"]]
 
         n_used_requests = int(response.headers["x-ratelimit-used"])
         n_request_limit = int(response.headers["x-ratelimit-limit"])
@@ -158,12 +154,15 @@ for openaire_input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
         if n_used_requests >= n_request_limit:
             raise RuntimeError("OpenAIRE request limit reached.")
 
-    openaire_search_project_results += [result]
+    project_searches += [{
+        "GUID": project["Guid"],
+        "SEARCHES": searches
+    }]
 
-openaire_search_project_results_save_path = f'{RAW_DATA_DIRECTORY_PATH.rstrip("/")}/openaire_search_project_results_{get_timestamp_string()}.json'
-with open(openaire_search_project_results_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(openaire_search_project_results, indent=2, ensure_ascii=False))
+project_searches_save_path = f'{RAW_DATA_DIRECTORY_PATH.rstrip("/")}/openaire_project_searches_{get_timestamp_string()}.json'
+with open(project_searches_save_path, "w", encoding="utf8") as save_file:
+    save_file.write(json.dumps(project_searches, indent=2, ensure_ascii=False))
 
-n_found = len([item for item in openaire_search_project_results if any(value.get("result") for value in item.values())])
-info_string = f'OpenAIRE search API has matches for {n_found} of the {len(openaire_search_project_results)} ETIS Horizon projects. Saved to {openaire_search_project_results_save_path}'
+n_found = len([item for item in project_searches if any(search["HORIZON_IDS"] for search in item["SEARCHES"].values())])
+info_string = f'OpenAIRE search API has matches for {n_found} of the {len(project_searches)} ETIS Horizon projects. Saved to {project_searches_save_path}'
 logger.info(info_string)

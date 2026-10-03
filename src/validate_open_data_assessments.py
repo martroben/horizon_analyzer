@@ -32,19 +32,20 @@ DATA_LABELS = [
 ]
 LABELS_NEEDING_QUOTES = ["repository", "supplement", "public_source", "restricted", "on_request", "in_article"]
 LABELS_NEEDING_COVERAGE = ["repository", "supplement", "public_source", "restricted"]
-PEER_REVIEWED_VERSIONS = ["publishedVersion", "acceptedVersion"]
+PEER_REVIEWED_VERSIONS = ["published_version", "accepted_version"]
     # Open access needs the published version or the peer-reviewed author manuscript (Horizon open access mandate)
-VERSIONS = PEER_REVIEWED_VERSIONS + ["submittedVersion", "unknown"]
+VERSIONS = PEER_REVIEWED_VERSIONS + ["submitted_version", "unknown"]
 DATA_COVERAGE_VALUES = ["full", "partial"]
 DATA_LEVEL_VALUES = ["raw", "processed"]
 OPEN_ACCESS_VERDICTS = ["open", "not_open", "unclear"]
-CODE_VALUES = ["repository", "on_request", "not_shared", "not_mentioned", "not_applicable"]
+CODE_AVAILABILITY_VALUES = ["repository", "on_request", "not_shared", "not_mentioned", "not_applicable"]
 CONFIDENCE_VALUES = ["high", "medium", "low"]
+    # Codes are explained in doc/data_schema.md
 REQUIRED_FIELDS = {
     "GUID": str,
     "ASSESSED_AT": str,
     "ASSESSOR": str,
-    "SOURCES": list,
+    "TEXT_FILES": list,
     "FULLTEXT_VERSION": (str, type(None)),
     "OPEN_ACCESS": dict,
     "DATA_LABEL": str,
@@ -52,12 +53,12 @@ REQUIRED_FIELDS = {
     "DATA_LEVEL": (str, type(None)),
     "DATA_LINKS": list,
     "QUOTES": list,
-    "CODE": str,
-    "HORIZON_GRANT_ACKNOWLEDGED": (bool, type(None)),
-    "PROJECT_DATASETS_NOTE": (str, type(None)),
+    "CODE_AVAILABILITY": str,
+    "IS_GRANT_ACKNOWLEDGED": (bool, type(None)),
+    "GRANT_DATASETS_NOTE": (str, type(None)),
     "CONFIDENCE": str,
     "RATIONALE": str,
-    "SIDE_NOTES": (str, type(None))
+    "SIDE_NOTES": list
 }
 QUOTE_MIN_FUZZY_SCORE = 95      # Quotes that don't match exactly must match at least this well (PDF text extraction artefacts)
 BLOCKING_STATUS_CODES = [401, 403, 405, 429]
@@ -162,8 +163,8 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
         errors += [f'unknown DATA_COVERAGE {assessment["DATA_COVERAGE"]}']
     if assessment["DATA_LEVEL"] not in DATA_LEVEL_VALUES + [None]:
         errors += [f'unknown DATA_LEVEL {assessment["DATA_LEVEL"]}']
-    if assessment["CODE"] not in CODE_VALUES:
-        errors += [f'unknown CODE {assessment["CODE"]}']
+    if assessment["CODE_AVAILABILITY"] not in CODE_AVAILABILITY_VALUES:
+        errors += [f'unknown CODE_AVAILABILITY {assessment["CODE_AVAILABILITY"]}']
     if assessment["CONFIDENCE"] not in CONFIDENCE_VALUES:
         errors += [f'unknown CONFIDENCE {assessment["CONFIDENCE"]}']
 
@@ -187,10 +188,10 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
     if label in LABELS_NEEDING_QUOTES and not assessment["QUOTES"]:
         errors += [f'{label} needs at least one quote']
     if label in ("repository", "supplement"):
-        if not any(link.get("OWN_DATA") and link.get("OPENLY_DOWNLOADABLE") for link in assessment["DATA_LINKS"]):
+        if not any(link.get("IS_OWN_DATA") and link.get("IS_OPENLY_DOWNLOADABLE") for link in assessment["DATA_LINKS"]):
             errors += [f'{label} needs a link to the article\'s own data that is openly downloadable']
     if label == "public_source":
-        if not any(link.get("OPENLY_DOWNLOADABLE") for link in assessment["DATA_LINKS"]):
+        if not any(link.get("IS_OPENLY_DOWNLOADABLE") for link in assessment["DATA_LINKS"]):
             errors += ["public_source needs a link to the openly downloadable source data"]
     if label == "no_fulltext" and assessment["FULLTEXT_VERSION"]:
         errors += ["no_fulltext but FULLTEXT_VERSION is given"]
@@ -201,11 +202,11 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
 
     # Quotes must be in the cached texts (full text and files saved during the check)
     text_files = sorted(glob.glob(f'{FULLTEXT_DIRECTORY_PATH.rstrip("/")}/{GUID}*.txt'))
-    for source in assessment["SOURCES"]:
-        if not os.path.exists(source):
-            errors += [f'source file doesn\'t exist: {source}']
-        elif os.path.abspath(source) not in [os.path.abspath(path) for path in text_files]:
-            warnings += [f'source file is not a cached text of the article: {source}']
+    for text_file in assessment["TEXT_FILES"]:
+        if not os.path.exists(text_file):
+            errors += [f'text file doesn\'t exist: {text_file}']
+        elif os.path.abspath(text_file) not in [os.path.abspath(path) for path in text_files]:
+            warnings += [f'text file is not a cached text of the article: {text_file}']
     texts = []
     for path in text_files:
         with open(path, encoding="utf8") as read_file:
@@ -225,7 +226,7 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
 
     # Links
     for link in assessment["DATA_LINKS"]:
-        for key in ("URL", "DESCRIPTION", "OWN_DATA", "OPENLY_DOWNLOADABLE"):
+        for key in ("URL", "DESCRIPTION", "IS_OWN_DATA", "IS_OPENLY_DOWNLOADABLE"):
             if key not in link:
                 errors += [f'data link without {key}: {link}']
         if check_links and link.get("URL"):

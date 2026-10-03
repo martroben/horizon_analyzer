@@ -113,7 +113,7 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 # OpenAIRE research products have links to the projects that funded them
 
 # Reload data from save file
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
 
 openaire_graph_session = OpenAireGraphSession("research-products")
 
@@ -123,9 +123,8 @@ requests_per_second_limit = 2       # Limit requests that can be made per second
 bad_responses = []
 research_products = []
 lap_timestamp = time.monotonic()
-for publication in tqdm.tqdm(open_access_data, desc="Requesting OpenAire Graph research products"):
-    # Use the DOI found by OpenAlex title search if ETIS doesn't have a DOI
-    DOI = publication["DOI"] or publication["OPENALEX_DOI"]
+for article in tqdm.tqdm(articles, desc="Requesting OpenAire Graph research products"):
+    DOI = article["DOI"]
     if not DOI:
         continue
 
@@ -142,7 +141,7 @@ for publication in tqdm.tqdm(open_access_data, desc="Requesting OpenAire Graph r
         continue
 
     research_products += [{
-        "GUID": publication["GUID"],
+        "GUID": article["GUID"],
         "DOI": DOI,
         "DATA": response.json().get("results") or []
     }]
@@ -157,7 +156,7 @@ with open(research_products_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(research_products, indent=2, ensure_ascii=False))
 
 n_found = len([item for item in research_products if item["DATA"]])
-info_string1 = f'OpenAire Graph has research products for {n_found} of the {len(open_access_data)} scientific articles. Saved to {research_products_save_path}'
+info_string1 = f'OpenAire Graph has research products for {n_found} of the {len(articles)} scientific articles. Saved to {research_products_save_path}'
 info_string2 = f'OpenAire Graph API failed to return data for {len(bad_responses)} articles'
 logger.info(info_string1)
 logger.info(info_string2)

@@ -112,7 +112,7 @@ with tqdm.tqdm() as openaire_graph_progress_bar:
 # Save projects to file #
 #########################
 
-projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.rstrip("/")}/openaire_graph_projects_{get_timestamp_string()}.json'
+projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.rstrip("/")}/openaire_projects_{get_timestamp_string()}.json'
 with open(projects_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(projects, indent=2, ensure_ascii=False))
 

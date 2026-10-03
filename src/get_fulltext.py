@@ -27,10 +27,13 @@ OPENALEX_API_KEY_SECRET_NAME = "openalex_api_key"
     # https://openalex.org/settings/api
 BROWSER_USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0"
     # Many publishers (e.g. MDPI) refuse open access PDFs to non-browser user agents
-PEER_REVIEWED_VERSIONS = [
-    "publishedVersion",     # Version of record
-    "acceptedVersion"       # Peer-reviewed author manuscript
-]
+VERSION_CODES = {
+    "publishedVersion": "published_version",    # Version of record
+    "acceptedVersion": "accepted_version",      # Peer-reviewed author manuscript
+    "submittedVersion": "submitted_version"     # Preprint
+}
+    # Version codes of OpenAlex location versions
+PEER_REVIEWED_VERSIONS = ["published_version", "accepted_version"]
 MIN_TEXT_LENGTH = 5000          # Shorter PDF or XML text is not a full text (e.g. scanned PDF without text layer)
 MIN_HTML_TEXT_LENGTH = 20000    # Shorter HTML text is not a full text (e.g. abstract page of a paywalled article)
 WORD_TITLE_SIMILARITY_THRESHOLD = 90
@@ -40,6 +43,8 @@ TITLE_SEARCH_CHARACTERS = 5000  # How far from the beginning of the text to look
 HOST_REQUEST_INTERVAL = 1       # Seconds between requests to the same host
 RETRY_FAILED = True             # Retry articles that had no full text in an earlier run
 ZENODO_RECORD_PATTERN = r"zenodo\.org/records?/(\d+)|10\.5281/zenodo\.(\d+)"
+ZENODO_RECORD_URL = "https://zenodo.org/records/{}"
+PMC_ARTICLE_URL = "https://pmc.ncbi.nlm.nih.gov/articles/{}/"
 PDF_URL_PATTERN = r"\.pdf($|\?)|/bitstream/|/download/|/files/"
     # OpenAIRE open instance URLs that can be PDF files. The rest are mostly landing pages
 PREPRINT_URL_PATTERN = r"arxiv\.org|biorxiv\.org|medrxiv\.org|chemrxiv\.org|techrxiv\.org|10\.36227/techrxiv|ssrn\.com|preprints\.org|researchsquare\.com|mpra\.ub\.uni-muenchen\.de"
@@ -165,13 +170,28 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
     return data
 
 
+def get_version_code(location: dict) -> str | None:
+    """
+    Gives the version code of an OpenAlex location (published_version, accepted_version, submitted_version). Gives None if OpenAlex doesn't say.
+    """
+    return VERSION_CODES.get(location.get("version"))
+
+
+def get_host_type(location: dict) -> str | None:
+    """
+    Gives the type of the host of an OpenAlex location in snake case (journal, repository, book_series etc.).
+    """
+    host_type = (location.get("source") or {}).get("type")
+    return host_type.replace(" ", "_") if host_type else None
+
+
 def get_open_locations(openalex_data: dict) -> list[dict]:
     """
     Gives the open access locations of an OpenAlex work: published versions first, then accepted manuscripts, then others.
     """
-    version_order = PEER_REVIEWED_VERSIONS + ["submittedVersion"]
+    version_order = PEER_REVIEWED_VERSIONS + ["submitted_version"]
     locations = [location for location in openalex_data.get("locations") or [] if location.get("is_oa")]
-    return sorted(locations, key=lambda location: version_order.index(location["version"]) if location.get("version") in version_order else len(version_order))
+    return sorted(locations, key=lambda location: version_order.index(get_version_code(location)) if get_version_code(location) in version_order else len(version_order))
 
 
 def decode_html(response: requests.Response) -> str:
@@ -240,13 +260,14 @@ def text_has_title(text_file_path: str, title: str) -> bool:
     return fuzz.partial_ratio(normalise_words(title or ""), normalise_words(beginning)) >= WORD_TITLE_SIMILARITY_THRESHOLD
 
 
-def save_downloaded_fulltext(GUID: str, response: requests.Response, title: str) -> tuple[tuple[str, str, int] | None, str]:
+def save_downloaded_fulltext(GUID: str, response: requests.Response, title: str) -> tuple[tuple[str, str, int] | None, str, str | None]:
     """
-    Saves a downloaded PDF, XML (GROBID TEI) or Word full text. Gives the result of save_fulltext and the result of the attempt.
+    Saves a downloaded PDF, XML (GROBID TEI) or Word full text.
+    Gives the result of save_fulltext, the result code of the attempt and its detail (see doc/data_schema.md).
     Word files have to have the article title near the beginning.
     """
     if not response:
-        return None, f'http {response.status_code}'
+        return None, "http_error", str(response.status_code)
     if response.content.lstrip()[:5] == b"%PDF-":
         saved = save_fulltext(GUID, response.content, "pdf", MIN_TEXT_LENGTH)
     elif response.content.lstrip()[:5] in (b"<?xml", b"<TEI ", b"<TEI>"):
@@ -256,10 +277,10 @@ def save_downloaded_fulltext(GUID: str, response: requests.Response, title: str)
         if saved and not text_has_title(saved[1], title):
             for path in saved[:2]:
                 os.remove(path)
-            return None, "word file without the article title"
+            return None, "title_not_found", None
     else:
-        return None, f'not a pdf ({response.headers.get("content-type", "")})'
-    return saved, "ok" if saved else "text too short"
+        return None, "wrong_content_type", response.headers.get("content-type") or None
+    return saved, "ok" if saved else "text_too_short", None
 
 
 def get_zenodo_fulltext_URL(record: dict) -> str | None:
@@ -293,10 +314,11 @@ def get_openaire_attempts(research_products: list[dict]) -> list[dict]:
                 continue
             for URL in instance.get("urls") or []:
                 is_preprint = instance.get("type") == "Preprint" or re.search(PREPRINT_URL_PATTERN, URL, flags=re.IGNORECASE)
-                version = "submittedVersion" if is_preprint else None
+                version = "submitted_version" if is_preprint else None
                 zenodo_match = re.search(ZENODO_RECORD_PATTERN, URL, flags=re.IGNORECASE)
                 if zenodo_match:
-                    attempts += [{"SOURCE": "zenodo", "URL": zenodo_match.group(1) or zenodo_match.group(2), "VERSION": version, "HOST_TYPE": "repository"}]
+                    record_URL = ZENODO_RECORD_URL.format(zenodo_match.group(1) or zenodo_match.group(2))
+                    attempts += [{"SOURCE": "zenodo", "URL": record_URL, "VERSION": version, "HOST_TYPE": "repository"}]
                 elif re.search(PDF_URL_PATTERN, URL, flags=re.IGNORECASE):
                     attempts += [{"SOURCE": "openaire_pdf", "URL": URL, "VERSION": version, "HOST_TYPE": None}]
     return sorted(attempts, key=lambda attempt: attempt["SOURCE"] != "zenodo")
@@ -309,24 +331,25 @@ def get_fulltext_attempts(open_data_candidate: dict, openalex_data: dict, resear
     OpenAlex cached copy, open preprint PDFs.
     """
     attempts = []
-    if open_data_candidate.get("PMCID"):
-        version = "acceptedVersion" if open_data_candidate.get("EUROPEPMC_IS_AUTHOR_MANUSCRIPT") else "publishedVersion"
-        attempts += [{"SOURCE": "pmc", "URL": open_data_candidate["PMCID"], "VERSION": version, "HOST_TYPE": "repository"}]
+    europepmc = open_data_candidate.get("EUROPEPMC") or {}
+    if europepmc.get("PMCID"):
+        version = "accepted_version" if europepmc.get("IS_AUTHOR_MANUSCRIPT") else "published_version"
+        attempts += [{"SOURCE": "pmc", "URL": PMC_ARTICLE_URL.format(europepmc["PMCID"]), "VERSION": version, "HOST_TYPE": "repository"}]
 
     open_locations = get_open_locations(openalex_data)
     for location in open_locations:
-        if location.get("version") in PEER_REVIEWED_VERSIONS and location.get("pdf_url"):
-            attempts += [{"SOURCE": "oa_pdf", "URL": location["pdf_url"], "VERSION": location["version"], "HOST_TYPE": (location.get("source") or {}).get("type")}]
+        if get_version_code(location) in PEER_REVIEWED_VERSIONS and location.get("pdf_url"):
+            attempts += [{"SOURCE": "openalex_pdf", "URL": location["pdf_url"], "VERSION": get_version_code(location), "HOST_TYPE": get_host_type(location)}]
     for location in open_locations:
         # Repository landing pages are metadata pages - only journal pages can have the full text in HTML
-        host_type = (location.get("source") or {}).get("type")
-        if location.get("version") in PEER_REVIEWED_VERSIONS and location.get("landing_page_url") and host_type != "repository":
-            attempts += [{"SOURCE": "oa_html", "URL": location["landing_page_url"], "VERSION": location["version"], "HOST_TYPE": host_type}]
+        host_type = get_host_type(location)
+        if get_version_code(location) in PEER_REVIEWED_VERSIONS and location.get("landing_page_url") and host_type != "repository":
+            attempts += [{"SOURCE": "openalex_html", "URL": location["landing_page_url"], "VERSION": get_version_code(location), "HOST_TYPE": host_type}]
 
     # OpenAIRE knows many repository copies that OpenAlex doesn't (e.g. accepted manuscripts that Horizon projects upload to Zenodo)
     # These are free, so they go before the OpenAlex cached copy
     openaire_attempts = get_openaire_attempts(research_products)
-    attempts += [attempt for attempt in openaire_attempts if attempt["VERSION"] != "submittedVersion"]
+    attempts += [attempt for attempt in openaire_attempts if attempt["VERSION"] != "submitted_version"]
 
     content_URLs = openalex_data.get("content_urls") or {}
     if OPENALEX_API_KEY and content_URLs:
@@ -334,9 +357,9 @@ def get_fulltext_attempts(open_data_candidate: dict, openalex_data: dict, resear
         attempts += [{"SOURCE": "openalex_content", "URL": content_URL, "VERSION": None, "HOST_TYPE": None}]
 
     for location in open_locations:
-        if location.get("version") not in PEER_REVIEWED_VERSIONS and location.get("pdf_url"):
-            attempts += [{"SOURCE": "oa_pdf", "URL": location["pdf_url"], "VERSION": location.get("version"), "HOST_TYPE": (location.get("source") or {}).get("type")}]
-    attempts += [attempt for attempt in openaire_attempts if attempt["VERSION"] == "submittedVersion"]
+        if get_version_code(location) not in PEER_REVIEWED_VERSIONS and location.get("pdf_url"):
+            attempts += [{"SOURCE": "openalex_pdf", "URL": location["pdf_url"], "VERSION": get_version_code(location), "HOST_TYPE": get_host_type(location)}]
+    attempts += [attempt for attempt in openaire_attempts if attempt["VERSION"] == "submitted_version"]
 
     # Same URL can be in several locations
     unique_attempts = []
@@ -369,16 +392,16 @@ if not OPENALEX_API_KEY:
 ##################
 
 # Full texts are saved to data/fulltext/<GUID>.<pdf|xml|html|docx> with a plain text copy <GUID>.txt
-# and a <GUID>.json file that tells where the full text came from. Articles that already have a full text are skipped
+# and a <GUID>.json file that tells where the full text came from (see doc/data_schema.md). Articles that already have a full text are skipped
 
 # Reload data from save files
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
 open_data_candidates = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_data_candidates")
-openalex_responses = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_responses")
+openalex_works = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_works")
 openaire_research_products = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_research_products")
 
 open_data_candidates_index = {item["GUID"]: item for item in open_data_candidates}
-openalex_responses_index = {item["GUID"]: item for item in openalex_responses}
+openalex_works_index = {item["GUID"]: item for item in openalex_works}
 openaire_research_products_index = {item["GUID"]: item["DATA"] for item in openaire_research_products}
 
 ncbi_session = NcbiSession()
@@ -389,8 +412,8 @@ if OPENALEX_API_KEY:
     openalex_session.headers.update({"Authorization": f'Bearer {OPENALEX_API_KEY}'})
 
 n_skipped = 0
-for publication in tqdm.tqdm(open_access_data, desc="Getting full texts"):
-    GUID = publication["GUID"]
+for article in tqdm.tqdm(articles, desc="Getting full texts"):
+    GUID = article["GUID"]
     info_file_path = f'{FULLTEXT_DIRECTORY_PATH.rstrip("/")}/{GUID}.json'
     if os.path.exists(info_file_path):
         with open(info_file_path, encoding="utf8") as read_file:
@@ -400,10 +423,10 @@ for publication in tqdm.tqdm(open_access_data, desc="Getting full texts"):
             continue
 
     open_data_candidate = open_data_candidates_index.get(GUID) or {}
-    openalex_data = (openalex_responses_index.get(GUID) or {}).get("DATA") or {}
+    openalex_data = (openalex_works_index.get(GUID) or {}).get("DATA") or {}
     fulltext_info = {
         "GUID": GUID,
-        "DOI": publication["DOI"] or publication["OPENALEX_DOI"] or None,
+        "DOI": article["DOI"],
         "FILE": None,
         "TEXT_FILE": None,
         "N_CHARACTERS": None,
@@ -420,47 +443,49 @@ for publication in tqdm.tqdm(open_access_data, desc="Getting full texts"):
         saved = None
         try:
             if attempt["SOURCE"] == "pmc":
-                response = ncbi_session.get_pmc_article(attempt["URL"])
+                response = ncbi_session.get_pmc_article(re.search(r"PMC\d+", attempt["URL"]).group())
                 time.sleep(0.4)     # NCBI allows 3 requests per second without an API key
                 if not response:
-                    attempt["RESULT"] = f'http {response.status_code}'
+                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "http_error", str(response.status_code)
                 elif "<body" not in response.text:
-                    attempt["RESULT"] = "no body (publisher doesn't allow full text XML)"
+                    # Publisher doesn't allow full text XML
+                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "no_fulltext_xml", None
                 else:
                     if re.search(r"<meta-name>pmc-prop-preprint</meta-name>\s*<meta-value>yes", response.text):
-                        attempt["VERSION"] = "submittedVersion"
-                    attempt["URL"] = f'https://pmc.ncbi.nlm.nih.gov/articles/{attempt["URL"]}/'
+                        attempt["VERSION"] = "submitted_version"
                     saved = save_fulltext(GUID, response.text, "xml", MIN_TEXT_LENGTH)
-                    attempt["RESULT"] = "ok" if saved else "text too short"
+                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "ok" if saved else "text_too_short", None
 
-            elif attempt["SOURCE"] in ("oa_pdf", "openaire_pdf", "openalex_content"):
+            elif attempt["SOURCE"] in ("openalex_pdf", "openaire_pdf", "openalex_content"):
                 session = openalex_session if attempt["SOURCE"] == "openalex_content" else download_session
-                saved, attempt["RESULT"] = save_downloaded_fulltext(GUID, session.get_politely(attempt["URL"]), publication["TITLE"])
+                saved, attempt["RESULT"], attempt["RESULT_DETAIL"] = save_downloaded_fulltext(GUID, session.get_politely(attempt["URL"]), article["TITLE"])
 
             elif attempt["SOURCE"] == "zenodo":
                 # Zenodo record lists its files
-                response = zenodo_session.get_record(attempt["URL"])
+                zenodo_match = re.search(ZENODO_RECORD_PATTERN, attempt["URL"], flags=re.IGNORECASE)
+                response = zenodo_session.get_record(zenodo_match.group(1) or zenodo_match.group(2))
                 fulltext_URL = get_zenodo_fulltext_URL(response.json()) if response else None
                 if not response:
-                    attempt["RESULT"] = f'http {response.status_code}'
+                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "http_error", str(response.status_code)
                 elif not fulltext_URL:
-                    attempt["RESULT"] = "no open pdf or word file in the record"
+                    # No open PDF or Word file in the record
+                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "no_fulltext_file", None
                 else:
                     attempt["URL"] = fulltext_URL
-                    saved, attempt["RESULT"] = save_downloaded_fulltext(GUID, zenodo_session.get_politely(fulltext_URL), publication["TITLE"])
+                    saved, attempt["RESULT"], attempt["RESULT_DETAIL"] = save_downloaded_fulltext(GUID, zenodo_session.get_politely(fulltext_URL), article["TITLE"])
 
-            elif attempt["SOURCE"] == "oa_html":
+            elif attempt["SOURCE"] == "openalex_html":
                 response = download_session.get_politely(attempt["URL"])
                 if not response:
-                    attempt["RESULT"] = f'http {response.status_code}'
+                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "http_error", str(response.status_code)
                 elif "html" not in response.headers.get("content-type", ""):
-                    attempt["RESULT"] = f'not html ({response.headers.get("content-type", "")})'
+                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "wrong_content_type", response.headers.get("content-type") or None
                 else:
                     attempt["URL"] = response.url
                     saved = save_fulltext(GUID, decode_html(response), "html", MIN_HTML_TEXT_LENGTH, response.url)
-                    attempt["RESULT"] = "ok" if saved else "text too short"
+                    attempt["RESULT"], attempt["RESULT_DETAIL"] = "ok" if saved else "text_too_short", None
         except Exception as exception:
-            attempt["RESULT"] = f'error: {type(exception).__name__}'
+            attempt["RESULT"], attempt["RESULT_DETAIL"] = "exception", type(exception).__name__
 
         fulltext_info["ATTEMPTS"] += [attempt]
         if saved:
@@ -481,11 +506,11 @@ logger.info(info_string)
 ########################
 
 # Reload data from save file
-open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
+articles = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "articles")
 
 fulltext_index = []
-for publication in open_access_data:
-    info_file_path = f'{FULLTEXT_DIRECTORY_PATH.rstrip("/")}/{publication["GUID"]}.json'
+for article in articles:
+    info_file_path = f'{FULLTEXT_DIRECTORY_PATH.rstrip("/")}/{article["GUID"]}.json'
     if not os.path.exists(info_file_path):
         continue
     with open(info_file_path, encoding="utf8") as read_file:
@@ -498,7 +523,7 @@ with open(fulltext_index_save_path, "w", encoding="utf8") as save_file:
 n_found = len([item for item in fulltext_index if item["TEXT_FILE"]])
 n_by_source = dict(collections.Counter(item["SOURCE"] for item in fulltext_index if item["TEXT_FILE"]))
 n_peer_reviewed = len([item for item in fulltext_index if item["TEXT_FILE"] and item["VERSION"] in PEER_REVIEWED_VERSIONS])
-info_string1 = f'{n_found} of the {len(open_access_data)} articles have a full text ({n_peer_reviewed} published version or author manuscript). By source: {n_by_source}'
+info_string1 = f'{n_found} of the {len(articles)} articles have a full text ({n_peer_reviewed} published version or author manuscript). By source: {n_by_source}'
 info_string2 = f'Saved full text index to {fulltext_index_save_path}'
 logger.info(info_string1)
 logger.info(info_string2)

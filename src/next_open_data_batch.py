@@ -35,7 +35,7 @@ FUNDING_PATTERNS = [
 HINT_CONTEXT_CHARACTERS = 300   # Characters before and after a match
 HINTS_MAX_CHARACTERS = 6000     # Maximum length of data hints per article
 FUNDING_HINTS_MAX_CHARACTERS = 2000
-PROJECT_DATASETS_SHOWN = 5
+GRANT_DATASETS_SHOWN = 5
 
 
 #########################
@@ -100,24 +100,32 @@ def get_hints(text: str, patterns: list[str], max_characters: int) -> list[str]:
     return hints
 
 
-def print_dossier(item: dict, project_datasets_index: dict) -> None:
+def format_attempt(attempt: dict) -> str:
+    """
+    Gives a full text attempt as one line: source, version, URL and result.
+    """
+    result = f'{attempt.get("RESULT")} ({attempt["RESULT_DETAIL"]})' if attempt.get("RESULT_DETAIL") else attempt.get("RESULT")
+    return f'{attempt["SOURCE"]} {attempt["VERSION"]} {attempt["URL"]}: {result}'
+
+
+def print_dossier(item: dict, grant_datasets_index: dict) -> None:
     """
     Prints the info that is needed for the open data check of an article.
     """
     fulltext = item["FULLTEXT"]
-    dossier = {key: item[key] for key in ("QUEUE_POSITION", "IS_PILOT", "GUID", "TITLE", "PERIODICAL", "DOI", "ETIS_URL", "DATA_MANDATE_GROUP")}
+    dossier = {key: item[key] for key in ("QUEUE_POSITION", "IS_PILOT", "GUID", "TITLE", "PERIODICAL", "DOI", "ETIS_PAGE_URL")}
     dossier["PROJECTS"] = item["PROJECTS"]
     dossier["OPEN_ACCESS"] = item["OPEN_ACCESS"]
     dossier["CANDIDATES"] = item["CANDIDATES"]
     dossier["FULLTEXT"] = {key: value for key, value in fulltext.items() if key != "ATTEMPTS"}
-    dossier["FULLTEXT"]["FAILED_ATTEMPTS"] = [f'{attempt["SOURCE"]} {attempt["VERSION"]} {attempt["URL"]}: {attempt.get("RESULT")}' for attempt in fulltext.get("ATTEMPTS") or [] if attempt.get("RESULT") != "ok"]
+    dossier["FULLTEXT"]["FAILED_ATTEMPTS"] = [format_attempt(attempt) for attempt in fulltext.get("ATTEMPTS") or [] if attempt.get("RESULT") != "ok"]
 
-    project_datasets = {}
+    grant_datasets = {}
     for project in item["PROJECTS"]:
-        datasets = (project_datasets_index.get(project["HORIZON_ID"]) or {}).get("DATASETS") or []
+        datasets = (grant_datasets_index.get(project["HORIZON_ID"]) or {}).get("DATASETS") or []
         if datasets:
-            project_datasets[project["HORIZON_ID"]] = [f'{dataset["TITLE"]} ({", ".join(dataset["PIDS"]) or dataset["URL"]})' for dataset in datasets[:PROJECT_DATASETS_SHOWN]]
-    dossier["PROJECT_DATASETS_SAMPLE"] = project_datasets
+            grant_datasets[project["HORIZON_ID"]] = [f'{dataset["TITLE"]} ({", ".join(dataset["PIDS"]) or dataset["URL"]})' for dataset in datasets[:GRANT_DATASETS_SHOWN]]
+    dossier["GRANT_DATASETS_SAMPLE"] = grant_datasets
 
     print(f'\n{"=" * 100}\n# {item["QUEUE_POSITION"]}. {item["GUID"]}\n{"=" * 100}')
     print(json.dumps(dossier, indent=1, ensure_ascii=False))
@@ -153,8 +161,8 @@ if __name__ == "__main__":
     arguments = argument_parser.parse_args()
 
     queue = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_data_queue")
-    project_datasets = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "project_datasets")
-    project_datasets_index = {item["HORIZON_ID"]: item for item in project_datasets}
+    grant_datasets = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "grant_datasets")
+    grant_datasets_index = {item["HORIZON_ID"]: item for item in grant_datasets}
     assessed_GUIDs = {assessment["GUID"] for assessment in read_assessments(ASSESSMENTS_PATH)}
 
     # Researchers are accountable only for the articles they wrote - articles without an Estonian author are left out of the research
@@ -166,4 +174,4 @@ if __name__ == "__main__":
 
     print(f'{len(assessed_GUIDs)} of {len(queue)} articles assessed ({n_no_estonian_author} without an Estonian author are skipped). Batch: {", ".join(item["GUID"] for item in batch)}')
     for item in batch:
-        print_dossier(item, project_datasets_index)
+        print_dossier(item, grant_datasets_index)

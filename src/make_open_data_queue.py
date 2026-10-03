@@ -86,6 +86,13 @@ def get_data_mandate_group(projects: list[dict]) -> str:
     return " + ".join(sorted(groups)) or "unknown"
 
 
+def normalise_URL(URL: str) -> str:
+    """
+    Gives a URL in lower case without scheme, www. and trailing slash, to compare URLs.
+    """
+    return re.sub(r"^https?://(dx\.)?(www\.)?", "", URL.strip().lower()).rstrip("/")
+
+
 def get_open_access_check_reason(publication: dict) -> str | None:
     """
     Gives the reason why the full text check has to settle the open access status of an article, or None.
@@ -125,6 +132,7 @@ project_datasets = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "project_datase
 fulltext_index = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "fulltext_index")
 openalex_responses = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openalex_responses")
 openaire_graph_projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_graph_projects")
+openaire_research_products = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_research_products")
 
 with open(PILOT_GUIDS_PATH, encoding="utf8") as read_file:
     pilot_GUIDs = [line.strip() for line in read_file if line.strip()]
@@ -135,6 +143,7 @@ project_datasets_index = {item["OPENAIRE_ID"]: item for item in project_datasets
 fulltext_index_index = {item["GUID"]: item for item in fulltext_index}
 openalex_responses_index = {item["GUID"]: item for item in openalex_responses}
 acronyms_index = {item["id"]: item.get("acronym") for item in openaire_graph_projects}
+openaire_research_products_index = {item["GUID"]: item["DATA"] for item in openaire_research_products}
 
 queue = []
 for publication in open_access_data:
@@ -155,11 +164,31 @@ for publication in open_access_data:
             "LICENSE": location.get("license")
         }]
 
+    # OpenAIRE knows many repository copies that OpenAlex doesn't (e.g. accepted manuscripts that Horizon projects upload to Zenodo)
+    DOI = publication["DOI"] or publication["OPENALEX_DOI"]
+    known_URLs = {normalise_URL(location[key]) for location in openalex_data.get("locations") or [] for key in ("pdf_url", "landing_page_url") if location.get(key)}
+    if DOI:
+        known_URLs.add(normalise_URL(f'https://doi.org/{DOI}'))
+    openaire_open_instances = []
+    for research_product in openaire_research_products_index.get(publication["GUID"]) or []:
+        for instance in research_product.get("instances") or []:
+            if (instance.get("accessRight") or {}).get("label") != "OPEN":
+                continue
+            for URL in instance.get("urls") or []:
+                if normalise_URL(URL) in known_URLs:
+                    continue
+                known_URLs.add(normalise_URL(URL))
+                openaire_open_instances += [{
+                    "URL": URL,
+                    "HOST": (instance.get("hostedBy") or {}).get("value"),
+                    "TYPE": instance.get("type")
+                }]
+
     queue += [{
         "GUID": publication["GUID"],
         "TITLE": publication["TITLE"],
         "PERIODICAL": publication["PERIODICAL"],
-        "DOI": publication["DOI"] or publication["OPENALEX_DOI"] or None,
+        "DOI": DOI or None,
         "ETIS_URL": f'https://www.etis.ee/Portal/Publications/Display/{publication["GUID"]}',
         "PROJECTS": [{
             "GUID": project["GUID"],
@@ -180,6 +209,7 @@ for publication in open_access_data:
             "OPENALEX_OPEN_ACCESS_TYPE": publication["OPENALEX_OPEN_ACCESS_TYPE"],
             "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"],
             "OPENALEX_OPEN_LOCATIONS": open_locations,
+            "OPENAIRE_OPEN_INSTANCES": openaire_open_instances,
             "MANUALLY_CHECKED_IS_AVAILABLE": publication["IS_AVAILABLE_MANUALLY_CHECKED"],
             "CHECK_NEEDED_REASON": get_open_access_check_reason(publication)
         },

@@ -30,10 +30,13 @@ DATA_LABELS = [
     "no_data",          # No underlying research data (review, essay, theory)
     "no_fulltext"       # Full text not accessible and no data record that verifiably belongs to the article
 ]
-OPEN_DATA_LABELS = ["repository", "supplement", "public_source"]
 LABELS_NEEDING_QUOTES = ["repository", "supplement", "public_source", "restricted", "on_request", "in_article"]
 LABELS_NEEDING_COVERAGE = ["repository", "supplement", "public_source", "restricted"]
-VERSIONS = ["publishedVersion", "acceptedVersion", "submittedVersion", "unknown"]
+PEER_REVIEWED_VERSIONS = ["publishedVersion", "acceptedVersion"]
+    # Open access needs the published version or the peer-reviewed author manuscript (Horizon open access mandate)
+VERSIONS = PEER_REVIEWED_VERSIONS + ["submittedVersion", "unknown"]
+DATA_COVERAGE_VALUES = ["full", "partial"]
+DATA_LEVEL_VALUES = ["raw", "processed"]
 OPEN_ACCESS_VERDICTS = ["open", "not_open", "unclear"]
 CODE_VALUES = ["repository", "on_request", "not_shared", "not_mentioned", "not_applicable"]
 CONFIDENCE_VALUES = ["high", "medium", "low"]
@@ -77,7 +80,7 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
@@ -155,9 +158,9 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
         errors += [f'unknown DATA_LABEL {label}']
     if assessment["FULLTEXT_VERSION"] not in VERSIONS + [None]:
         errors += [f'unknown FULLTEXT_VERSION {assessment["FULLTEXT_VERSION"]}']
-    if assessment["DATA_COVERAGE"] not in ["full", "partial", None]:
+    if assessment["DATA_COVERAGE"] not in DATA_COVERAGE_VALUES + [None]:
         errors += [f'unknown DATA_COVERAGE {assessment["DATA_COVERAGE"]}']
-    if assessment["DATA_LEVEL"] not in ["raw", "processed", None]:
+    if assessment["DATA_LEVEL"] not in DATA_LEVEL_VALUES + [None]:
         errors += [f'unknown DATA_LEVEL {assessment["DATA_LEVEL"]}']
     if assessment["CODE"] not in CODE_VALUES:
         errors += [f'unknown CODE {assessment["CODE"]}']
@@ -171,7 +174,7 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
     if open_access.get("VERSION") not in VERSIONS + [None]:
         errors += [f'unknown OPEN_ACCESS.VERSION {open_access.get("VERSION")}']
     if open_access.get("VERDICT") == "open":
-        if open_access.get("VERSION") not in ("publishedVersion", "acceptedVersion"):
+        if open_access.get("VERSION") not in PEER_REVIEWED_VERSIONS:
             errors += ["open access verdict open needs the published version or the accepted manuscript"]
         if not open_access.get("URL"):
             errors += ["open access verdict open needs the URL of the free copy"]

@@ -34,6 +34,15 @@ PROJECT_FIELDS = [
     "HORIZON_GRANT_LINKED"
 ]
     # Project info of the open data queue that the article analysis data has for each project of an article
+TABLE_PRINT_OPTIONS = {
+    "tbl_rows": -1,
+    "tbl_cols": -1,
+    "tbl_width_chars": 200,
+    "tbl_hide_dataframe_shape": True,
+    "tbl_hide_column_data_types": True,
+    "fmt_str_lengths": 50
+}
+    # polars options for printing the summary tables: all rows and columns, no shape and data types
 
 
 #########################
@@ -62,7 +71,7 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
@@ -228,7 +237,7 @@ for publication in open_access_data:
         "IS_OPEN_DATA": is_open_data
     }]
 
-articles_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/articles_{get_timestamp_string()}.json'
+articles_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.rstrip("/")}/articles_{get_timestamp_string()}.json'
 with open(articles_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(articles, indent=2, ensure_ascii=False))
 
@@ -261,7 +270,7 @@ open_access_agreement = (articles_in_scope
     .group_by("OPEN_ACCESS_AUTOMATIC", "OPEN_ACCESS_FULLTEXT_CHECK").len()
     .sort("OPEN_ACCESS_AUTOMATIC", "OPEN_ACCESS_FULLTEXT_CHECK"))
 
-with polars.Config(tbl_rows=-1, tbl_cols=-1, tbl_width_chars=200, tbl_hide_dataframe_shape=True, tbl_hide_column_data_types=True, fmt_str_lengths=50):
+with polars.Config(**TABLE_PRINT_OPTIONS):
     logger.info(f'\nOpen access of the articles by whether OpenAIRE or OpenAlex links the article to its ETIS project\'s Horizon grant:\n{open_access_rates}')
     logger.info(f'\nHow the open access status was settled (null = pending a full text check):\n{settled_by_counts}')
     if open_access_agreement.height:
@@ -287,7 +296,7 @@ if articles_assessed.height:
     # Unknown = no underlying data or no readable full text
     open_data_rates = summarise_rate(articles_assessed, "IS_OPEN_DATA", "OPEN_ACCESS_MANDATE_FOR_DATASET")
 
-    with polars.Config(tbl_rows=-1, tbl_cols=-1, tbl_width_chars=200, tbl_hide_dataframe_shape=True, tbl_hide_column_data_types=True, fmt_str_lengths=50):
+    with polars.Config(**TABLE_PRINT_OPTIONS):
         logger.info(f'\nOpen data labels of {articles_assessed.height} assessed articles by the data mandate of their projects:\n{label_counts}')
         logger.info(f'\nOpen data ({", ".join(OPEN_DATA_LABELS)}) of the assessed articles by the data mandate of their projects (unknown = {", ".join(EXCLUDED_DATA_LABELS)}):\n{open_data_rates}')
 else:

@@ -78,7 +78,6 @@ openaire_graph_parameters = {
     "relOrganizationCountryCode": "EE",
 }
 
-n_bad_responses = 0
 bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
 items_per_request = 100             # Get items in batches
 
@@ -93,11 +92,10 @@ with tqdm.tqdm() as openaire_graph_progress_bar:
             i_page=i_page,
             n_per_page=items_per_request,
             parameters=openaire_graph_parameters)
-        
+
         if not response:
             bad_responses += [response]
-            n_bad_responses += 1
-            if n_bad_responses >= bad_response_threshold:
+            if len(bad_responses) >= bad_response_threshold:
                 raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
             continue
 
@@ -114,7 +112,7 @@ with tqdm.tqdm() as openaire_graph_progress_bar:
 # Save projects to file #
 #########################
 
-projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/openaire_graph_projects_{get_timestamp_string()}.json'
+projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.rstrip("/")}/openaire_graph_projects_{get_timestamp_string()}.json'
 with open(projects_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(projects, indent=2, ensure_ascii=False))
 

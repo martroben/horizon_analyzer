@@ -33,7 +33,8 @@ FUNDING_PATTERNS = [
     r"horizon 2020|horizon europe|\bh2020\b|grant agreement|european research council|\bERC\b|marie (skłodowska|sklodowska)|european commission"
 ]
 HINT_CONTEXT_CHARACTERS = 300   # Characters before and after a match
-HINTS_MAX_CHARACTERS = 6000     # Maximum length of hints per article
+HINTS_MAX_CHARACTERS = 6000     # Maximum length of data hints per article
+FUNDING_HINTS_MAX_CHARACTERS = 2000
 PROJECT_DATASETS_SHOWN = 5
 
 
@@ -52,7 +53,7 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
@@ -134,7 +135,7 @@ def print_dossier(item: dict, project_datasets_index: dict) -> None:
     funding_patterns = FUNDING_PATTERNS + [re.escape(project["HORIZON_ID"]) for project in item["PROJECTS"] if project["HORIZON_ID"]]
     funding_patterns += [re.escape(project["ACRONYM"]) for project in item["PROJECTS"] if project["ACRONYM"]]
     print("\n## Funding hints")
-    for hint in get_hints(text, funding_patterns, 2000):
+    for hint in get_hints(text, funding_patterns, FUNDING_HINTS_MAX_CHARACTERS):
         print(f'- {hint}')
 
 

@@ -1,4 +1,5 @@
 # standard
+import collections
 import datetime
 import io
 import json
@@ -89,6 +90,9 @@ class PoliteSession(requests.Session):
         self.last_request_times = {}
 
     def get_politely(self, URL: str, **kwargs) -> requests.Response:
+        """
+        Get URL after waiting until host_request_interval seconds have passed since the last request to the same host.
+        """
         host = urllib.parse.urlparse(URL).netloc
         wait_time = self.last_request_times.get(host, 0) + self.host_request_interval - time.monotonic()
         if wait_time > 0:
@@ -153,7 +157,7 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
@@ -188,8 +192,9 @@ def save_fulltext(GUID: str, content: bytes | str, extension: str, min_text_leng
     Gives the file path, text file path and text length. Gives None and removes the files if the text is too short.
     """
     file_path = f'{FULLTEXT_DIRECTORY_PATH.rstrip("/")}/{GUID}.{extension}'
-    mode = "wb" if isinstance(content, bytes) else "w"
-    with open(file_path, mode, **({} if mode == "wb" else {"encoding": "utf8"})) as save_file:
+    if isinstance(content, str):
+        content = content.encode("utf8")
+    with open(file_path, "wb") as save_file:
         save_file.write(content)
 
     text_file_path = None
@@ -219,14 +224,20 @@ def is_word_document(content: bytes) -> bool:
         return False
 
 
+def normalise_words(text: str) -> str:
+    """
+    Gives lowercase text with only words, for fuzzy comparison.
+    """
+    return " ".join(re.sub(r"\W", " ", text.lower()).split())
+
+
 def text_has_title(text_file_path: str, title: str) -> bool:
     """
     Tells whether the article title is near the beginning of a text file. Fuzzy, because ETIS titles can differ a little from the article.
     """
     with open(text_file_path, encoding="utf8") as read_file:
         beginning = read_file.read(TITLE_SEARCH_CHARACTERS)
-    normalise = lambda string: " ".join(re.sub(r"\W", " ", string.lower()).split())
-    return fuzz.partial_ratio(normalise(title or ""), normalise(beginning)) >= WORD_TITLE_SIMILARITY_THRESHOLD
+    return fuzz.partial_ratio(normalise_words(title or ""), normalise_words(beginning)) >= WORD_TITLE_SIMILARITY_THRESHOLD
 
 
 def save_downloaded_fulltext(GUID: str, response: requests.Response, title: str) -> tuple[tuple[str, str, int] | None, str]:
@@ -291,7 +302,7 @@ def get_openaire_attempts(research_products: list[dict]) -> list[dict]:
     return sorted(attempts, key=lambda attempt: attempt["SOURCE"] != "zenodo")
 
 
-def get_fulltext_attempts(publication: dict, open_data_candidate: dict, openalex_data: dict, research_products: list[dict]) -> list[dict]:
+def get_fulltext_attempts(open_data_candidate: dict, openalex_data: dict, research_products: list[dict]) -> list[dict]:
     """
     Gives the full text sources to try for an article, best first:
     PMC, open PDFs and pages of published versions and author manuscripts, Zenodo records and PDF links in OpenAIRE,
@@ -340,8 +351,7 @@ def get_fulltext_attempts(publication: dict, open_data_candidate: dict, openalex
 #####################
 
 # Create directories
-if not os.path.exists(FULLTEXT_DIRECTORY_PATH):
-    os.makedirs(FULLTEXT_DIRECTORY_PATH)
+os.makedirs(FULLTEXT_DIRECTORY_PATH, exist_ok=True)
 
 # Logger
 logger = logging.getLogger()
@@ -406,7 +416,7 @@ for publication in tqdm.tqdm(open_access_data, desc="Getting full texts"):
     }
 
     research_products = openaire_research_products_index.get(GUID) or []
-    for attempt in get_fulltext_attempts(publication, open_data_candidate, openalex_data, research_products):
+    for attempt in get_fulltext_attempts(open_data_candidate, openalex_data, research_products):
         saved = None
         try:
             if attempt["SOURCE"] == "pmc":
@@ -481,15 +491,12 @@ for publication in open_access_data:
     with open(info_file_path, encoding="utf8") as read_file:
         fulltext_index += [json.loads(read_file.read())]
 
-fulltext_index_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/fulltext_index_{get_timestamp_string()}.json'
+fulltext_index_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.rstrip("/")}/fulltext_index_{get_timestamp_string()}.json'
 with open(fulltext_index_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(fulltext_index, indent=2, ensure_ascii=False))
 
 n_found = len([item for item in fulltext_index if item["TEXT_FILE"]])
-n_by_source = {}
-for item in fulltext_index:
-    if item["TEXT_FILE"]:
-        n_by_source[item["SOURCE"]] = n_by_source.get(item["SOURCE"], 0) + 1
+n_by_source = dict(collections.Counter(item["SOURCE"] for item in fulltext_index if item["TEXT_FILE"]))
 n_peer_reviewed = len([item for item in fulltext_index if item["TEXT_FILE"] and item["VERSION"] in PEER_REVIEWED_VERSIONS])
 info_string1 = f'{n_found} of the {len(open_access_data)} articles have a full text ({n_peer_reviewed} published version or author manuscript). By source: {n_by_source}'
 info_string2 = f'Saved full text index to {fulltext_index_save_path}'

@@ -54,7 +54,7 @@ class OpenAireGraphSession(requests.Session):
 
 def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -> None:
     """
-    Adds sleep to request cycles to adher to the rate limits.
+    Adds sleep to request cycles to adhere to the rate limits.
     Uses monotonic timestamps.
     """
     # Safety margin 0.1 triggers slowing down when request frequency is within 90% of rate limit
@@ -88,7 +88,7 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
@@ -117,7 +117,6 @@ open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_da
 
 openaire_graph_session = OpenAireGraphSession("research-products")
 
-n_bad_responses = 0
 bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
 requests_per_second_limit = 2       # Limit requests that can be made per second to respect API rules (7200 per hour)
 
@@ -138,8 +137,7 @@ for publication in tqdm.tqdm(open_access_data, desc="Requesting OpenAire Graph r
 
     if not response:
         bad_responses += [response]
-        n_bad_responses += 1
-        if n_bad_responses >= bad_response_threshold:
+        if len(bad_responses) >= bad_response_threshold:
             raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
         continue
 
@@ -154,7 +152,7 @@ for publication in tqdm.tqdm(open_access_data, desc="Requesting OpenAire Graph r
 # Save research products to file #
 ##################################
 
-research_products_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/openaire_research_products_{get_timestamp_string()}.json'
+research_products_save_path = f'{RAW_DATA_DIRECTORY_PATH.rstrip("/")}/openaire_research_products_{get_timestamp_string()}.json'
 with open(research_products_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(research_products, indent=2, ensure_ascii=False))
 

@@ -57,7 +57,7 @@ OPENALEX_WORK_FIELDS = [
     "funders",
     "authorships"
 ]
-OPEN_ACCESS_VERSIONS = [
+PEER_REVIEWED_VERSIONS = [
     "publishedVersion",     # Version of record
     "acceptedVersion"       # Peer-reviewed author manuscript
 ]
@@ -253,7 +253,7 @@ def has_estonian_affiliation(openalex_data: dict) -> bool | None:
 
 def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -> None:
     """
-    Adds sleep to request cycles to adher to the rate limits.
+    Adds sleep to request cycles to adhere to the rate limits.
     Uses monotonic timestamps.
     """
     # Safety margin 0.1 triggers slowing down when request frequency is within 90% of rate limit
@@ -263,6 +263,18 @@ def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -
     requests_per_second_limit_safe = requests_per_second_limit * (1 - safety_margin)
     if requests_per_second_current >= requests_per_second_limit_safe:
         time.sleep(1 / requests_per_second_limit)
+
+
+def check_bad_response(response: requests.Response, bad_responses: list, bad_response_threshold: int = 10) -> bool:
+    """
+    Gives True and keeps the response if it's bad. Throws after bad_response_threshold bad responses (don't spam API).
+    """
+    if response:
+        return False
+    bad_responses += [response]
+    if len(bad_responses) >= bad_response_threshold:
+        raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}. Last response: {response.status_code} {response.url}')
+    return True
 
 
 def get_timestamp_string() -> str:
@@ -302,12 +314,22 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
-    
+
     return data
+
+
+def save_data(data: list[dict], dir_path: str, file_handle: str) -> str:
+    """
+    Saves data to dir_path in a file named by file_handle and the current timestamp. Gives the file path.
+    """
+    save_path = f'{dir_path.rstrip("/")}/{file_handle}_{get_timestamp_string()}.json'
+    with open(save_path, "w", encoding="utf8") as save_file:
+        save_file.write(json.dumps(data, indent=2, ensure_ascii=False))
+    return save_path
 
 
 #####################
@@ -315,11 +337,8 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 #####################
 
 # Create directories
-if not os.path.exists(RAW_DATA_DIRECTORY_PATH):
-    os.makedirs(RAW_DATA_DIRECTORY_PATH)
-
-if not os.path.exists(RESULTS_DATA_DIRECTORY_PATH):
-    os.makedirs(RESULTS_DATA_DIRECTORY_PATH)
+os.makedirs(RAW_DATA_DIRECTORY_PATH, exist_ok=True)
+os.makedirs(RESULTS_DATA_DIRECTORY_PATH, exist_ok=True)
 
 # Logger
 logger = logging.getLogger()
@@ -341,8 +360,6 @@ ETIS_project_parameters = {
     "ProjectStatus": ETIS_FINISHED_PROJECT_STATUS_CODE,
 }
 
-n_bad_responses = 0
-bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
 items_per_request = 500             # Get items in batches
 
 bad_responses = []
@@ -357,12 +374,8 @@ with tqdm.tqdm() as ETIS_progress_bar:
                 n=items_per_request,
                 i_start=i,
                 parameters=ETIS_project_parameters)
-            
-            if not response:
-                bad_responses += [response]
-                n_bad_responses += 1
-                if n_bad_responses >= bad_response_threshold:
-                    raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
+
+            if check_bad_response(response, bad_responses):
                 continue
 
             items = response.json()
@@ -373,10 +386,7 @@ with tqdm.tqdm() as ETIS_progress_bar:
             i += items_per_request
             _ = ETIS_progress_bar.update()
 
-
-ETIS_projects_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/etis_projects_{get_timestamp_string()}.json'
-with open(ETIS_projects_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(ETIS_projects, indent=2, ensure_ascii=False))
+ETIS_projects_save_path = save_data(ETIS_projects, RAW_DATA_DIRECTORY_PATH, "etis_projects")
 
 info_string = f'Found {len(ETIS_projects)} relevant projects in ETIS. Saved to {ETIS_projects_save_path}'
 logger.info(info_string)
@@ -424,9 +434,6 @@ logger.info(info_string)
 
 ETIS_publication_session = EtisSession(service="publication")
 
-n_bad_responses = 0
-bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
-
 bad_responses = []
 publications_with_no_data = []
 for publication in tqdm.tqdm(publications, desc="Requesting ETIS publications"):
@@ -434,26 +441,17 @@ for publication in tqdm.tqdm(publications, desc="Requesting ETIS publications"):
     response = ETIS_publication_session.get_items(
         parameters={"Guid": publication["GUID"]}
     )
-    if not response:
-        bad_responses += [response]
+    if check_bad_response(response, bad_responses):
         publications_with_no_data += [publication]
-        n_bad_responses += 1
-        if n_bad_responses >= bad_response_threshold:
-            raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
         continue
 
     try:
         publication["DATA"] = response.json()[0]
-    except Exception as exception:
+    except Exception:
         publications_with_no_data += [publication]
 
-publications_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/publications_{get_timestamp_string()}.json'
-with open(publications_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(publications, indent=2, ensure_ascii=False))
-
-publications_with_no_data_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/publications_with_no_data_{get_timestamp_string()}.json'
-with open(publications_with_no_data_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(publications_with_no_data, indent=2, ensure_ascii=False))
+publications_save_path = save_data(publications, RAW_DATA_DIRECTORY_PATH, "publications")
+publications_with_no_data_save_path = save_data(publications_with_no_data, RAW_DATA_DIRECTORY_PATH, "publications_with_no_data")
 
 info_string1 = f'Pulled publication data from ETIS. Saved to {publications_save_path}'
 info_string2 = f'ETIS API failed to return data for {len(publications_with_no_data)} of the {len(publications)} publications. See {publications_with_no_data_save_path} for details'
@@ -473,16 +471,14 @@ scientific_articles = []
 for publication in publications:
     if not publication["DATA"]:
         continue
-    if not publication["DATA"]["ClassificationCode"] in ETIS_SCIENTIFIC_ARTICLES_CLASSIFICATION_CODES:
+    if publication["DATA"]["ClassificationCode"] not in ETIS_SCIENTIFIC_ARTICLES_CLASSIFICATION_CODES:
         continue
-    if not publication["DATA"]["PublicationStatusEng"].lower() == "published":
+    if publication["DATA"]["PublicationStatusEng"].lower() != "published":
         continue
 
     scientific_articles += [publication]
 
-scientific_articles_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/scientific_articles_{get_timestamp_string()}.json'
-with open(scientific_articles_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(scientific_articles, indent=2, ensure_ascii=False))
+scientific_articles_save_path = save_data(scientific_articles, RAW_DATA_DIRECTORY_PATH, "scientific_articles")
 
 info_string = f'{len(scientific_articles)} of the {len(publications)} publications are classified as scientific articles. Saved to {scientific_articles_save_path}'
 logger.info(info_string)
@@ -497,8 +493,6 @@ scientific_articles = read_latest_file(RAW_DATA_DIRECTORY_PATH, "scientific_arti
 
 openalex_session = OpenAlexSession(OPENALEX_API_KEY)
 
-n_bad_responses = 0
-bad_response_threshold = 10         # Throw after this threshold of bad responses (don't spam API)
 requests_per_second_limit = 10      # Limit requests that can be made per second to respect API rules
 title_match_max_year_difference = 1 # Title search results must be published about the same year as given in ETIS
 
@@ -532,22 +526,14 @@ for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication O
             openalex_response["UNSUCCESSFUL_INPUTS"] += [DOI]
             search_by_title = True
         else:
-            bad_responses += [response]
-            n_bad_responses += 1
-            if n_bad_responses >= bad_response_threshold:
-                raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
+            check_bad_response(response, bad_responses)
 
     if search_by_title and title:
         limit_rate(lap_timestamp, requests_per_second_limit)
         lap_timestamp = time.monotonic()
         response = openalex_session.search_works_by_title(title, fields=OPENALEX_WORK_FIELDS)
 
-        if not response:
-            bad_responses += [response]
-            n_bad_responses += 1
-            if n_bad_responses >= bad_response_threshold:
-                raise ConnectionError(f'Reached bad response threshold: {bad_response_threshold}')
-        else:
+        if not check_bad_response(response, bad_responses):
             # Accept only an unambiguous match: a single work with the same title and publication year
             title_matches = []
             for work in response.json()["results"]:
@@ -574,9 +560,7 @@ for publication in tqdm.tqdm(scientific_articles, desc="Requesting publication O
 
     openalex_responses += [openalex_response]
 
-openalex_responses_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/openalex_responses_{get_timestamp_string()}.json'
-with open(openalex_responses_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(openalex_responses, indent=2, ensure_ascii=False))
+openalex_responses_save_path = save_data(openalex_responses, RAW_DATA_DIRECTORY_PATH, "openalex_responses")
 
 n_found = len([item for item in openalex_responses if item["DATA"]])
 info_string1 = f'Checked publication open access status by OpenAlex API. Saved results to {openalex_responses_save_path}'
@@ -610,7 +594,7 @@ for article in scientific_articles:
     openalex_open_versions = sorted({location.get("version") or "unknown" for location in openalex_data.get("locations") or [] if location.get("is_oa")})
     openalex_has_open_peer_reviewed_version = None
     if openalex_data:
-        openalex_has_open_peer_reviewed_version = any(version in OPEN_ACCESS_VERSIONS for version in openalex_open_versions)
+        openalex_has_open_peer_reviewed_version = any(version in PEER_REVIEWED_VERSIONS for version in openalex_open_versions)
     manual_check_result = open_access_manual_check_results_index.get(article["GUID"]) or {}
 
     # ETIS authors and institutions are Estonian researchers and institutions. ETIS can list the same one twice
@@ -673,9 +657,7 @@ for article in scientific_articles:
     }
     open_access_data += [open_access_datum]
 
-open_access_data_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_{get_timestamp_string()}.json'
-with open(open_access_data_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(open_access_data, indent=2, ensure_ascii=False))
+open_access_data_save_path = save_data(open_access_data, RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
 
 n_estonian_author = len([item for item in open_access_data if item["HAS_ESTONIAN_AUTHOR"]])
 n_no_estonian_author = len([item for item in open_access_data if item["HAS_ESTONIAN_AUTHOR"] is False])
@@ -692,7 +674,7 @@ logger.info(info_string2)
 # Reload data from save file
 open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
 
-# A publication has ambiguous open access data if it's ETIS and OpenAlex information doesn't align.
+# A publication has ambiguous open access data if its ETIS and OpenAlex information doesn't align.
 # OpenAlex counts only open published versions and peer-reviewed manuscripts (Horizon open access mandate).
 # Ambiguous publications are settled when their full text is checked.
 
@@ -714,9 +696,7 @@ for publication in open_access_data:
     open_access_data_ambiguous += [publication]
 
 if open_access_data_ambiguous:
-    open_access_data_ambiguous_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_access_data_ambiguous_{get_timestamp_string()}.json'
-    with open(open_access_data_ambiguous_save_path, "w", encoding="utf8") as save_file:
-        save_file.write(json.dumps(open_access_data_ambiguous, indent=2, ensure_ascii=False))
+    open_access_data_ambiguous_save_path = save_data(open_access_data_ambiguous, RESULTS_DATA_DIRECTORY_PATH, "open_access_data_ambiguous")
 
     info_string1 = f'{len(open_access_data_ambiguous)} publications have ambiguous open access status. See details in {open_access_data_ambiguous_save_path}'
     info_string2 = f'You can manually override the publication availability status in {MANUALLY_CHECKED_PUBLICATIONS_PATH}'

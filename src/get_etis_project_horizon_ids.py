@@ -63,12 +63,20 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
-    
+
     return data
+
+
+def get_project_ID_prefixes(project: dict) -> tuple[str]:
+    """
+    Gives the OpenAIRE project ID prefixes of the framework programmes of an ETIS project.
+    Only a project from the same framework programme as the ETIS project can be its own grant.
+    """
+    return tuple(OPENAIRE_PROJECT_ID_PREFIXES[program["ProgrammeCode"]] for program in project["Programmes"] if program["ProgrammeCode"] in OPENAIRE_PROJECT_ID_PREFIXES)
 
 
 #####################
@@ -101,7 +109,14 @@ for project in ETIS_projects:
 openaire_search_project_results = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_search_project_results")
 openaire_search_project_results_index = {project["Guid"]["input"]: project for project in openaire_search_project_results}
 
-etis_project_horizon_IDs = []
+# ETIS fields that were searched, in the order of preference, with their names in the match descriptions
+search_fields = {
+    "FinancierProjectNr": "FinancierProjectNr",
+    "Acronym": "Acronym",
+    "TitleEng": "Title"
+}
+
+search_API_matches = []
 no_match_by_search_API = []
 for project in ETIS_horizon_projects:
 
@@ -112,58 +127,34 @@ for project in ETIS_horizon_projects:
 
     match = {
         "GUID": project["Guid"],
-        "TITLE": project["TitleEng"]
+        "TITLE": project["TitleEng"],
+        "MATCHED_BY": "OpenAire search API"
     }
 
-    # Financier project number has a single match
-    financier_project_number_input = search_result["FinancierProjectNr"]["input"]
-    financier_project_number_matches = search_result["FinancierProjectNr"].get("result", [])
-    if len(financier_project_number_matches) == 1:
-        match["HORIZON_ID"] = financier_project_number_matches[0]
-        match["MATCHED_BY"] = "OpenAire search API"
-        match_description = f'Search API FinancierProjectNr {financier_project_number_input}: {financier_project_number_matches}'
-        match["MATCH_DESCRIPTION"] = match_description
-        etis_project_horizon_IDs += [match]
-        continue
-
-    # Acronym has a single match
-    acronym_input = search_result["Acronym"]["input"]
-    acronym_matches = search_result["Acronym"].get("result", [])
-    if len(acronym_matches) == 1:
-        match["HORIZON_ID"] = acronym_matches[0]
-        match["MATCHED_BY"] = "OpenAire search API"
-        match_description = f'Search API Acronym {acronym_input}: {acronym_matches}'
-        match["MATCH_DESCRIPTION"] = match_description
-        etis_project_horizon_IDs += [match]
-        continue
-
-    # Title has a single match
-    title_input = search_result["TitleEng"]["input"]
-    title_matches = search_result["TitleEng"].get("result", [])
-    if len(title_matches) == 1:
-        match["HORIZON_ID"] = title_matches[0]
-        match["MATCHED_BY"] = "OpenAire search API"
-        match_description = f'Search API Title {title_input}: {title_matches}'
-        match["MATCH_DESCRIPTION"] = match_description
-        etis_project_horizon_IDs += [match]
-        continue
+    # Financier project number, acronym or title has a single match
+    for field, field_name in search_fields.items():
+        field_matches = search_result[field].get("result", [])
+        if len(field_matches) == 1:
+            match["HORIZON_ID"] = field_matches[0]
+            match["MATCH_DESCRIPTION"] = f'Search API {field_name} {search_result[field]["input"]}: {field_matches}'
+            break
 
     # Acronym has several matches and there is a financier project number from ETIS data
-    if acronym_matches and len(financier_project_number_input) >= 5:
+    financier_project_number_input = search_result["FinancierProjectNr"]["input"]
+    acronym_matches = search_result["Acronym"].get("result", [])
+    if "HORIZON_ID" not in match and acronym_matches and len(financier_project_number_input) >= 5:
         for acronym_match in acronym_matches:
             if fuzz.partial_token_sort_ratio(acronym_match, financier_project_number_input) == 100:
                 match["HORIZON_ID"] = acronym_match
-                match["MATCHED_BY"] = "OpenAire search API"
-                match_description = f'Search API Acronym {acronym_input}: {acronym_matches} and ETIS financier project number: {financier_project_number_input}'
-                match["MATCH_DESCRIPTION"] = match_description
+                match["MATCH_DESCRIPTION"] = f'Search API Acronym {search_result["Acronym"]["input"]}: {acronym_matches} and ETIS financier project number: {financier_project_number_input}'
                 break
-        if "HORIZON_ID" in match:
-            etis_project_horizon_IDs += [match]
-            continue
 
-    no_match_by_search_API += [project]
+    if "HORIZON_ID" in match:
+        search_API_matches += [match]
+    else:
+        no_match_by_search_API += [project]
 
-info_string = f'Found project Horizon IDs for {len(etis_project_horizon_IDs)} of {len(ETIS_horizon_projects)} ETIS projects by OpenAire search API'
+info_string = f'Found project Horizon IDs for {len(search_API_matches)} of {len(ETIS_horizon_projects)} ETIS projects by OpenAire search API'
 logger.info(info_string)
 
 
@@ -202,20 +193,20 @@ for openalex_response in openalex_responses:
                 article_project_links.setdefault(openalex_response["GUID"], set()).add(horizon_ID)
 
 # Count links over the articles of each ETIS project
+# Sorted, because set order changes between runs and the counts are saved in this order
 project_link_counts = {}
 project_article_counts = collections.Counter()
 for article in scientific_articles:
     for project_GUID in article["PROJECT_GUIDS"]:
         project_article_counts[project_GUID] += 1
-        project_link_counts.setdefault(project_GUID, collections.Counter()).update(article_project_links.get(article["GUID"], set()))
+        project_link_counts.setdefault(project_GUID, collections.Counter()).update(sorted(article_project_links.get(article["GUID"], set())))
 
 title_similarity_threshold = 85     # Linked project title counts as the same as ETIS project title from this fuzz score
 
 publication_link_matches = []
 no_match_by_publication_links = []
 for project in no_match_by_search_API:
-    # Only a project from the same framework programme as the ETIS project can be its own grant
-    project_ID_prefixes = tuple(OPENAIRE_PROJECT_ID_PREFIXES[program["ProgrammeCode"]] for program in project["Programmes"] if program["ProgrammeCode"] in OPENAIRE_PROJECT_ID_PREFIXES)
+    project_ID_prefixes = get_project_ID_prefixes(project)
     link_counts = project_link_counts.get(project["Guid"]) or collections.Counter()
     candidates = [(horizon_ID, n_links) for horizon_ID, n_links in link_counts.most_common() if openaire_horizon_project_codes_index[horizon_ID]["id"].startswith(project_ID_prefixes)]
 
@@ -254,8 +245,6 @@ logger.info(info_string)
 # Get Horizon IDs by OpenAire graph API records #
 #################################################
 
-openaire_graph_projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "openaire_graph_projects")
-
 # Remove leading/trailing parenthesised words
 leading_parenthesis_pattern = r'^\([^\(\)]+\)\s*'
 trailing_parenthesis_pattern = r'\s*\([^\(\)]+\)$'
@@ -269,22 +258,21 @@ remove_pattern = fr'{leading_parenthesis_pattern}|{trailing_parenthesis_pattern}
 exact_title_matches = []
 exact_title_match_fails = []
 for project in tqdm.tqdm(no_match_by_publication_links, desc="Fuzzy matching project titles"):
-    fuzz_scores = []
     if not project["TitleEng"]:
         continue
 
-    # Only a project from the same framework programme as the ETIS project can be its own grant
-    project_ID_prefixes = tuple(OPENAIRE_PROJECT_ID_PREFIXES[program["ProgrammeCode"]] for program in project["Programmes"] if program["ProgrammeCode"] in OPENAIRE_PROJECT_ID_PREFIXES)
+    project_ID_prefixes = get_project_ID_prefixes(project)
     if not project_ID_prefixes:
         continue
 
+    ETIS_compare_string = re.sub(remove_pattern, "", project["TitleEng"].lower().strip())
+    fuzz_scores = []
     for openaire_graph_project in openaire_graph_projects:
         if not openaire_graph_project["title"]:
             continue
         if not openaire_graph_project["id"].startswith(project_ID_prefixes):
             continue
 
-        ETIS_compare_string = re.sub(remove_pattern, "", project["TitleEng"].lower().strip())
         openaire_graph_compare_string = re.sub(remove_pattern, "", openaire_graph_project["title"].lower().strip())
 
         # Lower the score for matches that are much shorter than input            
@@ -306,12 +294,10 @@ for project in tqdm.tqdm(no_match_by_publication_links, desc="Fuzzy matching pro
     fuzz_scores_sorted = sorted(fuzz_scores, key=lambda x: x["FUZZ_SCORE"], reverse=True)
 
     if fuzz_scores_sorted[0]["FUZZ_SCORE"] == 100 and fuzz_scores_sorted[1]["FUZZ_SCORE"] <= 85:
-        exact_match = fuzz_scores_sorted[0]
-        exact_title_matches += [exact_match]
+        exact_title_matches += [fuzz_scores_sorted[0]]
         # Matched OpenAIRE projects stay in the candidate pool - several ETIS records can be the same Horizon project
     else:
         exact_title_match_fails += [fuzz_scores_sorted]
-
 
 approximate_title_matches = []
 approximate_title_match_fails = []
@@ -321,15 +307,15 @@ for fuzz_scores in exact_title_match_fails:
     else:
         approximate_title_match_fails += [fuzz_scores]
 
-for fuzz_scores in approximate_title_match_fails:
-    print(f'{fuzz_scores[0]["TITLE"]} - {fuzz_scores[0]["OPENAIRE_GRAPH_TITLE"]} ({fuzz_scores[0]["FUZZ_SCORE"]})\n{fuzz_scores[1]["TITLE"]} - {fuzz_scores[1]["OPENAIRE_GRAPH_TITLE"]} ({fuzz_scores[1]["FUZZ_SCORE"]})\n\n')
+# Two best candidates of the projects without a title match, for manual checks
+title_match_fails_string = "\n\n".join(
+    f'{fuzz_scores[0]["TITLE"]} - {fuzz_scores[0]["OPENAIRE_GRAPH_TITLE"]} ({fuzz_scores[0]["FUZZ_SCORE"]})\n{fuzz_scores[1]["TITLE"]} - {fuzz_scores[1]["OPENAIRE_GRAPH_TITLE"]} ({fuzz_scores[1]["FUZZ_SCORE"]})'
+    for fuzz_scores in approximate_title_match_fails)
 
-
-# Manual checks:
-# 0b60c91e-4bce-4afc-a5de-6cca642e82ec Universities for Deep Tech and Entrepreneurship ? https://eit-hei.eu/projects/united/
-# EIT-Health Mobilitas 06ddba63-b2b3-438d-86fe-a5574dacfe81 ?
-# Exploitation of extracellular vesicles for precision diagnostics of prostate cancer fac0ede3-fca1-47e5-b5b3-85510f930a5c: 643638
-# Multi-centre study on Echinococcus multilocularis and Echinococcus granulosus s.l. in Europe: development and harmonization of diagnostic methods in the food chain 5a326ac0-b2ea-4955-8766-0e01bb918909: 773830
+info_string1 = f'Found project Horizon IDs for {len(exact_title_matches) + len(approximate_title_matches)} of the remaining {len(no_match_by_publication_links)} ETIS projects by title matching ({len(exact_title_matches)} exact, {len(approximate_title_matches)} approximate)'
+info_string2 = f'Two best OpenAIRE graph title candidates (fuzz score) of the {len(approximate_title_match_fails)} projects without a title match:\n\n{title_match_fails_string}\n'
+logger.info(info_string1)
+logger.info(info_string2)
 
 
 ########################################################
@@ -341,13 +327,11 @@ for fuzz_scores in approximate_title_match_fails:
 # openAccessMandateForDataset - project has to give open access to its research data
 #   (H2020 projects in the Open Research Data Pilot, i.e. Article 29.3 of the grant agreement; all Horizon Europe projects)
 
-horizon_ID_matches = etis_project_horizon_IDs + publication_link_matches
-for match in exact_title_matches:
-    match_description = f'OpenAire graph title {match["OPENAIRE_GRAPH_TITLE"]} (fuzz score {match["FUZZ_SCORE"]})'
-    horizon_ID_matches += [match | {"MATCHED_BY": "Exact title match", "MATCH_DESCRIPTION": match_description}]
-for match in approximate_title_matches:
-    match_description = f'OpenAire graph title {match["OPENAIRE_GRAPH_TITLE"]} (fuzz score {match["FUZZ_SCORE"]})'
-    horizon_ID_matches += [match | {"MATCHED_BY": "Approximate title match", "MATCH_DESCRIPTION": match_description}]
+horizon_ID_matches = search_API_matches + publication_link_matches
+for matched_by, title_matches in (("Exact title match", exact_title_matches), ("Approximate title match", approximate_title_matches)):
+    for match in title_matches:
+        match_description = f'OpenAire graph title {match["OPENAIRE_GRAPH_TITLE"]} (fuzz score {match["FUZZ_SCORE"]})'
+        horizon_ID_matches += [match | {"MATCHED_BY": matched_by, "MATCH_DESCRIPTION": match_description}]
 
 horizon_ID_matches_index = {match["GUID"]: match for match in horizon_ID_matches}
 openaire_graph_projects_index = {project["id"]: project for project in openaire_graph_projects}
@@ -375,7 +359,7 @@ for project in ETIS_horizon_projects:
     }
     ETIS_project_horizon_IDs_summary += [project_summary]
 
-ETIS_project_horizon_IDs_summary_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/etis_project_horizon_ids_{get_timestamp_string()}.json'
+ETIS_project_horizon_IDs_summary_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.rstrip("/")}/etis_project_horizon_ids_{get_timestamp_string()}.json'
 with open(ETIS_project_horizon_IDs_summary_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(ETIS_project_horizon_IDs_summary, indent=2, ensure_ascii=False))
 

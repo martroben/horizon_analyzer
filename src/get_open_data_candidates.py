@@ -155,7 +155,7 @@ class OpenAireGraphSession(requests.Session):
 
 def limit_rate(last_lap_timestamp: float, requests_per_second_limit: int = 50) -> None:
     """
-    Adds sleep to request cycles to adher to the rate limits.
+    Adds sleep to request cycles to adhere to the rate limits.
     Uses monotonic timestamps.
     """
     # Safety margin 0.1 triggers slowing down when request frequency is within 90% of rate limit
@@ -205,7 +205,7 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
@@ -213,11 +213,11 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
     return data
 
 
-def save_raw_data(data: list[dict], file_handle: str) -> str:
+def save_data(data: list[dict], dir_path: str, file_handle: str) -> str:
     """
-    Saves data to a timestamped file in the raw data directory and gives the file path.
+    Saves data to dir_path in a file named by file_handle and the current timestamp. Gives the file path.
     """
-    save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/{file_handle}_{get_timestamp_string()}.json'
+    save_path = f'{dir_path.rstrip("/")}/{file_handle}_{get_timestamp_string()}.json'
     with open(save_path, "w", encoding="utf8") as save_file:
         save_file.write(json.dumps(data, indent=2, ensure_ascii=False))
     return save_path
@@ -320,10 +320,8 @@ def summarise_openaire_dataset(dataset: dict) -> dict:
 #####################
 
 # Create directories
-if not os.path.exists(RAW_DATA_DIRECTORY_PATH):
-    os.makedirs(RAW_DATA_DIRECTORY_PATH)
-if not os.path.exists(RESULTS_DATA_DIRECTORY_PATH):
-    os.makedirs(RESULTS_DATA_DIRECTORY_PATH)
+os.makedirs(RAW_DATA_DIRECTORY_PATH, exist_ok=True)
+os.makedirs(RESULTS_DATA_DIRECTORY_PATH, exist_ok=True)
 
 # Logger
 logger = logging.getLogger()
@@ -370,7 +368,7 @@ for article in tqdm.tqdm(get_article_DOIs(open_access_data), desc="Requesting Sc
         "DATA": links
     }]
 
-scholexplorer_links_save_path = save_raw_data(scholexplorer_links, "scholexplorer_links")
+scholexplorer_links_save_path = save_data(scholexplorer_links, RAW_DATA_DIRECTORY_PATH, "scholexplorer_links")
 n_found = len([item for item in scholexplorer_links if any(item["DATA"].values())])
 info_string1 = f'ScholeXplorer has dataset or software links for {n_found} of the {len(scholexplorer_links)} articles with a DOI. Saved to {scholexplorer_links_save_path}'
 info_string2 = f'ScholeXplorer API failed to return data for {len(bad_responses)} requests'
@@ -400,14 +398,15 @@ for article in tqdm.tqdm(get_article_DOIs(open_access_data), desc="Requesting Da
     if check_bad_response(response, bad_responses):
         continue
 
+    response_data = response.json()
     datacite_records += [{
         "GUID": article["GUID"],
         "DOI": article["DOI"],
-        "N_FOUND": (response.json().get("meta") or {}).get("total"),
-        "DATA": response.json().get("data") or []
+        "N_FOUND": (response_data.get("meta") or {}).get("total"),
+        "DATA": response_data.get("data") or []
     }]
 
-datacite_records_save_path = save_raw_data(datacite_records, "datacite_related_records")
+datacite_records_save_path = save_data(datacite_records, RAW_DATA_DIRECTORY_PATH, "datacite_related_records")
 n_found = len([item for item in datacite_records if any(summarise_datacite_record(record, item["DOI"]) for record in item["DATA"])])
 info_string1 = f'DataCite has related records for {n_found} of the {len(datacite_records)} articles with a DOI. Saved to {datacite_records_save_path}'
 info_string2 = f'DataCite API failed to return data for {len(bad_responses)} requests'
@@ -445,15 +444,14 @@ for article in tqdm.tqdm(get_article_DOIs(open_access_data), desc="Requesting Eu
         records += [{field: record.get(field) for field in EUROPEPMC_RECORD_FIELDS if field in record}]
 
     accession_numbers = []
-    PMCIDs = [record["pmcid"] for record in records if record.get("pmcid") and record.get("hasTMAccessionNumbers") == "Y"]
-    for PMCID in PMCIDs[:1]:
+    PMCID = next((record["pmcid"] for record in records if record.get("pmcid") and record.get("hasTMAccessionNumbers") == "Y"), None)
+    if PMCID:
         limit_rate(lap_timestamp, requests_per_second_limit)
         lap_timestamp = time.monotonic()
         response = request_with_retry(europepmc_session.get_accession_numbers, PMCID)
-        if check_bad_response(response, bad_responses):
-            continue
-        for annotated_article in response.json() or []:
-            accession_numbers += annotated_article.get("annotations") or []
+        if not check_bad_response(response, bad_responses):
+            for annotated_article in response.json() or []:
+                accession_numbers += annotated_article.get("annotations") or []
 
     europepmc_records += [{
         "GUID": article["GUID"],
@@ -462,7 +460,7 @@ for article in tqdm.tqdm(get_article_DOIs(open_access_data), desc="Requesting Eu
         "ACCESSION_NUMBERS": accession_numbers
     }]
 
-europepmc_records_save_path = save_raw_data(europepmc_records, "europepmc_records")
+europepmc_records_save_path = save_data(europepmc_records, RAW_DATA_DIRECTORY_PATH, "europepmc_records")
 n_found = len([item for item in europepmc_records if item["DATA"]])
 n_PMC = len([item for item in europepmc_records if any(record.get("pmcid") for record in item["DATA"])])
 info_string1 = f'Europe PMC has records for {n_found} of the {len(europepmc_records)} articles with a DOI ({n_PMC} with a PMC ID). Saved to {europepmc_records_save_path}'
@@ -501,14 +499,15 @@ for OpenAIRE_ID, horizon_ID in tqdm.tqdm(OpenAIRE_projects.items(), desc="Reques
     if check_bad_response(response, bad_responses):
         continue
 
+    response_data = response.json()
     project_datasets += [{
         "OPENAIRE_ID": OpenAIRE_ID,
         "HORIZON_ID": horizon_ID,
-        "N_FOUND": (response.json().get("header") or {}).get("numFound"),
-        "DATA": response.json().get("results") or []
+        "N_FOUND": (response_data.get("header") or {}).get("numFound"),
+        "DATA": response_data.get("results") or []
     }]
 
-project_datasets_save_path = save_raw_data(project_datasets, "openaire_project_datasets")
+project_datasets_save_path = save_data(project_datasets, RAW_DATA_DIRECTORY_PATH, "openaire_project_datasets")
 n_found = len([item for item in project_datasets if item["N_FOUND"]])
 info_string1 = f'OpenAIRE has datasets for {n_found} of the {len(project_datasets)} Horizon projects with articles. Saved to {project_datasets_save_path}'
 info_string2 = f'OpenAIRE graph API failed to return data for {len(bad_responses)} requests'
@@ -540,7 +539,7 @@ for publication in open_access_data:
     europepmc_record = europepmc_record or next(iter(europepmc_item.get("DATA") or []), {})
 
     scholexplorer_link_summaries = []
-    for target_type, links in (scholexplorer_item.get("DATA") or {}).items():
+    for links in (scholexplorer_item.get("DATA") or {}).values():
         for link in links:
             link_summary = summarise_scholexplorer_link(link)
             if link_summary not in scholexplorer_link_summaries:
@@ -587,9 +586,7 @@ for publication in open_access_data:
         "DATACITE_RECORDS": datacite_record_summaries
     }]
 
-open_data_candidates_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_data_candidates_{get_timestamp_string()}.json'
-with open(open_data_candidates_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(open_data_candidates, indent=2, ensure_ascii=False))
+open_data_candidates_save_path = save_data(open_data_candidates, RESULTS_DATA_DIRECTORY_PATH, "open_data_candidates")
 
 project_dataset_summaries = []
 for project in project_datasets:
@@ -600,9 +597,7 @@ for project in project_datasets:
         "DATASETS": [summarise_openaire_dataset(dataset) for dataset in project["DATA"]]
     }]
 
-project_datasets_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/project_datasets_{get_timestamp_string()}.json'
-with open(project_datasets_save_path, "w", encoding="utf8") as save_file:
-    save_file.write(json.dumps(project_dataset_summaries, indent=2, ensure_ascii=False))
+project_datasets_save_path = save_data(project_dataset_summaries, RESULTS_DATA_DIRECTORY_PATH, "project_datasets")
 
 n_with_candidates = len([item for item in open_data_candidates if item["ACCESSION_NUMBERS"] or item["SCHOLEXPLORER_LINKS"] or item["DATACITE_RECORDS"]])
 info_string1 = f'{n_with_candidates} of the {len(open_data_candidates)} articles have candidate data links (accession numbers, ScholeXplorer links or DataCite records). Saved to {open_data_candidates_save_path}'

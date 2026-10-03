@@ -56,7 +56,7 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
@@ -100,6 +100,15 @@ def normalise_URL(URL: str) -> str:
     return re.sub(r"^https?://(dx\.)?(www\.)?", "", URL.strip().lower()).rstrip("/")
 
 
+def is_preprint(openaire_instance: dict) -> bool:
+    """
+    Tells whether an OpenAIRE open instance is a preprint: instance type Preprint or a preprint server.
+    """
+    if openaire_instance["TYPE"] == "Preprint":
+        return True
+    return bool(re.search(PREPRINT_URL_PATTERN, openaire_instance["URL"], flags=re.IGNORECASE))
+
+
 def get_open_access_check_reason(publication: dict, openaire_open_instances: list[dict]) -> str | None:
     """
     Gives the reason why the full text check has to settle the open access status of an article, or None.
@@ -121,15 +130,6 @@ def get_open_access_check_reason(publication: dict, openaire_open_instances: lis
     if not is_open and repository_copies:
         return "Not open by ETIS and OpenAlex, but OpenAIRE has an open copy that OpenAlex doesn't list"
     return None
-
-
-def is_preprint(openaire_instance: dict) -> bool:
-    """
-    Tells whether an OpenAIRE open instance is a preprint: instance type Preprint or a preprint server.
-    """
-    if openaire_instance["TYPE"] == "Preprint":
-        return True
-    return bool(re.search(PREPRINT_URL_PATTERN, openaire_instance["URL"], flags=re.IGNORECASE))
 
 
 def get_linked_horizon_IDs(research_products: list[dict], openalex_data: dict) -> set[str]:
@@ -274,7 +274,7 @@ queue_ordered = []
 for i, GUID in enumerate([GUID for GUID in pilot_GUIDs if GUID in queue_index] + other_GUIDs, start=1):
     queue_ordered += [{"QUEUE_POSITION": i, "IS_PILOT": GUID in pilot_GUIDs, **queue_index[GUID]}]
 
-queue_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.strip("/")}/open_data_queue_{get_timestamp_string()}.json'
+queue_save_path = f'{RESULTS_DATA_DIRECTORY_PATH.rstrip("/")}/open_data_queue_{get_timestamp_string()}.json'
 with open(queue_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(queue_ordered, indent=2, ensure_ascii=False))
 

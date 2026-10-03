@@ -14,11 +14,6 @@ import tqdm
 # Inputs #
 ##########
 
-ETIS_SCIENTIFIC_ARTICLES_CLASSIFICATION_CODES = [
-    "1.1.",     # Web of Science & Scopus scientific articles
-    "1.2.",     # Other international scientific articles
-    "1.3."      # scientific articles in Estonian journals
-]
 ETIS_HORIZON_PROGRAM_CODES = [
     "136",      # Horizon 2020 EIT support
     "137",      # Horisont 2020 ERA \u00f5ppetoolide toetus
@@ -27,10 +22,6 @@ ETIS_HORIZON_PROGRAM_CODES = [
     "450",      # Horizon Europe Programme
     "451"       # ERA-NET (Horizon Europe)
 ]
-ETIS_FINISHED_PROJECT_STATUS_CODE = 3
-    # 1 - all projects
-    # 2 - ongoing projects
-    # 3 - finished projects
 
 RAW_DATA_DIRECTORY_PATH = "./data/raw/"
 
@@ -38,7 +29,6 @@ RAW_DATA_DIRECTORY_PATH = "./data/raw/"
 #########################
 # Classes and functions #
 #########################
-
 
 class OpenAireSession(requests.Session):
     """
@@ -94,11 +84,11 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
     files = [file for file in os.listdir(dir_path) if re.match(name_pattern, file)]
     files_latest = sorted(files, key=lambda x: re.match(name_pattern, x).group(1))[-1]
-    path = f'{dir_path.strip("/")}/{files_latest}'
+    path = f'{dir_path.rstrip("/")}/{files_latest}'
 
     with open(path, encoding="utf8") as read_file:
         data = json.loads(read_file.read())
-    
+
     return data
 
 
@@ -112,9 +102,9 @@ logger.setLevel("INFO")
 logger.addHandler(logging.StreamHandler(sys.stdout))
 
 
-#############################
-# Check Horizon identifiers #
-#############################
+####################################
+# Get identifiers of ETIS projects #
+####################################
 
 # Reload data from save file
 projects = read_latest_file(RAW_DATA_DIRECTORY_PATH, "etis_projects")
@@ -128,7 +118,7 @@ ETIS_openaire_map = {
 input_parameters = list(ETIS_openaire_map.keys()) + ["Guid"]
 openaire_inputs = []
 for project in projects:
-    if not (project["ProgrammeCode"] in ETIS_HORIZON_PROGRAM_CODES):
+    if project["ProgrammeCode"] not in ETIS_HORIZON_PROGRAM_CODES:
         continue
 
     openaire_inputs += [{parameter: project[parameter] for parameter in input_parameters}]
@@ -141,9 +131,9 @@ for project in projects:
 openaire_session = OpenAireSession("projects")
 
 openaire_search_project_results = []
-for input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
-    result = {key: {"input": value} for key, value in input.items()}  
-    for input_key, input_value in input.items():
+for openaire_input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
+    result = {key: {"input": value} for key, value in openaire_input.items()}
+    for input_key, input_value in openaire_input.items():
         if not input_value or input_key == "Guid":
             continue
 
@@ -158,7 +148,7 @@ for input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
         response_json = response.json()
         n_items = int(response_json["response"]["header"]["total"]["$"])
         if n_items == 0:
-           continue
+            continue
 
         result[input_key]["result"] = [item["metadata"]["oaf:entity"]["oaf:project"]["code"]["$"] for item in response_json["response"]["results"]["result"]]
 
@@ -170,7 +160,10 @@ for input in tqdm.tqdm(openaire_inputs, desc="OpenAIRE requests"):
 
     openaire_search_project_results += [result]
 
-
-openaire_search_project_results_save_path = f'{RAW_DATA_DIRECTORY_PATH.strip("/")}/openaire_search_project_results_{get_timestamp_string()}.json'
+openaire_search_project_results_save_path = f'{RAW_DATA_DIRECTORY_PATH.rstrip("/")}/openaire_search_project_results_{get_timestamp_string()}.json'
 with open(openaire_search_project_results_save_path, "w", encoding="utf8") as save_file:
     save_file.write(json.dumps(openaire_search_project_results, indent=2, ensure_ascii=False))
+
+n_found = len([item for item in openaire_search_project_results if any(value.get("result") for value in item.values())])
+info_string = f'OpenAIRE search API has matches for {n_found} of the {len(openaire_search_project_results)} ETIS Horizon projects. Saved to {openaire_search_project_results_save_path}'
+logger.info(info_string)

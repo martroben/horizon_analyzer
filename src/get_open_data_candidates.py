@@ -554,14 +554,16 @@ for publication in open_access_data:
 
     accession_numbers = []
     for annotation in europepmc_item.get("ACCESSION_NUMBERS") or []:
-        # Tag URIs look like http://identifiers.org/pdbe/pdb:7JJC or http://identifiers.org/doi/10.15252/embr.201439246
+        # Tag URIs look like http://identifiers.org/pdbe/pdb:7JJC (database pdb) or http://identifiers.org/doi:10.15252/embr.201439246 (doi)
+        # A few are database pages, e.g. https://www.proteinatlas.org/search/HPA023918 (www.proteinatlas.org)
         databases = set()
         for tag in annotation.get("tags") or []:
             if not tag.get("uri"):
                 continue
-            path = tag["uri"].split("identifiers.org/", 1)[-1]
-            last_part = path.rsplit("/", 1)[-1]
-            databases.add(last_part.split(":")[0] if ":" in last_part else path.split("/")[0])
+            if "identifiers.org/" in tag["uri"]:
+                databases.add(tag["uri"].split("identifiers.org/", 1)[1].split(":", 1)[0].rsplit("/", 1)[-1])
+            else:
+                databases.add(re.sub(r"^https?://", "", tag["uri"]).split("/", 1)[0])
         databases = sorted(databases)
         accession_number = {
             "ID": annotation.get("exact"),

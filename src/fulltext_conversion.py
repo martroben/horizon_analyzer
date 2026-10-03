@@ -7,6 +7,7 @@ import subprocess
 import sys
 import urllib.parse
 import xml.etree.ElementTree as ET
+import zipfile
 
 
 ##########
@@ -37,6 +38,13 @@ HTML_BLOCK_TAGS = {
 }
 HTML_SKIP_TAGS = {"script", "style", "noscript", "svg", "nav", "header", "footer", "form", "button", "select", "template", "iframe"}
 HTML_TITLE_TAGS = {"h1", "h2", "h3", "h4", "h5", "h6"}
+
+WORD_NAMESPACE = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+WORD_RELATIONSHIP_ID_ATTRIBUTE = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"
+WORD_SKIP_TAGS = {"pPr", "rPr", "sectPr", "delText", "footnotePr", "endnotePr"}
+    # Paragraph and run properties (incl. tab stop definitions), section properties, deleted text of tracked changes
+WORD_PARTS = [("document", None), ("footnotes", "Footnotes"), ("endnotes", "Endnotes")]
+    # Parts of a .docx file with text, with the heading that the part gets in the text
 
 
 #########################
@@ -156,6 +164,75 @@ def html_to_text(html_string: str, page_URL: str = None) -> str:
     return tidy_text("".join(parser.parts))
 
 
+def word_xml_to_text(xml_string: bytes, relationships: dict) -> str:
+    """
+    Converts a WordprocessingML part of a .docx file (document, footnotes, endnotes) to plain text.
+    Paragraphs with a heading or title style are marked with #. Link targets that are not in the link text are added in brackets.
+    relationships: relationship IDs and targets of the part's external links.
+    """
+    root = ET.fromstring(xml_string)
+    parts = []
+    field_links = []
+
+    def walk(element: ET.Element) -> None:
+        tag = strip_namespace(element.tag)
+        if tag in WORD_SKIP_TAGS:
+            return
+        if tag == "instrText":
+            # Field codes are not visible text (e.g. Zotero citations), but HYPERLINK fields have link targets
+            match = re.search(r'HYPERLINK\s+"([^"]+)"', element.text or "")
+            if match:
+                field_links.append(match.group(1))
+            return
+        if tag == "p":
+            parts.append("\n")
+            style = element.find(f'{WORD_NAMESPACE}pPr/{WORD_NAMESPACE}pStyle')
+            if style is not None and re.match(r"heading|title", style.get(f'{WORD_NAMESPACE}val', ""), flags=re.IGNORECASE):
+                parts.append("# ")
+        elif tag == "t":
+            parts.append(element.text or "")
+        elif tag == "tab":
+            parts.append("\t")
+        elif tag in ("br", "cr"):
+            parts.append("\n")
+        start = len(parts)
+        for child in element:
+            walk(child)
+        if tag == "hyperlink":
+            link_target = relationships.get(element.get(WORD_RELATIONSHIP_ID_ATTRIBUTE))
+            if link_target and link_target not in "".join(parts[start:]):
+                parts.append(f' [{link_target}]')
+        if tag == "p":
+            paragraph_text = "".join(parts[start:])
+            parts.extend(f' [{link}]' for link in field_links if link not in paragraph_text)
+            field_links.clear()
+            parts.append("\n")
+
+    walk(root)
+    return "".join(parts)
+
+
+def docx_to_text(docx_path: str) -> str:
+    """
+    Converts a Word document (.docx) to plain text: the body, then footnotes and endnotes.
+    """
+    texts = []
+    with zipfile.ZipFile(docx_path) as docx_file:
+        names = docx_file.namelist()
+        for part, heading in WORD_PARTS:
+            if f'word/{part}.xml' not in names:
+                continue
+            relationships = {}
+            if f'word/_rels/{part}.xml.rels' in names:
+                for relationship in ET.fromstring(docx_file.read(f'word/_rels/{part}.xml.rels')):
+                    if relationship.get("TargetMode") == "External":
+                        relationships[relationship.get("Id")] = relationship.get("Target")
+            text = word_xml_to_text(docx_file.read(f'word/{part}.xml'), relationships)
+            if text.strip():
+                texts += [f'# {heading}\n{text}' if heading else text]
+    return tidy_text("\n".join(texts))
+
+
 def pdf_to_text(pdf_path: str) -> str:
     """
     Converts a PDF to plain text with pdftotext (poppler-utils).
@@ -181,13 +258,15 @@ def tidy_text(text: str) -> str:
 
 def convert_file(path: str, page_URL: str = None) -> str:
     """
-    Converts a cached full text file (.pdf, .xml, .html) to plain text.
+    Converts a cached full text file (.pdf, .docx, .xml, .html) to plain text.
     Saves the text next to the original with a .txt extension and gives the text file path.
     """
     stem, extension = os.path.splitext(path)
     extension = extension.lower()
     if extension == ".pdf":
         text = pdf_to_text(path)
+    elif extension == ".docx":
+        text = docx_to_text(path)
     else:
         with open(path, encoding="utf8", errors="replace") as read_file:
             content = read_file.read()

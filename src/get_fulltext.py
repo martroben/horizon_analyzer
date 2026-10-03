@@ -1,5 +1,6 @@
 # standard
 import datetime
+import io
 import json
 import logging
 import os
@@ -7,8 +8,10 @@ import re
 import sys
 import time
 import urllib.parse
+import zipfile
 # external
 import requests
+from thefuzz import fuzz
 import tqdm
 # local
 import fulltext_conversion
@@ -29,11 +32,17 @@ PEER_REVIEWED_VERSIONS = [
 ]
 MIN_TEXT_LENGTH = 5000          # Shorter PDF or XML text is not a full text (e.g. scanned PDF without text layer)
 MIN_HTML_TEXT_LENGTH = 20000    # Shorter HTML text is not a full text (e.g. abstract page of a paywalled article)
+WORD_TITLE_SIMILARITY_THRESHOLD = 90
+    # A Word file is the article only if the article title is near its beginning (fuzzy match score, 0-100)
+    # Word files on Zenodo can be other documents, e.g. a cover letter or a response to reviewers
+TITLE_SEARCH_CHARACTERS = 5000  # How far from the beginning of the text to look for the title
 HOST_REQUEST_INTERVAL = 1       # Seconds between requests to the same host
 RETRY_FAILED = True             # Retry articles that had no full text in an earlier run
 ZENODO_RECORD_PATTERN = r"zenodo\.org/records?/(\d+)|10\.5281/zenodo\.(\d+)"
 PDF_URL_PATTERN = r"\.pdf($|\?)|/bitstream/|/download/|/files/"
     # OpenAIRE open instance URLs that can be PDF files. The rest are mostly landing pages
+PREPRINT_URL_PATTERN = r"arxiv\.org|biorxiv\.org|medrxiv\.org|chemrxiv\.org|ssrn\.com|preprints\.org|researchsquare\.com|mpra\.ub\.uni-muenchen\.de"
+    # Preprint servers and working paper archives. OpenAIRE doesn't always give them the instance type Preprint
 
 FULLTEXT_DIRECTORY_PATH = "./data/fulltext/"
 RAW_DATA_DIRECTORY_PATH = "./data/raw/"
@@ -199,9 +208,31 @@ def save_fulltext(GUID: str, content: bytes | str, extension: str, min_text_leng
     return file_path, text_file_path, n_characters
 
 
-def save_downloaded_fulltext(GUID: str, response: requests.Response) -> tuple[tuple[str, str, int] | None, str]:
+def is_word_document(content: bytes) -> bool:
     """
-    Saves a downloaded PDF or XML (GROBID TEI) full text. Gives the result of save_fulltext and the result of the attempt.
+    Tells whether downloaded content is a Word document (a .docx file is a zip file with word/document.xml).
+    """
+    try:
+        with zipfile.ZipFile(io.BytesIO(content)) as zip_file:
+            return "word/document.xml" in zip_file.namelist()
+    except zipfile.BadZipFile:
+        return False
+
+
+def text_has_title(text_file_path: str, title: str) -> bool:
+    """
+    Tells whether the article title is near the beginning of a text file. Fuzzy, because ETIS titles can differ a little from the article.
+    """
+    with open(text_file_path, encoding="utf8") as read_file:
+        beginning = read_file.read(TITLE_SEARCH_CHARACTERS)
+    normalise = lambda string: " ".join(re.sub(r"\W", " ", string.lower()).split())
+    return fuzz.partial_ratio(normalise(title or ""), normalise(beginning)) >= WORD_TITLE_SIMILARITY_THRESHOLD
+
+
+def save_downloaded_fulltext(GUID: str, response: requests.Response, title: str) -> tuple[tuple[str, str, int] | None, str]:
+    """
+    Saves a downloaded PDF, XML (GROBID TEI) or Word full text. Gives the result of save_fulltext and the result of the attempt.
+    Word files have to have the article title near the beginning.
     """
     if not response:
         return None, f'http {response.status_code}'
@@ -209,42 +240,55 @@ def save_downloaded_fulltext(GUID: str, response: requests.Response) -> tuple[tu
         saved = save_fulltext(GUID, response.content, "pdf", MIN_TEXT_LENGTH)
     elif response.content.lstrip()[:5] in (b"<?xml", b"<TEI ", b"<TEI>"):
         saved = save_fulltext(GUID, response.content.decode("utf8", errors="replace"), "xml", MIN_TEXT_LENGTH)
+    elif is_word_document(response.content):
+        saved = save_fulltext(GUID, response.content, "docx", MIN_TEXT_LENGTH)
+        if saved and not text_has_title(saved[1], title):
+            for path in saved[:2]:
+                os.remove(path)
+            return None, "word file without the article title"
     else:
         return None, f'not a pdf ({response.headers.get("content-type", "")})'
     return saved, "ok" if saved else "text too short"
 
 
-def get_zenodo_pdf_URL(record: dict) -> str | None:
+def get_zenodo_fulltext_URL(record: dict) -> str | None:
     """
-    Gives the download URL of the article PDF in an open Zenodo record. Gives None if the record isn't open or has no PDF files.
+    Gives the download URL of the article file in an open Zenodo record: a PDF or, if there is none, a Word file.
+    Gives None if the record isn't open or has neither.
     Supplements are named "supplementary" etc. or like the article file with a suffix (e.g. RSC d4mr00006d.pdf and d4mr00006d1.pdf),
-    so the PDF with the shortest name that isn't named as a supplement comes first.
+    so the file with the shortest name that isn't named as a supplement comes first.
     """
     if (record.get("metadata") or {}).get("access_right") != "open":
         return None
-    pdf_files = [file for file in record.get("files") or [] if file["key"].lower().endswith(".pdf")]
-    pdf_files.sort(key=lambda file: (bool(re.search(r"suppl|supporting", file["key"], flags=re.IGNORECASE)), len(file["key"])))
-    return pdf_files[0]["links"]["self"] if pdf_files else None
+    files = [file for file in record.get("files") or [] if file["key"].lower().endswith((".pdf", ".docx"))]
+    files.sort(key=lambda file: (
+        bool(re.search(r"suppl|supporting", file["key"], flags=re.IGNORECASE)),
+        not file["key"].lower().endswith(".pdf"),
+        len(file["key"])
+    ))
+    return files[0]["links"]["self"] if files else None
 
 
 def get_openaire_attempts(research_products: list[dict]) -> list[dict]:
     """
     Gives the full text sources in the open instances of an article's OpenAIRE research products: Zenodo records and links to PDF files.
-    The version is unknown, except for instances of type Preprint.
+    Zenodo records come first, because Horizon projects upload published versions and accepted manuscripts there.
+    The version is unknown, except for preprints (instance type Preprint or a preprint server).
     """
     attempts = []
     for research_product in research_products:
         for instance in research_product.get("instances") or []:
             if (instance.get("accessRight") or {}).get("label") != "OPEN":
                 continue
-            version = "submittedVersion" if instance.get("type") == "Preprint" else None
             for URL in instance.get("urls") or []:
+                is_preprint = instance.get("type") == "Preprint" or re.search(PREPRINT_URL_PATTERN, URL, flags=re.IGNORECASE)
+                version = "submittedVersion" if is_preprint else None
                 zenodo_match = re.search(ZENODO_RECORD_PATTERN, URL, flags=re.IGNORECASE)
                 if zenodo_match:
                     attempts += [{"SOURCE": "zenodo", "URL": zenodo_match.group(1) or zenodo_match.group(2), "VERSION": version, "HOST_TYPE": "repository"}]
                 elif re.search(PDF_URL_PATTERN, URL, flags=re.IGNORECASE):
                     attempts += [{"SOURCE": "openaire_pdf", "URL": URL, "VERSION": version, "HOST_TYPE": None}]
-    return attempts
+    return sorted(attempts, key=lambda attempt: attempt["SOURCE"] != "zenodo")
 
 
 def get_fulltext_attempts(publication: dict, open_data_candidate: dict, openalex_data: dict, research_products: list[dict]) -> list[dict]:
@@ -314,7 +358,7 @@ if not OPENALEX_API_KEY:
 # Get full texts #
 ##################
 
-# Full texts are saved to data/fulltext/<GUID>.<pdf|xml|html> with a plain text copy <GUID>.txt
+# Full texts are saved to data/fulltext/<GUID>.<pdf|xml|html|docx> with a plain text copy <GUID>.txt
 # and a <GUID>.json file that tells where the full text came from. Articles that already have a full text are skipped
 
 # Reload data from save files
@@ -381,19 +425,19 @@ for publication in tqdm.tqdm(open_access_data, desc="Getting full texts"):
 
             elif attempt["SOURCE"] in ("oa_pdf", "openaire_pdf", "openalex_content"):
                 session = openalex_session if attempt["SOURCE"] == "openalex_content" else download_session
-                saved, attempt["RESULT"] = save_downloaded_fulltext(GUID, session.get_politely(attempt["URL"]))
+                saved, attempt["RESULT"] = save_downloaded_fulltext(GUID, session.get_politely(attempt["URL"]), publication["TITLE"])
 
             elif attempt["SOURCE"] == "zenodo":
                 # Zenodo record lists its files
                 response = zenodo_session.get_record(attempt["URL"])
-                pdf_URL = get_zenodo_pdf_URL(response.json()) if response else None
+                fulltext_URL = get_zenodo_fulltext_URL(response.json()) if response else None
                 if not response:
                     attempt["RESULT"] = f'http {response.status_code}'
-                elif not pdf_URL:
-                    attempt["RESULT"] = "no open pdf in the record"
+                elif not fulltext_URL:
+                    attempt["RESULT"] = "no open pdf or word file in the record"
                 else:
-                    attempt["URL"] = pdf_URL
-                    saved, attempt["RESULT"] = save_downloaded_fulltext(GUID, zenodo_session.get_politely(pdf_URL))
+                    attempt["URL"] = fulltext_URL
+                    saved, attempt["RESULT"] = save_downloaded_fulltext(GUID, zenodo_session.get_politely(fulltext_URL), publication["TITLE"])
 
             elif attempt["SOURCE"] == "oa_html":
                 response = download_session.get_politely(attempt["URL"])

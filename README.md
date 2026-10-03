@@ -35,4 +35,4 @@ OpenAlex title searches (for articles without a DOI) cost $0.001 each against a 
 
 Secrets are files in the `secrets/` folder of the repository root, one file per secret, file name is the secret name (like secrets mounted in Kubernetes). The folder is not committed (`secrets/` is in `.gitignore`). Save the OpenAlex API key (only the key) to `secrets/openalex_api_key`.
 
-`get_fulltext.py` converts PDFs to text with `pdftotext` from poppler-utils (`sudo apt install poppler-utils`). With the OpenAlex API key it also downloads OpenAlex cached full texts ($0.01 each). Full texts are not committed (`data/fulltext/` is in `.gitignore`).
+`get_fulltext.py` converts PDFs to text with `pdftotext` from poppler-utils (`sudo apt install poppler-utils`). Word files (.docx) are converted without extra tools. With the OpenAlex API key it also downloads OpenAlex cached full texts ($0.01 each). Full texts are not committed (`data/fulltext/` is in `.gitignore`).

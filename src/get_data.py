@@ -35,7 +35,7 @@ ETIS_FINISHED_PROJECT_STATUS_CODE = 3
     # 2 - ongoing projects
     # 3 - finished projects
 
-OPENALEX_API_KEY = os.environ.get("OPENALEX_API_KEY")
+OPENALEX_API_KEY_SECRET_NAME = "openalex_api_key"
     # Optional. Without a key, title searches are limited by a $0.10 daily budget ($0.001 per search)
     # A free key raises the budget to $1: https://openalex.org/settings/api
 OPENALEX_WORK_FIELDS = [
@@ -65,6 +65,8 @@ OPEN_ACCESS_VERSIONS = [
 RAW_DATA_DIRECTORY_PATH = "./data/raw/"
 RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
 MANUALLY_CHECKED_PUBLICATIONS_PATH = "./data/manual/manually_checked_publications.json"
+SECRETS_DIRECTORY_PATH = "./secrets/"
+    # One file per secret, file name is the secret name. Not committed
 
 
 #########################
@@ -202,6 +204,21 @@ def get_timestamp_string() -> str:
     return timestamp_string
 
 
+def read_secret(dir_path: str, name: str) -> str | None:
+    """
+    Reads a secret from dir_path. Every secret is in its own file with the secret's name (like secrets mounted in Kubernetes).
+    Gives None if there's no file for the secret.
+    """
+    path = f'{dir_path.rstrip("/")}/{name}'
+    if not os.path.exists(path):
+        return None
+
+    with open(path, encoding="utf8") as read_file:
+        secret = read_file.read().strip()
+
+    return secret or None
+
+
 def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
     """
     Reads file with the latest timestamp in filename from given dir_path.
@@ -236,6 +253,11 @@ if not os.path.exists(RESULTS_DATA_DIRECTORY_PATH):
 logger = logging.getLogger()
 logger.setLevel("INFO")
 logger.addHandler(logging.StreamHandler(sys.stdout))
+
+# Secrets
+OPENALEX_API_KEY = read_secret(SECRETS_DIRECTORY_PATH, OPENALEX_API_KEY_SECRET_NAME)
+if not OPENALEX_API_KEY:
+    logger.info(f'No OpenAlex API key in {SECRETS_DIRECTORY_PATH} - title searches have a $0.10 daily budget')
 
 
 ######################

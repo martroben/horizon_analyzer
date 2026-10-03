@@ -1,11 +1,13 @@
 # 2026-10-03
+Secrets are now files in the `secrets/` folder (not committed), one file per secret, file name is the secret name (like secrets mounted in Kubernetes). `get_data` and `get_fulltext` read the OpenAlex API key from `secrets/openalex_api_key` instead of the `OPENALEX_API_KEY` environment variable.
+
 Started open data checks (step 3). Claude Code checks the articles one by one with the `check-open-data` skill (`.claude/skills/check-open-data/SKILL.md`) and appends one record per article to `data/assessments/open_data_assessments.jsonl`. The full text check also settles open access of the articles where it's unclear.
 
 Open data = the data needed to validate the article's results can be freely downloaded (H2020 Art. 29.3 / Horizon Europe bar). Labels: repository, supplement, public_source (count as open data), restricted, on_request, in_article, not_available, no_data, no_fulltext (left out of the rates). Records also say whether the open data are full or partial, raw or processed. Datasets of the Horizon project count only if the article itself links to them (AHEAD case). All 842 articles will be checked eventually.
 
 Added scripts:
 - `get_open_data_candidates` - candidate data links by DOI: ScholeXplorer dataset and software links, DataCite records that are supplements to the article, Europe PMC records (PMC IDs, text-mined accession numbers), OpenAIRE datasets of the Horizon projects.
-- `get_fulltext` - full texts to `data/fulltext/` (not committed): PMC XML via NCBI E-utilities, open PDFs and journal pages of published versions and author manuscripts from OpenAlex locations, OpenAlex cached copies (needs `OPENALEX_API_KEY`), open preprint PDFs. PDFs are converted with pdftotext (`fulltext_conversion`). Uses a browser user agent - many publishers (e.g. MDPI) refuse open access PDFs to scripts.
+- `get_fulltext` - full texts to `data/fulltext/` (not committed): PMC XML via NCBI E-utilities, open PDFs and journal pages of published versions and author manuscripts from OpenAlex locations, OpenAlex cached copies (needs an OpenAlex API key), open preprint PDFs. PDFs are converted with pdftotext (`fulltext_conversion`). Uses a browser user agent - many publishers (e.g. MDPI) refuse open access PDFs to scripts.
 - `make_open_data_queue` - everything that the check needs per article. The 20 articles of the Jan 2025 random sample come first, the rest are in a fixed random order, so that any number of checked articles is a random sample.
 - `next_open_data_batch` - prints the next articles to check. `validate_open_data_assessments` - checks that quotes are in the cached full texts and that links work.
 - `analyse_data` uses the open access verdicts of the full text check and gives open data rates with 95% confidence intervals by data mandate group.

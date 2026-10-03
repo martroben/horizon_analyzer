@@ -30,6 +30,8 @@ Run the scripts from the repository root with `uv run` (e.g. `uv run src/get_dat
 9. Open data checks by Claude Code: ask Claude to run the `check-open-data` skill (`.claude/skills/check-open-data/SKILL.md`). Claude appends one record per article to `data/assessments/open_data_assessments.jsonl` and checks them with `src/validate_open_data_assessments.py`
 10. `src/analyse_data.py`
 
-OpenAlex title searches (for articles without a DOI) cost $0.001 each against a $0.10 daily budget. Set an `OPENALEX_API_KEY` environment variable to use a free API key with a $1 daily budget: https://openalex.org/settings/api
+OpenAlex title searches (for articles without a DOI) cost $0.001 each against a $0.10 daily budget. A free API key raises the daily budget to $1: https://openalex.org/settings/api.
 
-`get_fulltext.py` converts PDFs to text with `pdftotext` from poppler-utils (`sudo apt install poppler-utils`). With `OPENALEX_API_KEY` it also downloads OpenAlex cached full texts ($0.01 each). Full texts are not committed (`data/fulltext/` is in `.gitignore`).
+Secrets are files in the `secrets/` folder of the repository root, one file per secret, file name is the secret name (like secrets mounted in Kubernetes). The folder is not committed (`secrets/` is in `.gitignore`). Save the OpenAlex API key (only the key) to `secrets/openalex_api_key`.
+
+`get_fulltext.py` converts PDFs to text with `pdftotext` from poppler-utils (`sudo apt install poppler-utils`). With the OpenAlex API key it also downloads OpenAlex cached full texts ($0.01 each). Full texts are not committed (`data/fulltext/` is in `.gitignore`).

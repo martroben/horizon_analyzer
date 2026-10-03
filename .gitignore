@@ -4,3 +4,4 @@ _scratch*
 data/raw/*
 data/fulltext/
 __pycache__/
+secrets/

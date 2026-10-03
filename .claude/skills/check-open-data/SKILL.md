@@ -54,8 +54,8 @@ Pick exactly one label - the most open one that holds for the article's own unde
 |---|---|---|
 | `repository` | The article's underlying data are deposited in a public repository or database (Zenodo, Figshare, Dryad, OSF, Mendeley Data, DataDOI, institutional repository, GitHub with the data, GEO/SRA/ENA/EGA-open/PDB/CCDC/PRIDE accession of new data) and can be downloaded without an application. | yes |
 | `supplement` | Supplementary files with actual data (spreadsheets, CSV, raw measurements, source data, full result tables) can be downloaded from the publisher or PMC. Supplements with only methods, extra figures or text don't count. | yes |
-| `public_source` | The article analyses only existing data that anyone can download from a cited public source (e.g. Eurostat, World Bank, open public databases, public genome data). Data that need registration, an application or a fee are `restricted`. | yes |
-| `restricted` | Data are available under controlled access: data access committee, biobank application (e.g. Estonian Biobank), data use agreement, registration. | no |
+| `public_source` | The article analyses only existing data that anyone can download from a cited public source (e.g. Eurostat, World Bank, open public databases, public genome data), possibly after a free instant signup. Data that need a reviewed application or a fee are `restricted`. | yes |
+| `restricted` | Data are available under controlled access: data access committee, biobank application (e.g. Estonian Biobank), data use agreement, reviewed registration. | no |
 | `on_request` | Data are available from the authors on (reasonable) request. | no |
 | `in_article` | The article says all data are in the article (tables, figures) and there are no data files. | no |
 | `not_available` | The article has underlying data, but they aren't shared: no statement and nothing found, "data not available", confidentiality, or the links are dead or lead to a project website without the data. | no |
@@ -64,11 +64,13 @@ Pick exactly one label - the most open one that holds for the article's own unde
 
 Rules:
 - Only the article's **own** underlying data count. Other people's data that the article reuses count only under `public_source` (when the article's results rest on them alone).
-- Reused third-party data: if every source is openly downloadable -> `public_source`; if a named provider gives the data only through an application, registration or agreement (national statistics or education microdata, biobanks, UK Biobank) -> `restricted`, also when the article doesn't describe the access route; if the source is private or unnamed (company data, "data provided by X" without a public access route) -> `not_available`.
+- Access with a free account that anyone can create without review (e.g. a portal login) counts as openly downloadable. Access that someone reviews (research protocol, data access committee, data use agreement, biobank application) is `restricted`, even when it's free.
+- Reused third-party data: if every source is openly downloadable -> `public_source`; if a named provider gives the data only after review (national statistics or education microdata, biobanks, UK Biobank) -> `restricted`, also when the article doesn't describe the access route; if the source is private or unnamed (company data, "data provided by X" without a public access route) -> `not_available`.
 - When the article combines shared and unshared data, label by the most open part and set DATA_COVERAGE `partial` (e.g. one PDB structure is deposited but the cell assay data aren't).
 - DATA_COVERAGE: `full` = the data behind all main results; `partial` = only some of them. Count all openly available parts together (e.g. a CCDC structure plus raw titration data in the supplement). DATA_LEVEL: `raw` = primary measurements or records (sequencing reads, survey microdata, instrument output, transcripts); `processed` = aggregated or derived data (summary statistics, result tables, figure source data). Both are needed for `repository`, `supplement`, `public_source` and `restricted`; set them to null otherwise.
 - "Data available on request" plus a repository link: the repository wins if it actually has the data.
-- "All data are in the article or the supplementary material" with supplements that have data files: `supplement`. Without data files: `in_article`.
+- "All data are in the article or the supplementary material" with supplements that have data files: `supplement`. Without data files: `in_article`. Supplementary files with data in any format count (including PDF tables or coordinates); `in_article` is only for when everything available is in the article itself.
+- Data in field-specific formats (e.g. FITS, CIF, instrument formats) count as openly downloadable if they can be read with free software.
 
 Candidate links need judgement:
 - DataCite `IsSupplementTo` records and ScholeXplorer dataset links with a repository DOI are strong evidence, but check that the record is about this article.

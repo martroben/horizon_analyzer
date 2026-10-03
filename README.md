@@ -6,8 +6,15 @@
 - OpenAIRE Graph API: https://graph.openaire.eu/docs/apis/graph-api/
 - OpenAIRE search API: https://graph.openaire.eu/docs/apis/search-api/projects
 
+## Setup
+Dependencies are managed with [uv](https://docs.astral.sh/uv/). Install the locked dependencies into `.venv`:
+```
+uv sync
+```
+Add or upgrade dependencies with `uv add <package>` / `uv lock --upgrade-package <package>` and commit `pyproject.toml` and `uv.lock` together.
+
 ## Running
-Run the scripts from the repository root, in this order:
+Run the scripts from the repository root with `uv run` (e.g. `uv run src/get_data.py`), in this order:
 1. `src/get_data.py` - ETIS projects, publications and scientific articles; open access info from OpenAlex
 2. `src/get_openaire_graph_projects.py` - OpenAIRE projects with Estonian partners
 3. `src/get_openaire_search_project_results.py` - OpenAIRE search API matches of ETIS projects

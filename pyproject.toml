@@ -1,0 +1,12 @@
+[project]
+name = "horizon-analyzer"
+version = "0.1.0"
+description = "Open access and open data analysis of Estonian Horizon projects"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "polars>=1.44.2",
+    "requests>=2.32.3",
+    "thefuzz>=0.22.1",
+    "tqdm>=4.67.1",
+]

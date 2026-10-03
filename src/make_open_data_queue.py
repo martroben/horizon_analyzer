@@ -3,7 +3,6 @@ import datetime
 import json
 import logging
 import os
-import random
 import re
 import sys
 
@@ -15,8 +14,6 @@ import sys
 PILOT_GUIDS_PATH = "./data/manual/manual_check_guids_20250118112133UTC.txt"
     # Random sample of 20 articles (seed 1913) that was selected for manual open data checks in Jan 2025
     # These come first in the queue, because some of them have reference results from the manual checks
-QUEUE_RANDOM_SEED = 20261003
-    # The rest of the articles are in a random order, so that any number of checked articles is a random sample
 OPENAIRE_GRANT_ID_PREFIXES = ["corda__h2020::", "corda_____he::"]
     # OpenAIRE ID prefixes of Horizon 2020 and Horizon Europe grants
 PREPRINT_URL_PATTERN = r"arxiv\.org|biorxiv\.org|medrxiv\.org|chemrxiv\.org|techrxiv\.org|10\.36227/techrxiv|ssrn\.com|preprints\.org|researchsquare\.com|mpra\.ub\.uni-muenchen\.de"
@@ -246,10 +243,10 @@ for article in articles:
         "FULLTEXT": {key: value for key, value in fulltext.items() if key not in ("GUID", "DOI")}
     }]
 
-# Pilot articles first, then the rest in a fixed random order
+# Pilot articles first, then the rest by GUID. ETIS GUIDs are random (UUID version 4), so the GUID order is a random order:
+# any number of checked articles is a random sample. Added articles get a random place, the others keep their order
 queue_index = {item["GUID"]: item for item in queue}
 other_GUIDs = sorted(GUID for GUID in queue_index if GUID not in pilot_GUIDs)
-random.Random(QUEUE_RANDOM_SEED).shuffle(other_GUIDs)
 queue_ordered = []
 for i, GUID in enumerate([GUID for GUID in pilot_GUIDs if GUID in queue_index] + other_GUIDs, start=1):
     queue_ordered += [{"QUEUE_POSITION": i, "IS_PILOT": GUID in pilot_GUIDs, **queue_index[GUID]}]

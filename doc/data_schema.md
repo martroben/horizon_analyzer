@@ -114,7 +114,7 @@ Same records as the sidecar files `data/fulltext/<GUID>.json`. The full text is 
 | `ATTEMPTS` | list | full text sources tried, best first: `SOURCE` (code), `URL`, `VERSION` (code, null if unknown), `HOST_TYPE` (code), `RESULT` (code), `RESULT_DETAIL` (HTTP status, content type or error name) |
 
 ## open_data_queue
-Everything known automatically about an article. The order is the check order: the 20 articles of the Jan 2025 random sample first, then the rest in a fixed random order, so that any number of checked articles is a random sample.
+Everything known automatically about an article. The order is the check order: the 20 articles of the Jan 2025 random sample first, then the rest by GUID. ETIS GUIDs are random (UUID version 4), so this is a random order and any number of checked articles is a random sample. Added articles get a random place, the places of the others stay the same.
 
 | Field | Type | |
 |---|---|---|

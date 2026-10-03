@@ -55,6 +55,12 @@ OPENALEX_WORK_FIELDS = [
     "awards",
     "funders"
 ]
+OPEN_ACCESS_VERSIONS = [
+    "publishedVersion",     # Version of record
+    "acceptedVersion"       # Peer-reviewed author manuscript
+]
+    # Horizon open access mandate requires the published version or the peer-reviewed manuscript to be open
+    # Open submitted versions (preprints) and open copies of unknown version don't count
 
 RAW_DATA_DIRECTORY_PATH = "./data/raw/"
 RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
@@ -501,6 +507,10 @@ for article in scientific_articles:
     openalex_response = openalex_responses_index.get(article["GUID"]) or {}
     openalex_data = openalex_response.get("DATA") or {}
     openalex_open_access = openalex_data.get("open_access") or {}
+    openalex_open_versions = sorted({location.get("version") or "unknown" for location in openalex_data.get("locations") or [] if location.get("is_oa")})
+    openalex_has_open_peer_reviewed_version = None
+    if openalex_data:
+        openalex_has_open_peer_reviewed_version = any(version in OPEN_ACCESS_VERSIONS for version in openalex_open_versions)
     manual_check_result = open_access_manual_check_results_index.get(article["GUID"]) or {}
 
     open_access_datum = {
@@ -519,6 +529,8 @@ for article in scientific_articles:
         "OPENALEX_IS_OPEN_ACCESS": openalex_open_access.get("is_oa"),
         "OPENALEX_OPEN_ACCESS_TYPE": openalex_open_access.get("oa_status"),
         "OPENALEX_OPEN_ACCESS_URL": openalex_open_access.get("oa_url"),
+        "OPENALEX_OPEN_VERSIONS": openalex_open_versions,
+        "OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION": openalex_has_open_peer_reviewed_version,
         "IS_AVAILABLE_MANUALLY_CHECKED": manual_check_result.get("IS_AVAILABLE")
     }
     open_access_data += [open_access_datum]
@@ -539,15 +551,17 @@ logger.info(info_string)
 open_access_data = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_access_data")
 
 # A publication has ambiguous open access data if it's ETIS and OpenAlex information doesn't align.
+# OpenAlex counts only open published versions and peer-reviewed manuscripts (Horizon open access mandate).
+# Ambiguous publications are settled when their full text is checked.
 
 open_access_data_ambiguous = []
 for publication in open_access_data:
     # Skip publications where ETIS and OpenAlex info both agree that publication is available
-    if publication["IS_OPEN_ACCESS"] and publication["OPENALEX_IS_OPEN_ACCESS"]:
+    if publication["IS_OPEN_ACCESS"] and publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"]:
         continue
 
     # Skip publications where ETIS and OpenAlex info both agree that publication is not available
-    if not (publication["IS_OPEN_ACCESS"] or publication["OPENALEX_IS_OPEN_ACCESS"]):
+    if not (publication["IS_OPEN_ACCESS"] or publication["OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION"]):
         continue
 
     # Skip publications that have manually checked availability status

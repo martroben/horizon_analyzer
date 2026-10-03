@@ -19,6 +19,18 @@ Decisions: keep using only finished projects. An article's data mandate comes fr
 
 ETIS now has 512 finished Horizon projects with 842 scientific articles (592 in Jan 2025).
 
+Open access now follows the Horizon open access mandate: an article is open if its published version or peer-reviewed author manuscript is free to read. Open submitted versions (preprints) and open copies of unknown version in OpenAlex don't count. Open access summary has new fields `OPENALEX_OPEN_VERSIONS` and `OPENALEX_HAS_OPEN_PEER_REVIEWED_VERSION`. The ambiguous open access check and `analyse_data` use the latter. Ambiguous articles will be settled when their full text is checked.
+
+Refresh run (ETIS pull of 2026-10-02, OpenAlex step onwards on 2026-10-03): OpenAlex has data for 809 of the 842 articles (14 by title search, 47 searches). 650 of 842 articles (77%) are open to read (684, 81% if preprints count). 66 articles have ambiguous open access status: 34 ETIS open, but OpenAlex has only an open preprint or copy of unknown version; 15 ETIS closed, but OpenAlex has an open published version or author manuscript; 9 ETIS open, OpenAlex closed; 8 ETIS open, not in OpenAlex. On the 582 articles that were also in the Jan 2025 run, counting any version: 474 open to read now, 480 with Open Access Button (9 open -> closed, 3 closed -> open).
+
+Both ETIS and OpenAlex make errors. OpenAlex marks 5 Materials Science Forum articles CC BY because of the site footer, but the articles are for sale. OpenAlex says closed for Science 10.1126/science.abd3072 (CC BY in Crossref, full text in Europe PMC) and Halduskultuur 10.32994/hk.v21i1.253 (free PDF). ETIS says gold CC BY for Nature Medicine 10.1038/s41591-025-03543-8, but Crossref has a Springer Nature licence and the article page has a price.
+
+Jan 2025 manual checks used "free to read". 19 manually checked open articles have only an open preprint or copy of unknown version in OpenAlex. These need to be checked again with the full text.
+
+418 of the 512 ETIS projects have a Horizon ID (368 search API, 26 publication project links, 14 exact title, 10 approximate title), 404 of them with data mandate flags. 14 matched projects have no flags because OpenAIRE lists no Estonian partner for them. Only CORBEL (654248) of these has articles (5). 199 projects have articles: 186 matched, 185 with flags.
+
+Articles open to read by their projects' data mandate: H2020 with mandate 322 of 408 (79%), H2020 without mandate 247 of 325 (76%), Horizon Europe 53 of 67 (79%), mixed 17 of 27, unknown 11 of 15.
+
 # 2025-04-22
 Further work on fuzzy title matching between ETIS and OpenAire projects. It seems that many unmatched projects are from Horizon EIT programs. https://etag.ee/en/funding/partnership-funding/horizon-2020-eit-grant/. Maybe just smaller fundings from big umbrella projects.
 

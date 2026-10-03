@@ -1,14 +1,14 @@
 [
   {
-    "OPENAIRE_ID": "corda__h2020::68638a14ebd2e4658911898f19183319",
     "HORIZON_ID": "668995",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::68638a14ebd2e4658911898f19183319",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::3b1d41a2e0ab25811a34e2f1d9d75d7b",
     "HORIZON_ID": "668989",
-    "N_FOUND": 5,
+    "OPENAIRE_ID": "corda__h2020::3b1d41a2e0ab25811a34e2f1d9d75d7b",
+    "N_DATASETS": 5,
     "DATASETS": [
       {
         "TITLE": "Looking beyond the brain to improve the pathogenic understanding of Parkinson’s disease: implications of whole transcriptome profiling of Patients’ skin",
@@ -72,9 +72,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::cfee62865bfff227e5554edf7be5bb99",
     "HORIZON_ID": "810630",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::cfee62865bfff227e5554edf7be5bb99",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Amperometric method for the determination of cellulase activity and its optimization using response surface method",
@@ -90,9 +90,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::aa418fb02f839aa6295234613ba8a1d0",
     "HORIZON_ID": "810645",
-    "N_FOUND": 5,
+    "OPENAIRE_ID": "corda__h2020::aa418fb02f839aa6295234613ba8a1d0",
+    "N_DATASETS": 5,
     "DATASETS": [
       {
         "TITLE": "Additional file 2 of Leveraging large-scale multi-omics evidences to identify therapeutic targets from genome-wide association studies",
@@ -152,15 +152,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::700e9bfc708ab10aa79dcfc3d63bfb99",
     "HORIZON_ID": "952509",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::700e9bfc708ab10aa79dcfc3d63bfb99",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::d5e8aaad851b4dc1c119719bef7b7a6a",
     "HORIZON_ID": "857418",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::d5e8aaad851b4dc1c119719bef7b7a6a",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Immunomodulatory effects of <i>Ascaridia galli</i> excretory-secretory products, including extracellular vesicles, on host immune cell function",
@@ -210,15 +210,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::1885f6e23bbe353e2739e773cc344ebc",
     "HORIZON_ID": "633477",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::1885f6e23bbe353e2739e773cc344ebc",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::c4a22772c9d69502ac76b888fbef9bda",
     "HORIZON_ID": "641822",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::c4a22772c9d69502ac76b888fbef9bda",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Electrically tunable directional light scattering from soft thin membranes",
@@ -234,9 +234,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::35f59c61c4a5d69e26bcf27337f4c85c",
     "HORIZON_ID": "633053",
-    "N_FOUND": 83,
+    "OPENAIRE_ID": "corda__h2020::35f59c61c4a5d69e26bcf27337f4c85c",
+    "N_DATASETS": 83,
     "DATASETS": [
       {
         "TITLE": "Review of recent experimental and modeling advances in the understanding of lower hybrid current drive in ITER-relevant regimes",
@@ -1143,9 +1143,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::1fa835bec92fa3226d1bfcd205c0b73b",
     "HORIZON_ID": "635568",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda__h2020::1fa835bec92fa3226d1bfcd205c0b73b",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "2D-sensitive flow sensor array data set for five different objects",
@@ -1184,15 +1184,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::d7f100d127b8dd3643e2b41f41257471",
     "HORIZON_ID": "644905",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::d7f100d127b8dd3643e2b41f41257471",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::89f40c5fa07f25ef8c5fe0f1f35c3069",
     "HORIZON_ID": "649538",
-    "N_FOUND": 38,
+    "OPENAIRE_ID": "corda__h2020::89f40c5fa07f25ef8c5fe0f1f35c3069",
+    "N_DATASETS": 38,
     "DATASETS": [
       {
         "TITLE": "Catch-Eyou: Ethnographic Qualitative Study Of Selected Cases (Including Participant Observation And In-Depth Interviews)",
@@ -1624,15 +1624,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::ddf3b81b39e05fee018e61762a12c934",
     "HORIZON_ID": "653497",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::ddf3b81b39e05fee018e61762a12c934",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::70b7b02aed49dead3f37c2280876ffc0",
     "HORIZON_ID": "635750",
-    "N_FOUND": 5,
+    "OPENAIRE_ID": "corda__h2020::70b7b02aed49dead3f37c2280876ffc0",
+    "N_DATASETS": 5,
     "DATASETS": [
       {
         "TITLE": "Global gridded AHF for 2015 (30 arc-second)",
@@ -1689,9 +1689,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::9432bda5eef71de8460af3257c96c59b",
     "HORIZON_ID": "649496",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::9432bda5eef71de8460af3257c96c59b",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Transitions from temporary employment to permanent employment among young adults: The role of labour law and education systems",
@@ -1718,9 +1718,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::37c339d3ec43a89e38eca51a87dd9acd",
     "HORIZON_ID": "669074",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::37c339d3ec43a89e38eca51a87dd9acd",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Dataset used in Design Analytics for Mobile Learning: Scaling up theClassification of Learning Designs based onCognitive and Contextual Elements",
@@ -1736,9 +1736,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::aa8f1bb183c8e3deeedb8fd422d9970b",
     "HORIZON_ID": "676559",
-    "N_FOUND": 48,
+    "OPENAIRE_ID": "corda__h2020::aa8f1bb183c8e3deeedb8fd422d9970b",
+    "N_DATASETS": 48,
     "DATASETS": [
       {
         "TITLE": "FAIR Computational Workflows",
@@ -2276,15 +2276,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::f10685af1dfdf5b83e8c9d89d3ed19aa",
     "HORIZON_ID": "665926",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::f10685af1dfdf5b83e8c9d89d3ed19aa",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::e7f5e7755409fc74eea9d168ab795634",
     "HORIZON_ID": "654024",
-    "N_FOUND": 18,
+    "OPENAIRE_ID": "corda__h2020::e7f5e7755409fc74eea9d168ab795634",
+    "N_DATASETS": 18,
     "DATASETS": [
       {
         "TITLE": "Word Sense Change Testset",
@@ -2495,9 +2495,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::d0e1e2dc9473cdb301f7e97de3bda3cd",
     "HORIZON_ID": "633589",
-    "N_FOUND": 24,
+    "OPENAIRE_ID": "corda__h2020::d0e1e2dc9473cdb301f7e97de3bda3cd",
+    "N_DATASETS": 24,
     "DATASETS": [
       {
         "TITLE": "ClonoCalc and ClonoPlot: immune repertoire analysis from raw files to publication figures with graphical user interface",
@@ -2778,9 +2778,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::675a4b6d3ec0506e37245ca8643ce26c",
     "HORIZON_ID": "633724",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::675a4b6d3ec0506e37245ca8643ce26c",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Supplementary Material for: Mode of Delivery and Incidence of Bronchopulmonary Dysplasia: Results from the Population-Based EPICE Cohort",
@@ -2796,21 +2796,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::84a5a8b0547bb790c4ae55f97eb35ab3",
     "HORIZON_ID": "665100",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::84a5a8b0547bb790c4ae55f97eb35ab3",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::3ccb3c355abac95349c8538089e4d82c",
     "HORIZON_ID": "691818",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::3ccb3c355abac95349c8538089e4d82c",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::8a0bd28d19bb5f209ee5bccff989718f",
     "HORIZON_ID": "676550",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::8a0bd28d19bb5f209ee5bccff989718f",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Tomm34 is commonly expressed in epithelial ovarian cancer and associates with tumour type and high FIGO stage",
@@ -2836,9 +2836,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::9d78f583561d1cc4f2ce0a375cd7073f",
     "HORIZON_ID": "692065",
-    "N_FOUND": 15,
+    "OPENAIRE_ID": "corda__h2020::9d78f583561d1cc4f2ce0a375cd7073f",
+    "N_DATASETS": 15,
     "DATASETS": [
       {
         "TITLE": "Additional file 7: of The influence of menstrual cycle and endometriosis on endometrial methylome",
@@ -3011,9 +3011,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::8f7337f2fb165de692bcfd7d166d100d",
     "HORIZON_ID": "692145",
-    "N_FOUND": 49,
+    "OPENAIRE_ID": "corda__h2020::8f7337f2fb165de692bcfd7d166d100d",
+    "N_DATASETS": 49,
     "DATASETS": [
       {
         "TITLE": "Research data supporting \"Genome-wide analysis identifies genetic effects on reproductive success and ongoing natural selection at the FADS locus\"",
@@ -3551,9 +3551,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::46a6c8b24b21393b1920d99bf13f1014",
     "HORIZON_ID": "654215",
-    "N_FOUND": 9,
+    "OPENAIRE_ID": "corda__h2020::46a6c8b24b21393b1920d99bf13f1014",
+    "N_DATASETS": 9,
     "DATASETS": [
       {
         "TITLE": "IceCube catalog of alert events up through IceCube-170922A",
@@ -3648,9 +3648,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::8daaf199fe93a3c31e7d144ca8823e91",
     "HORIZON_ID": "687320",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::8daaf199fe93a3c31e7d144ca8823e91",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "RADOLAN_API - A Soil Moisture Data Set derived from Weather Radar Data",
@@ -3666,15 +3666,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::5465ed7834077dbea761ede7e4a483f7",
     "HORIZON_ID": "691883",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::5465ed7834077dbea761ede7e4a483f7",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::e22bbe4fd3fdc0aa557e7d81eb0dc6c6",
     "HORIZON_ID": "693849",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::e22bbe4fd3fdc0aa557e7d81eb0dc6c6",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Greek Government Vehicles",
@@ -3690,15 +3690,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::d7b7c71c47333684c73f5eaf56d249cc",
     "HORIZON_ID": "693221",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::d7b7c71c47333684c73f5eaf56d249cc",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::af98c25c4fd2d68232c7719adde0bbc4",
     "HORIZON_ID": "696656",
-    "N_FOUND": 64,
+    "OPENAIRE_ID": "corda__h2020::af98c25c4fd2d68232c7719adde0bbc4",
+    "N_DATASETS": 64,
     "DATASETS": [
       {
         "TITLE": "CCDC 1521825: Experimental Crystal Structure Determination",
@@ -4355,9 +4355,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::2335926686a8c91d09771a9433db32f0",
     "HORIZON_ID": "689518",
-    "N_FOUND": 22,
+    "OPENAIRE_ID": "corda__h2020::2335926686a8c91d09771a9433db32f0",
+    "N_DATASETS": 22,
     "DATASETS": [
       {
         "TITLE": "Meiofaunal Communities from Three Contrasting Habitats at the Lucky Strike Vent Field, Northern Mid-Atlantic Ridge",
@@ -4596,21 +4596,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::6ba0386031c2098bb93a6f3e4dac4f58",
     "HORIZON_ID": "731053",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::6ba0386031c2098bb93a6f3e4dac4f58",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::2d7e4a5ad8b7e972f22a586424b6dd0a",
     "HORIZON_ID": "734712",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::2d7e4a5ad8b7e972f22a586424b6dd0a",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::e4540b34dea0d247bf1b2b8083e7c1f8",
     "HORIZON_ID": "722518",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda__h2020::e4540b34dea0d247bf1b2b8083e7c1f8",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "NIOO-QingZ/Geertruidenberg_Mesocosms: Towards climate-robust water quality management: testing the efficacy of different eutrophication control measures during a heat",
@@ -4646,9 +4646,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::9e80b73a7cc4b41f08e2cacddb6188d4",
     "HORIZON_ID": "689443",
-    "N_FOUND": 75,
+    "OPENAIRE_ID": "corda__h2020::9e80b73a7cc4b41f08e2cacddb6188d4",
+    "N_DATASETS": 75,
     "DATASETS": [
       {
         "TITLE": "Questions and answers about the Nachtlichter project and 2021 results",
@@ -5444,9 +5444,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::3879ce7a8441d1a0a9576a22357fd290",
     "HORIZON_ID": "730066",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::3879ce7a8441d1a0a9576a22357fd290",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Leaf reflectance can surrogate foliar economics better than physiological traits across macrophyte species",
@@ -5495,21 +5495,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::5fd6e77dc5d9d58ecae624875aa61af8",
     "HORIZON_ID": "737460",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::5fd6e77dc5d9d58ecae624875aa61af8",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::5f20706d3e179a438c4728e6ebf0223c",
     "HORIZON_ID": "734791",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::5f20706d3e179a438c4728e6ebf0223c",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::de08b93438f86b7f22a0a0dda6398f56",
     "HORIZON_ID": "727830",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::de08b93438f86b7f22a0a0dda6398f56",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Fine-scale fish telemetry at the Altusried hydropower plant",
@@ -5536,9 +5536,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::f72b7a9ec7df67c3df21f659fbdaf52e",
     "HORIZON_ID": "739530",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::f72b7a9ec7df67c3df21f659fbdaf52e",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Dataset to: Vertical distribution of ice nucleating particles over the boreal forest of Hyytiälä, Finland",
@@ -5590,9 +5590,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::7abea7212c886026f924c793628abbe5",
     "HORIZON_ID": "726840",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda__h2020::7abea7212c886026f924c793628abbe5",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "A stakeholder perspective on public sector innovation: Linking the target groups of innovations to the inclusion of stakeholder ideas",
@@ -5630,9 +5630,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::1657fc3f995ac7ec0a867610dd566563",
     "HORIZON_ID": "679266",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::1657fc3f995ac7ec0a867610dd566563",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Multilevel responses of adult zebrafish to crude and chemically dispersed oil exposure",
@@ -5648,27 +5648,27 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::a2a3b67e3014ac42f6764286ff09dbc7",
     "HORIZON_ID": "764816",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::a2a3b67e3014ac42f6764286ff09dbc7",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::7d942c89dda2c725c7de00d027cd2af7",
     "HORIZON_ID": "722325",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::7d942c89dda2c725c7de00d027cd2af7",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::e26d67e70c34fc629d121b168f2f1700",
     "HORIZON_ID": "754177",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::e26d67e70c34fc629d121b168f2f1700",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::594de9fa72c2fef47b7061550b5bca87",
     "HORIZON_ID": "770492",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::594de9fa72c2fef47b7061550b5bca87",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Additional file 1 of Evaluation of an intervention aimed at supporting new parents: the Baby Newsletter project",
@@ -5716,9 +5716,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::4b5b01522d5373454c6ed3cbb2ae9aba",
     "HORIZON_ID": "774586",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::4b5b01522d5373454c6ed3cbb2ae9aba",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "sj-xlsx-1-wmr-10.1177_0734242X231180648 – Supplemental material for Plastic Venture Builder (PVB): An empirically derived assessment tool to support plastic waste management ventures in low- and middle-income countries",
@@ -5766,9 +5766,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::a43d292674c9254a7e530a92a792b771",
     "HORIZON_ID": "775983",
-    "N_FOUND": 20,
+    "OPENAIRE_ID": "corda__h2020::a43d292674c9254a7e530a92a792b771",
+    "N_DATASETS": 20,
     "DATASETS": [
       {
         "TITLE": "Sample of HYPERNETS Hyperspectral Surface Reflectance Measurements for Satellite Validation from the Gobabeb Site in Namibia",
@@ -5990,15 +5990,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::3a4588d54bbe526cc34019f5c9241114",
     "HORIZON_ID": "757873",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::3a4588d54bbe526cc34019f5c9241114",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::8cfc508e7de78fa38ceee7ad63200be6",
     "HORIZON_ID": "785219",
-    "N_FOUND": 80,
+    "OPENAIRE_ID": "corda__h2020::8cfc508e7de78fa38ceee7ad63200be6",
+    "N_DATASETS": 80,
     "DATASETS": [
       {
         "TITLE": "CCDC 1521825: Experimental Crystal Structure Determination",
@@ -6836,9 +6836,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::a0607c3dd31a6cb95357a229510b3ea4",
     "HORIZON_ID": "795625",
-    "N_FOUND": 8,
+    "OPENAIRE_ID": "corda__h2020::a0607c3dd31a6cb95357a229510b3ea4",
+    "N_DATASETS": 8,
     "DATASETS": [
       {
         "TITLE": "Grid tiles for identifying EU-SoilHydroGrids tiles",
@@ -6935,15 +6935,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::d0a0552c6e64c80001757f351fa29af2",
     "HORIZON_ID": "778188",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::d0a0552c6e64c80001757f351fa29af2",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::92c965d8df70ebf6a948b34336a6d297",
     "HORIZON_ID": "634809",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda__h2020::92c965d8df70ebf6a948b34336a6d297",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "Quality of dying after acute stroke",
@@ -6981,15 +6981,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::0a3f7d3f5f4fb297b7e2d54825797190",
     "HORIZON_ID": "780915",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::0a3f7d3f5f4fb297b7e2d54825797190",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::4d27fe6bff90d3037419ad402d259e3c",
     "HORIZON_ID": "773921",
-    "N_FOUND": 17,
+    "OPENAIRE_ID": "corda__h2020::4d27fe6bff90d3037419ad402d259e3c",
+    "N_DATASETS": 17,
     "DATASETS": [
       {
         "TITLE": "Supplementary material 1 from: Vanderplanck M, Michez D, Albrecht M, Attridge E, Babin A, Bottero I, Breeze T, Brown M, Chauzat M-P, Cini E, Costa C, De la Rua P, de Miranda JR, Di Prisco G, Dominik C, Dzul D, Fiordaliso W, Gennaux S, Ghisbain G, Hodge S, Klein A-M, Knapp J, Knauer A, Laurent M, Lefebvre V, Mänd M, Martinet B, Martinez-Lopez V, Medrzycki P, Pereira Peixoto MH, Potts SG, Przybyla K, Raimets R, Rundlöf M, Schweiger O, Senapathi D, Serrano J, Stout JC, Straw EA, Tamburini G, Toktas Y, Gérard M (2021) Monitoring bee health in European agro-ecosystems using wing morphology and fat bodies. One Ecosystem 6: e63653. https://doi.org/10.3897/oneeco.6.e63653",
@@ -7175,9 +7175,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::d4f05185872e11ff737ccfa2a580e650",
     "HORIZON_ID": "813533",
-    "N_FOUND": 12,
+    "OPENAIRE_ID": "corda__h2020::d4f05185872e11ff737ccfa2a580e650",
+    "N_DATASETS": 12,
     "DATASETS": [
       {
         "TITLE": "Worldwide Non-pharmaceutical Interventions Tracker for COVID-19(WNTRAC)",
@@ -7318,21 +7318,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::b016145701f97b21e5e9ac960c3e08cd",
     "HORIZON_ID": "823879",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::b016145701f97b21e5e9ac960c3e08cd",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::b1cf9c979677e465ec38dfbce01db850",
     "HORIZON_ID": "822781",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::b1cf9c979677e465ec38dfbce01db850",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::07007349beffbf53e29f583ccd7fdcc1",
     "HORIZON_ID": "777107",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::07007349beffbf53e29f583ccd7fdcc1",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "An evaluation of performance measures for arterial brain vessel segmentation",
@@ -7359,9 +7359,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::09783065b6d012c818dd635f917642dc",
     "HORIZON_ID": "810961",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::09783065b6d012c818dd635f917642dc",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "fruit-SALAD",
@@ -7390,9 +7390,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::2c4563c7d9a3493aaf381426c08ec3a4",
     "HORIZON_ID": "822682",
-    "N_FOUND": 8,
+    "OPENAIRE_ID": "corda__h2020::2c4563c7d9a3493aaf381426c08ec3a4",
+    "N_DATASETS": 8,
     "DATASETS": [
       {
         "TITLE": "The POPREBEL semantic social network data",
@@ -7487,9 +7487,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::ea85a04438799240b91b69192038d01a",
     "HORIZON_ID": "813114",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::ea85a04438799240b91b69192038d01a",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Data from the article: \"Soil respiration responses to prolonged warming vary seasonally in a subarctic grassland\"",
@@ -7539,15 +7539,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::b106eb707daed9a450740ffd5dc4dcfe",
     "HORIZON_ID": "793377",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::b106eb707daed9a450740ffd5dc4dcfe",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::3499bbb97851621bef5a83fcb2ae43f2",
     "HORIZON_ID": "825775",
-    "N_FOUND": 8,
+    "OPENAIRE_ID": "corda__h2020::3499bbb97851621bef5a83fcb2ae43f2",
+    "N_DATASETS": 8,
     "DATASETS": [
       {
         "TITLE": "VCFs of Chromosome 17 of Case 5 from the EGAD00001008392 Dataset",
@@ -7648,15 +7648,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::2bf8d081318df988f9bb2d348160e8b6",
     "HORIZON_ID": "825303",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::2bf8d081318df988f9bb2d348160e8b6",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::0ea7236022a5ab03280b4d9ff5be4c47",
     "HORIZON_ID": "825040",
-    "N_FOUND": 27,
+    "OPENAIRE_ID": "corda__h2020::0ea7236022a5ab03280b4d9ff5be4c47",
+    "N_DATASETS": 27,
     "DATASETS": [
       {
         "TITLE": "An efficient service dispersal mechanism for fog and cloud computing using deep reinforcement learning",
@@ -7966,9 +7966,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::51451e90f3d36cec447259fa4188b417",
     "HORIZON_ID": "823734",
-    "N_FOUND": 8,
+    "OPENAIRE_ID": "corda__h2020::51451e90f3d36cec447259fa4188b417",
+    "N_DATASETS": 8,
     "DATASETS": [
       {
         "TITLE": "rho Cas differential BVRI photometry",
@@ -8053,9 +8053,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::83cf915f2a87b72588ce05af3cf46e51",
     "HORIZON_ID": "828779",
-    "N_FOUND": 106,
+    "OPENAIRE_ID": "corda__h2020::83cf915f2a87b72588ce05af3cf46e51",
+    "N_DATASETS": 106,
     "DATASETS": [
       {
         "TITLE": "CCDC 2444110: Experimental Crystal Structure Determination",
@@ -9060,9 +9060,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::f8d76b0b7ec053cc340e7d93e075add0",
     "HORIZON_ID": "821511",
-    "N_FOUND": 7,
+    "OPENAIRE_ID": "corda__h2020::f8d76b0b7ec053cc340e7d93e075add0",
+    "N_DATASETS": 7,
     "DATASETS": [
       {
         "TITLE": "Metadata record for: Manually curated and harmonised transcriptomics datasets of psoriasis and atopic dermatitis patients",
@@ -9146,9 +9146,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::abe864f6debd550a83ee2427e90ef288",
     "HORIZON_ID": "806968",
-    "N_FOUND": 8,
+    "OPENAIRE_ID": "corda__h2020::abe864f6debd550a83ee2427e90ef288",
+    "N_DATASETS": 8,
     "DATASETS": [
       {
         "TITLE": "External validation of existing dementia prediction models on observational health data",
@@ -9241,15 +9241,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::5351069fb199875248611cf5e7f68828",
     "HORIZON_ID": "778398",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::5351069fb199875248611cf5e7f68828",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::745f0d3122882987aec30c69f4a120a9",
     "HORIZON_ID": "830929",
-    "N_FOUND": 11,
+    "OPENAIRE_ID": "corda__h2020::745f0d3122882987aec30c69f4a120a9",
+    "N_DATASETS": 11,
     "DATASETS": [
       {
         "TITLE": "GDPR in the Small Datasets, Codes and Survey Material",
@@ -9379,15 +9379,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::1b99b0935664f94e79de18b81d51f164",
     "HORIZON_ID": "802512",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::1b99b0935664f94e79de18b81d51f164",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::cd41a0022e6564bf1d6c39b06734c0f3",
     "HORIZON_ID": "817903",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::cd41a0022e6564bf1d6c39b06734c0f3",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Collective AES Experiment",
@@ -9404,21 +9404,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::af6d5722fc8113f398a1702ee2bfd59a",
     "HORIZON_ID": "832875",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::af6d5722fc8113f398a1702ee2bfd59a",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::45d6788a4e3056469a47652628f2dda8",
     "HORIZON_ID": "833496",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::45d6788a4e3056469a47652628f2dda8",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::b0bc5e626dc42bb8a003fe0c76123879",
     "HORIZON_ID": "830892",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::b0bc5e626dc42bb8a003fe0c76123879",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "You Can't Touch This: Detecting Typosquatting Packages for Enhanced Malware Prevention in Software Supply Chains",
@@ -9434,9 +9434,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::44b62c6bec032ad7bc1493582fa11540",
     "HORIZON_ID": "840035",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::44b62c6bec032ad7bc1493582fa11540",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Data and code from Semchenko et al. (2022) New Phytologist 10.1111/nph.18118",
@@ -9452,9 +9452,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::50a600d86aa0cbb5911fef50911bfc01",
     "HORIZON_ID": "834141",
-    "N_FOUND": 6,
+    "OPENAIRE_ID": "corda__h2020::50a600d86aa0cbb5911fef50911bfc01",
+    "N_DATASETS": 6,
     "DATASETS": [
       {
         "TITLE": "Evaluation datasets and results of the paper \"Can I Trust My Simulation Model? Measuring the Quality of Business Process Simulation Models\"",
@@ -9526,15 +9526,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::81160fbdd48c2ad0ae34f5cd41a1c993",
     "HORIZON_ID": "841850",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::81160fbdd48c2ad0ae34f5cd41a1c993",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::c3571bc1f67245e8e140679851cd963f",
     "HORIZON_ID": "860800",
-    "N_FOUND": 8,
+    "OPENAIRE_ID": "corda__h2020::c3571bc1f67245e8e140679851cd963f",
+    "N_DATASETS": 8,
     "DATASETS": [
       {
         "TITLE": "Dataset for Resistance of Australian fish communities to drought and flood: implications for climate change and adaptations",
@@ -9634,9 +9634,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::be54817f2f1256c99b5db297d9107243",
     "HORIZON_ID": "817819",
-    "N_FOUND": 8,
+    "OPENAIRE_ID": "corda__h2020::be54817f2f1256c99b5db297d9107243",
+    "N_DATASETS": 8,
     "DATASETS": [
       {
         "TITLE": "Physicochemical and biodiversity soil characteristics of SoildiverAgro Case Study 1: Use of soil biodiversity to reduce soil-borne diseases/pests incidence and increase nutrient availability in potatoes cropped in multiple cropping and rotations",
@@ -9729,15 +9729,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::842945949991ab89cc6b2583438b1725",
     "HORIZON_ID": "857622",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::842945949991ab89cc6b2583438b1725",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::af5c348f64f199d23fa891c273e6dde6",
     "HORIZON_ID": "857366",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::af5c348f64f199d23fa891c273e6dde6",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Institutionalization of transnationalizing political parties: the case of the Conservative People’s Party of Estonia",
@@ -9753,21 +9753,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::31747fe66254ccb46fcb1d5318b3e7a7",
     "HORIZON_ID": "870548",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::31747fe66254ccb46fcb1d5318b3e7a7",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::22d1e433a9fdf89dc87f180de3ae5fb5",
     "HORIZON_ID": "853385",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::22d1e433a9fdf89dc87f180de3ae5fb5",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::cd7c637df9d7b581ec0d6d2e475b16ca",
     "HORIZON_ID": "821427",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda__h2020::cd7c637df9d7b581ec0d6d2e475b16ca",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "Decentralized Wastewater Management in India: Stakeholder Views on Best Available Technologies and Resource Recovery",
@@ -9805,9 +9805,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::3b0ed02177d47f3be74d14680cd04d10",
     "HORIZON_ID": "847776",
-    "N_FOUND": 5,
+    "OPENAIRE_ID": "corda__h2020::3b0ed02177d47f3be74d14680cd04d10",
+    "N_DATASETS": 5,
     "DATASETS": [
       {
         "TITLE": "Deficit of homozygosity among 1.52 million individuals and genetic causes of recessive lethality",
@@ -9867,9 +9867,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::1f18c9e90b6785499d5765793ef0798c",
     "HORIZON_ID": "870612",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::1f18c9e90b6785499d5765793ef0798c",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Data set from longitudinal survey: ySKILLS' first wave",
@@ -9897,27 +9897,27 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::22946579eb9f6323cf5cefdf2de7fad2",
     "HORIZON_ID": "819317",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::22946579eb9f6323cf5cefdf2de7fad2",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::cc0335093ff7c8f03564cc47ae334e20",
     "HORIZON_ID": "857359",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::cc0335093ff7c8f03564cc47ae334e20",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::a341007ea4701c30065a097ce1eac082",
     "HORIZON_ID": "857263",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::a341007ea4701c30065a097ce1eac082",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::dfe4feb1dc45d9460373367f8c1e8120",
     "HORIZON_ID": "862626",
-    "N_FOUND": 28,
+    "OPENAIRE_ID": "corda__h2020::dfe4feb1dc45d9460373367f8c1e8120",
+    "N_DATASETS": 28,
     "DATASETS": [
       {
         "TITLE": "GLODAPv2.2022: the latest version of the global interior ocean biogeochemical data product",
@@ -10218,9 +10218,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::ac41dfba87a11fbf699cb9a42e7b7481",
     "HORIZON_ID": "870898",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::ac41dfba87a11fbf699cb9a42e7b7481",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Codes to replicate statistical analysis in UPLIFT project Deliverable 2.4 Synthesis report, Chapter 6",
@@ -10236,9 +10236,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::6cbad4d3950ca07ce407ee99c23b7c46",
     "HORIZON_ID": "871115",
-    "N_FOUND": 13,
+    "OPENAIRE_ID": "corda__h2020::6cbad4d3950ca07ce407ee99c23b7c46",
+    "N_DATASETS": 13,
     "DATASETS": [
       {
         "TITLE": "Impact of refractive index corrections of the OPC-N3 on Saharan dust aerosol particle size distributions",
@@ -10385,9 +10385,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::031820922b616c421ed6f87deb000d10",
     "HORIZON_ID": "870644",
-    "N_FOUND": 5,
+    "OPENAIRE_ID": "corda__h2020::031820922b616c421ed6f87deb000d10",
+    "N_DATASETS": 5,
     "DATASETS": [
       {
         "TITLE": "Results of SPOT surveys for tourists, residents and entrepreneurs in the case studies - dataset",
@@ -10450,15 +10450,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::b1e5fdcf411821f8355ff8de72f1d11a",
     "HORIZON_ID": "871018",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::b1e5fdcf411821f8355ff8de72f1d11a",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::615ee100738707f47778c50c739e7b73",
     "HORIZON_ID": "874627",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::615ee100738707f47778c50c739e7b73",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Processed metabolomic data from the EXPOsOMICS Personal Exposure Monitoring study",
@@ -10505,9 +10505,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::d693055ca350feb1ba31395f4ee6a539",
     "HORIZON_ID": "813707",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda__h2020::d693055ca350feb1ba31395f4ee6a539",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "Polygenic risk scoring of human embryos: a qualitative study of media coverage",
@@ -10545,9 +10545,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::670c9ead10f240e79145a776f6c678e4",
     "HORIZON_ID": "873207",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::670c9ead10f240e79145a776f6c678e4",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Excavation data from Eripe 1 rock shelter, Papua New Guinea",
@@ -10574,9 +10574,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::a45280b6e42e263da0c4e85e5bf6845b",
     "HORIZON_ID": "871042",
-    "N_FOUND": 52,
+    "OPENAIRE_ID": "corda__h2020::a45280b6e42e263da0c4e85e5bf6845b",
+    "N_DATASETS": 52,
     "DATASETS": [
       {
         "TITLE": "The FAIR Assessment Conundrum:  Considerations on Tools and Metrics - Data Set",
@@ -11176,9 +11176,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::44d0d35ad25f2748805e4af41a1905c0",
     "HORIZON_ID": "862480",
-    "N_FOUND": 42,
+    "OPENAIRE_ID": "corda__h2020::44d0d35ad25f2748805e4af41a1905c0",
+    "N_DATASETS": 42,
     "DATASETS": [
       {
         "TITLE": "Flowering groundcovers co-benefit multiple arthropod guilds in intensive Mediterranean stone fruit orchards",
@@ -11642,9 +11642,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::be16977c9fcfdffef625b2d2e308975a",
     "HORIZON_ID": "871153",
-    "N_FOUND": 18,
+    "OPENAIRE_ID": "corda__h2020::be16977c9fcfdffef625b2d2e308975a",
+    "N_DATASETS": 18,
     "DATASETS": [
       {
         "TITLE": "Hourly location, current velocity, and temperature collected from Global Drifter Program drifters world-wide",
@@ -11839,15 +11839,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::effe7159880e6df18c3ae091fd04d9b5",
     "HORIZON_ID": "870747",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::effe7159880e6df18c3ae091fd04d9b5",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::ed3ba2f7fdf526518ea7a2d2c0b674bc",
     "HORIZON_ID": "859891",
-    "N_FOUND": 11,
+    "OPENAIRE_ID": "corda__h2020::ed3ba2f7fdf526518ea7a2d2c0b674bc",
+    "N_DATASETS": 11,
     "DATASETS": [
       {
         "TITLE": "The NORMAN Suspect List Exchange (NORMAN-SLE): facilitating European and worldwide collaboration on suspect screening in high resolution mass spectrometry",
@@ -11975,9 +11975,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::f3d09ef95fcf5a35c0e90e6560b6b2e0",
     "HORIZON_ID": "862695",
-    "N_FOUND": 188,
+    "OPENAIRE_ID": "corda__h2020::f3d09ef95fcf5a35c0e90e6560b6b2e0",
+    "N_DATASETS": 188,
     "DATASETS": [
       {
         "TITLE": "Sampleset of CSIC-ProbeField",
@@ -13088,9 +13088,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::de432116595fdaaa591cc5eb45a01e70",
     "HORIZON_ID": "881603",
-    "N_FOUND": 122,
+    "OPENAIRE_ID": "corda__h2020::de432116595fdaaa591cc5eb45a01e70",
+    "N_DATASETS": 122,
     "DATASETS": [
       {
         "TITLE": "CCDC 2004763: Experimental Crystal Structure Determination",
@@ -14151,9 +14151,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::81ac1a5e4b231af6d46015a021f2e35b",
     "HORIZON_ID": "952060",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::81ac1a5e4b231af6d46015a021f2e35b",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Explainable approaches for forecasting building electricity consumption",
@@ -14166,21 +14166,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::676368c8ac461c889f16f48107d498aa",
     "HORIZON_ID": "867457",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::676368c8ac461c889f16f48107d498aa",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::81dce3a9fca80c372f86693bc4a1aa57",
     "HORIZON_ID": "101003387",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::81dce3a9fca80c372f86693bc4a1aa57",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::cf766b3ce8967d2d82942f44c5ee2a82",
     "HORIZON_ID": "862731",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::cf766b3ce8967d2d82942f44c5ee2a82",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "FRAMEwork Deliverable 4.1_vote counting 49 meta-analyses",
@@ -14207,9 +14207,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::57340121b7793941dbbab3fbae7dd226",
     "HORIZON_ID": "862087",
-    "N_FOUND": 16,
+    "OPENAIRE_ID": "corda__h2020::57340121b7793941dbbab3fbae7dd226",
+    "N_DATASETS": 16,
     "DATASETS": [
       {
         "TITLE": "Additional file 4 of Constructing and analysing dynamic models with modelbase v1.2.3: a software update",
@@ -14385,15 +14385,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::6b154528dadbe6192fb51f866b22774f",
     "HORIZON_ID": "952470",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::6b154528dadbe6192fb51f866b22774f",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::a50a063c510bc98599ee2abc0ccb090c",
     "HORIZON_ID": "101004534",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::a50a063c510bc98599ee2abc0ccb090c",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "MEDIATIZED EU Public Opinion Survey ORDP Dataset and Codebook",
@@ -14409,9 +14409,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::05e1265ef7d6406c95de441a28ba3a35",
     "HORIZON_ID": "952516",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::05e1265ef7d6406c95de441a28ba3a35",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Chromatin modifier developmental pluripotency associated factor 4 (DPPA4) is a candidate gene for alcohol-induced developmental disorders",
@@ -14460,9 +14460,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::ce61a6bdeae2e6c938c8a209db0da389",
     "HORIZON_ID": "951867",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::ce61a6bdeae2e6c938c8a209db0da389",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Simulation data used in management CCL for RAN slice performance improvement by subslicing",
@@ -14477,21 +14477,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::f7eca80ba8726613be48d926e3d8d75f",
     "HORIZON_ID": "869764",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::f7eca80ba8726613be48d926e3d8d75f",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::f1e18466a20f0230cc402ce5db384f39",
     "HORIZON_ID": "952574",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::f1e18466a20f0230cc402ce5db384f39",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::cf6bbb7add4760678fb9105849bfff5e",
     "HORIZON_ID": "101004186",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::cf6bbb7add4760678fb9105849bfff5e",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Training course materials: Introduction to Remote Sensing of Water Quality in Lakes",
@@ -14518,9 +14518,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::728ba675a21ac20a81d53cd572823467",
     "HORIZON_ID": "885137",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::728ba675a21ac20a81d53cd572823467",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Supplementary material from \"Stable isotope analyses of amino acids reveal the importance of aquatic resources to Mediterranean coastal hunter–gatherers\"",
@@ -14570,33 +14570,33 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::92224cd9f8ebbec59630491c2a255606",
     "HORIZON_ID": "959072",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::92224cd9f8ebbec59630491c2a255606",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::8e349c19f932293bc2301fd29635e3aa",
     "HORIZON_ID": "952410",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::8e349c19f932293bc2301fd29635e3aa",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::7c4b7f03fbf927ab77738d1d5d1fcda8",
     "HORIZON_ID": "894831",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::7c4b7f03fbf927ab77738d1d5d1fcda8",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::f4bb5e655a84174ee0df917421b9d4f6",
     "HORIZON_ID": "101004676",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::f4bb5e655a84174ee0df917421b9d4f6",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::3f0c72bd1922aa704a13d509152aab59",
     "HORIZON_ID": "951963",
-    "N_FOUND": 10,
+    "OPENAIRE_ID": "corda__h2020::3f0c72bd1922aa704a13d509152aab59",
+    "N_DATASETS": 10,
     "DATASETS": [
       {
         "TITLE": "Assembled and annotated contigs from the metagenomic sequencing data generated from the redoxcline of the central western gyre of the Black Sea (UKR11/002)",
@@ -14699,9 +14699,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::b66da1aa3fedd5674eac6af68b56afd9",
     "HORIZON_ID": "101003553",
-    "N_FOUND": 12,
+    "OPENAIRE_ID": "corda__h2020::b66da1aa3fedd5674eac6af68b56afd9",
+    "N_DATASETS": 12,
     "DATASETS": [
       {
         "TITLE": "Supplementary material 1 from: Lumbierres M, Kissling WD (2023) Important first steps towards designing the freshwater, marine and terrestrial Essential Biodiversity Variable (EBV) workflows for the European Biodiversity Observation Network. Research Ideas and Outcomes 9: e109120. https://doi.org/10.3897/rio.9.e109120",
@@ -14820,9 +14820,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::2c3e4c9839389aa07bc3cabb581d4f4b",
     "HORIZON_ID": "101016775",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda__h2020::2c3e4c9839389aa07bc3cabb581d4f4b",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "Supplementary material from \"Modelling methicillin-resistant <i>Staphylococcus aureus</i> decolonization: interactions between body sites and the impact of site-specific clearance\"",
@@ -14861,9 +14861,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::e44e61b4753d4157c318cbbef39b662d",
     "HORIZON_ID": "952156",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::e44e61b4753d4157c318cbbef39b662d",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Cinando film festival programming dataset",
@@ -14880,9 +14880,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::ad3bed331601f46182a10ba919857c8b",
     "HORIZON_ID": "773830",
-    "N_FOUND": 85,
+    "OPENAIRE_ID": "corda__h2020::ad3bed331601f46182a10ba919857c8b",
+    "N_DATASETS": 85,
     "DATASETS": [
       {
         "TITLE": "Supplementary material 1 from: Sundermann EM, Correia Carreira G, Käsbohrer A (2021) An FSKX compliant source attribution model for salmonellosis and a look at its major hidden pitfalls. Food Modelling Journal 2: e70008. https://doi.org/10.3897/fmj.2.70008",
@@ -15820,21 +15820,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::23996423eab3b21fd7e71d9c9f1ffd5b",
     "HORIZON_ID": "101004811",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::23996423eab3b21fd7e71d9c9f1ffd5b",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::03cb68767a25f7386667424be719afc7",
     "HORIZON_ID": "964997",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::03cb68767a25f7386667424be719afc7",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::40d2f3162887f8f204f976bb88200e82",
     "HORIZON_ID": "945307",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::40d2f3162887f8f204f976bb88200e82",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "eMOTIONAL Cities metadata catalogue",
@@ -15861,9 +15861,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::a3dd7fad75e7711950468fe4fe093711",
     "HORIZON_ID": "964874",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::a3dd7fad75e7711950468fe4fe093711",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Proteome-wide Association Study Weights for the UK Biobank",
@@ -15890,9 +15890,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::1017593e629d202f7f2926ed40198939",
     "HORIZON_ID": "101007430",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::1017593e629d202f7f2926ed40198939",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Data for paper \"Layered double hydroxides reinforced epoxy composites: computational analysis of microstructure effect on strength\"",
@@ -15919,21 +15919,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::33a2429b58088e7ff88cacfb44f03db2",
     "HORIZON_ID": "101021812",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::33a2429b58088e7ff88cacfb44f03db2",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::8508333fd163e8420d8253ff074343c6",
     "HORIZON_ID": "894987",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::8508333fd163e8420d8253ff074343c6",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::501b84bbcf1e705a950a36c1628cacbd",
     "HORIZON_ID": "101000406",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::501b84bbcf1e705a950a36c1628cacbd",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Data: Beetles, wind, and fire: effects of climate change and close-to-nature forestry on disturbance predisposition and ecosystem service trade-offs",
@@ -15950,9 +15950,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::0960efe2ae78a8a69659e69e2f02d85b",
     "HORIZON_ID": "101007492",
-    "N_FOUND": 37,
+    "OPENAIRE_ID": "corda__h2020::0960efe2ae78a8a69659e69e2f02d85b",
+    "N_DATASETS": 37,
     "DATASETS": [
       {
         "TITLE": "Supplementary material 9 from: Meeus S, Addink W, Agosti D, Arvanitidis C, Balech B, Dillen M, Dimitrova M, González-Aranda JM, Holetschek J, Islam S, Jeppesen TS, Mietchen D, Nicolson N, Penev L, Robertson T, Ruch P, Trekels M, Groom Q (2022) Recommendations for interoperability among infrastructures. Research Ideas and Outcomes 8: e96180. https://doi.org/10.3897/rio.8.e96180",
@@ -16290,9 +16290,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::d154bdf1398234e260faa25a3e1ddc56",
     "HORIZON_ID": "871075",
-    "N_FOUND": 5,
+    "OPENAIRE_ID": "corda__h2020::d154bdf1398234e260faa25a3e1ddc56",
+    "N_DATASETS": 5,
     "DATASETS": [
       {
         "TITLE": "Mapping Building BioData.pt Indicators against the performance and impact assessment frameworks for research infrastructures of OECD, ESFRI and RI-PATHS project",
@@ -16353,9 +16353,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::60db15bf18b4c7f34154e8e216962bd3",
     "HORIZON_ID": "856705",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::60db15bf18b4c7f34154e8e216962bd3",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Helical shell of ccmv capsid protein on dna origami 6hb-2k",
@@ -16370,15 +16370,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::0e1bf1ebe2d672042dc4c7ac9518a173",
     "HORIZON_ID": "892943",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::0e1bf1ebe2d672042dc4c7ac9518a173",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::6667a3fae3247efe51b9da77c888a94b",
     "HORIZON_ID": "955614",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::6667a3fae3247efe51b9da77c888a94b",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "PV Generation and Consumption Dataset of an Estonian Residential Dwelling",
@@ -16393,9 +16393,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::8e62ca0dfdc4859a647e8ecd91db002e",
     "HORIZON_ID": "101037643",
-    "N_FOUND": 9,
+    "OPENAIRE_ID": "corda__h2020::8e62ca0dfdc4859a647e8ecd91db002e",
+    "N_DATASETS": 9,
     "DATASETS": [
       {
         "TITLE": "MARCSI - Inventory of Marine Citizen Science Initiatives",
@@ -16498,15 +16498,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::cd0b7882fea32486b83a34680b2293d1",
     "HORIZON_ID": "101035820",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::cd0b7882fea32486b83a34680b2293d1",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::33b53c99e3bcce94ebbc1be1f23562cf",
     "HORIZON_ID": "101069639",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda_____he::33b53c99e3bcce94ebbc1be1f23562cf",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "Advanced Energy Performance Assessment towards Smart Living in Building and District Level",
@@ -16544,9 +16544,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::fed31c5f99c535d393b3fdbbef916d0b",
     "HORIZON_ID": "872557",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda__h2020::fed31c5f99c535d393b3fdbbef916d0b",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Affective responses to biodiversity loss",
@@ -16561,9 +16561,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::6a23e0873dbc394d737ab4fd18c19716",
     "HORIZON_ID": "101091268",
-    "N_FOUND": 12,
+    "OPENAIRE_ID": "corda_____he::6a23e0873dbc394d737ab4fd18c19716",
+    "N_DATASETS": 12,
     "DATASETS": [
       {
         "TITLE": "Organic Vineyards Case study NBU",
@@ -16711,15 +16711,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::6e4f7c17fe910af65c66dd4207a6469a",
     "HORIZON_ID": "101109054",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::6e4f7c17fe910af65c66dd4207a6469a",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda__h2020::3e83cf99e3d4c559ed6de4e5ebf61a12",
     "HORIZON_ID": "884539",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda__h2020::3e83cf99e3d4c559ed6de4e5ebf61a12",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Funding programs for EU Just Transition Fund",
@@ -16746,9 +16746,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::adb04e81a9106e42c63bbefbf71018ff",
     "HORIZON_ID": "101004509",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda__h2020::adb04e81a9106e42c63bbefbf71018ff",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Barriers to digital inclusion - qualitative data",
@@ -16793,21 +16793,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda__h2020::0cc5c5c234cd17701135bb3e776e244c",
     "HORIZON_ID": "101035802",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda__h2020::0cc5c5c234cd17701135bb3e776e244c",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::b7e08a1f6abcb520aa2c276bf9f62ccd",
     "HORIZON_ID": "101057067",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::b7e08a1f6abcb520aa2c276bf9f62ccd",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::728453be14e9c3359654e9ed235bace1",
     "HORIZON_ID": "101057825",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda_____he::728453be14e9c3359654e9ed235bace1",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "CONFIDENTIAL Metadata for the SAFEST Patient-Reported Outcomes and Experiences Data Repository",
@@ -16823,15 +16823,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::696a48b9de22eaeac7e84e7d364816cd",
     "HORIZON_ID": "101057639",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::696a48b9de22eaeac7e84e7d364816cd",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::20b09ae06051228eeea4b2535ffc7618",
     "HORIZON_ID": "101058505",
-    "N_FOUND": 5,
+    "OPENAIRE_ID": "corda_____he::20b09ae06051228eeea4b2535ffc7618",
+    "N_DATASETS": 5,
     "DATASETS": [
       {
         "TITLE": "Simulation data used in management CCL for RAN slice performance improvement by subslicing",
@@ -16890,21 +16890,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::55a80247ef731602eb902932987d2805",
     "HORIZON_ID": "101071314",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::55a80247ef731602eb902932987d2805",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::1f6752df7517682b3182e46a1b525b42",
     "HORIZON_ID": "101079237",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::1f6752df7517682b3182e46a1b525b42",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::00edf4d33c6af52d3340f63746f708c8",
     "HORIZON_ID": "101057721",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda_____he::00edf4d33c6af52d3340f63746f708c8",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "Barriers and facilitators for implementing a pharmacogenetic passport: lessons learned from reusing sequencing data",
@@ -16920,21 +16920,21 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::0d4646927e9ed12ea5c90cb40bdee164",
     "HORIZON_ID": "101079227",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::0d4646927e9ed12ea5c90cb40bdee164",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::3396ffd0f05f976aa30423aa431a52bc",
     "HORIZON_ID": "101070186",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::3396ffd0f05f976aa30423aa431a52bc",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::e75fba59253a35624118667e3dd33107",
     "HORIZON_ID": "101079888",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda_____he::e75fba59253a35624118667e3dd33107",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "EBENTO One-Stop Shop | Energy Comfort & Environment Module Overview",
@@ -16983,15 +16983,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::9d91feea73d08da610fc614f94d90a0b",
     "HORIZON_ID": "101075693",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::9d91feea73d08da610fc614f94d90a0b",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::7e47e9ed2595627841c1578a86647e38",
     "HORIZON_ID": "101059492",
-    "N_FOUND": 35,
+    "OPENAIRE_ID": "corda_____he::7e47e9ed2595627841c1578a86647e38",
+    "N_DATASETS": 35,
     "DATASETS": [
       {
         "TITLE": "Supplementary material 1 from: Koureas D, Livermore L, Addink W, Alonso E, Alonso JM, Casino A, Dusoulier F, Ferreira V, Grieb J, Groom Q, Islam S, Kõljalg U, Lymer G, Marhold K, Paleco C, Pijls S, Scory S, Scott B, Weiland C, Worley K (2024) DiSSCo Transition Abridged Grant Proposal. Research Ideas and Outcomes 10: e118241. https://doi.org/10.3897/rio.10.e118241",
@@ -17405,15 +17405,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::de95915a33297d69834883223e19a389",
     "HORIZON_ID": "101061645",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::de95915a33297d69834883223e19a389",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::8f2c5da3d9b5b500fd1054a100c60a75",
     "HORIZON_ID": "101095048",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda_____he::8f2c5da3d9b5b500fd1054a100c60a75",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "RISE UP Language Revitalisation Questionnaire Data",
@@ -17429,9 +17429,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::d91d01e4f317ae701d792096618f5990",
     "HORIZON_ID": "101079192",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda_____he::d91d01e4f317ae701d792096618f5990",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "National-scale geospatial modelling of recommended riparian buffer widths for Estonia - dataset",
@@ -17469,9 +17469,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::19287be1a056ad0b6d4897464072c8a3",
     "HORIZON_ID": "101079396",
-    "N_FOUND": 3,
+    "OPENAIRE_ID": "corda_____he::19287be1a056ad0b6d4897464072c8a3",
+    "N_DATASETS": 3,
     "DATASETS": [
       {
         "TITLE": "Paired animal and human AMS dates from the Ardu II and Sope B I burials from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
@@ -17510,15 +17510,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::888f4eddd9a468782a853ebcfbbbdae3",
     "HORIZON_ID": "101057286",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::888f4eddd9a468782a853ebcfbbbdae3",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::6b18d04a4eed0f0d59caebb69059bef9",
     "HORIZON_ID": "101079349",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda_____he::6b18d04a4eed0f0d59caebb69059bef9",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Immunomodulatory effects of <i>Ascaridia galli</i> excretory-secretory products, including extracellular vesicles, on host immune cell function",
@@ -17546,9 +17546,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::054b4a95d0b80407b1b40641f29776d8",
     "HORIZON_ID": "101094988",
-    "N_FOUND": 6,
+    "OPENAIRE_ID": "corda_____he::054b4a95d0b80407b1b40641f29776d8",
+    "N_DATASETS": 6,
     "DATASETS": [
       {
         "TITLE": "FIDA dataset on the theatrical demand for European films",
@@ -17621,9 +17621,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::c4b2bb9090657a3d9b2801b4f4e0d48c",
     "HORIZON_ID": "101079231",
-    "N_FOUND": 4,
+    "OPENAIRE_ID": "corda_____he::c4b2bb9090657a3d9b2801b4f4e0d48c",
+    "N_DATASETS": 4,
     "DATASETS": [
       {
         "TITLE": "Fast rotators and new FGK stars",
@@ -17670,9 +17670,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::99b9c8f884d9838550ce5cda668a609f",
     "HORIZON_ID": "101095106",
-    "N_FOUND": 1,
+    "OPENAIRE_ID": "corda_____he::99b9c8f884d9838550ce5cda668a609f",
+    "N_DATASETS": 1,
     "DATASETS": [
       {
         "TITLE": "WP4 Desk-Based Research (Ireland): Education for Democracy – National and Comparative Analysis",
@@ -17689,15 +17689,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::b6bf8f1eb8cb6bb6cfef5cfeae89e4d4",
     "HORIZON_ID": "101094809",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::b6bf8f1eb8cb6bb6cfef5cfeae89e4d4",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::6229c99051b49547b41c8d07ea81f213",
     "HORIZON_ID": "101120075",
-    "N_FOUND": 2,
+    "OPENAIRE_ID": "corda_____he::6229c99051b49547b41c8d07ea81f213",
+    "N_DATASETS": 2,
     "DATASETS": [
       {
         "TITLE": "Additional file 2 of Uterus didelphys: the first case report on molecular profiling of endometrial tissue from both uterine cavities",
@@ -17724,15 +17724,15 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::9dc09d34857f54bef385bb58186c96f3",
     "HORIZON_ID": "101077207",
-    "N_FOUND": 0,
+    "OPENAIRE_ID": "corda_____he::9dc09d34857f54bef385bb58186c96f3",
+    "N_DATASETS": 0,
     "DATASETS": []
   },
   {
-    "OPENAIRE_ID": "corda_____he::dce9f8171a9c5869a0053cf3350ff104",
     "HORIZON_ID": "101130121",
-    "N_FOUND": 7,
+    "OPENAIRE_ID": "corda_____he::dce9f8171a9c5869a0053cf3350ff104",
+    "N_DATASETS": 7,
     "DATASETS": [
       {
         "TITLE": "Supplementary material 1 from: Koureas D, Livermore L, Addink W, Alonso E, Alonso JM, Casino A, Dusoulier F, Ferreira V, Grieb J, Groom Q, Islam S, Kõljalg U, Lymer G, Marhold K, Paleco C, Pijls S, Scory S, Scott B, Weiland C, Worley K (2024) DiSSCo Transition Abridged Grant Proposal. Research Ideas and Outcomes 10: e118241. https://doi.org/10.3897/rio.10.e118241",
@@ -17796,9 +17796,9 @@
     ]
   },
   {
-    "OPENAIRE_ID": "corda_____he::032bb18aa8c5a1ca1d0156e68e193567",
     "HORIZON_ID": "101056921",
-    "N_FOUND": 24,
+    "OPENAIRE_ID": "corda_____he::032bb18aa8c5a1ca1d0156e68e193567",
+    "N_DATASETS": 24,
     "DATASETS": [
       {
         "TITLE": "Human marine pressures index for GreenFeedBack project",

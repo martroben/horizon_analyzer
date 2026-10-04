@@ -182,7 +182,7 @@ One record per article, for the analysis by article, project, author or institut
 
 **`FOUND_BY`** (raw openalex_works, articles `OPENALEX`)
 - `doi` - DOI lookup
-- `title_search` - the single work with the same title and publication year (±1)
+- `title_search` - the single work with the same title and publication year (±1), or the only one of them with a DOI
 
 **`AUTOMATIC_VERDICT`**, **`OPEN_ACCESS_AUTOMATIC_VERDICT`**
 - `open` - free to read on the publisher site (DOI), or ETIS links to a free copy (any version)

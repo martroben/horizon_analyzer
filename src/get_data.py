@@ -582,6 +582,11 @@ for ETIS_article in tqdm.tqdm(ETIS_articles, desc="Requesting article OpenAlex d
                     continue
                 title_matches += [work]
 
+            # OpenAlex can have duplicate works of an article - take the only one with a DOI
+            title_matches_with_DOI = [work for work in title_matches if work["doi"]]
+            if len(title_matches) > 1 and len(title_matches_with_DOI) == 1:
+                title_matches = title_matches_with_DOI
+
             if len(title_matches) == 1:
                 openalex_work["DATA"] = title_matches[0]
                 openalex_work["FOUND_BY"] = "title_search"

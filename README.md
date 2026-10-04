@@ -34,7 +34,7 @@ Run the scripts from the repository root with `uv run src/<script>.py`, in this 
 5. `get_etis_project_horizon_ids` - Horizon grants and mandates of the ETIS projects (`projects`)
 6. `get_open_data_candidates` - candidate data links of the articles, OpenAIRE datasets of the grants (`open_data_candidates`, `grant_datasets`)
 7. `get_fulltext` - full texts to `data/fulltext/` (not committed). Resumes where an earlier run stopped (`fulltext_index`)
-8. `get_manual_fulltexts` - full texts saved by hand: lists the articles without a full text with links to try (`data/fulltext/inbox/fetch_list.html`). Save the files into `data/fulltext/inbox/open/` (free on the publisher site or in a repository), `other/` (other free copies) or `library/` (library access) and run it again (`fulltext_index`)
+8. `get_manual_fulltexts` - full texts saved by hand: lists the articles without a full text with links to try (`data/fulltext/inbox/fetch_list.html`). Save the files into `data/fulltext/inbox/open/` (free on the publisher site or through an ETIS link), `other/` (other free copies) or `library/` (library access) and run it again (`fulltext_index`)
 9. `make_open_data_queue` - everything known automatically about each article, in check order (`open_data_queue`)
 10. Open data checks: ask Claude Code to run the `check-open-data` skill. It appends records to `data/assessments/open_data_assessments.jsonl` and checks them with `validate_open_data_assessments`
 11. `analyse_data` - final open access and open data status of each article (`article_analysis`) and summary tables

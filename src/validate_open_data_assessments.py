@@ -16,6 +16,7 @@ from thefuzz import fuzz
 ##########
 
 ASSESSMENTS_PATH = "./data/assessments/open_data_assessments.jsonl"
+OPEN_ACCESS_CHECKS_PATH = "./data/assessments/open_access_checks.jsonl"
 FULLTEXT_DIRECTORY_PATH = "./data/fulltext/"
 RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
 
@@ -58,6 +59,13 @@ REQUIRED_FIELDS = {
     "RATIONALE": str,
     "SIDE_NOTES": list
 }
+OPEN_ACCESS_CHECK_FIELDS = {
+    "GUID": str,
+    "ASSESSED_AT": str,
+    "ASSESSOR": str,
+    "OPEN_ACCESS": dict
+}
+    # Open access check records (open_access_checks.jsonl): the open access part of an assessment
 QUOTE_MIN_FUZZY_SCORE = 95      # Quotes that don't match exactly must match at least this well (PDF text extraction artefacts)
 BLOCKING_STATUS_CODES = [401, 403, 405, 429]
     # Sites that refuse scripts. A link with these codes is reported as a warning, not an error
@@ -167,15 +175,9 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
         errors += [f'unknown CONFIDENCE {assessment["CONFIDENCE"]}']
 
     # Open access
-    open_access = assessment["OPEN_ACCESS"]
-    if open_access.get("VERDICT") not in OPEN_ACCESS_VERDICTS:
-        errors += [f'unknown OPEN_ACCESS.VERDICT {open_access.get("VERDICT")}']
-    if open_access.get("VERSION") not in VERSIONS + [None]:
-        errors += [f'unknown OPEN_ACCESS.VERSION {open_access.get("VERSION")}']
-    if open_access.get("VERDICT") == "open" and not open_access.get("URL"):
-        errors += ["open access verdict open needs the URL of the free copy (publisher site or ETIS link)"]
-    if not open_access.get("EVIDENCE"):
-        errors += ["OPEN_ACCESS.EVIDENCE is empty"]
+    open_access_errors, open_access_warnings = validate_open_access(assessment["OPEN_ACCESS"], check_links, session, link_cache)
+    errors += open_access_errors
+    warnings += open_access_warnings
 
     # Data label consistency
     if label in LABELS_NEEDING_COVERAGE and not (assessment["DATA_COVERAGE"] and assessment["DATA_LEVEL"]):
@@ -230,12 +232,79 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
                 errors += [message]
             elif level == "warning":
                 warnings += [message]
+
+    return errors, warnings
+
+
+def validate_open_access(open_access: dict, check_links: bool, session: requests.Session, link_cache: dict) -> tuple[list, list]:
+    """
+    Gives lists of errors and warnings of the OPEN_ACCESS block of an assessment or open access check.
+    """
+    errors = []
+    warnings = []
+    if open_access.get("VERDICT") not in OPEN_ACCESS_VERDICTS:
+        errors += [f'unknown OPEN_ACCESS.VERDICT {open_access.get("VERDICT")}']
+    if open_access.get("VERSION") not in VERSIONS + [None]:
+        errors += [f'unknown OPEN_ACCESS.VERSION {open_access.get("VERSION")}']
+    if open_access.get("VERDICT") == "open" and not open_access.get("URL"):
+        errors += ["open access verdict open needs the URL of the free copy (publisher site or ETIS link)"]
+    if not open_access.get("EVIDENCE"):
+        errors += ["OPEN_ACCESS.EVIDENCE is empty"]
     if check_links and open_access.get("VERDICT") == "open" and open_access.get("URL"):
         level, message = check_link(session, open_access["URL"], link_cache)
         if level != "ok":
             warnings += [f'open access URL: {message}']
-
     return errors, warnings
+
+
+def validate_open_access_check(check: dict, queue_index: dict, check_links: bool, session: requests.Session, link_cache: dict) -> tuple[list, list]:
+    """
+    Gives lists of errors and warnings of an open access check record.
+    """
+    errors = []
+    warnings = []
+    for field, field_type in OPEN_ACCESS_CHECK_FIELDS.items():
+        if field not in check:
+            errors += [f'missing field {field}']
+        elif not isinstance(check[field], field_type):
+            errors += [f'{field} has wrong type {type(check[field]).__name__}']
+    for field in check:
+        if field not in OPEN_ACCESS_CHECK_FIELDS:
+            warnings += [f'unknown field {field}']
+    if errors:
+        return errors, warnings
+    if check["GUID"] not in queue_index:
+        errors += ["GUID is not in the open data queue"]
+    open_access_errors, open_access_warnings = validate_open_access(check["OPEN_ACCESS"], check_links, session, link_cache)
+    return errors + open_access_errors, warnings + open_access_warnings
+
+
+def read_records(path: str) -> tuple[dict, int, int, int]:
+    """
+    Reads JSON lines records. Later records of the same article replace earlier ones.
+    Gives records by GUID and the numbers of records, lines that aren't valid JSON (printed) and replaced records.
+    """
+    records = {}
+    n_lines = 0
+    n_bad_lines = 0
+    n_replaced = 0
+    if not os.path.exists(path):
+        return records, n_lines, n_bad_lines, n_replaced
+    with open(path, encoding="utf8") as read_file:
+        for i_line, line in enumerate(read_file, start=1):
+            if not line.strip():
+                continue
+            n_lines += 1
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError as exception:
+                print(f'{path} line {i_line}: not valid JSON ({exception})')
+                n_bad_lines += 1
+                continue
+            if record.get("GUID") in records:
+                n_replaced += 1
+            records[record.get("GUID")] = record
+    return records, n_lines, n_bad_lines, n_replaced
 
 
 ########
@@ -243,9 +312,9 @@ def validate_assessment(assessment: dict, queue_index: dict, check_links: bool, 
 ########
 
 # Usage: uv run src/validate_open_data_assessments.py [<GUID> ...] [--skip-links]
-# Validates the latest assessment of the given articles (default: all assessed articles)
+# Validates the latest assessment and open access check of the given articles (default: all)
 if __name__ == "__main__":
-    argument_parser = argparse.ArgumentParser(description="Validate the open data assessments")
+    argument_parser = argparse.ArgumentParser(description="Validate the open data assessments and open access checks")
     argument_parser.add_argument("guids", nargs="*")
     argument_parser.add_argument("--skip-links", action="store_true")
     arguments = argument_parser.parse_args()
@@ -253,52 +322,42 @@ if __name__ == "__main__":
     queue = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_data_queue")
     queue_index = {item["GUID"]: item for item in queue}
 
-    if not os.path.exists(ASSESSMENTS_PATH):
-        sys.exit(f'No assessments yet in {ASSESSMENTS_PATH}')
+    if not os.path.exists(ASSESSMENTS_PATH) and not os.path.exists(OPEN_ACCESS_CHECKS_PATH):
+        sys.exit(f'No assessments yet in {ASSESSMENTS_PATH} or {OPEN_ACCESS_CHECKS_PATH}')
 
     # Later records of the same article replace earlier ones
-    assessments = {}
-    n_lines = 0
-    n_bad_lines = 0
-    n_replaced = 0
-    with open(ASSESSMENTS_PATH, encoding="utf8") as read_file:
-        for i_line, line in enumerate(read_file, start=1):
-            if not line.strip():
-                continue
-            n_lines += 1
-            try:
-                assessment = json.loads(line)
-            except json.JSONDecodeError as exception:
-                print(f'Line {i_line}: not valid JSON ({exception})')
-                n_bad_lines += 1
-                continue
-            if assessment.get("GUID") in assessments:
-                n_replaced += 1
-            assessments[assessment.get("GUID")] = assessment
+    assessments, n_lines, n_bad_lines, n_replaced = read_records(ASSESSMENTS_PATH)
+    open_access_checks, n_check_lines, n_bad_check_lines, n_replaced_checks = read_records(OPEN_ACCESS_CHECKS_PATH)
 
-    selected_GUIDs = arguments.guids or list(assessments)
+    selected_GUIDs = arguments.guids or list(dict.fromkeys(list(assessments) + list(open_access_checks)))
     session = requests.Session()
     session.headers.update({"User-Agent": BROWSER_USER_AGENT})
     link_cache = {}
-    n_errors = n_bad_lines
+    n_errors = n_bad_lines + n_bad_check_lines
     n_warnings = 0
     for GUID in selected_GUIDs:
-        if GUID not in assessments:
-            print(f'\n{GUID}\n  ERROR no assessment')
+        if GUID not in assessments and GUID not in open_access_checks:
+            print(f'\n{GUID}\n  ERROR no assessment or open access check')
             n_errors += 1
             continue
-        errors, warnings = validate_assessment(assessments[GUID], queue_index, not arguments.skip_links, session, link_cache)
-        n_errors += len(errors)
-        n_warnings += len(warnings)
-        if errors or warnings:
-            print(f'\n{GUID} ({assessments[GUID].get("DATA_LABEL")})')
-            for error in errors:
-                print(f'  ERROR {error}')
-            for warning in warnings:
-                print(f'  WARNING {warning}')
+        for kind, records, validate in (("assessment", assessments, validate_assessment), ("open access check", open_access_checks, validate_open_access_check)):
+            if GUID not in records:
+                continue
+            errors, warnings = validate(records[GUID], queue_index, not arguments.skip_links, session, link_cache)
+            n_errors += len(errors)
+            n_warnings += len(warnings)
+            if errors or warnings:
+                label = records[GUID].get("DATA_LABEL") or (records[GUID].get("OPEN_ACCESS") or {}).get("VERDICT")
+                print(f'\n{GUID} ({kind}: {label})')
+                for error in errors:
+                    print(f'  ERROR {error}')
+                for warning in warnings:
+                    print(f'  WARNING {warning}')
 
-    n_open_access_checks = len([GUID for GUID, item in queue_index.items() if item["OPEN_ACCESS"]["CHECK_NEEDED_REASON"]])
-    n_open_access_checked = len([GUID for GUID in assessments if GUID in queue_index and queue_index[GUID]["OPEN_ACCESS"]["CHECK_NEEDED_REASON"]])
-    print(f'\nValidated {len(selected_GUIDs)} assessments: {n_errors} errors, {n_warnings} warnings')
-    print(f'{len(assessments)} of {len(queue)} articles assessed ({n_lines} records, {n_replaced} replaced by a later record). {n_open_access_checked} of {n_open_access_checks} open access checks done')
+    # Open access checks done by Claude: the latest record (assessment or open access check) has open or not_open. Hand checks: make_open_access_check_list
+    check_needed_GUIDs = {GUID for GUID, item in queue_index.items() if item["OPEN_ACCESS"]["CHECK_NEEDED_REASON"]}
+    latest_records = {GUID: max((record for record in (assessments.get(GUID), open_access_checks.get(GUID)) if record), key=lambda record: record.get("ASSESSED_AT", "")) for GUID in set(assessments) | set(open_access_checks)}
+    n_open_access_checked = len([GUID for GUID in check_needed_GUIDs if (latest_records.get(GUID) or {}).get("OPEN_ACCESS", {}).get("VERDICT") in ("open", "not_open")])
+    print(f'\nValidated {len(selected_GUIDs)} articles: {n_errors} errors, {n_warnings} warnings')
+    print(f'{len(assessments)} of {len(queue)} articles assessed ({n_lines} records, {n_replaced} replaced by a later record), {len(open_access_checks)} open access checks ({n_check_lines} records, {n_replaced_checks} replaced). {n_open_access_checked} of {len(check_needed_GUIDs)} needed open access checks settled by Claude')
     sys.exit(1 if n_errors else 0)

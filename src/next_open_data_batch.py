@@ -10,6 +10,8 @@ import re
 ##########
 
 ASSESSMENTS_PATH = "./data/assessments/open_data_assessments.jsonl"
+OPEN_ACCESS_CHECKS_PATH = "./data/assessments/open_access_checks.jsonl"
+HAND_CHECKS_PATH = "./data/assessments/open_access_hand_checks.txt"
 RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
 
 HINT_PATTERNS = [
@@ -36,6 +38,8 @@ HINT_CONTEXT_CHARACTERS = 300   # Characters before and after a match
 HINTS_MAX_CHARACTERS = 6000     # Maximum length of data hints per article
 FUNDING_HINTS_MAX_CHARACTERS = 2000
 GRANT_DATASETS_SHOWN = 5
+HAND_CHECK_VERDICTS = ["open", "not_open"]
+GUID_PREFIX_LENGTH = 8
 
 
 #########################
@@ -63,12 +67,31 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
 
 def read_assessments(path: str) -> list[dict]:
     """
-    Reads the open data assessments (one JSON object per line). Gives an empty list if there are none yet.
+    Reads JSON lines records (open data assessments, open access checks). Gives an empty list if there are none yet.
     """
     if not os.path.exists(path):
         return []
     with open(path, encoding="utf8") as read_file:
         return [json.loads(line) for line in read_file if line.strip()]
+
+
+def read_hand_checks(path: str, GUIDs: list[str]) -> dict:
+    """
+    Reads the open access checks by hand: lines "<GUID prefix> <open|not_open> [comment]", # starts a comment line.
+    Gives checks by GUID ({"VERDICT", "COMMENT"}). Lines that can't be read are skipped (make_open_access_check_list reports them).
+    """
+    if not os.path.exists(path):
+        return {}
+    hand_checks = {}
+    with open(path, encoding="utf8") as read_file:
+        for line in read_file:
+            if not line.strip() or line.lstrip().startswith("#"):
+                continue
+            parts = line.split(maxsplit=2)
+            matches = [GUID for GUID in GUIDs if GUID.startswith(parts[0].lower())] if len(parts[0]) >= GUID_PREFIX_LENGTH else []
+            if len(matches) == 1 and len(parts) > 1 and parts[1] in HAND_CHECK_VERDICTS:
+                hand_checks[matches[0]] = {"VERDICT": parts[1], "COMMENT": parts[2].strip() if len(parts) > 2 else None}
+    return hand_checks
 
 
 def get_hints(text: str, patterns: list[str], max_characters: int) -> list[str]:
@@ -108,14 +131,17 @@ def format_attempt(attempt: dict) -> str:
     return f'{attempt["SOURCE"]} {attempt["VERSION"]} {attempt["URL"]}: {result}'
 
 
-def print_dossier(item: dict, grant_datasets_index: dict) -> None:
+def print_dossier(item: dict, grant_datasets_index: dict, open_access_check: dict | None, hand_check: dict | None) -> None:
     """
     Prints the info that is needed for the open data check of an article.
     """
     fulltext = item["FULLTEXT"]
     dossier = {key: item[key] for key in ("QUEUE_POSITION", "IS_PILOT", "GUID", "TITLE", "PERIODICAL", "DOI", "ETIS_PAGE_URL")}
     dossier["PROJECTS"] = item["PROJECTS"]
-    dossier["OPEN_ACCESS"] = item["OPEN_ACCESS"]
+    dossier["OPEN_ACCESS"] = item["OPEN_ACCESS"] | {"CHECKS": {
+        "HAND_CHECK": hand_check,
+        "OPEN_ACCESS_CHECK": {"ASSESSED_AT": open_access_check["ASSESSED_AT"], **open_access_check["OPEN_ACCESS"]} if open_access_check else None
+    }}
     dossier["CANDIDATES"] = item["CANDIDATES"]
     dossier["FULLTEXT"] = {key: value for key, value in fulltext.items() if key != "ATTEMPTS"}
     dossier["FULLTEXT"]["FAILED_ATTEMPTS"] = [format_attempt(attempt) for attempt in fulltext.get("ATTEMPTS") or [] if attempt.get("RESULT") != "ok"]
@@ -164,6 +190,8 @@ if __name__ == "__main__":
     grant_datasets = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "grant_datasets")
     grant_datasets_index = {item["HORIZON_ID"]: item for item in grant_datasets}
     assessed_GUIDs = {assessment["GUID"] for assessment in read_assessments(ASSESSMENTS_PATH)}
+    open_access_checks = {record["GUID"]: record for record in read_assessments(OPEN_ACCESS_CHECKS_PATH)}
+    hand_checks = read_hand_checks(HAND_CHECKS_PATH, [item["GUID"] for item in queue])
 
     # Articles without an Estonian author are left out
     n_no_estonian_author = len([item for item in queue if item["HAS_ESTONIAN_AUTHOR"] is False])
@@ -174,4 +202,4 @@ if __name__ == "__main__":
 
     print(f'{len(assessed_GUIDs)} of {len(queue)} articles assessed ({n_no_estonian_author} without an Estonian author are skipped). Batch: {", ".join(item["GUID"] for item in batch)}')
     for item in batch:
-        print_dossier(item, grant_datasets_index)
+        print_dossier(item, grant_datasets_index, open_access_checks.get(item["GUID"]), hand_checks.get(item["GUID"]))

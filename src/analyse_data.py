@@ -16,7 +16,13 @@ import polars
 
 RESULTS_DATA_DIRECTORY_PATH = "./data/results/"
 ASSESSMENTS_PATH = "./data/assessments/open_data_assessments.jsonl"
+OPEN_ACCESS_CHECKS_PATH = "./data/assessments/open_access_checks.jsonl"
+HAND_CHECKS_PATH = "./data/assessments/open_access_hand_checks.txt"
 
+HAND_CHECK_VERDICTS = ["open", "not_open"]
+GUID_PREFIX_LENGTH = 8
+CHECK_SOURCES = ["hand_check", "open_access_check", "fulltext_check"]
+    # OPEN_ACCESS_SETTLED_BY values of verdicts that replace the automatic verdict
 OPEN_DATA_LABELS = ["repository", "supplement", "public_source"]
     # Underlying data are freely downloadable (H2020 Art. 29.3 / Horizon Europe bar)
 EXCLUDED_DATA_LABELS = ["no_data", "no_fulltext"]
@@ -79,20 +85,45 @@ def read_latest_file(dir_path: str, file_handle: str = None) -> list[dict]:
     return data
 
 
-def read_assessments(path: str) -> dict:
+def read_records(path: str) -> dict:
     """
-    Reads the open data assessments (one JSON object per line). Later records of the same article replace earlier ones.
-    Gives assessments by GUID.
+    Reads JSON lines records (open data assessments, open access checks). Later records of the same article replace earlier ones.
+    Gives records by GUID.
     """
     if not os.path.exists(path):
         return {}
-    assessments = {}
+    records = {}
     with open(path, encoding="utf8") as read_file:
         for line in read_file:
             if line.strip():
-                assessment = json.loads(line)
-                assessments[assessment["GUID"]] = assessment
-    return assessments
+                record = json.loads(line)
+                records[record["GUID"]] = record
+    return records
+
+
+def read_hand_checks(path: str, GUIDs: list[str]) -> tuple[dict, list[str]]:
+    """
+    Reads the open access checks by hand: lines "<GUID prefix> <open|not_open> [comment]", # starts a comment line.
+    Gives checks by GUID ({"VERDICT", "COMMENT"}) and messages about lines that couldn't be read. A later line of the same article wins.
+    """
+    if not os.path.exists(path):
+        return {}, []
+    hand_checks = {}
+    problems = []
+    with open(path, encoding="utf8") as read_file:
+        for i_line, line in enumerate(read_file, start=1):
+            if not line.strip() or line.lstrip().startswith("#"):
+                continue
+            parts = line.split(maxsplit=2)
+            prefix = parts[0].lower()
+            matches = [GUID for GUID in GUIDs if GUID.startswith(prefix)] if len(prefix) >= GUID_PREFIX_LENGTH else []
+            if len(matches) != 1:
+                problems += [f'line {i_line}: "{prefix}" is not the GUID prefix of an article ({GUID_PREFIX_LENGTH}+ characters)']
+            elif len(parts) < 2 or parts[1] not in HAND_CHECK_VERDICTS:
+                problems += [f'line {i_line}: verdict must be {" or ".join(HAND_CHECK_VERDICTS)}']
+            else:
+                hand_checks[matches[0]] = {"VERDICT": parts[1], "COMMENT": parts[2].strip() if len(parts) > 2 else None}
+    return hand_checks, problems
 
 
 def wilson_interval(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
@@ -159,7 +190,11 @@ logger.addHandler(logging.StreamHandler(sys.stdout))
 #############
 
 open_data_queue = read_latest_file(RESULTS_DATA_DIRECTORY_PATH, "open_data_queue")
-assessments = read_assessments(ASSESSMENTS_PATH)
+assessments = read_records(ASSESSMENTS_PATH)
+open_access_checks = read_records(OPEN_ACCESS_CHECKS_PATH)
+hand_checks, hand_check_problems = read_hand_checks(HAND_CHECKS_PATH, [item["GUID"] for item in open_data_queue])
+for problem in hand_check_problems:
+    logger.warning(f'{HAND_CHECKS_PATH}: {problem}')
 
 
 ##############################
@@ -173,12 +208,21 @@ for queue_item in open_data_queue:
     assessment = assessments.get(queue_item["GUID"]) or {}
     projects = [{field: project[field] for field in PROJECT_FIELDS} for project in queue_item["PROJECTS"]]
 
-    # Full text check settles open access whenever it finds the status, also when there is an automatic verdict
+    # A check settles open access whenever it finds the status, also when there is an automatic verdict:
+    # hand check, else Claude's latest record (open access check or open data assessment; unclear = not settled)
     automatic_verdict = queue_item["OPEN_ACCESS"]["AUTOMATIC_VERDICT"]
     fulltext_verdict = (assessment.get("OPEN_ACCESS") or {}).get("VERDICT")
-    if fulltext_verdict in ("open", "not_open"):
-        is_open_access = fulltext_verdict == "open"
-        open_access_settled_by = "fulltext_check"
+    open_access_check = open_access_checks.get(queue_item["GUID"]) or {}
+    check_verdict = open_access_check.get("OPEN_ACCESS", {}).get("VERDICT")
+    hand_check_verdict = (hand_checks.get(queue_item["GUID"]) or {}).get("VERDICT")
+    is_check_latest = bool(open_access_check) and open_access_check["ASSESSED_AT"] > assessment.get("ASSESSED_AT", "")
+    latest_verdict, latest_source = (check_verdict, "open_access_check") if is_check_latest else (fulltext_verdict, "fulltext_check")
+    if hand_check_verdict:
+        is_open_access = hand_check_verdict == "open"
+        open_access_settled_by = "hand_check"
+    elif latest_verdict in ("open", "not_open"):
+        is_open_access = latest_verdict == "open"
+        open_access_settled_by = latest_source
     elif automatic_verdict:
         is_open_access = automatic_verdict == "open"
         open_access_settled_by = queue_item["OPEN_ACCESS"]["AUTOMATIC_VERDICT_SOURCE"]
@@ -210,6 +254,8 @@ for queue_item in open_data_queue:
         "OPEN_ACCESS_SETTLED_BY": open_access_settled_by,
         "OPEN_ACCESS_AUTOMATIC_VERDICT": automatic_verdict,
         "OPEN_ACCESS_FULLTEXT_VERDICT": fulltext_verdict,
+        "OPEN_ACCESS_CHECK_VERDICT": check_verdict,
+        "OPEN_ACCESS_HAND_CHECK_VERDICT": hand_check_verdict,
         "OPEN_ACCESS_CHECK_NEEDED_REASON": queue_item["OPEN_ACCESS"]["CHECK_NEEDED_REASON"],
         "DATA_LABEL": data_label,
         "DATA_COVERAGE": assessment.get("DATA_COVERAGE"),
@@ -244,17 +290,17 @@ logger.info(info_string2)
 open_access_rates = summarise_rate(articles_in_scope, "IS_OPEN_ACCESS", "IS_GRANT_LINKED")
 settled_by_counts = articles_in_scope.group_by("OPEN_ACCESS_SETTLED_BY").len().sort("OPEN_ACCESS_SETTLED_BY")
 
-# Full text check verdicts compared to the automatic verdicts - tells how reliable the automatic status is
+# Check verdicts compared to the automatic verdicts - tells how reliable the automatic status is
 open_access_agreement = (articles_in_scope
-    .filter(polars.col("OPEN_ACCESS_AUTOMATIC_VERDICT").is_not_null() & polars.col("OPEN_ACCESS_FULLTEXT_VERDICT").is_in(["open", "not_open"]))
-    .group_by("OPEN_ACCESS_AUTOMATIC_VERDICT", "OPEN_ACCESS_FULLTEXT_VERDICT").len()
-    .sort("OPEN_ACCESS_AUTOMATIC_VERDICT", "OPEN_ACCESS_FULLTEXT_VERDICT"))
+    .filter(polars.col("OPEN_ACCESS_AUTOMATIC_VERDICT").is_not_null() & polars.col("OPEN_ACCESS_SETTLED_BY").is_in(CHECK_SOURCES))
+    .group_by("OPEN_ACCESS_AUTOMATIC_VERDICT", "IS_OPEN_ACCESS", "OPEN_ACCESS_SETTLED_BY").len()
+    .sort("OPEN_ACCESS_AUTOMATIC_VERDICT", "IS_OPEN_ACCESS", "OPEN_ACCESS_SETTLED_BY"))
 
 with polars.Config(**TABLE_PRINT_OPTIONS):
     logger.info(f'\nOpen access of the articles by whether OpenAIRE or OpenAlex links the article to its ETIS project\'s Horizon grant:\n{open_access_rates}')
-    logger.info(f'\nHow the open access status was settled (null = pending a full text check):\n{settled_by_counts}')
+    logger.info(f'\nHow the open access status was settled (null = pending a check):\n{settled_by_counts}')
     if open_access_agreement.height:
-        logger.info(f'\nAutomatic open access verdict (OpenAlex, ETIS links, hand checks) vs full text check:\n{open_access_agreement}')
+        logger.info(f'\nAutomatic open access verdict (OpenAlex, ETIS links, saved full texts) vs the checks:\n{open_access_agreement}')
 
 
 #####################

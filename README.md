@@ -36,7 +36,8 @@ Run the scripts from the repository root with `uv run src/<script>.py`, in this 
 7. `get_fulltext` - full texts to `data/fulltext/` (not committed). Resumes where an earlier run stopped (`fulltext_index`)
 8. `get_manual_fulltexts` - full texts saved by hand: lists the articles without a full text with links to try (`data/fulltext/inbox/fetch_list.html`). Save the files into `data/fulltext/inbox/open/` (free on the publisher site or through an ETIS link), `other/` (other free copies) or `library/` (library access) and run it again (`fulltext_index`)
 9. `make_open_data_queue` - everything known automatically about each article, in check order (`open_data_queue`)
-10. Open data checks: ask Claude Code to run the `check-open-data` skill. It appends records to `data/assessments/open_data_assessments.jsonl` and checks them with `validate_open_data_assessments`
-11. `analyse_data` - final open access and open data status of each article (`article_analysis`) and summary tables
+10. Open data checks: ask Claude Code to run the `check-open-data` skill. It appends records to `data/assessments/open_data_assessments.jsonl` (open access checks without a data check: `open_access_checks.jsonl`) and checks them with `validate_open_data_assessments`
+11. `make_open_access_check_list` - lists the articles whose open access Claude couldn't settle (`data/fulltext/inbox/open_access_check_list.html`). Write the verdicts from a browser into `data/assessments/open_access_hand_checks.txt` and run it again
+12. `analyse_data` - final open access and open data status of each article (`article_analysis`) and summary tables
 
 Data files, fields and codes: [doc/data_schema.md](doc/data_schema.md). Decisions, findings and run results: [doc/dev_notes.md](doc/dev_notes.md).

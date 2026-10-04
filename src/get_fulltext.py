@@ -37,6 +37,8 @@ VERSION_CODES = {
 PEER_REVIEWED_VERSIONS = ["published_version", "accepted_version"]
 MIN_TEXT_LENGTH = 5000          # Shorter PDF or XML text is not a full text (e.g. scanned PDF without text layer)
 MIN_HTML_TEXT_LENGTH = 20000    # Shorter HTML text is not a full text (e.g. abstract page of a paywalled article)
+REFERENCES_HEADING_PATTERN = r"\b(References|REFERENCES|Bibliography|Literature cited|Kasutatud kirjandus|Kirjandus|Viited)\b"
+    # HTML text is counted up to the last of these: a landing page with a long reference list isn't a full text
 TITLE_SIMILARITY_THRESHOLD = 90
     # Word files and files from ETIS links count as the article only if they have the article title (fuzzy match score, 0-100)
     # Word files on Zenodo can be other documents, e.g. a cover letter or a response to reviewers. ETIS links are typed in by hand
@@ -211,7 +213,8 @@ def decode_html(response: requests.Response) -> str:
 def save_fulltext(GUID: str, content: bytes | str, extension: str, min_text_length: int, page_URL: str = None) -> tuple[str, str, int] | None:
     """
     Saves full text content to the full text directory and converts it to text.
-    Gives the file path, text file path and text length. Gives None and removes the files if the text is too short.
+    Gives the file path, text file path and text length. Gives None and removes the files if the text is too short
+    (HTML: the text before the last references heading).
     """
     file_path = f'{FULLTEXT_DIRECTORY_PATH.rstrip("/")}/{GUID}.{extension}'
     if isinstance(content, str):
@@ -223,11 +226,14 @@ def save_fulltext(GUID: str, content: bytes | str, extension: str, min_text_leng
     try:
         text_file_path = fulltext_conversion.convert_file(file_path, page_URL)
         with open(text_file_path, encoding="utf8") as read_file:
-            n_characters = len(read_file.read())
+            text = read_file.read()
+        n_characters = len(text)
+        references_headings = list(re.finditer(REFERENCES_HEADING_PATTERN, text)) if extension == "html" else []
+        n_body_characters = references_headings[-1].start() if references_headings else n_characters
     except Exception:
-        n_characters = 0
+        n_characters = n_body_characters = 0
 
-    if n_characters < min_text_length:
+    if n_body_characters < min_text_length:
         for path in (file_path, text_file_path):
             if path and os.path.exists(path):
                 os.remove(path)

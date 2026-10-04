@@ -1,0 +1,4 @@
+# Open access checks by hand, one article per line: <GUID prefix> <open|not_open> [comment]
+# open: free to read without login on the publisher site (DOI) or through a link on the ETIS page (any version, preprints included)
+# not_open: nothing free on the publisher site and no ETIS link to a free copy
+# The list of articles to check: data/fulltext/inbox/open_access_check_list.html (uv run src/make_open_access_check_list.py)

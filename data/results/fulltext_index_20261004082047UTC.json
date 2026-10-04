@@ -198,14 +198,14 @@
   {
     "GUID": "2db049e5-432f-40ed-b0f5-c06cbf7f70e5",
     "DOI": "10.1109/jsen.2018.2883786",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/2db049e5-432f-40ed-b0f5-c06cbf7f70e5.pdf",
+    "TEXT_FILE": "./data/fulltext/2db049e5-432f-40ed-b0f5-c06cbf7f70e5.txt",
+    "N_CHARACTERS": 84158,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:00+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:52:57+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -230,6 +230,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "2db049e5_On_Research_Challenges_in_Hybrid_Medium.pdf"
       }
     ]
   },
@@ -421,7 +429,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:01+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:18+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -430,6 +438,14 @@
         "HOST_TYPE": "book_series",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -509,7 +525,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:03+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:19+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -517,6 +533,14 @@
         "VERSION": null,
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
         "RESULT_DETAIL": null
       }
     ]
@@ -575,7 +599,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:03+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:19+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -592,6 +616,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -605,7 +637,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:04+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:20+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -614,6 +646,14 @@
         "HOST_TYPE": "book_series",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -627,7 +667,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:05+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:21+00:00",
     "ATTEMPTS": []
   },
   {
@@ -662,7 +702,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:05+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:21+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -679,6 +719,14 @@
         "HOST_TYPE": null,
         "RESULT": "wrong_content_type",
         "RESULT_DETAIL": "text/html; charset=utf-8"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -697,28 +745,6 @@
       {
         "SOURCE": "openalex_pdf",
         "URL": "http://www.witpress.com/Secure/ejournals/papers/DNE130204f.pdf",
-        "VERSION": "published_version",
-        "HOST_TYPE": "journal",
-        "RESULT": "ok",
-        "RESULT_DETAIL": null
-      }
-    ]
-  },
-  {
-    "GUID": "55b2a14d-72b6-4749-898d-30960c6cbb3e",
-    "DOI": "10.1109/access.2020.3022818",
-    "FILE": "./data/fulltext/55b2a14d-72b6-4749-898d-30960c6cbb3e.pdf",
-    "TEXT_FILE": "./data/fulltext/55b2a14d-72b6-4749-898d-30960c6cbb3e.txt",
-    "N_CHARACTERS": 153202,
-    "SOURCE": "openalex_pdf",
-    "URL": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/09187883.pdf",
-    "VERSION": "published_version",
-    "HOST_TYPE": "journal",
-    "RETRIEVED_AT": "2026-10-03T08:36:56+00:00",
-    "ATTEMPTS": [
-      {
-        "SOURCE": "openalex_pdf",
-        "URL": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/09187883.pdf",
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "ok",
@@ -759,6 +785,28 @@
         "URL": "https://content.openalex.org/works/W4383752077.grobid-xml",
         "VERSION": null,
         "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": null
+      }
+    ]
+  },
+  {
+    "GUID": "55b2a14d-72b6-4749-898d-30960c6cbb3e",
+    "DOI": "10.1109/access.2020.3022818",
+    "FILE": "./data/fulltext/55b2a14d-72b6-4749-898d-30960c6cbb3e.pdf",
+    "TEXT_FILE": "./data/fulltext/55b2a14d-72b6-4749-898d-30960c6cbb3e.txt",
+    "N_CHARACTERS": 153202,
+    "SOURCE": "openalex_pdf",
+    "URL": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/09187883.pdf",
+    "VERSION": "published_version",
+    "HOST_TYPE": "journal",
+    "RETRIEVED_AT": "2026-10-03T08:36:56+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "openalex_pdf",
+        "URL": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/09187883.pdf",
+        "VERSION": "published_version",
+        "HOST_TYPE": "journal",
         "RESULT": "ok",
         "RESULT_DETAIL": null
       }
@@ -922,7 +970,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:08+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:26+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -1174,7 +1222,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:26+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -1183,6 +1231,14 @@
         "HOST_TYPE": "book_series",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -1306,7 +1362,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:26+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -1416,7 +1472,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
     "ATTEMPTS": []
   },
   {
@@ -1429,7 +1485,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
     "ATTEMPTS": []
   },
   {
@@ -1480,7 +1536,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
     "ATTEMPTS": []
   },
   {
@@ -1553,7 +1609,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -1724,14 +1780,14 @@
   {
     "GUID": "80563d09-0d5e-4c5d-b8bf-d4af65de00c8",
     "DOI": "10.4028/www.scientific.net/msf.924.862",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/80563d09-0d5e-4c5d-b8bf-d4af65de00c8.pdf",
+    "TEXT_FILE": "./data/fulltext/80563d09-0d5e-4c5d-b8bf-d4af65de00c8.txt",
+    "N_CHARACTERS": 6070,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:13+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:32:05+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -1740,6 +1796,14 @@
         "HOST_TYPE": "book_series",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "80563d09_ICSCRM-17manuscript.pdf"
       }
     ]
   },
@@ -1753,7 +1817,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:14+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -1901,7 +1965,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:15+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -1923,7 +1987,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:17+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -1967,7 +2031,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:17+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -2252,14 +2316,14 @@
   {
     "GUID": "86e343b8-4f49-4207-a05e-7fe3cd7aa7a8",
     "DOI": "10.1016/j.meatsci.2023.109160",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/86e343b8-4f49-4207-a05e-7fe3cd7aa7a8.pdf",
+    "TEXT_FILE": "./data/fulltext/86e343b8-4f49-4207-a05e-7fe3cd7aa7a8.txt",
+    "N_CHARACTERS": 80979,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:36+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:41:59+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2276,6 +2340,14 @@
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0309174023000669-main.pdf"
       }
     ]
   },
@@ -2335,7 +2407,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:50+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -2357,8 +2429,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:51+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "b8e6bf98-4dbf-4f36-8c54-20fd8d040c41",
@@ -2703,14 +2784,14 @@
   {
     "GUID": "0991a39d-18fe-4214-a02d-b51497c4dade",
     "DOI": "10.1016/j.chemosphere.2023.139629",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/0991a39d-18fe-4214-a02d-b51497c4dade.pdf",
+    "TEXT_FILE": "./data/fulltext/0991a39d-18fe-4214-a02d-b51497c4dade.txt",
+    "N_CHARACTERS": 19765,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:41:25+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -2727,6 +2808,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "0991a39d_article.pdf"
       }
     ]
   },
@@ -2801,14 +2890,14 @@
   {
     "GUID": "5cab4983-6e04-47f0-a719-1258179377fd",
     "DOI": "10.3176/proc.2025.2s.01",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/5cab4983-6e04-47f0-a719-1258179377fd.pdf",
+    "TEXT_FILE": "./data/fulltext/5cab4983-6e04-47f0-a719-1258179377fd.txt",
+    "N_CHARACTERS": 54715,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:52+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:40:32+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2825,20 +2914,28 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "5cab4983_proc-2S-2025-269-280_20250528112304.pdf"
       }
     ]
   },
   {
     "GUID": "8bcb1edc-9891-49f8-83e0-95474e46a5cd",
     "DOI": "10.1016/j.solmat.2025.113856",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/8bcb1edc-9891-49f8-83e0-95474e46a5cd.pdf",
+    "TEXT_FILE": "./data/fulltext/8bcb1edc-9891-49f8-83e0-95474e46a5cd.txt",
+    "N_CHARACTERS": 68051,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:52+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:44:36+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2847,6 +2944,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S092702482500457X-main.pdf"
       }
     ]
   },
@@ -2875,14 +2980,14 @@
   {
     "GUID": "8680dff6-9e64-4902-ad5f-26f6e03d4cf5",
     "DOI": "10.1016/j.mssp.2023.107934",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/8680dff6-9e64-4902-ad5f-26f6e03d4cf5.pdf",
+    "TEXT_FILE": "./data/fulltext/8680dff6-9e64-4902-ad5f-26f6e03d4cf5.txt",
+    "N_CHARACTERS": 55661,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:54+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:41:47+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2907,20 +3012,28 @@
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S1369800123006273-main.pdf"
       }
     ]
   },
   {
     "GUID": "dba3b23d-2983-461e-90bc-74b3f89934e6",
     "DOI": "10.1016/j.jallcom.2026.188010",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/dba3b23d-2983-461e-90bc-74b3f89934e6.pdf",
+    "TEXT_FILE": "./data/fulltext/dba3b23d-2983-461e-90bc-74b3f89934e6.txt",
+    "N_CHARACTERS": 88913,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:57+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:39:00+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -2929,6 +3042,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0925838826020797-main.pdf"
       }
     ]
   },
@@ -3278,20 +3399,20 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:57+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
     "ATTEMPTS": []
   },
   {
     "GUID": "3519ecc0-c424-4848-b70f-5b4f8956205b",
     "DOI": "10.1016/j.solmat.2021.111045",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/3519ecc0-c424-4848-b70f-5b4f8956205b.pdf",
+    "TEXT_FILE": "./data/fulltext/3519ecc0-c424-4848-b70f-5b4f8956205b.txt",
+    "N_CHARACTERS": 91203,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:27:57+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:45:32+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -3300,6 +3421,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S092702482100088X-mainext.pdf"
       }
     ]
   },
@@ -3410,14 +3539,14 @@
   {
     "GUID": "05395a48-a6be-4c3b-8ae0-cd99fe79acc8",
     "DOI": "10.1002/sstr.70513",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/05395a48-a6be-4c3b-8ae0-cd99fe79acc8.pdf",
+    "TEXT_FILE": "./data/fulltext/05395a48-a6be-4c3b-8ae0-cd99fe79acc8.txt",
+    "N_CHARACTERS": 46475,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:36:18+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -3426,6 +3555,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "05395a48_Small Structures - 2026 - Danziger - Defect‐Topology Control of Anisotropic Lattice Flexibility for High‐Performance.pdf"
       }
     ]
   },
@@ -3619,7 +3756,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -3685,7 +3822,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
     "ATTEMPTS": []
   },
   {
@@ -3751,14 +3888,14 @@
   {
     "GUID": "426b3d05-268c-4d14-a792-ee51defcd843",
     "DOI": "10.1016/j.nme.2018.11.018",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/426b3d05-268c-4d14-a792-ee51defcd843.pdf",
+    "TEXT_FILE": "./data/fulltext/426b3d05-268c-4d14-a792-ee51defcd843.txt",
+    "N_CHARACTERS": 22035,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:38:49+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -3815,6 +3952,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S2352179118301522-main.pdf"
       }
     ]
   },
@@ -3859,14 +4004,14 @@
   {
     "GUID": "46e31419-4d1b-434a-b19e-41c80228809a",
     "DOI": "10.1016/j.jnucmat.2020.152660",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/46e31419-4d1b-434a-b19e-41c80228809a.pdf",
+    "TEXT_FILE": "./data/fulltext/46e31419-4d1b-434a-b19e-41c80228809a.txt",
+    "N_CHARACTERS": 46938,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:05+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:43:06+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -3891,6 +4036,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "46e31419_Jogi_JNM20_postprint.pdf"
       }
     ]
   },
@@ -3904,7 +4057,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:07+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
     "ATTEMPTS": []
   },
   {
@@ -3962,27 +4115,36 @@
   {
     "GUID": "b45b9fb4-2e93-46e2-a552-45809edbac9b",
     "DOI": "10.1109/tgrs.2018.2795641",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/b45b9fb4-2e93-46e2-a552-45809edbac9b.pdf",
+    "TEXT_FILE": "./data/fulltext/b45b9fb4-2e93-46e2-a552-45809edbac9b.txt",
+    "N_CHARACTERS": 43091,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:07+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T20:43:54+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "b45b9fb4_Hydromorphological_Classification_Using.pdf"
+      }
+    ]
   },
   {
     "GUID": "fedb32bc-d20e-48c1-945c-0ab52f47a7f2",
     "DOI": "10.1007/s10836-016-5589-x",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/fedb32bc-d20e-48c1-945c-0ab52f47a7f2.pdf",
+    "TEXT_FILE": "./data/fulltext/fedb32bc-d20e-48c1-945c-0ab52f47a7f2.txt",
+    "N_CHARACTERS": 69567,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:07+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:28:19+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -3999,6 +4161,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "fedb32bc_pre-print.pdf"
       }
     ]
   },
@@ -4012,7 +4182,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:08+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -4020,6 +4190,14 @@
         "VERSION": null,
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
         "RESULT_DETAIL": null
       }
     ]
@@ -4192,7 +4370,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:09+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:30+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -4267,14 +4445,14 @@
   {
     "GUID": "2674c7c0-eced-4301-a86e-93753b0a11b2",
     "DOI": "10.1080/17405629.2017.1398079",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/2674c7c0-eced-4301-a86e-93753b0a11b2.pdf",
+    "TEXT_FILE": "./data/fulltext/2674c7c0-eced-4301-a86e-93753b0a11b2.txt",
+    "N_CHARACTERS": 43289,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:11+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:18:46+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -4291,6 +4469,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "2674c7c0_Trust in alternative and professional media The case of the youth news audiences in three European countries.pdf"
       }
     ]
   },
@@ -4304,7 +4490,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:14+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:30+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -4394,7 +4580,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:14+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -4485,14 +4671,14 @@
   {
     "GUID": "1acc1537-ace3-4960-adc0-55dbf33d11d2",
     "DOI": "10.1134/s1064229320050026",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/1acc1537-ace3-4960-adc0-55dbf33d11d2.pdf",
+    "TEXT_FILE": "./data/fulltext/1acc1537-ace3-4960-adc0-55dbf33d11d2.txt",
+    "N_CHARACTERS": 63808,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:15+00:00",
+    "RETRIEVED_AT": "2026-10-03T21:07:19+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -4517,6 +4703,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1acc1537_WaterStabilityOfSoilAggregates.pdf"
       }
     ]
   },
@@ -4574,7 +4768,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:19+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -4640,14 +4834,14 @@
   {
     "GUID": "9b65a970-c0da-43ae-a094-f8081872c85e",
     "DOI": "10.1080/09064710.2021.1973083",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/9b65a970-c0da-43ae-a094-f8081872c85e.pdf",
+    "TEXT_FILE": "./data/fulltext/9b65a970-c0da-43ae-a094-f8081872c85e.txt",
+    "N_CHARACTERS": 62705,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:19+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:10:42+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -4696,6 +4890,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "9b65a970_Cover crop residues effect on soil structural stability and phosphatase activity.pdf"
       }
     ]
   },
@@ -4755,7 +4957,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -4911,7 +5113,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -4939,14 +5141,14 @@
   {
     "GUID": "a650f294-e7b1-4f2e-a3b8-bd4bc502efb0",
     "DOI": "10.1109/tlt.2020.2995557",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/a650f294-e7b1-4f2e-a3b8-bd4bc502efb0.pdf",
+    "TEXT_FILE": "./data/fulltext/a650f294-e7b1-4f2e-a3b8-bd4bc502efb0.txt",
+    "N_CHARACTERS": 79547,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:44:17+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -4955,20 +5157,28 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "a650f294_Chus2020.pdf"
       }
     ]
   },
   {
     "GUID": "0517b297-595c-467b-86b8-638343eba8b0",
     "DOI": "10.1080/10447318.2017.1379240",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/0517b297-595c-467b-86b8-638343eba8b0.pdf",
+    "TEXT_FILE": "./data/fulltext/0517b297-595c-467b-86b8-638343eba8b0.txt",
+    "N_CHARACTERS": 105672,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:09:46+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -4985,6 +5195,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "0517b297_Balancing the Fluency-Consistency Tradeoff in Collaborative Information Search with a Recommender Approach.pdf"
       }
     ]
   },
@@ -5123,14 +5341,14 @@
   {
     "GUID": "6bd27f0d-9fde-4d53-8d97-0adb2d08b4df",
     "DOI": "10.1007/s10805-022-09469-x",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/6bd27f0d-9fde-4d53-8d97-0adb2d08b4df.pdf",
+    "TEXT_FILE": "./data/fulltext/6bd27f0d-9fde-4d53-8d97-0adb2d08b4df.txt",
+    "N_CHARACTERS": 79050,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:22+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:29:04+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -5235,6 +5453,14 @@
         "HOST_TYPE": "repository",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "6bd27f0d_s10805-022-09469-x.pdf"
       }
     ]
   },
@@ -5406,7 +5632,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:33+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -5570,14 +5796,14 @@
   {
     "GUID": "efa640ec-c8de-42ed-8d7b-0b86af8c8459",
     "DOI": "10.2217/bmm-2017-0431",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/efa640ec-c8de-42ed-8d7b-0b86af8c8459.pdf",
+    "TEXT_FILE": "./data/fulltext/efa640ec-c8de-42ed-8d7b-0b86af8c8459.txt",
+    "N_CHARACTERS": 48900,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:34+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:45:15+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -5626,6 +5852,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "efa640ec_A Meta-Analysis of Italian and Estonian Individuals Shows An Effect of Common Variants in HMGCR on Blood Apob Levels.pdf"
       }
     ]
   },
@@ -5799,7 +6033,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:38+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -5807,6 +6041,14 @@
         "VERSION": null,
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
         "RESULT_DETAIL": null
       }
     ]
@@ -5821,7 +6063,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:38+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -6067,14 +6309,14 @@
   {
     "GUID": "3f5f834b-7343-45b4-b053-cfac698c016d",
     "DOI": "10.2217/epi-2017-0038",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/3f5f834b-7343-45b4-b053-cfac698c016d.pdf",
+    "TEXT_FILE": "./data/fulltext/3f5f834b-7343-45b4-b053-cfac698c016d.txt",
+    "N_CHARACTERS": 72409,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:38+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:46:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -6139,6 +6381,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "3f5f834b_REPUB_102648_OA.pdf"
       }
     ]
   },
@@ -6919,14 +7169,14 @@
   {
     "GUID": "9a43e678-3882-411f-8c2e-5fe7cb28d438",
     "DOI": "10.1080/09540962.2020.1732027",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/9a43e678-3882-411f-8c2e-5fe7cb28d438.pdf",
+    "TEXT_FILE": "./data/fulltext/9a43e678-3882-411f-8c2e-5fe7cb28d438.txt",
+    "N_CHARACTERS": 44023,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:43+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:13:01+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_pdf",
@@ -6959,6 +7209,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "9a43e678_New methodology for calculating cost-efficiency of different ways of voting is internet voting cheaper .pdf"
       }
     ]
   },
@@ -7136,7 +7394,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:46+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7193,8 +7451,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "97ec6454-4e7a-4ca7-9f5e-c7de649caa9d",
@@ -7228,7 +7495,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7271,7 +7538,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7284,7 +7551,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7319,7 +7586,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -7341,7 +7608,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -7393,8 +7660,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-04T08:20:32+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "7933dcbf-514e-4434-8d91-7369348a7202",
@@ -7428,7 +7704,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:32+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7479,7 +7755,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:32+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -7487,6 +7763,14 @@
         "VERSION": "published_version",
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
         "RESULT_DETAIL": null
       }
     ]
@@ -7501,7 +7785,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:49+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:33+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -7523,7 +7807,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:49+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": []
   },
   {
@@ -7633,14 +7917,14 @@
   {
     "GUID": "d2f41bc9-2924-403b-ad24-bf7b2f8b10f5",
     "DOI": "10.1016/j.envsci.2022.02.034",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/d2f41bc9-2924-403b-ad24-bf7b2f8b10f5.pdf",
+    "TEXT_FILE": "./data/fulltext/d2f41bc9-2924-403b-ad24-bf7b2f8b10f5.txt",
+    "N_CHARACTERS": 86376,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:28:51+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:36:12+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -7673,6 +7957,14 @@
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "d2f41bc9_noe_icupe_sdg.pdf"
       }
     ]
   },
@@ -8154,7 +8446,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": []
   },
   {
@@ -8211,7 +8503,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -8255,7 +8547,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": []
   },
   {
@@ -8558,7 +8850,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": []
   },
   {
@@ -8586,14 +8878,14 @@
   {
     "GUID": "516a80d5-4a2e-4871-84dd-0e46bbf0cb3a",
     "DOI": "10.1177/0020872820904130",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/516a80d5-4a2e-4871-84dd-0e46bbf0cb3a.pdf",
+    "TEXT_FILE": "./data/fulltext/516a80d5-4a2e-4871-84dd-0e46bbf0cb3a.txt",
+    "N_CHARACTERS": 54732,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+    "RETRIEVED_AT": "2026-10-03T21:07:51+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -8610,20 +8902,28 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "516a80d5_toros-et-al-2020-co-creation-of-social-services-on-the-example-of-social-hackathon-the-case-of-estonia.pdf"
       }
     ]
   },
   {
     "GUID": "bd816e5a-7bf5-463b-98b7-3e022363b20c",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/bd816e5a-7bf5-463b-98b7-3e022363b20c.pdf",
+    "TEXT_FILE": "./data/fulltext/bd816e5a-7bf5-463b-98b7-3e022363b20c.txt",
+    "N_CHARACTERS": 43108,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:31:58+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:55:38+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -8632,20 +8932,28 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "bd816e5a_960-2845-1-PB.pdf"
       }
     ]
   },
   {
     "GUID": "e65a0e43-9b8d-4307-96c6-f477a1f487bc",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/e65a0e43-9b8d-4307-96c6-f477a1f487bc.pdf",
+    "TEXT_FILE": "./data/fulltext/e65a0e43-9b8d-4307-96c6-f477a1f487bc.txt",
+    "N_CHARACTERS": 73035,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:31:58+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:57:15+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -8654,6 +8962,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "e65a0e43_985-2914-1-PB.pdf"
       }
     ]
   },
@@ -8799,20 +9115,20 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:31:59+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": []
   },
   {
     "GUID": "e9b8fd79-c1a4-4b14-87e2-34cbd8e182fc",
     "DOI": "10.1080/10848770.2019.1692598",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/e9b8fd79-c1a4-4b14-87e2-34cbd8e182fc.pdf",
+    "TEXT_FILE": "./data/fulltext/e9b8fd79-c1a4-4b14-87e2-34cbd8e182fc.txt",
+    "N_CHARACTERS": 71341,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:31:59+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:14:35+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -8829,6 +9145,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "e9b8fd79_The New World of Karl Barth Rethinking the Philosophical and Political Legacies of a Theologian.pdf"
       }
     ]
   },
@@ -9122,7 +9446,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:05+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -9137,14 +9461,14 @@
   {
     "GUID": "b7b89fef-78b6-44ec-ae94-1dbd51e51c7e",
     "DOI": "10.1021/acs.molpharmaceut.0c00226",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/b7b89fef-78b6-44ec-ae94-1dbd51e51c7e.pdf",
+    "TEXT_FILE": "./data/fulltext/b7b89fef-78b6-44ec-ae94-1dbd51e51c7e.txt",
+    "N_CHARACTERS": 73621,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:05+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:39:52+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -9161,6 +9485,14 @@
         "HOST_TYPE": null,
         "RESULT": "wrong_content_type",
         "RESULT_DETAIL": "text/xml;charset=UTF-8"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "b7b89fef_acsmolpharmaceut0c00226.pdf"
       }
     ]
   },
@@ -9331,14 +9663,14 @@
   {
     "GUID": "62c8100b-0c6b-4fd9-b89e-87f4318e57b3",
     "DOI": "10.1002/adtp.202000097",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/62c8100b-0c6b-4fd9-b89e-87f4318e57b3.pdf",
+    "TEXT_FILE": "./data/fulltext/62c8100b-0c6b-4fd9-b89e-87f4318e57b3.txt",
+    "N_CHARACTERS": 64482,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:06+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:37:01+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_pdf",
@@ -9371,6 +9703,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "62c8100b_Advanced Therapeutics - 2020 - Tobi - Silver Nanocarriers Targeted with a CendR Peptide Potentiate the Cytotoxic Activity.pdf"
       }
     ]
   },
@@ -9465,14 +9805,14 @@
   {
     "GUID": "cc8ddfb3-ce35-4892-bc66-6e916c75d819",
     "DOI": "10.1021/acs.jpcb.8b11876",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/cc8ddfb3-ce35-4892-bc66-6e916c75d819.pdf",
+    "TEXT_FILE": "./data/fulltext/cc8ddfb3-ce35-4892-bc66-6e916c75d819.txt",
+    "N_CHARACTERS": 47948,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:08+00:00",
+    "RETRIEVED_AT": "2026-10-03T21:25:27+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -9529,6 +9869,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "cc8ddfb3_J Phys Chem B 2019.pdf"
       }
     ]
   },
@@ -9667,14 +10015,14 @@
   {
     "GUID": "7ebcfdac-a60c-4dda-ba6f-71ac4aa1ca35",
     "DOI": "10.1016/j.jconrel.2023.07.025",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/7ebcfdac-a60c-4dda-ba6f-71ac4aa1ca35.pdf",
+    "TEXT_FILE": "./data/fulltext/7ebcfdac-a60c-4dda-ba6f-71ac4aa1ca35.txt",
+    "N_CHARACTERS": 41266,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:11+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:42:20+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -9691,6 +10039,14 @@
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0168365923004492-main.pdf"
       }
     ]
   },
@@ -9807,14 +10163,14 @@
   {
     "GUID": "e6b24988-c8b2-493f-a36e-d2fa4bdbf009",
     "DOI": "10.1080/14631377.2021.2006495",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/e6b24988-c8b2-493f-a36e-d2fa4bdbf009.pdf",
+    "TEXT_FILE": "./data/fulltext/e6b24988-c8b2-493f-a36e-d2fa4bdbf009.txt",
+    "N_CHARACTERS": 74936,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:15+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:14:04+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -9839,6 +10195,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "e6b24988_RoleofinstitutionsinthecorruptionandfirminnovationnexusevidencefromformerSovietUnioncountries.pdf"
       }
     ]
   },
@@ -10069,14 +10433,14 @@
   {
     "GUID": "ec567a38-89ae-4bba-8bc5-3279df44c228",
     "DOI": "10.1016/j.socnet.2023.09.004",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/ec567a38-89ae-4bba-8bc5-3279df44c228.pdf",
+    "TEXT_FILE": "./data/fulltext/ec567a38-89ae-4bba-8bc5-3279df44c228.txt",
+    "N_CHARACTERS": 94234,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:18+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:45:52+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -10093,6 +10457,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0378873323000631-main.pdf"
       }
     ]
   },
@@ -10241,14 +10613,14 @@
   {
     "GUID": "69f4e182-da64-4bdb-8053-bdc6409efbf7",
     "DOI": "10.1049/ipr2.12806",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/69f4e182-da64-4bdb-8053-bdc6409efbf7.pdf",
+    "TEXT_FILE": "./data/fulltext/69f4e182-da64-4bdb-8053-bdc6409efbf7.txt",
+    "N_CHARACTERS": 58438,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:19+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:54:52+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -10273,6 +10645,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "69f4e182_IET Image Processing - 2023 - Ahmad - Toward cross‐domain object detection in artwork images using improved YoloV5 and.pdf"
       }
     ]
   },
@@ -10286,7 +10666,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:20+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -10323,14 +10703,14 @@
   {
     "GUID": "ec23f845-f272-419f-85c4-9ccad5a092b4",
     "DOI": "10.25969/mediarep/15320",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/ec23f845-f272-419f-85c4-9ccad5a092b4.html",
+    "TEXT_FILE": "./data/fulltext/ec23f845-f272-419f-85c4-9ccad5a092b4.txt",
+    "N_CHARACTERS": 60080,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:21+00:00",
+    "RETRIEVED_AT": "2026-10-03T21:06:19+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -10355,6 +10735,14 @@
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "ec23f845_Disciplinary itineraries and digital methods_ Examining the Kinomatics collaboration networks _ NECSUS.html"
       }
     ]
   },
@@ -10654,7 +11042,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:32+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": []
   },
   {
@@ -10749,7 +11137,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:32+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": []
   },
   {
@@ -10829,14 +11217,14 @@
   {
     "GUID": "c2c3d713-03a7-4e58-bc68-10e59a34ca3c",
     "DOI": "10.1007/s00450-019-00413-w",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/c2c3d713-03a7-4e58-bc68-10e59a34ca3c.pdf",
+    "TEXT_FILE": "./data/fulltext/c2c3d713-03a7-4e58-bc68-10e59a34ca3c.txt",
+    "N_CHARACTERS": 51663,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:32+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:51:17+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -10869,20 +11257,28 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "c2c3d713_s00450-019-00413-w.pdf"
       }
     ]
   },
   {
     "GUID": "c57ae451-57b5-4497-9fc4-0057f753f376",
     "DOI": "10.1016/j.future.2020.03.029",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/c57ae451-57b5-4497-9fc4-0057f753f376.pdf",
+    "TEXT_FILE": "./data/fulltext/c57ae451-57b5-4497-9fc4-0057f753f376.txt",
+    "N_CHARACTERS": 83997,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:34+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:38:27+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -10915,6 +11311,14 @@
         "HOST_TYPE": "repository",
         "RESULT": "http_error",
         "RESULT_DETAIL": "401"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0167739X19330924-main.pdf"
       }
     ]
   },
@@ -10965,14 +11369,14 @@
   {
     "GUID": "83fb7305-5697-4e39-bd2f-5a70c0cbc089",
     "DOI": "10.1093/mnras/stae1950",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/83fb7305-5697-4e39-bd2f-5a70c0cbc089.pdf",
+    "TEXT_FILE": "./data/fulltext/83fb7305-5697-4e39-bd2f-5a70c0cbc089.txt",
+    "N_CHARACTERS": 52077,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:42+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:49:32+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -10997,6 +11401,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "83fb7305_stae1950.pdf"
       }
     ]
   },
@@ -11497,14 +11909,14 @@
   {
     "GUID": "a7aa8660-4410-4a93-8fdb-41d7a4980a76",
     "DOI": "10.1021/acssuschemeng.0c05558",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/a7aa8660-4410-4a93-8fdb-41d7a4980a76.pdf",
+    "TEXT_FILE": "./data/fulltext/a7aa8660-4410-4a93-8fdb-41d7a4980a76.txt",
+    "N_CHARACTERS": 57535,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:48+00:00",
+    "RETRIEVED_AT": "2026-10-03T21:22:59+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -11521,6 +11933,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "a7aa8660_chemrxiv.12735377.v1.pdf"
       }
     ]
   },
@@ -11857,14 +12277,14 @@
   {
     "GUID": "e4131971-3d8e-42ea-a666-d0e1931bbce3",
     "DOI": "10.1016/j.eururo.2023.06.012",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/e4131971-3d8e-42ea-a666-d0e1931bbce3.pdf",
+    "TEXT_FILE": "./data/fulltext/e4131971-3d8e-42ea-a666-d0e1931bbce3.txt",
+    "N_CHARACTERS": 42255,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:32:58+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:38:38+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -11881,6 +12301,14 @@
         "HOST_TYPE": "repository",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0302283823029445-main.pdf"
       }
     ]
   },
@@ -11925,14 +12353,14 @@
   {
     "GUID": "75ac9938-2216-4380-8ce1-d450f1ea1fa1",
     "DOI": "10.3390/bdcc8060065",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/75ac9938-2216-4380-8ce1-d450f1ea1fa1.pdf",
+    "TEXT_FILE": "./data/fulltext/75ac9938-2216-4380-8ce1-d450f1ea1fa1.txt",
+    "N_CHARACTERS": 76753,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:00+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:47:03+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -11949,6 +12377,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "75ac9938_BDCC-08-00065.pdf"
       }
     ]
   },
@@ -11962,7 +12398,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:00+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -12483,14 +12919,14 @@
   {
     "GUID": "957d43ee-c1df-453d-acf8-7259792629aa",
     "DOI": "10.1016/j.sftr.2024.100187",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/957d43ee-c1df-453d-acf8-7259792629aa.pdf",
+    "TEXT_FILE": "./data/fulltext/957d43ee-c1df-453d-acf8-7259792629aa.txt",
+    "N_CHARACTERS": 25978,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:01+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:42:09+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -12507,6 +12943,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S2666188824000376-main.pdf"
       }
     ]
   },
@@ -12690,7 +13134,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:02+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:35+00:00",
     "ATTEMPTS": []
   },
   {
@@ -12703,7 +13147,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:02+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:35+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -12720,6 +13164,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
       }
     ]
   },
@@ -12771,7 +13223,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:03+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:35+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -12786,14 +13238,14 @@
   {
     "GUID": "6357fd06-831d-4788-889f-bfdd63d95c57",
     "DOI": "10.1007/s10531-020-01955-1",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/6357fd06-831d-4788-889f-bfdd63d95c57.pdf",
+    "TEXT_FILE": "./data/fulltext/6357fd06-831d-4788-889f-bfdd63d95c57.txt",
+    "N_CHARACTERS": 67447,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:03+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:27:42+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -12802,20 +13254,28 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "6357fd06_Liira_et_al-2020-Biodiversity_and_Conservation.pdf"
       }
     ]
   },
   {
     "GUID": "c1b03ca7-6b17-432f-9ac7-fa29cfdf1345",
     "DOI": "10.1016/j.ecolind.2023.110927",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/c1b03ca7-6b17-432f-9ac7-fa29cfdf1345.pdf",
+    "TEXT_FILE": "./data/fulltext/c1b03ca7-6b17-432f-9ac7-fa29cfdf1345.txt",
+    "N_CHARACTERS": 81090,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:04+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:34:20+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -12840,6 +13300,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S1470160X23010695-main.pdf"
       }
     ]
   },
@@ -12853,7 +13321,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:05+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:36+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -12890,14 +13358,14 @@
   {
     "GUID": "b89ce2f6-e193-4f3a-9ab3-f0d4cb631590",
     "DOI": "10.1002/rhc3.12236",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/b89ce2f6-e193-4f3a-9ab3-f0d4cb631590.pdf",
+    "TEXT_FILE": "./data/fulltext/b89ce2f6-e193-4f3a-9ab3-f0d4cb631590.txt",
+    "N_CHARACTERS": 100023,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:06+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:33:29+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -12946,6 +13414,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "b89ce2f6_Risk Hazard Crisis Pub Pol - 2021 - Morsut - A critical appraisal of individual social capital in crisis response.pdf"
       }
     ]
   },
@@ -13058,14 +13534,14 @@
   {
     "GUID": "26fa4dd3-d320-4c38-a2ee-731082748ae4",
     "DOI": "10.1080/13669877.2020.1871058",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/26fa4dd3-d320-4c38-a2ee-731082748ae4.pdf",
+    "TEXT_FILE": "./data/fulltext/26fa4dd3-d320-4c38-a2ee-731082748ae4.txt",
+    "N_CHARACTERS": 61801,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:09+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:50:40+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -13122,6 +13598,14 @@
         "HOST_TYPE": "repository",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "26fa4dd3_COVID-19 information disorder six types of harmful information during the pandemic in Europe.pdf"
       }
     ]
   },
@@ -13135,7 +13619,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:13+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:37+00:00",
     "ATTEMPTS": []
   },
   {
@@ -13312,7 +13796,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:37+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -13591,14 +14075,14 @@
   {
     "GUID": "5ecf521f-16c5-43a5-a780-4459356f2f80",
     "DOI": "10.1016/j.is.2023.102248",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/5ecf521f-16c5-43a5-a780-4459356f2f80.pdf",
+    "TEXT_FILE": "./data/fulltext/5ecf521f-16c5-43a5-a780-4459356f2f80.txt",
+    "N_CHARACTERS": 78815,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:43:22+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -13607,6 +14091,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0306437923000844-main.pdf"
       }
     ]
   },
@@ -13620,21 +14112,30 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:38+00:00",
     "ATTEMPTS": []
   },
   {
     "GUID": "c07335b0-1386-4d0f-b46a-6e4a360a8c67",
     "DOI": "10.1016/j.is.2021.101916",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/c07335b0-1386-4d0f-b46a-6e4a360a8c67.pdf",
+    "TEXT_FILE": "./data/fulltext/c07335b0-1386-4d0f-b46a-6e4a360a8c67.txt",
+    "N_CHARACTERS": 112666,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T19:40:41+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "c07335b0_097-IS2021-DiscoveringDataTransferRoutinesFromUserInteractionLogs-POSTPRINT.pdf"
+      }
+    ]
   },
   {
     "GUID": "442aa929-2e11-43c5-82bf-4cbf2a3c22bc",
@@ -13713,14 +14214,14 @@
   {
     "GUID": "18c18435-018c-4e58-9406-998728ff5698",
     "DOI": "10.1016/j.softx.2025.102157",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/18c18435-018c-4e58-9406-998728ff5698.pdf",
+    "TEXT_FILE": "./data/fulltext/18c18435-018c-4e58-9406-998728ff5698.txt",
+    "N_CHARACTERS": 54521,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:38+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:45:09+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -13737,6 +14238,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S2352711025001244-main.pdf"
       }
     ]
   },
@@ -13864,7 +14373,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:39+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:38+00:00",
     "ATTEMPTS": []
   },
   {
@@ -13907,7 +14416,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:41+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:38+00:00",
     "ATTEMPTS": []
   },
   {
@@ -13957,14 +14466,14 @@
   {
     "GUID": "36ea2d1f-0356-4c7d-93e9-c3c2bae36f3a",
     "DOI": "10.1007/s12599-024-00868-5",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/36ea2d1f-0356-4c7d-93e9-c3c2bae36f3a.pdf",
+    "TEXT_FILE": "./data/fulltext/36ea2d1f-0356-4c7d-93e9-c3c2bae36f3a.txt",
+    "N_CHARACTERS": 83142,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:41+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:50:59+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -13981,20 +14490,28 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "36ea2d1f_s12599-024-00868-5.pdf"
       }
     ]
   },
   {
     "GUID": "a5eb0d2e-0152-4a62-add7-44aa9959fb79",
     "DOI": "10.1016/j.is.2023.102289",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/a5eb0d2e-0152-4a62-add7-44aa9959fb79.pdf",
+    "TEXT_FILE": "./data/fulltext/a5eb0d2e-0152-4a62-add7-44aa9959fb79.txt",
+    "N_CHARACTERS": 125347,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:42+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:40:58+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -14003,6 +14520,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0306437923001254-main.pdf"
       }
     ]
   },
@@ -14123,14 +14648,14 @@
   {
     "GUID": "a2e76be6-8c6c-44df-ac9f-99352a453e3b",
     "DOI": "10.1016/j.esr.2023.101282",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/a2e76be6-8c6c-44df-ac9f-99352a453e3b.pdf",
+    "TEXT_FILE": "./data/fulltext/a2e76be6-8c6c-44df-ac9f-99352a453e3b.txt",
+    "N_CHARACTERS": 70616,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:43+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:41:36+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -14155,6 +14680,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S2211467X23002328-main.pdf"
       }
     ]
   },
@@ -14168,7 +14701,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:44+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:38+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -14190,7 +14723,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:45+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
     "ATTEMPTS": []
   },
   {
@@ -14564,14 +15097,14 @@
   {
     "GUID": "21ea8dbf-b4eb-4a64-aba2-f652e4cc0188",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/21ea8dbf-b4eb-4a64-aba2-f652e4cc0188.pdf",
+    "TEXT_FILE": "./data/fulltext/21ea8dbf-b4eb-4a64-aba2-f652e4cc0188.txt",
+    "N_CHARACTERS": 51499,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:48+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:50:41+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -14580,6 +15113,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "21ea8dbf_14466-169-45778-1-10-20210909.pdf"
       }
     ]
   },
@@ -14615,7 +15156,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:49+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
     "ATTEMPTS": []
   },
   {
@@ -14867,14 +15408,14 @@
   {
     "GUID": "71b95eb3-3d46-4c3e-b3bc-9dba6c4eb0ae",
     "DOI": "10.1080/01439685.2025.2574107",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/71b95eb3-3d46-4c3e-b3bc-9dba6c4eb0ae.pdf",
+    "TEXT_FILE": "./data/fulltext/71b95eb3-3d46-4c3e-b3bc-9dba6c4eb0ae.txt",
+    "N_CHARACTERS": 65017,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:52+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:50:07+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -14883,6 +15424,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "71b95eb3_Archiving and Diversifying the Memory of Communism in Romania Dana Bunescu s Archival Practices In and Beyond Documentary Filmmaking.pdf"
       }
     ]
   },
@@ -15113,14 +15662,14 @@
   {
     "GUID": "a8a80f67-369a-4eb4-a2d1-ccff3c831533",
     "DOI": "10.1080/18918131.2022.2151736",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/a8a80f67-369a-4eb4-a2d1-ccff3c831533.pdf",
+    "TEXT_FILE": "./data/fulltext/a8a80f67-369a-4eb4-a2d1-ccff3c831533.txt",
+    "N_CHARACTERS": 64661,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:11:50+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -15129,6 +15678,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "a8a80f67_Heritage Communities and Human Rights A Case Study from Catoctin Furnace Maryland.pdf"
       }
     ]
   },
@@ -15142,7 +15699,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
     "ATTEMPTS": []
   },
   {
@@ -15177,7 +15734,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
     "ATTEMPTS": []
   },
   {
@@ -15249,14 +15806,14 @@
   {
     "GUID": "dbbd5e66-64d4-40d7-ad54-22501d54a04b",
     "DOI": "10.1016/j.jpsychires.2023.10.018",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/dbbd5e66-64d4-40d7-ad54-22501d54a04b.pdf",
+    "TEXT_FILE": "./data/fulltext/dbbd5e66-64d4-40d7-ad54-22501d54a04b.txt",
+    "N_CHARACTERS": 72215,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:47:59+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -15273,6 +15830,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0022395623004569-main.pdf"
       }
     ]
   },
@@ -15411,14 +15976,14 @@
   {
     "GUID": "33197ee7-b147-40fa-b79f-05e29c72638c",
     "DOI": "10.23860/jmle-2023-15-1-1",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/33197ee7-b147-40fa-b79f-05e29c72638c.pdf",
+    "TEXT_FILE": "./data/fulltext/33197ee7-b147-40fa-b79f-05e29c72638c.txt",
+    "N_CHARACTERS": 58073,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:33:56+00:00",
+    "RETRIEVED_AT": "2026-10-03T21:06:46+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -15459,6 +16024,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "33197ee7_The Role of School-Home Communication in Supporting Childrens Digital Skills.pdf"
       }
     ]
   },
@@ -15531,14 +16104,14 @@
   {
     "GUID": "80c18bf1-4993-4937-a351-5affdc16a5fd",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/80c18bf1-4993-4937-a351-5affdc16a5fd.pdf",
+    "TEXT_FILE": "./data/fulltext/80c18bf1-4993-4937-a351-5affdc16a5fd.txt",
+    "N_CHARACTERS": 8421,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:00+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:08:55+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -15555,6 +16128,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "80c18bf1_document.pdf"
       }
     ]
   },
@@ -15599,14 +16180,14 @@
   {
     "GUID": "513166b9-8c90-4e4d-961b-4e973e8ed5ab",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/513166b9-8c90-4e4d-961b-4e973e8ed5ab.pdf",
+    "TEXT_FILE": "./data/fulltext/513166b9-8c90-4e4d-961b-4e973e8ed5ab.txt",
+    "N_CHARACTERS": 38045,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:01+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:08:41+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -15623,20 +16204,28 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "513166b9_document.pdf"
       }
     ]
   },
   {
     "GUID": "a68ff868-04f3-461f-be03-d11231c30e3d",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/a68ff868-04f3-461f-be03-d11231c30e3d.pdf",
+    "TEXT_FILE": "./data/fulltext/a68ff868-04f3-461f-be03-d11231c30e3d.txt",
+    "N_CHARACTERS": 788912,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:03+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:08:20+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -15645,6 +16234,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "a68ff868_document.pdf"
       }
     ]
   },
@@ -15717,14 +16314,14 @@
   {
     "GUID": "b3d964c1-eecb-4830-b676-ac5dc53a5764",
     "DOI": "10.1016/j.marpolbul.2025.117975",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/b3d964c1-eecb-4830-b676-ac5dc53a5764.pdf",
+    "TEXT_FILE": "./data/fulltext/b3d964c1-eecb-4830-b676-ac5dc53a5764.txt",
+    "N_CHARACTERS": 83868,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:04+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:32:23+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -15733,6 +16330,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0025326X25004503-main.pdf"
       }
     ]
   },
@@ -15761,14 +16366,14 @@
   {
     "GUID": "de468b3e-7025-4ad2-9417-3dbd8efe0f34",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/de468b3e-7025-4ad2-9417-3dbd8efe0f34.html",
+    "TEXT_FILE": "./data/fulltext/de468b3e-7025-4ad2-9417-3dbd8efe0f34.txt",
+    "N_CHARACTERS": 45880,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:04+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:58:44+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -15777,6 +16382,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "de468b3e_NEET-staatuses noored teenuste ja programmide võrgusilmas_ kuidas paremini toetada mitteõppivaid ja -töötavaid noori_ _ Sotsiaalkindlustusamet.html"
       }
     ]
   },
@@ -15843,14 +16456,14 @@
   {
     "GUID": "f1ecd41d-f6fb-48a8-a8a3-872ec2d22a7e",
     "DOI": "10.1002/clen.70162",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/f1ecd41d-f6fb-48a8-a8a3-872ec2d22a7e.pdf",
+    "TEXT_FILE": "./data/fulltext/f1ecd41d-f6fb-48a8-a8a3-872ec2d22a7e.txt",
+    "N_CHARACTERS": 63956,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:05+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:35:52+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -15867,6 +16480,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "f1ecd41d_CLEAN Soil Air Water - 2026 - Gonçalves Dias Chaves - Commuting Challenges for Big Cities How to Tackle Particulate Matter.pdf"
       }
     ]
   },
@@ -15902,20 +16523,20 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:05+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
     "ATTEMPTS": []
   },
   {
     "GUID": "4626e0ca-7892-4dcd-b4f2-a0efd3abc84c",
     "DOI": "10.3390/geomatics5040070",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/4626e0ca-7892-4dcd-b4f2-a0efd3abc84c.pdf",
+    "TEXT_FILE": "./data/fulltext/4626e0ca-7892-4dcd-b4f2-a0efd3abc84c.txt",
+    "N_CHARACTERS": 49832,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:05+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:47:23+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -15932,6 +16553,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "4626e0ca_geomatics-05-00070.pdf"
       }
     ]
   },
@@ -16024,28 +16653,6 @@
     ]
   },
   {
-    "GUID": "e1e69ca8-3035-43ee-8859-504ee82e01b7",
-    "DOI": "10.2478/fsmu-2023-0006",
-    "FILE": "./data/fulltext/e1e69ca8-3035-43ee-8859-504ee82e01b7.pdf",
-    "TEXT_FILE": "./data/fulltext/e1e69ca8-3035-43ee-8859-504ee82e01b7.txt",
-    "N_CHARACTERS": 52275,
-    "SOURCE": "openalex_pdf",
-    "URL": "https://reference-global.com/2/v2/download/article/10.2478/fsmu-2023-0006.pdf",
-    "VERSION": "published_version",
-    "HOST_TYPE": "journal",
-    "RETRIEVED_AT": "2026-10-03T08:50:15+00:00",
-    "ATTEMPTS": [
-      {
-        "SOURCE": "openalex_pdf",
-        "URL": "https://reference-global.com/2/v2/download/article/10.2478/fsmu-2023-0006.pdf",
-        "VERSION": "published_version",
-        "HOST_TYPE": "journal",
-        "RESULT": "ok",
-        "RESULT_DETAIL": null
-      }
-    ]
-  },
-  {
     "GUID": "65fc8ff3-9f5c-4110-8501-158e99cf13fd",
     "DOI": "10.1021/acs.est.3c08488",
     "FILE": "./data/fulltext/65fc8ff3-9f5c-4110-8501-158e99cf13fd.xml",
@@ -16062,28 +16669,6 @@
         "URL": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10882970/",
         "VERSION": "published_version",
         "HOST_TYPE": "repository",
-        "RESULT": "ok",
-        "RESULT_DETAIL": null
-      }
-    ]
-  },
-  {
-    "GUID": "213e0586-7a57-4bd9-91e2-fa9427d7dc07",
-    "DOI": "10.2478/fsmu-2023-0006",
-    "FILE": "./data/fulltext/213e0586-7a57-4bd9-91e2-fa9427d7dc07.pdf",
-    "TEXT_FILE": "./data/fulltext/213e0586-7a57-4bd9-91e2-fa9427d7dc07.txt",
-    "N_CHARACTERS": 52275,
-    "SOURCE": "openalex_pdf",
-    "URL": "https://reference-global.com/2/v2/download/article/10.2478/fsmu-2023-0006.pdf",
-    "VERSION": "published_version",
-    "HOST_TYPE": "journal",
-    "RETRIEVED_AT": "2026-10-03T08:50:16+00:00",
-    "ATTEMPTS": [
-      {
-        "SOURCE": "openalex_pdf",
-        "URL": "https://reference-global.com/2/v2/download/article/10.2478/fsmu-2023-0006.pdf",
-        "VERSION": "published_version",
-        "HOST_TYPE": "journal",
         "RESULT": "ok",
         "RESULT_DETAIL": null
       }
@@ -16165,7 +16750,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16178,7 +16763,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16235,7 +16820,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
     "ATTEMPTS": []
   },
   {
@@ -16263,14 +16848,14 @@
   {
     "GUID": "7577fd37-a3b4-4e44-864d-84462b6a77de",
     "DOI": "10.1038/s41591-025-03543-8",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/7577fd37-a3b4-4e44-864d-84462b6a77de.pdf",
+    "TEXT_FILE": "./data/fulltext/7577fd37-a3b4-4e44-864d-84462b6a77de.txt",
+    "N_CHARACTERS": 79674,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:48:16+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -16279,6 +16864,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "7577fd37_s41591-025-03543-8.pdf"
       }
     ]
   },
@@ -16292,7 +16885,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:08+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -16375,14 +16968,14 @@
   {
     "GUID": "11246fa5-e784-4b03-9905-e50664817e5f",
     "DOI": "10.1016/j.cliser.2023.100362",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/11246fa5-e784-4b03-9905-e50664817e5f.pdf",
+    "TEXT_FILE": "./data/fulltext/11246fa5-e784-4b03-9905-e50664817e5f.txt",
+    "N_CHARACTERS": 111786,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:08+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:48:31+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -16407,6 +17000,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S2405880723000237-main.pdf"
       }
     ]
   },
@@ -16509,14 +17110,14 @@
   {
     "GUID": "949ed002-baf5-459b-b3ba-71404026ead9",
     "DOI": "10.1016/j.agsy.2026.104819",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/949ed002-baf5-459b-b3ba-71404026ead9.pdf",
+    "TEXT_FILE": "./data/fulltext/949ed002-baf5-459b-b3ba-71404026ead9.txt",
+    "N_CHARACTERS": 87850,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:09+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:48:20+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -16541,6 +17142,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0308521X26001873-main.pdf"
       }
     ]
   },
@@ -16711,15 +17320,24 @@
   {
     "GUID": "f2dec585-48b7-4db8-aa5e-898413f561bd",
     "DOI": "10.1016/j.scitotenv.2025.178646",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/f2dec585-48b7-4db8-aa5e-898413f561bd.pdf",
+    "TEXT_FILE": "./data/fulltext/f2dec585-48b7-4db8-aa5e-898413f561bd.txt",
+    "N_CHARACTERS": 88324,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:11+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-03T19:37:22+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "f2dec585_Scammaccaetal_2025_STOTEM.pdf"
+      }
+    ]
   },
   {
     "GUID": "1205a587-6e85-4c0b-8f11-385627e4b892",
@@ -16992,14 +17610,14 @@
   {
     "GUID": "4effb36f-7424-4a6d-b997-9096b380af95",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/4effb36f-7424-4a6d-b997-9096b380af95.pdf",
+    "TEXT_FILE": "./data/fulltext/4effb36f-7424-4a6d-b997-9096b380af95.txt",
+    "N_CHARACTERS": 87183,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:11+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:59:07+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -17008,20 +17626,28 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "4effb36f_20_2021.pdf"
       }
     ]
   },
   {
     "GUID": "fb4184d5-5e49-4cf8-a814-2d364f8e4254",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/fb4184d5-5e49-4cf8-a814-2d364f8e4254.pdf",
+    "TEXT_FILE": "./data/fulltext/fb4184d5-5e49-4cf8-a814-2d364f8e4254.txt",
+    "N_CHARACTERS": 75135,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:11+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:56:10+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -17030,20 +17656,28 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "fb4184d5_Kurisoo_Tuuli_Rammo_Riina_Smirnova_Maria.pdf"
       }
     ]
   },
   {
     "GUID": "2391ef97-8d65-4f7a-8a15-f74deaa5500e",
     "DOI": "10.11141/ia.68.3",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/2391ef97-8d65-4f7a-8a15-f74deaa5500e.pdf",
+    "TEXT_FILE": "./data/fulltext/2391ef97-8d65-4f7a-8a15-f74deaa5500e.txt",
+    "N_CHARACTERS": 59020,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:11+00:00",
+    "RETRIEVED_AT": "2026-10-03T21:08:56+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -17068,6 +17702,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "2391ef97_Unearthing_Perspectives_Exploring_the_vi.pdf"
       }
     ]
   },
@@ -17103,20 +17745,20 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:12+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
     "ATTEMPTS": []
   },
   {
     "GUID": "8fe7108f-a263-479d-8205-3344cd351b2c",
     "DOI": null,
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/8fe7108f-a263-479d-8205-3344cd351b2c.pdf",
+    "TEXT_FILE": "./data/fulltext/8fe7108f-a263-479d-8205-3344cd351b2c.txt",
+    "N_CHARACTERS": 76387,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:12+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:59:30+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -17125,6 +17767,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "8fe7108f_22_2020.pdf"
       }
     ]
   },
@@ -17153,14 +17803,14 @@
   {
     "GUID": "d3625264-f6b1-4e34-9ade-ee6369326cde",
     "DOI": "10.1002/ps.70765",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/d3625264-f6b1-4e34-9ade-ee6369326cde.pdf",
+    "TEXT_FILE": "./data/fulltext/d3625264-f6b1-4e34-9ade-ee6369326cde.txt",
+    "N_CHARACTERS": 76414,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:12+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:35:26+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -17169,6 +17819,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "d3625264_Pest Management Science - 2026 - Kaasik - Community composition abundance and activity‐density of carabids and.pdf"
       }
     ]
   },
@@ -17242,7 +17900,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:13+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
     "ATTEMPTS": []
   },
   {
@@ -17559,7 +18217,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:17+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -17626,14 +18284,14 @@
   {
     "GUID": "34660d0e-0ca2-4ed4-9bac-8e0226c55166",
     "DOI": "10.1016/j.comppsych.2025.152600",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/34660d0e-0ca2-4ed4-9bac-8e0226c55166.pdf",
+    "TEXT_FILE": "./data/fulltext/34660d0e-0ca2-4ed4-9bac-8e0226c55166.txt",
+    "N_CHARACTERS": 50405,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:20+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:45:20+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -17666,6 +18324,14 @@
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0010440X25000276-main.pdf"
       }
     ]
   },
@@ -17679,7 +18345,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:21+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -17767,7 +18433,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:21+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
     "ATTEMPTS": []
   },
   {
@@ -17840,7 +18506,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:21+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -17862,7 +18528,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -17875,7 +18541,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -17888,7 +18554,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -18013,8 +18679,17 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:28+00:00",
-    "ATTEMPTS": []
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
+    "ATTEMPTS": [
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": null
+      }
+    ]
   },
   {
     "GUID": "d517d33c-b285-4da6-9bbc-5f9f1ce5be13",
@@ -18057,14 +18732,14 @@
   {
     "GUID": "e16c045e-373f-4953-853f-d9f08ea616b3",
     "DOI": "10.1016/j.procs.2022.09.299",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/e16c045e-373f-4953-853f-d9f08ea616b3.pdf",
+    "TEXT_FILE": "./data/fulltext/e16c045e-373f-4953-853f-d9f08ea616b3.txt",
+    "N_CHARACTERS": 48131,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:28+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:44:58+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -18081,6 +18756,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S1877050922011875-main.pdf"
       }
     ]
   },
@@ -18163,14 +18846,14 @@
   {
     "GUID": "62eb4bf6-c882-4897-9d6f-ebfe78a57d06",
     "DOI": "10.1016/j.joitmc.2024.100288",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/62eb4bf6-c882-4897-9d6f-ebfe78a57d06.pdf",
+    "TEXT_FILE": "./data/fulltext/62eb4bf6-c882-4897-9d6f-ebfe78a57d06.txt",
+    "N_CHARACTERS": 84373,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:28:41+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -18195,6 +18878,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S2199853124000829-main.pdf"
       }
     ]
   },
@@ -18208,7 +18899,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -18243,7 +18934,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -18256,7 +18947,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -18337,7 +19028,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -18350,7 +19041,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -18432,14 +19123,14 @@
   {
     "GUID": "1c2c5e88-e433-4aa1-b7d1-14d25d48850d",
     "DOI": "10.1016/j.scitotenv.2022.153751",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/1c2c5e88-e433-4aa1-b7d1-14d25d48850d.pdf",
+    "TEXT_FILE": "./data/fulltext/1c2c5e88-e433-4aa1-b7d1-14d25d48850d.txt",
+    "N_CHARACTERS": 69938,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:47:46+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -18448,20 +19139,28 @@
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1c2c5e88_Saar et al. 2022. STOTEN.pdf"
       }
     ]
   },
   {
     "GUID": "2ea87964-5c9e-407f-9dd3-0f1c7d505a82",
     "DOI": "10.2166/nh.2022.057",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/2ea87964-5c9e-407f-9dd3-0f1c7d505a82.pdf",
+    "TEXT_FILE": "./data/fulltext/2ea87964-5c9e-407f-9dd3-0f1c7d505a82.txt",
+    "N_CHARACTERS": 38420,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:32+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:54:20+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -18486,6 +19185,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S1998956326000698-main.pdf"
       }
     ]
   },
@@ -18499,7 +19206,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:33+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": []
   },
   {
@@ -18550,7 +19257,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:33+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -18660,7 +19367,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:33+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -18684,6 +19391,14 @@
         "VERSION": null,
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
+        "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
         "RESULT_DETAIL": null
       }
     ]
@@ -18766,7 +19481,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:36+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:43+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -18871,14 +19586,14 @@
   {
     "GUID": "b1cf3ebd-cfdd-4ff0-81f7-4fcfe2a230e3",
     "DOI": "10.1016/j.meegid.2025.105868",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/b1cf3ebd-cfdd-4ff0-81f7-4fcfe2a230e3.pdf",
+    "TEXT_FILE": "./data/fulltext/b1cf3ebd-cfdd-4ff0-81f7-4fcfe2a230e3.txt",
+    "N_CHARACTERS": 57552,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:36+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:32:02+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -18911,6 +19626,14 @@
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S1567134825001571-main.pdf"
       }
     ]
   },
@@ -19034,7 +19757,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:39+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:43+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -19131,14 +19854,14 @@
   {
     "GUID": "1c077514-a786-4a9a-88e5-7d458865beb8",
     "DOI": "10.1016/j.corsci.2022.110773",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/1c077514-a786-4a9a-88e5-7d458865beb8.pdf",
+    "TEXT_FILE": "./data/fulltext/1c077514-a786-4a9a-88e5-7d458865beb8.txt",
+    "N_CHARACTERS": 47008,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:39+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:38:02+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -19147,6 +19870,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0010938X22006916-am.pdf"
       }
     ]
   },
@@ -19204,7 +19935,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:40+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:44+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -19300,7 +20031,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:43+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:44+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -19317,6 +20048,14 @@
         "HOST_TYPE": null,
         "RESULT": "no_pdf_link",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": "The OpenAire links are to complementary material"
       }
     ]
   },
@@ -19374,7 +20113,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:44+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
     "ATTEMPTS": []
   },
   {
@@ -19439,7 +20178,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
     "ATTEMPTS": []
   },
   {
@@ -19452,7 +20191,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -19467,14 +20206,14 @@
   {
     "GUID": "fb5124ba-8cd4-4c6e-872d-b17ce66681c8",
     "DOI": "10.1016/j.jcis.2022.06.150",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/fb5124ba-8cd4-4c6e-872d-b17ce66681c8.pdf",
+    "TEXT_FILE": "./data/fulltext/fb5124ba-8cd4-4c6e-872d-b17ce66681c8.txt",
+    "N_CHARACTERS": 59577,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:43:34+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -19491,6 +20230,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S0021979722011419-main.pdf"
       }
     ]
   },
@@ -19578,7 +20325,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
     "ATTEMPTS": []
   },
   {
@@ -19635,7 +20382,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
     "ATTEMPTS": []
   },
   {
@@ -19797,14 +20544,14 @@
   {
     "GUID": "dfb88d00-6cc1-4ec8-be45-f621f8ab24ae",
     "DOI": "10.1016/j.matcom.2025.04.044",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/dfb88d00-6cc1-4ec8-be45-f621f8ab24ae.pdf",
+    "TEXT_FILE": "./data/fulltext/dfb88d00-6cc1-4ec8-be45-f621f8ab24ae.txt",
+    "N_CHARACTERS": 59437,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:49+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:44:48+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -19813,20 +20560,28 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S037847542500182X-main.pdf"
       }
     ]
   },
   {
     "GUID": "140c4022-e35c-407e-adc2-429ac65aa857",
     "DOI": "10.3176/proc.2025.1.03",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/140c4022-e35c-407e-adc2-429ac65aa857.pdf",
+    "TEXT_FILE": "./data/fulltext/140c4022-e35c-407e-adc2-429ac65aa857.txt",
+    "N_CHARACTERS": 79716,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:34:49+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:40:52+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -19843,6 +20598,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "140c4022_proc-1-2025-23-42_20250218130106.pdf"
       }
     ]
   },
@@ -20103,14 +20866,14 @@
   {
     "GUID": "e311e165-0d27-44d4-bc9c-9a9eb398b108",
     "DOI": "10.1038/s41560-025-01785-x",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/e311e165-0d27-44d4-bc9c-9a9eb398b108.pdf",
+    "TEXT_FILE": "./data/fulltext/e311e165-0d27-44d4-bc9c-9a9eb398b108.txt",
+    "N_CHARACTERS": 20227,
+    "SOURCE": "manual_other",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:01+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:48:41+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_pdf",
@@ -20151,6 +20914,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_other",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "e311e165_8831_Hermwille.pdf"
       }
     ]
   },
@@ -20179,14 +20950,14 @@
   {
     "GUID": "946ff7ac-bb54-4cd7-8c6a-c457cc4f9984",
     "DOI": "10.1080/27685241.2022.2147870",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/946ff7ac-bb54-4cd7-8c6a-c457cc4f9984.pdf",
+    "TEXT_FILE": "./data/fulltext/946ff7ac-bb54-4cd7-8c6a-c457cc4f9984.txt",
+    "N_CHARACTERS": 83038,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:03+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:17:24+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -20195,6 +20966,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "946ff7ac_The role of public policies in the digitalisation of the agri-food sector. A systematic review.pdf"
       }
     ]
   },
@@ -20261,14 +21040,14 @@
   {
     "GUID": "2d274e6c-c868-4946-a114-55771653d8ea",
     "DOI": "10.15159/ar.24.096",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/2d274e6c-c868-4946-a114-55771653d8ea.pdf",
+    "TEXT_FILE": "./data/fulltext/2d274e6c-c868-4946-a114-55771653d8ea.txt",
+    "N_CHARACTERS": 38624,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:12+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:51:51+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openaire_html",
@@ -20285,6 +21064,14 @@
         "HOST_TYPE": null,
         "RESULT": "exception",
         "RESULT_DETAIL": "ConnectionError"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "2d274e6c_129-141-Khaleghdoust.pdf"
       }
     ]
   },
@@ -20320,7 +21107,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:24+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -20329,6 +21116,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "not_found",
+        "RESULT_DETAIL": "The article seems to be a reference to the full 2025 Oct-Nov issue of the Vikerkaar journal"
       }
     ]
   },
@@ -20365,14 +21160,14 @@
   {
     "GUID": "bf05458e-4245-41c9-b781-22cc99000e13",
     "DOI": "10.3176/proc.2025.1.01",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/bf05458e-4245-41c9-b781-22cc99000e13.pdf",
+    "TEXT_FILE": "./data/fulltext/bf05458e-4245-41c9-b781-22cc99000e13.txt",
+    "N_CHARACTERS": 52419,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:25+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:41:07+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -20413,6 +21208,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "bf05458e_proc-1-2025-1-14_20241211175741.pdf"
       }
     ]
   },
@@ -20448,7 +21251,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:26+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
     "ATTEMPTS": []
   },
   {
@@ -20580,14 +21383,14 @@
   {
     "GUID": "a97241a6-e519-4be9-8001-4b2bd2226c9c",
     "DOI": "10.1016/j.jhqr.2026.101237",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/a97241a6-e519-4be9-8001-4b2bd2226c9c.pdf",
+    "TEXT_FILE": "./data/fulltext/a97241a6-e519-4be9-8001-4b2bd2226c9c.txt",
+    "N_CHARACTERS": 92019,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:26+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:44:23+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -20596,6 +21399,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S2603647926000515-main.pdf"
       }
     ]
   },
@@ -20758,14 +21569,14 @@
   {
     "GUID": "7abe437c-4ec9-4d65-a2eb-6172d2b9682a",
     "DOI": "10.1109/ojcoms.2025.3636292",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/7abe437c-4ec9-4d65-a2eb-6172d2b9682a.pdf",
+    "TEXT_FILE": "./data/fulltext/7abe437c-4ec9-4d65-a2eb-6172d2b9682a.txt",
+    "N_CHARACTERS": 42531,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:27+00:00",
+    "RETRIEVED_AT": "2026-10-03T20:52:21+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -20782,6 +21593,14 @@
         "HOST_TYPE": null,
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "7abe437c_Large-Scale_IoT_Sensor_Network_Planning_Based_on_Empirical_NB-IoT_and_LTE_CAT-M_Measurements_for_Underground_Water_System.pdf"
       }
     ]
   },
@@ -21109,7 +21928,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:31+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "etis",
@@ -21124,14 +21943,14 @@
   {
     "GUID": "ca9b5867-9529-4f4d-8089-d0e9696c98c3",
     "DOI": "10.1016/j.eist.2026.101144",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/ca9b5867-9529-4f4d-8089-d0e9696c98c3.pdf",
+    "TEXT_FILE": "./data/fulltext/ca9b5867-9529-4f4d-8089-d0e9696c98c3.txt",
+    "N_CHARACTERS": 90547,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:31+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:48:09+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -21156,6 +21975,14 @@
         "HOST_TYPE": null,
         "RESULT": "http_error",
         "RESULT_DETAIL": "403"
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S2210422426000456-main.pdf"
       }
     ]
   },
@@ -21169,7 +21996,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:32+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
     "ATTEMPTS": []
   },
   {
@@ -21204,7 +22031,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:32+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
     "ATTEMPTS": []
   },
   {
@@ -21574,14 +22401,14 @@
   {
     "GUID": "ec5f2d91-cf5f-472b-b250-5e91abaeabdc",
     "DOI": "10.1016/j.jasrep.2025.105514",
-    "FILE": null,
-    "TEXT_FILE": null,
-    "N_CHARACTERS": null,
-    "SOURCE": null,
+    "FILE": "./data/fulltext/ec5f2d91-cf5f-472b-b250-5e91abaeabdc.pdf",
+    "TEXT_FILE": "./data/fulltext/ec5f2d91-cf5f-472b-b250-5e91abaeabdc.txt",
+    "N_CHARACTERS": 106692,
+    "SOURCE": "manual_open",
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:32+00:00",
+    "RETRIEVED_AT": "2026-10-03T19:45:42+00:00",
     "ATTEMPTS": [
       {
         "SOURCE": "openalex_html",
@@ -21590,6 +22417,14 @@
         "HOST_TYPE": "journal",
         "RESULT": "text_too_short",
         "RESULT_DETAIL": null
+      },
+      {
+        "SOURCE": "manual_open",
+        "URL": null,
+        "VERSION": null,
+        "HOST_TYPE": null,
+        "RESULT": "ok",
+        "RESULT_DETAIL": "1-s2.0-S2352409X25005474-main.pdf"
       }
     ]
   },
@@ -22109,7 +22944,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:38+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
     "ATTEMPTS": []
   },
   {
@@ -22226,7 +23061,7 @@
     "URL": null,
     "VERSION": null,
     "HOST_TYPE": null,
-    "RETRIEVED_AT": "2026-10-03T18:35:38+00:00",
+    "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
     "ATTEMPTS": []
   },
   {

@@ -1459,7 +1459,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": []
     }
   },
@@ -2095,7 +2095,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": []
     }
   },
@@ -2184,6 +2184,13 @@
           },
           {
             "VERSION": "submittedVersion",
+            "URL": "https://hdl.handle.net/11583/2974478",
+            "HOST": "PORTO@Iris",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
             "URL": "https://mediatum.ub.tum.de/1772076",
             "HOST": "mediaTUM – the media and publications repository of the Technical University Munich (Technical University Munich)",
             "HOST_TYPE": "repository",
@@ -2201,11 +2208,6 @@
           {
             "URL": "https://hal.science/hal-03931045v1",
             "HOST": "INRIA2",
-            "TYPE": "Article"
-          },
-          {
-            "URL": "https://hdl.handle.net/11583/2974478",
-            "HOST": "Publications Open Repository TOrino",
             "TYPE": "Article"
           },
           {
@@ -3796,6 +3798,13 @@
           },
           {
             "VERSION": "submittedVersion",
+            "URL": "https://hdl.handle.net/11541.2/124043",
+            "HOST": "Adelaide Research & Scholarship (AR&S) (University of Adelaide)",
+            "HOST_TYPE": "repository",
+            "LICENSE": "other-oa"
+          },
+          {
+            "VERSION": "submittedVersion",
             "URL": "https://www.scopus.com/pages/publications/84992744163",
             "HOST": "Research Explorer (The University of Manchester)",
             "HOST_TYPE": "repository",
@@ -4225,7 +4234,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:50+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -4331,7 +4340,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:05+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:21+00:00",
       "ATTEMPTS": []
     }
   },
@@ -5703,7 +5712,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
       "ATTEMPTS": []
     }
   },
@@ -5931,7 +5940,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:15+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -6683,7 +6692,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
       "ATTEMPTS": []
     }
   },
@@ -6780,7 +6789,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:21+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -7206,17 +7215,6 @@
       "DATACITE": {
         "RECORDS": [
           {
-            "DOI": "10.5281/zenodo.17661052",
-            "TITLE": "Dataset for the analysis of farmers' perceived financial and non-financial costs of biodiversity measures by means of Q-methodology",
-            "TYPE": "Dataset",
-            "PUBLISHER": "Zenodo",
-            "YEAR": 2025,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://zenodo.org/doi/10.5281/zenodo.17661052"
-          },
-          {
             "DOI": "10.5281/zenodo.17661051",
             "TITLE": "Dataset for the analysis of farmers' perceived financial and non-financial costs of biodiversity measures by means of Q-methodology",
             "TYPE": "Dataset",
@@ -7226,6 +7224,17 @@
               "IsSupplementTo"
             ],
             "URL": "https://zenodo.org/doi/10.5281/zenodo.17661051"
+          },
+          {
+            "DOI": "10.5281/zenodo.17661052",
+            "TITLE": "Dataset for the analysis of farmers' perceived financial and non-financial costs of biodiversity measures by means of Q-methodology",
+            "TYPE": "Dataset",
+            "PUBLISHER": "Zenodo",
+            "YEAR": 2025,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://zenodo.org/doi/10.5281/zenodo.17661052"
           }
         ]
       }
@@ -7372,7 +7381,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:57+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
       "ATTEMPTS": []
     }
   },
@@ -10377,7 +10386,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:14+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -10500,7 +10509,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:32+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "openalex_html",
@@ -11305,28 +11314,6 @@
       "DATACITE": {
         "RECORDS": [
           {
-            "DOI": "10.6084/m9.figshare.32664668",
-            "TITLE": "Additional file 2 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
-            "TYPE": "Dataset",
-            "PUBLISHER": "figshare",
-            "YEAR": 2026,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664668"
-          },
-          {
-            "DOI": "10.6084/m9.figshare.32664671.v1",
-            "TITLE": "Additional file 3 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
-            "TYPE": "JournalArticle",
-            "PUBLISHER": "figshare",
-            "YEAR": 2026,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_3_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664671/1"
-          },
-          {
             "DOI": "10.6084/m9.figshare.32664662.v1",
             "TITLE": "Additional file 1 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
             "TYPE": "JournalArticle",
@@ -11358,6 +11345,28 @@
               "IsSupplementTo"
             ],
             "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_3_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664671"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.32664668",
+            "TITLE": "Additional file 2 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
+            "TYPE": "Dataset",
+            "PUBLISHER": "figshare",
+            "YEAR": 2026,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664668"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.32664671.v1",
+            "TITLE": "Additional file 3 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
+            "TYPE": "JournalArticle",
+            "PUBLISHER": "figshare",
+            "YEAR": 2026,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_3_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664671/1"
           },
           {
             "DOI": "10.6084/m9.figshare.32664662",
@@ -11800,6 +11809,13 @@
             "HOST": "DOAJ (DOAJ: Directory of Open Access Journals)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by-sa"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/6079",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
@@ -11808,11 +11824,6 @@
           {
             "URL": "https://www.mdpi.com/1420-3049/25/3/510/pdf",
             "HOST": "Molecules",
-            "TYPE": "Article"
-          },
-          {
-            "URL": "https://hdl.handle.net/10492/6079",
-            "HOST": "EMU DSpace",
             "TYPE": "Article"
           }
         ]
@@ -11993,7 +12004,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:17+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -12109,7 +12120,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:44+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:38+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -12612,6 +12623,13 @@
             "HOST": "DOAJ (DOAJ: Directory of Open Access Journals)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by-sa"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "https://hdl.handle.net/11697/215761",
+            "HOST": "Archivio Istituzionale della Ricerca - Università degli Studi dell Aquila",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
@@ -12620,11 +12638,6 @@
           {
             "URL": "https://www.mdpi.com/2227-7102/9/2/91/pdf",
             "HOST": "Education Sciences",
-            "TYPE": "Article"
-          },
-          {
-            "URL": "https://hdl.handle.net/11697/215761",
-            "HOST": "Archivio Istituzionale della Ricerca - Università degli Studi dell Aquila",
             "TYPE": "Article"
           }
         ]
@@ -13888,6 +13901,13 @@
             "HOST": "Agriculture",
             "HOST_TYPE": "journal",
             "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/6081",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
@@ -13896,11 +13916,6 @@
           {
             "URL": "https://www.mdpi.com/2077-0472/10/1/22/pdf",
             "HOST": "Agriculture",
-            "TYPE": "Article"
-          },
-          {
-            "URL": "https://hdl.handle.net/10492/6081",
-            "HOST": "EMU DSpace",
             "TYPE": "Article"
           }
         ]
@@ -14674,17 +14689,6 @@
             "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_3_of_Leveraging_large-scale_multi-omics_evidences_to_identify_therapeutic_targets_from_genome-wide_association_studies/27861339/1"
           },
           {
-            "DOI": "10.6084/m9.figshare.27861336.v1",
-            "TITLE": "Additional file 2 of Leveraging large-scale multi-omics evidences to identify therapeutic targets from genome-wide association studies",
-            "TYPE": "Dataset",
-            "PUBLISHER": "figshare",
-            "YEAR": 2024,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Leveraging_large-scale_multi-omics_evidences_to_identify_therapeutic_targets_from_genome-wide_association_studies/27861336/1"
-          },
-          {
             "DOI": "10.6084/m9.figshare.27861339",
             "TITLE": "Additional file 3 of Leveraging large-scale multi-omics evidences to identify therapeutic targets from genome-wide association studies",
             "TYPE": "Dataset",
@@ -14694,6 +14698,17 @@
               "IsSupplementTo"
             ],
             "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_3_of_Leveraging_large-scale_multi-omics_evidences_to_identify_therapeutic_targets_from_genome-wide_association_studies/27861339"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.27861336.v1",
+            "TITLE": "Additional file 2 of Leveraging large-scale multi-omics evidences to identify therapeutic targets from genome-wide association studies",
+            "TYPE": "Dataset",
+            "PUBLISHER": "figshare",
+            "YEAR": 2024,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Leveraging_large-scale_multi-omics_evidences_to_identify_therapeutic_targets_from_genome-wide_association_studies/27861336/1"
           },
           {
             "DOI": "10.6084/m9.figshare.27861336",
@@ -15892,7 +15907,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:35:32+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
       "ATTEMPTS": []
     }
   },
@@ -16248,7 +16263,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:31:59+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": []
     }
   },
@@ -17921,7 +17936,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:37+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -19142,7 +19157,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:05+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
       "ATTEMPTS": []
     }
   },
@@ -19237,19 +19252,21 @@
         "FULLTEXT_URL": "https://link.springer.com/article/10.1134/S1064229320050026"
       },
       "OPENALEX": {
-        "IS_OPEN_ACCESS": false,
-        "OPEN_ACCESS_TYPE": "closed",
+        "IS_OPEN_ACCESS": true,
+        "OPEN_ACCESS_TYPE": "green",
         "HAS_OPEN_PEER_REVIEWED_VERSION": false,
-        "OPEN_LOCATIONS": []
-      },
-      "OPENAIRE": {
-        "OPEN_INSTANCES": [
+        "OPEN_LOCATIONS": [
           {
-            "URL": "https://hdl.handle.net/10492/6397",
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/6397",
             "HOST": "EMU DSpace",
-            "TYPE": "Article"
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
           }
         ]
+      },
+      "OPENAIRE": {
+        "OPEN_INSTANCES": []
       },
       "MANUAL_CHECK": {
         "IS_OPEN_ACCESS": null
@@ -19912,7 +19929,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:32+00:00",
       "ATTEMPTS": []
     }
   },
@@ -21006,6 +21023,17 @@
             "URL": "http://www.ccdc.cam.ac.uk/services/structure_request?id=doi:10.5517/ccdc.csd.cc27gw9x&sid=DataCite"
           },
           {
+            "DOI": "10.5517/ccdc.csd.cc27gw7v",
+            "TITLE": "CCDC 2069877: Experimental Crystal Structure Determination",
+            "TYPE": "Dataset",
+            "PUBLISHER": "Cambridge Crystallographic Data Centre",
+            "YEAR": 2022,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "http://www.ccdc.cam.ac.uk/services/structure_request?id=doi:10.5517/ccdc.csd.cc27gw7v&sid=DataCite"
+          },
+          {
             "DOI": "10.5517/ccdc.csd.cc27gw6t",
             "TITLE": "CCDC 2069876: Experimental Crystal Structure Determination",
             "TYPE": "Dataset",
@@ -21026,17 +21054,6 @@
               "IsSupplementTo"
             ],
             "URL": "http://www.ccdc.cam.ac.uk/services/structure_request?id=doi:10.5517/ccdc.csd.cc27gw8w&sid=DataCite"
-          },
-          {
-            "DOI": "10.5517/ccdc.csd.cc27gw7v",
-            "TITLE": "CCDC 2069877: Experimental Crystal Structure Determination",
-            "TYPE": "Dataset",
-            "PUBLISHER": "Cambridge Crystallographic Data Centre",
-            "YEAR": 2022,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "http://www.ccdc.cam.ac.uk/services/structure_request?id=doi:10.5517/ccdc.csd.cc27gw7v&sid=DataCite"
           },
           {
             "DOI": "10.5517/ccdc.csd.cc27gw5s",
@@ -21599,7 +21616,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": []
     }
   },
@@ -22043,7 +22060,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": []
     }
   },
@@ -22409,7 +22426,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": []
     }
   },
@@ -22511,7 +22528,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:36+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:43+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -22954,7 +22971,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:32:32+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": []
     }
   },
@@ -23218,7 +23235,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:32:20+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -24284,6 +24301,13 @@
           },
           {
             "VERSION": "submittedVersion",
+            "URL": "https://jukuri.luke.fi/handle/11111/22707",
+            "HOST": "Jukuri (Natural Resources Institute Finland (Luke))",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
             "URL": "https://www.openagrar.de/receive/openagrar_mods_00104326",
             "HOST": "OpenAgrar",
             "HOST_TYPE": "repository",
@@ -25087,7 +25111,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:21+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
       "ATTEMPTS": []
     }
   },
@@ -26492,9 +26516,16 @@
       },
       "OPENALEX": {
         "IS_OPEN_ACCESS": true,
-        "OPEN_ACCESS_TYPE": "gold",
+        "OPEN_ACCESS_TYPE": "green",
         "HAS_OPEN_PEER_REVIEWED_VERSION": false,
         "OPEN_LOCATIONS": [
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/9521",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
+          },
           {
             "VERSION": null,
             "URL": "https://doi.org/10.15159/ar.24.096",
@@ -26505,13 +26536,7 @@
         ]
       },
       "OPENAIRE": {
-        "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/10492/9521",
-            "HOST": "EMU DSpace",
-            "TYPE": "Article"
-          }
-        ]
+        "OPEN_INSTANCES": []
       },
       "MANUAL_CHECK": {
         "IS_OPEN_ACCESS": null
@@ -27237,6 +27262,13 @@
             "URL": "https://doi.org/10.2166/nh.2022.057",
             "HOST": "Hydrology research",
             "HOST_TYPE": "journal",
+            "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/8854",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
             "LICENSE": "cc-by"
           }
         ]
@@ -28019,7 +28051,7 @@
     ],
     "OPEN_ACCESS": {
       "AUTOMATIC_VERDICT": "open",
-      "AUTOMATIC_VERDICT_SOURCE": "openalex_publisher",
+      "AUTOMATIC_VERDICT_SOURCE": "etis_link",
       "CHECK_NEEDED_REASON": null,
       "ETIS": {
         "IS_OPEN_ACCESS": true,
@@ -28030,9 +28062,23 @@
       },
       "OPENALEX": {
         "IS_OPEN_ACCESS": true,
-        "OPEN_ACCESS_TYPE": "gold",
+        "OPEN_ACCESS_TYPE": "green",
         "HAS_OPEN_PEER_REVIEWED_VERSION": false,
         "OPEN_LOCATIONS": [
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/7265",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/8853",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
+          },
           {
             "VERSION": null,
             "URL": "https://doi.org/10.15159/ar.22.008",
@@ -28044,11 +28090,6 @@
       },
       "OPENAIRE": {
         "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/10492/7265",
-            "HOST": "EMU DSpace",
-            "TYPE": "Article"
-          },
           {
             "URL": "https://hdl.handle.net/http://hdl.handle.net/10492/7265",
             "HOST": "Unknown Repository",
@@ -28967,7 +29008,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:38+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -29762,7 +29803,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:01+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:18+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "openalex_html",
@@ -29895,7 +29936,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -31822,7 +31863,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:39+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:38+00:00",
       "ATTEMPTS": []
     }
   },
@@ -32388,17 +32429,18 @@
             "HOST": "Dipòsit Digital de la Universitat de Barcelona (Universitat de Barcelona)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/7949",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
       "OPENAIRE": {
-        "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/10492/7949",
-            "HOST": "EMU DSpace",
-            "TYPE": "Article"
-          }
-        ]
+        "OPEN_INSTANCES": []
       },
       "MANUAL_CHECK": {
         "IS_OPEN_ACCESS": null
@@ -33615,7 +33657,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": []
     }
   },
@@ -33737,7 +33779,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:14+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -33868,7 +33910,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:12+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
       "ATTEMPTS": []
     }
   },
@@ -35501,6 +35543,13 @@
             "HOST": "Zemdirbyste-Agriculture",
             "HOST_TYPE": "journal",
             "LICENSE": null
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/6395",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
           }
         ]
       },
@@ -35509,11 +35558,6 @@
           {
             "URL": "http://www.zemdirbyste-agriculture.lt/wp-content/uploads/2018/08/105_3_str25.pdf",
             "HOST": "Žemdirbystė",
-            "TYPE": "Article"
-          },
-          {
-            "URL": "https://hdl.handle.net/10492/6395",
-            "HOST": "EMU DSpace",
             "TYPE": "Article"
           }
         ]
@@ -36127,7 +36171,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
       "ATTEMPTS": []
     }
   },
@@ -36349,14 +36393,14 @@
       },
       "OPENALEX": {
         "IS_OPEN_ACCESS": true,
-        "OPEN_ACCESS_TYPE": "gold",
+        "OPEN_ACCESS_TYPE": "diamond",
         "HAS_OPEN_PEER_REVIEWED_VERSION": true,
         "OPEN_LOCATIONS": [
           {
             "VERSION": "publishedVersion",
             "URL": "https://www.jsse.org/index.php/jsse/article/view/3146",
-            "HOST": null,
-            "HOST_TYPE": null,
+            "HOST": "Journal of social science education/Sowi-Onlinejournal",
+            "HOST_TYPE": "journal",
             "LICENSE": "cc-by-sa"
           },
           {
@@ -36856,7 +36900,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
       "ATTEMPTS": []
     }
   },
@@ -37268,7 +37312,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -39229,7 +39273,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:35:31+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -39330,7 +39374,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:49+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
       "ATTEMPTS": []
     }
   },
@@ -40103,7 +40147,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:45+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
       "ATTEMPTS": []
     }
   },
@@ -40231,6 +40275,13 @@
             "HOST": "PubMed Central",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/10456",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
@@ -40239,11 +40290,6 @@
           {
             "URL": "https://zenodo.org/records/11394046",
             "HOST": "ZENODO",
-            "TYPE": "Article"
-          },
-          {
-            "URL": "https://hdl.handle.net/10492/10456",
-            "HOST": "EMU DSpace",
             "TYPE": "Article"
           },
           {
@@ -41572,7 +41618,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:03+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:35+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -44989,17 +45035,6 @@
             "URL": "https://rs.figshare.com/articles/journal_contribution/Pollen_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174740"
           },
           {
-            "DOI": "10.6084/m9.figshare.24174746",
-            "TITLE": "Dietary stable isotope extended data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
-            "TYPE": "JournalArticle",
-            "PUBLISHER": "The Royal Society",
-            "YEAR": 2023,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://rs.figshare.com/articles/journal_contribution/Dietary_stable_isotope_extended_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174746"
-          },
-          {
             "DOI": "10.6084/m9.figshare.24174746.v1",
             "TITLE": "Dietary stable isotope extended data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
             "TYPE": "JournalArticle",
@@ -45009,6 +45044,17 @@
               "IsSupplementTo"
             ],
             "URL": "https://rs.figshare.com/articles/journal_contribution/Dietary_stable_isotope_extended_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174746/1"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.24174746",
+            "TITLE": "Dietary stable isotope extended data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
+            "TYPE": "JournalArticle",
+            "PUBLISHER": "The Royal Society",
+            "YEAR": 2023,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://rs.figshare.com/articles/journal_contribution/Dietary_stable_isotope_extended_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174746"
           },
           {
             "DOI": "10.6084/m9.figshare.24174749.v1",
@@ -45088,6 +45134,17 @@
             "URL": "https://rs.figshare.com/articles/dataset/Paired_animal_and_human_AMS_dates_from_the_Ardu_II_and_Sope_B_I_burials_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174743/1"
           },
           {
+            "DOI": "10.6084/m9.figshare.24174758",
+            "TITLE": "Pottery organic residue data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
+            "TYPE": "Dataset",
+            "PUBLISHER": "The Royal Society",
+            "YEAR": 2023,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://rs.figshare.com/articles/dataset/Pottery_organic_residue_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174758"
+          },
+          {
             "DOI": "10.6084/m9.figshare.24174755",
             "TITLE": "ZooMS spectra from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
             "TYPE": "Dataset",
@@ -45110,17 +45167,6 @@
             "URL": "https://rs.figshare.com/articles/dataset/Pottery_organic_residue_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174758/1"
           },
           {
-            "DOI": "10.6084/m9.figshare.24174758",
-            "TITLE": "Pottery organic residue data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
-            "TYPE": "Dataset",
-            "PUBLISHER": "The Royal Society",
-            "YEAR": 2023,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://rs.figshare.com/articles/dataset/Pottery_organic_residue_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174758"
-          },
-          {
             "DOI": "10.6084/m9.figshare.24174755.v1",
             "TITLE": "ZooMS spectra from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
             "TYPE": "Dataset",
@@ -45132,17 +45178,6 @@
             "URL": "https://rs.figshare.com/articles/dataset/ZooMS_spectra_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174755/1"
           },
           {
-            "DOI": "10.6084/m9.figshare.24174743.v2",
-            "TITLE": "Paired animal and human AMS dates from the Ardu II and Sope B I burials from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
-            "TYPE": "Dataset",
-            "PUBLISHER": "The Royal Society",
-            "YEAR": 2023,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://rs.figshare.com/articles/dataset/Paired_animal_and_human_AMS_dates_from_the_Ardu_II_and_Sope_B_I_burials_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174743/2"
-          },
-          {
             "DOI": "10.6084/m9.figshare.24174743",
             "TITLE": "Paired animal and human AMS dates from the Ardu II and Sope B I burials from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
             "TYPE": "Dataset",
@@ -45152,6 +45187,17 @@
               "IsSupplementTo"
             ],
             "URL": "https://rs.figshare.com/articles/dataset/Paired_animal_and_human_AMS_dates_from_the_Ardu_II_and_Sope_B_I_burials_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174743"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.24174743.v2",
+            "TITLE": "Paired animal and human AMS dates from the Ardu II and Sope B I burials from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
+            "TYPE": "Dataset",
+            "PUBLISHER": "The Royal Society",
+            "YEAR": 2023,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://rs.figshare.com/articles/dataset/Paired_animal_and_human_AMS_dates_from_the_Ardu_II_and_Sope_B_I_burials_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174743/2"
           }
         ]
       }
@@ -45285,7 +45331,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:03+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:19+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "openaire_html",
@@ -46170,7 +46216,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:22+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": []
     }
   },
@@ -47732,17 +47778,6 @@
             "URL": "https://figshare.com/articles/dataset/GWAS_summary_statistics_for_major_depression_PGC_MDD2025_/27061255/4"
           },
           {
-            "DOI": "10.6084/m9.figshare.27061255",
-            "TITLE": "GWAS summary statistics for major depression (PGC MDD2025)",
-            "TYPE": "Dataset",
-            "PUBLISHER": "figshare",
-            "YEAR": 2026,
-            "RELATIONS": [
-              "IsDescribedBy"
-            ],
-            "URL": "https://figshare.com/articles/dataset/GWAS_summary_statistics_for_major_depression_PGC_MDD2025_/27061255"
-          },
-          {
             "DOI": "10.6084/m9.figshare.27061255.v5",
             "TITLE": "GWAS summary statistics for major depression (PGC MDD2025)",
             "TYPE": "Dataset",
@@ -47752,6 +47787,17 @@
               "IsDescribedBy"
             ],
             "URL": "https://figshare.com/articles/dataset/GWAS_summary_statistics_for_major_depression_PGC_MDD2025_/27061255/5"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.27061255",
+            "TITLE": "GWAS summary statistics for major depression (PGC MDD2025)",
+            "TYPE": "Dataset",
+            "PUBLISHER": "figshare",
+            "YEAR": 2026,
+            "RELATIONS": [
+              "IsDescribedBy"
+            ],
+            "URL": "https://figshare.com/articles/dataset/GWAS_summary_statistics_for_major_depression_PGC_MDD2025_/27061255"
           },
           {
             "DOI": "10.6084/m9.figshare.27089614.v4",
@@ -47765,17 +47811,6 @@
             "URL": "https://figshare.com/articles/online_resource/Supplementary_Results_for_GWAS_meta-analysis_of_major_depression_PGC_MDD2025_/27089614/4"
           },
           {
-            "DOI": "10.6084/m9.figshare.27089614.v5",
-            "TITLE": "Supplementary Results for GWAS meta-analysis of major depression (PGC MDD2025)",
-            "TYPE": "Other",
-            "PUBLISHER": "figshare",
-            "YEAR": 2026,
-            "RELATIONS": [
-              "IsDescribedBy"
-            ],
-            "URL": "https://figshare.com/articles/online_resource/Supplementary_Results_for_GWAS_meta-analysis_of_major_depression_PGC_MDD2025_/27089614/5"
-          },
-          {
             "DOI": "10.6084/m9.figshare.27089614",
             "TITLE": "Supplementary Results for GWAS meta-analysis of major depression (PGC MDD2025)",
             "TYPE": "Other",
@@ -47785,6 +47820,17 @@
               "IsDescribedBy"
             ],
             "URL": "https://figshare.com/articles/online_resource/Supplementary_Results_for_GWAS_meta-analysis_of_major_depression_PGC_MDD2025_/27089614"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.27089614.v5",
+            "TITLE": "Supplementary Results for GWAS meta-analysis of major depression (PGC MDD2025)",
+            "TYPE": "Other",
+            "PUBLISHER": "figshare",
+            "YEAR": 2026,
+            "RELATIONS": [
+              "IsDescribedBy"
+            ],
+            "URL": "https://figshare.com/articles/online_resource/Supplementary_Results_for_GWAS_meta-analysis_of_major_depression_PGC_MDD2025_/27089614/5"
           },
           {
             "DOI": "10.5281/zenodo.19202099",
@@ -48112,6 +48158,13 @@
             "HOST": "DOAJ (DOAJ: Directory of Open Access Journals)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by-sa"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/8027",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
@@ -48120,11 +48173,6 @@
           {
             "URL": "https://www.mdpi.com/2073-4441/13/5/597/pdf",
             "HOST": "Water",
-            "TYPE": "Article"
-          },
-          {
-            "URL": "https://hdl.handle.net/10492/8027",
-            "HOST": "EMU DSpace",
             "TYPE": "Article"
           }
         ]
@@ -48512,7 +48560,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:35:24+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -48811,7 +48859,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:08+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -49070,7 +49118,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:05+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:21+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -49656,17 +49704,18 @@
             "HOST": "Journal of Dairy Science",
             "HOST_TYPE": "journal",
             "LICENSE": "cc-by-nc-nd"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/6083",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
       "OPENAIRE": {
-        "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/10492/6083",
-            "HOST": "EMU DSpace",
-            "TYPE": "Article"
-          }
-        ]
+        "OPEN_INSTANCES": []
       },
       "MANUAL_CHECK": {
         "IS_OPEN_ACCESS": null
@@ -51722,17 +51771,6 @@
       "DATACITE": {
         "RECORDS": [
           {
-            "DOI": "10.6084/m9.figshare.25567964.v1",
-            "TITLE": "Towards seamless environmental prediction – development of Pan-Eurasian EXperiment (PEEX) modelling platform",
-            "TYPE": "Text",
-            "PUBLISHER": "Taylor & Francis",
-            "YEAR": 2024,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://tandf.figshare.com/articles/journal_contribution/Towards_seamless_environmental_prediction_development_of_Pan-Eurasian_EXperiment_PEEX_modelling_platform/25567964/1"
-          },
-          {
             "DOI": "10.6084/m9.figshare.25567964",
             "TITLE": "Towards seamless environmental prediction – development of Pan-Eurasian EXperiment (PEEX) modelling platform",
             "TYPE": "Text",
@@ -51742,6 +51780,17 @@
               "IsSupplementTo"
             ],
             "URL": "https://tandf.figshare.com/articles/journal_contribution/Towards_seamless_environmental_prediction_development_of_Pan-Eurasian_EXperiment_PEEX_modelling_platform/25567964"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.25567964.v1",
+            "TITLE": "Towards seamless environmental prediction – development of Pan-Eurasian EXperiment (PEEX) modelling platform",
+            "TYPE": "Text",
+            "PUBLISHER": "Taylor & Francis",
+            "YEAR": 2024,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://tandf.figshare.com/articles/journal_contribution/Towards_seamless_environmental_prediction_development_of_Pan-Eurasian_EXperiment_PEEX_modelling_platform/25567964/1"
           }
         ]
       }
@@ -54023,7 +54072,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:41+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:38+00:00",
       "ATTEMPTS": []
     }
   },
@@ -54110,17 +54159,18 @@
             "HOST": "IRIS UNIMORE (University of Modena and Reggio Emilia)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "https://hdl.handle.net/11697/215765",
+            "HOST": "Archivio Istituzionale della Ricerca - Università degli Studi dell Aquila",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
           }
         ]
       },
       "OPENAIRE": {
-        "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/11697/215765",
-            "HOST": "Archivio Istituzionale della Ricerca - Università degli Studi dell Aquila",
-            "TYPE": "Article"
-          }
-        ]
+        "OPEN_INSTANCES": []
       },
       "MANUAL_CHECK": {
         "IS_OPEN_ACCESS": null
@@ -54257,7 +54307,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:21+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -54665,7 +54715,7 @@
     ],
     "OPEN_ACCESS": {
       "AUTOMATIC_VERDICT": "open",
-      "AUTOMATIC_VERDICT_SOURCE": "openalex_publisher",
+      "AUTOMATIC_VERDICT_SOURCE": "etis_link",
       "CHECK_NEEDED_REASON": null,
       "ETIS": {
         "IS_OPEN_ACCESS": true,
@@ -54676,9 +54726,16 @@
       },
       "OPENALEX": {
         "IS_OPEN_ACCESS": true,
-        "OPEN_ACCESS_TYPE": "gold",
+        "OPEN_ACCESS_TYPE": "green",
         "HAS_OPEN_PEER_REVIEWED_VERSION": false,
         "OPEN_LOCATIONS": [
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/10080",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
+          },
           {
             "VERSION": null,
             "URL": "https://doi.org/10.15159/ar.25.054",
@@ -54689,13 +54746,7 @@
         ]
       },
       "OPENAIRE": {
-        "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/10492/10080",
-            "HOST": "EMU DSpace",
-            "TYPE": "Article"
-          }
-        ]
+        "OPEN_INSTANCES": []
       },
       "MANUAL_CHECK": {
         "IS_OPEN_ACCESS": null
@@ -56116,6 +56167,13 @@
             "HOST": "DOAJ (DOAJ: Directory of Open Access Journals)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by-sa"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/8794",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
           }
         ]
       },
@@ -59445,7 +59503,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:26+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -59711,7 +59769,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:51+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "manual_open",
@@ -60429,13 +60487,6 @@
             "LICENSE": "other-oa"
           },
           {
-            "VERSION": "acceptedVersion",
-            "URL": "https://erepo.uef.fi/handle/123456789/3480",
-            "HOST": "UEF eRepo (University of Eastern Finland)",
-            "HOST_TYPE": "repository",
-            "LICENSE": "other-oa"
-          },
-          {
             "VERSION": "submittedVersion",
             "URL": "https://kclpure.kcl.ac.uk/ws/files/99079036/A_Low_Frequency_Inactivating_AKT2_MANNING_accepted13March2017_GREEN_AAM.pdf",
             "HOST": "Research Portal (King's College London)",
@@ -60453,6 +60504,13 @@
             "VERSION": "submittedVersion",
             "URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/5482074",
             "HOST": "VBN Forskningsportal (Aalborg Universitet)",
+            "HOST_TYPE": "repository",
+            "LICENSE": "other-oa"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "https://erepo.uef.fi/handle/123456789/3480",
+            "HOST": "UEF eRepo (University of Eastern Finland)",
             "HOST_TYPE": "repository",
             "LICENSE": "other-oa"
           },
@@ -63525,7 +63583,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:04+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:20+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "openalex_html",
@@ -63930,7 +63988,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": []
     }
   },
@@ -64027,13 +64085,6 @@
             "HOST": "UWA Profiles and Research Repository (UWA)",
             "HOST_TYPE": "repository",
             "LICENSE": "public-domain"
-          },
-          {
-            "VERSION": "publishedVersion",
-            "URL": "https://erepo.uef.fi/handle/123456789/4502",
-            "HOST": "UEF eRepo (University of Eastern Finland)",
-            "HOST_TYPE": "repository",
-            "LICENSE": "other-oa"
           },
           {
             "VERSION": "publishedVersion",
@@ -64181,6 +64232,13 @@
             "HOST": "DOAJ (DOAJ: Directory of Open Access Journals)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by-sa"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "https://erepo.uef.fi/handle/123456789/4502",
+            "HOST": "UEF eRepo (University of Eastern Finland)",
+            "HOST_TYPE": "repository",
+            "LICENSE": "public-domain"
           },
           {
             "VERSION": "submittedVersion",
@@ -65865,7 +65923,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:34+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:38+00:00",
       "ATTEMPTS": []
     }
   },
@@ -65984,7 +66042,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:28+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "manual_open",
@@ -66267,7 +66325,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:32:05+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -66388,7 +66446,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:33+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": []
     }
   },
@@ -67201,7 +67259,7 @@
         "OPEN_LOCATIONS": [
           {
             "VERSION": "publishedVersion",
-            "URL": "https://publications.tlulib.ee/index.php/stss/article/view/841",
+            "URL": "https://publications.tlulib.ee/index.php/stss/article/download/841/837",
             "HOST": "Studies of transition states and societies",
             "HOST_TYPE": "journal",
             "LICENSE": "cc-by-nc-nd"
@@ -68816,7 +68874,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
       "ATTEMPTS": []
     }
   },
@@ -68908,7 +68966,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -70146,7 +70204,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:09+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:30+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -71744,7 +71802,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": []
     }
   },
@@ -73457,7 +73515,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -73563,7 +73621,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:05+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:36+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -74590,7 +74648,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:08+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -76133,7 +76191,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:44+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
       "ATTEMPTS": []
     }
   },
@@ -77481,6 +77539,13 @@
             "HOST": "KTUePubl (Repository of Kaunas University of Technology)",
             "HOST_TYPE": "repository",
             "LICENSE": "other-oa"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/8717",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
@@ -78173,7 +78238,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:35:26+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
       "ATTEMPTS": []
     }
   },
@@ -79227,17 +79292,6 @@
             "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_1_of_Common_clinical_blood_and_urine_biomarkers_for_ischemic_stroke_an_Estonian_Electronic_Health_Records_database_study/22622447"
           },
           {
-            "DOI": "10.6084/m9.figshare.c.6594092.v1",
-            "TITLE": "Common clinical blood and urine biomarkers for ischemic stroke: an Estonian Electronic Health Records database study",
-            "TYPE": "Collection",
-            "PUBLISHER": "figshare",
-            "YEAR": 2023,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://springernature.figshare.com/collections/Common_clinical_blood_and_urine_biomarkers_for_ischemic_stroke_an_Estonian_Electronic_Health_Records_database_study/6594092/1"
-          },
-          {
             "DOI": "10.6084/m9.figshare.c.6594092",
             "TITLE": "Common clinical blood and urine biomarkers for ischemic stroke: an Estonian Electronic Health Records database study",
             "TYPE": "Collection",
@@ -79247,6 +79301,17 @@
               "IsSupplementTo"
             ],
             "URL": "https://springernature.figshare.com/collections/Common_clinical_blood_and_urine_biomarkers_for_ischemic_stroke_an_Estonian_Electronic_Health_Records_database_study/6594092"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.c.6594092.v1",
+            "TITLE": "Common clinical blood and urine biomarkers for ischemic stroke: an Estonian Electronic Health Records database study",
+            "TYPE": "Collection",
+            "PUBLISHER": "figshare",
+            "YEAR": 2023,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://springernature.figshare.com/collections/Common_clinical_blood_and_urine_biomarkers_for_ischemic_stroke_an_Estonian_Electronic_Health_Records_database_study/6594092/1"
           }
         ]
       }
@@ -79352,16 +79417,18 @@
             "HOST": "Research at the University of Copenhagen (University of Copenhagen)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "https://hdl.handle.net/11583/2998745",
+            "HOST": "PORTO@Iris",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
       "OPENAIRE": {
         "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/11583/2998745",
-            "HOST": "Publications Open Repository TOrino",
-            "TYPE": "Article"
-          },
           {
             "URL": "http://sciencedirect.com/science/article/pii/S2212420925001694#sec4",
             "HOST": "Publications Open Repository TOrino",
@@ -80027,7 +80094,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:46+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": []
     }
   },
@@ -80517,7 +80584,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:38+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": []
     }
   },
@@ -80619,7 +80686,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
       "ATTEMPTS": []
     }
   },
@@ -82754,7 +82821,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "manual_open",
@@ -82875,7 +82942,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:49+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": []
     }
   },
@@ -82946,14 +83013,14 @@
       },
       "OPENALEX": {
         "IS_OPEN_ACCESS": true,
-        "OPEN_ACCESS_TYPE": "gold",
+        "OPEN_ACCESS_TYPE": "diamond",
         "HAS_OPEN_PEER_REVIEWED_VERSION": true,
         "OPEN_LOCATIONS": [
           {
             "VERSION": "publishedVersion",
             "URL": "https://www.jsse.org/index.php/jsse/article/view/5368",
-            "HOST": null,
-            "HOST_TYPE": null,
+            "HOST": "Journal of social science education/Sowi-Onlinejournal",
+            "HOST_TYPE": "journal",
             "LICENSE": "cc-by-sa"
           },
           {
@@ -87942,7 +88009,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:08+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:26+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -89905,7 +89972,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:40+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:44+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -90353,17 +90420,6 @@
             "URL": "https://zenodo.org/record/886325"
           },
           {
-            "DOI": "10.5281/zenodo.886320",
-            "TITLE": "Catch-Eyou Work Package 2 Dataset 2.2A - Aggregation Of Literature",
-            "TYPE": "Dataset",
-            "PUBLISHER": "Zenodo",
-            "YEAR": 2017,
-            "RELATIONS": [
-              "IsCitedBy"
-            ],
-            "URL": "https://zenodo.org/record/886320"
-          },
-          {
             "DOI": "10.5281/zenodo.886321",
             "TITLE": "Catch-Eyou Work Package 2 Dataset 2.2A - Aggregation Of Literature",
             "TYPE": "Dataset",
@@ -90373,6 +90429,17 @@
               "IsCitedBy"
             ],
             "URL": "https://zenodo.org/record/886321"
+          },
+          {
+            "DOI": "10.5281/zenodo.886320",
+            "TITLE": "Catch-Eyou Work Package 2 Dataset 2.2A - Aggregation Of Literature",
+            "TYPE": "Dataset",
+            "PUBLISHER": "Zenodo",
+            "YEAR": 2017,
+            "RELATIONS": [
+              "IsCitedBy"
+            ],
+            "URL": "https://zenodo.org/record/886320"
           }
         ]
       }
@@ -90653,7 +90720,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:35:32+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
       "ATTEMPTS": []
     }
   },
@@ -91061,7 +91128,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -91177,7 +91244,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:33+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "openaire_html",
@@ -93534,7 +93601,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:33+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -94101,7 +94168,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:35:38+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
       "ATTEMPTS": []
     }
   },
@@ -94400,7 +94467,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": []
     }
   },
@@ -95251,6 +95318,13 @@
         "HAS_OPEN_PEER_REVIEWED_VERSION": false,
         "OPEN_LOCATIONS": [
           {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/5613",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
+          },
+          {
             "VERSION": null,
             "URL": "https://doi.org/10.15159/ar.20.024",
             "HOST": "Eesti Maaülikool. EMU Dspace",
@@ -95267,13 +95341,7 @@
         ]
       },
       "OPENAIRE": {
-        "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/10492/5613",
-            "HOST": "EMU DSpace",
-            "TYPE": "Article"
-          }
-        ]
+        "OPEN_INSTANCES": []
       },
       "MANUAL_CHECK": {
         "IS_OPEN_ACCESS": true
@@ -96431,6 +96499,13 @@
             "LICENSE": "cc-by-nc-nd"
           },
           {
+            "VERSION": "publishedVersion",
+            "URL": "https://ojs.utlib.ee/index.php/JEF/article/view/26300",
+            "HOST": "Journal of Ethnology and Folkloristics",
+            "HOST_TYPE": "journal",
+            "LICENSE": "cc-by-nc-nd"
+          },
+          {
             "VERSION": "submittedVersion",
             "URL": "https://doaj.org/article/68a17ff031d2452e8beacf688370d55e",
             "HOST": "DOAJ (DOAJ: Directory of Open Access Journals)",
@@ -96603,7 +96678,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:48+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:32+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "manual_open",
@@ -98138,7 +98213,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:00+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -100504,17 +100579,6 @@
       "DATACITE": {
         "RECORDS": [
           {
-            "DOI": "10.6084/m9.figshare.28416040.v1",
-            "TITLE": "The effects of competition and competitors location on growth and mortality in middle-aged <i>Betula pendula</i> plantations",
-            "TYPE": "Text",
-            "PUBLISHER": "Taylor & Francis",
-            "YEAR": 2025,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://tandf.figshare.com/articles/journal_contribution/The_effects_of_competition_and_competitors_location_on_growth_and_mortality_in_middle-aged_i_Betula_pendula_i_plantations/28416040/1"
-          },
-          {
             "DOI": "10.6084/m9.figshare.28416040",
             "TITLE": "The effects of competition and competitors location on growth and mortality in middle-aged <i>Betula pendula</i> plantations",
             "TYPE": "Text",
@@ -100524,6 +100588,17 @@
               "IsSupplementTo"
             ],
             "URL": "https://tandf.figshare.com/articles/journal_contribution/The_effects_of_competition_and_competitors_location_on_growth_and_mortality_in_middle-aged_i_Betula_pendula_i_plantations/28416040"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.28416040.v1",
+            "TITLE": "The effects of competition and competitors location on growth and mortality in middle-aged <i>Betula pendula</i> plantations",
+            "TYPE": "Text",
+            "PUBLISHER": "Taylor & Francis",
+            "YEAR": 2025,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://tandf.figshare.com/articles/journal_contribution/The_effects_of_competition_and_competitors_location_on_growth_and_mortality_in_middle-aged_i_Betula_pendula_i_plantations/28416040/1"
           }
         ]
       }
@@ -100536,7 +100611,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:43+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:44+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "openaire_html",
@@ -100663,7 +100738,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:54+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
       "ATTEMPTS": []
     }
   },
@@ -100773,6 +100848,13 @@
             "HOST": "Minerva Access (University of Melbourne)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "https://doi.org/10.1038/s42003-022-03125-1",
+            "HOST": "DSpace - FIRAT (Fırat University)",
+            "HOST_TYPE": "repository",
+            "LICENSE": "other-oa"
           }
         ]
       },
@@ -100969,7 +101051,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:35:38+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:47+00:00",
       "ATTEMPTS": []
     }
   },
@@ -101263,7 +101345,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:07+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
       "ATTEMPTS": []
     }
   },
@@ -101335,6 +101417,13 @@
             "HOST": "HAL (Le Centre pour la Communication Scientifique Directe)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by-nc-nd"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "https://doi.org/10.1016/j.meegid.2025.105868",
+            "HOST": "DSpace - FIRAT (Fırat University)",
+            "HOST_TYPE": "repository",
+            "LICENSE": "other-oa"
           }
         ]
       },
@@ -105001,7 +105090,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:07+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:39+00:00",
       "ATTEMPTS": []
     }
   },
@@ -107297,6 +107386,13 @@
           },
           {
             "VERSION": "submittedVersion",
+            "URL": "https://hdl.handle.net/2318/2012150",
+            "HOST": "Institutional Research Information System University of Turin (University of Turin)",
+            "HOST_TYPE": "repository",
+            "LICENSE": "other-oa"
+          },
+          {
+            "VERSION": "submittedVersion",
             "URL": "https://hdl.handle.net/11577/3521221",
             "HOST": "Padua Research Archive (University of Padova)",
             "HOST_TYPE": "repository",
@@ -107305,13 +107401,7 @@
         ]
       },
       "OPENAIRE": {
-        "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/2318/2012150",
-            "HOST": "Archivio Istituzionale della Ricerca (AperTO) - Università di Torino",
-            "TYPE": "Article"
-          }
-        ]
+        "OPEN_INSTANCES": []
       },
       "MANUAL_CHECK": {
         "IS_OPEN_ACCESS": null
@@ -108371,7 +108461,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
       "ATTEMPTS": []
     }
   },
@@ -108614,6 +108704,13 @@
             "HOST": "Työväentutkimus Vuosikirja",
             "HOST_TYPE": "journal",
             "LICENSE": null
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "https://jukuri.luke.fi/handle/11111/14627",
+            "HOST": "Jukuri (Natural Resources Institute Finland (Luke))",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
@@ -109340,7 +109437,7 @@
     ],
     "OPEN_ACCESS": {
       "AUTOMATIC_VERDICT": "open",
-      "AUTOMATIC_VERDICT_SOURCE": "openalex_publisher",
+      "AUTOMATIC_VERDICT_SOURCE": "etis_link",
       "CHECK_NEEDED_REASON": null,
       "ETIS": {
         "IS_OPEN_ACCESS": true,
@@ -109351,9 +109448,23 @@
       },
       "OPENALEX": {
         "IS_OPEN_ACCESS": true,
-        "OPEN_ACCESS_TYPE": "gold",
+        "OPEN_ACCESS_TYPE": "green",
         "HAS_OPEN_PEER_REVIEWED_VERSION": false,
         "OPEN_LOCATIONS": [
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/6426",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/6484",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
+          },
           {
             "VERSION": null,
             "URL": "https://doi.org/10.15159/ar.21.033",
@@ -109364,18 +109475,7 @@
         ]
       },
       "OPENAIRE": {
-        "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/10492/6484",
-            "HOST": "EMU DSpace",
-            "TYPE": "Article"
-          },
-          {
-            "URL": "https://hdl.handle.net/10492/6426",
-            "HOST": "EMU DSpace",
-            "TYPE": "Article"
-          }
-        ]
+        "OPEN_INSTANCES": []
       },
       "MANUAL_CHECK": {
         "IS_OPEN_ACCESS": true
@@ -110304,7 +110404,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:17+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -115213,7 +115313,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:13+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:40+00:00",
       "ATTEMPTS": []
     }
   },
@@ -115425,17 +115525,6 @@
             "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_1_of_Polygenic_and_pharmacogenomic_contributions_to_medication_dosing_a_real-world_longitudinal_biobank_study/29466165"
           },
           {
-            "DOI": "10.6084/m9.figshare.29466168",
-            "TITLE": "Additional file 2 of Polygenic and pharmacogenomic contributions to medication dosing: a real-world longitudinal biobank study",
-            "TYPE": "Dataset",
-            "PUBLISHER": "figshare",
-            "YEAR": 2025,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Polygenic_and_pharmacogenomic_contributions_to_medication_dosing_a_real-world_longitudinal_biobank_study/29466168"
-          },
-          {
             "DOI": "10.6084/m9.figshare.29466168.v1",
             "TITLE": "Additional file 2 of Polygenic and pharmacogenomic contributions to medication dosing: a real-world longitudinal biobank study",
             "TYPE": "Dataset",
@@ -115445,6 +115534,17 @@
               "IsSupplementTo"
             ],
             "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Polygenic_and_pharmacogenomic_contributions_to_medication_dosing_a_real-world_longitudinal_biobank_study/29466168/1"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.29466168",
+            "TITLE": "Additional file 2 of Polygenic and pharmacogenomic contributions to medication dosing: a real-world longitudinal biobank study",
+            "TYPE": "Dataset",
+            "PUBLISHER": "figshare",
+            "YEAR": 2025,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Polygenic_and_pharmacogenomic_contributions_to_medication_dosing_a_real-world_longitudinal_biobank_study/29466168"
           }
         ]
       }
@@ -116250,7 +116350,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:31:57+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": []
     }
   },
@@ -116790,7 +116890,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:14+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:30+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -117740,7 +117840,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:26+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "openalex_html",
@@ -118474,7 +118574,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:32:32+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:34+00:00",
       "ATTEMPTS": []
     }
   },
@@ -121029,7 +121129,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:01+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -121309,17 +121409,6 @@
       "DATACITE": {
         "RECORDS": [
           {
-            "DOI": "10.6084/m9.figshare.24627839.v1",
-            "TITLE": "A model conceptualising trans-disciplinarity within school science education based on a systematic literature review",
-            "TYPE": "Text",
-            "PUBLISHER": "Taylor & Francis",
-            "YEAR": 2023,
-            "RELATIONS": [
-              "IsSupplementTo"
-            ],
-            "URL": "https://tandf.figshare.com/articles/journal_contribution/A_model_conceptualising_trans-disciplinarity_within_school_science_education_based_on_a_systematic_literature_review/24627839/1"
-          },
-          {
             "DOI": "10.6084/m9.figshare.24627839",
             "TITLE": "A model conceptualising trans-disciplinarity within school science education based on a systematic literature review",
             "TYPE": "Text",
@@ -121329,6 +121418,17 @@
               "IsSupplementTo"
             ],
             "URL": "https://tandf.figshare.com/articles/journal_contribution/A_model_conceptualising_trans-disciplinarity_within_school_science_education_based_on_a_systematic_literature_review/24627839"
+          },
+          {
+            "DOI": "10.6084/m9.figshare.24627839.v1",
+            "TITLE": "A model conceptualising trans-disciplinarity within school science education based on a systematic literature review",
+            "TYPE": "Text",
+            "PUBLISHER": "Taylor & Francis",
+            "YEAR": 2023,
+            "RELATIONS": [
+              "IsSupplementTo"
+            ],
+            "URL": "https://tandf.figshare.com/articles/journal_contribution/A_model_conceptualising_trans-disciplinarity_within_school_science_education_based_on_a_systematic_literature_review/24627839/1"
           }
         ]
       }
@@ -123417,7 +123517,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": []
     }
   },
@@ -124837,7 +124937,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
       "ATTEMPTS": []
     }
   },
@@ -125235,7 +125335,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:02+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:35+00:00",
       "ATTEMPTS": []
     }
   },
@@ -125825,7 +125925,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:19+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": []
     }
   },
@@ -127818,7 +127918,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:11+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:27+00:00",
       "ATTEMPTS": []
     }
   },
@@ -128237,7 +128337,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:03+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:19+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -128356,7 +128456,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:33+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": []
     }
   },
@@ -129268,7 +129368,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": []
     }
   },
@@ -131000,7 +131100,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:31+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:41+00:00",
       "ATTEMPTS": []
     }
   },
@@ -131870,6 +131970,13 @@
             "HOST": null,
             "HOST_TYPE": null,
             "LICENSE": null
+          },
+          {
+            "VERSION": "publishedVersion",
+            "URL": "https://ijoc.org/index.php/ijoc/article/view/21035",
+            "HOST": "International journal of communication",
+            "HOST_TYPE": "journal",
+            "LICENSE": "cc-by-nc-nd"
           },
           {
             "VERSION": "submittedVersion",
@@ -133734,7 +133841,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:39+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:43+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -136097,7 +136204,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
       "ATTEMPTS": []
     }
   },
@@ -137414,7 +137521,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:49+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:33+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -137523,7 +137630,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:02+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:35+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "openaire_html",
@@ -137665,7 +137772,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:27:17+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:29+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -137955,6 +138062,13 @@
             "HOST": "LA Referencia (Red Federada de Repositorios Institucionales de Publicaciones Científicas)",
             "HOST_TYPE": "repository",
             "LICENSE": "other-oa"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/7794",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc"
           }
         ]
       },
@@ -138894,7 +139008,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:34:46+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:46+00:00",
       "ATTEMPTS": [
         {
           "SOURCE": "etis",
@@ -139030,7 +139144,7 @@
           {
             "VERSION": "publishedVersion",
             "URL": "https://pure.knaw.nl/portal/en/publications/c7b3cdfc-9a30-4312-bac1-4c3369b4e377",
-            "HOST": "KNAW Research Portal (The Royal Netherlands Academy of Arts and Sciences)",
+            "HOST": "KNAW research portal (Royal Academy of Art and Sciences (KNAW))",
             "HOST_TYPE": "repository",
             "LICENSE": "other-oa"
           },
@@ -139588,6 +139702,13 @@
             "HOST": "DOAJ (DOAJ: Directory of Open Access Journals)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by-sa"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/6396",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
           }
         ]
       },
@@ -139596,11 +139717,6 @@
           {
             "URL": "https://www.mdpi.com/2077-0472/10/11/527/pdf",
             "HOST": "Agriculture",
-            "TYPE": "Article"
-          },
-          {
-            "URL": "https://hdl.handle.net/10492/6396",
-            "HOST": "EMU DSpace",
             "TYPE": "Article"
           }
         ]
@@ -140641,6 +140757,13 @@
           },
           {
             "VERSION": "submittedVersion",
+            "URL": "http://hdl.handle.net/10492/8033",
+            "HOST": "EMU DSpace",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by"
+          },
+          {
+            "VERSION": "submittedVersion",
             "URL": "http://urn.fi/URN:NBN:fi:jyu-202304172497",
             "HOST": "Jyväskylä University Digital Archive (University of Jyväskylä)",
             "HOST_TYPE": "repository",
@@ -141385,7 +141508,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:33:13+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:37+00:00",
       "ATTEMPTS": []
     }
   },
@@ -143592,16 +143715,18 @@
             "HOST": "Infoscience (Ecole Polytechnique Fédérale de Lausanne)",
             "HOST_TYPE": "repository",
             "LICENSE": "cc-by-nc-nd"
+          },
+          {
+            "VERSION": "submittedVersion",
+            "URL": "https://hdl.handle.net/11697/215770",
+            "HOST": "Archivio Istituzionale della Ricerca - Università degli Studi dell Aquila",
+            "HOST_TYPE": "repository",
+            "LICENSE": "cc-by-nc-nd"
           }
         ]
       },
       "OPENAIRE": {
         "OPEN_INSTANCES": [
-          {
-            "URL": "https://hdl.handle.net/11697/215770",
-            "HOST": "Archivio Istituzionale della Ricerca - Università degli Studi dell Aquila",
-            "TYPE": "Article"
-          },
           {
             "URL": "https://hdl.handle.net/20.500.14299/141336",
             "HOST": "Infoscience - EPFL institutional repository",
@@ -143749,7 +143874,7 @@
       "URL": null,
       "VERSION": null,
       "HOST_TYPE": null,
-      "RETRIEVED_AT": "2026-10-03T18:28:21+00:00",
+      "RETRIEVED_AT": "2026-10-04T08:20:31+00:00",
       "ATTEMPTS": []
     }
   },

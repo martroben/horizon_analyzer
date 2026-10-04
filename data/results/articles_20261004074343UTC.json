@@ -1766,6 +1766,76 @@
     }
   },
   {
+    "GUID": "d08986e6-7ee6-4337-bfe5-6b6ba9b499ac",
+    "TITLE": "Applying RIS-Based Communication for Collaborative Computing in a Swarm of Drones",
+    "PERIODICAL": "IEEE Access",
+    "DOI": "10.1109/access.2023.3293737",
+    "PROJECT_GUIDS": [
+      "03a149cb-e0e5-418b-b01d-1b8980d12cc5"
+    ],
+    "AUTHORS": [
+      {
+        "GUID": "4a095b14-b977-450b-8df9-9fa74a90ba96",
+        "NAME": "Maksim Jenihhin",
+        "IS_IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "5584a043-ba8f-4677-b47f-6b5ec1c9c1fe",
+        "NAME": "Yannick Le Moullec",
+        "IS_IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "a597e2ae-1d6e-486e-a572-8622eed35c1b",
+        "NAME": "Dadmehr Rahbari",
+        "IS_IN_OPENALEX_AUTHORS": true
+      },
+      {
+        "GUID": "dc5ceb06-414d-4031-a712-c385a1ca2807",
+        "NAME": "Muhammad Mahtab Alam",
+        "IS_IN_OPENALEX_AUTHORS": true
+      }
+    ],
+    "INSTITUTIONS": [
+      {
+        "GUID": "405f8348-9cea-4cae-b604-00d0b1c49a6c",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Department of Computer Systems",
+        "REGISTRY_CODE": "74000323"
+      },
+      {
+        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
+        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
+        "REGISTRY_CODE": null
+      }
+    ],
+    "HAS_ESTONIAN_AUTHOR": true,
+    "ETIS": {
+      "DOI": "10.1109/access.2023.3293737",
+      "URL": "https://ieeexplore.ieee.org/iel7/6287639/6514899/10177160.pdf",
+      "FULLTEXT_URL": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/10177160.pdf",
+      "IS_OPEN_ACCESS": true,
+      "OPEN_ACCESS_TYPE": "gold",
+      "LICENSE": "Attribution (CC BY)",
+      "DUPLICATE_GUIDS": []
+    },
+    "OPENALEX": {
+      "ID": "https://openalex.org/W4383752077",
+      "FOUND_BY": "doi",
+      "DOI": "10.1109/access.2023.3293737",
+      "IS_OPEN_ACCESS": true,
+      "OPEN_ACCESS_TYPE": "gold",
+      "OPEN_ACCESS_URL": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/10177160.pdf",
+      "OPEN_VERSIONS": [
+        "publishedVersion",
+        "submittedVersion"
+      ],
+      "HAS_OPEN_PEER_REVIEWED_VERSION": true,
+      "HAS_ESTONIAN_AFFILIATION": true
+    },
+    "MANUAL_CHECK": {
+      "IS_OPEN_ACCESS": null
+    }
+  },
+  {
     "GUID": "55b2a14d-72b6-4749-898d-30960c6cbb3e",
     "TITLE": "Latest Research Trends in Gait Analysis Using Wearable Sensors and Machine Learning: A Systematic Review",
     "PERIODICAL": "IEEE Access",
@@ -1826,76 +1896,6 @@
       "OPEN_ACCESS_URL": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/09187883.pdf",
       "OPEN_VERSIONS": [
         "acceptedVersion",
-        "publishedVersion",
-        "submittedVersion"
-      ],
-      "HAS_OPEN_PEER_REVIEWED_VERSION": true,
-      "HAS_ESTONIAN_AFFILIATION": true
-    },
-    "MANUAL_CHECK": {
-      "IS_OPEN_ACCESS": null
-    }
-  },
-  {
-    "GUID": "d08986e6-7ee6-4337-bfe5-6b6ba9b499ac",
-    "TITLE": "Applying RIS-Based Communication for Collaborative Computing in a Swarm of Drones",
-    "PERIODICAL": "IEEE Access",
-    "DOI": "10.1109/access.2023.3293737",
-    "PROJECT_GUIDS": [
-      "03a149cb-e0e5-418b-b01d-1b8980d12cc5"
-    ],
-    "AUTHORS": [
-      {
-        "GUID": "4a095b14-b977-450b-8df9-9fa74a90ba96",
-        "NAME": "Maksim Jenihhin",
-        "IS_IN_OPENALEX_AUTHORS": true
-      },
-      {
-        "GUID": "5584a043-ba8f-4677-b47f-6b5ec1c9c1fe",
-        "NAME": "Yannick Le Moullec",
-        "IS_IN_OPENALEX_AUTHORS": true
-      },
-      {
-        "GUID": "a597e2ae-1d6e-486e-a572-8622eed35c1b",
-        "NAME": "Dadmehr Rahbari",
-        "IS_IN_OPENALEX_AUTHORS": true
-      },
-      {
-        "GUID": "dc5ceb06-414d-4031-a712-c385a1ca2807",
-        "NAME": "Muhammad Mahtab Alam",
-        "IS_IN_OPENALEX_AUTHORS": true
-      }
-    ],
-    "INSTITUTIONS": [
-      {
-        "GUID": "405f8348-9cea-4cae-b604-00d0b1c49a6c",
-        "NAME": "Tallinn University of Technology, School of Information Technologies, Department of Computer Systems",
-        "REGISTRY_CODE": "74000323"
-      },
-      {
-        "GUID": "f97bd2e7-a9e6-4f60-8a6e-7276e17da836",
-        "NAME": "Tallinn University of Technology, School of Information Technologies, Thomas Johann Seebeck Department of Electronics",
-        "REGISTRY_CODE": null
-      }
-    ],
-    "HAS_ESTONIAN_AUTHOR": true,
-    "ETIS": {
-      "DOI": "10.1109/access.2023.3293737",
-      "URL": "https://ieeexplore.ieee.org/iel7/6287639/6514899/10177160.pdf",
-      "FULLTEXT_URL": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/10177160.pdf",
-      "IS_OPEN_ACCESS": true,
-      "OPEN_ACCESS_TYPE": "gold",
-      "LICENSE": "Attribution (CC BY)",
-      "DUPLICATE_GUIDS": []
-    },
-    "OPENALEX": {
-      "ID": "https://openalex.org/W4383752077",
-      "FOUND_BY": "doi",
-      "DOI": "10.1109/access.2023.3293737",
-      "IS_OPEN_ACCESS": true,
-      "OPEN_ACCESS_TYPE": "gold",
-      "OPEN_ACCESS_URL": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/10177160.pdf",
-      "OPEN_VERSIONS": [
         "publishedVersion",
         "submittedVersion"
       ],
@@ -5330,7 +5330,8 @@
       "OPEN_ACCESS_TYPE": "hybrid",
       "OPEN_ACCESS_URL": "http://www.journalofdairyscience.org/article/S0022030220304392/pdf",
       "OPEN_VERSIONS": [
-        "publishedVersion"
+        "publishedVersion",
+        "submittedVersion"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": true,
       "HAS_ESTONIAN_AFFILIATION": true
@@ -5509,7 +5510,8 @@
       "OPEN_ACCESS_TYPE": "gold",
       "OPEN_ACCESS_URL": "https://www.mdpi.com/2077-0472/10/1/22/pdf?version=1579766768",
       "OPEN_VERSIONS": [
-        "publishedVersion"
+        "publishedVersion",
+        "submittedVersion"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": true,
       "HAS_ESTONIAN_AFFILIATION": true
@@ -5626,8 +5628,9 @@
       "DOI": "10.15159/ar.20.024",
       "IS_OPEN_ACCESS": true,
       "OPEN_ACCESS_TYPE": "green",
-      "OPEN_ACCESS_URL": "https://doi.org/10.15159/ar.20.024",
+      "OPEN_ACCESS_URL": "http://hdl.handle.net/10492/5613",
       "OPEN_VERSIONS": [
+        "submittedVersion",
         "unknown"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": false,
@@ -5684,9 +5687,10 @@
       "FOUND_BY": "doi",
       "DOI": "10.15159/ar.22.008",
       "IS_OPEN_ACCESS": true,
-      "OPEN_ACCESS_TYPE": "gold",
-      "OPEN_ACCESS_URL": "https://doi.org/10.15159/ar.22.008",
+      "OPEN_ACCESS_TYPE": "green",
+      "OPEN_ACCESS_URL": "http://hdl.handle.net/10492/7265",
       "OPEN_VERSIONS": [
+        "submittedVersion",
         "unknown"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": false,
@@ -5904,9 +5908,10 @@
       "FOUND_BY": "doi",
       "DOI": "10.15159/ar.21.033",
       "IS_OPEN_ACCESS": true,
-      "OPEN_ACCESS_TYPE": "gold",
-      "OPEN_ACCESS_URL": "https://doi.org/10.15159/ar.21.033",
+      "OPEN_ACCESS_TYPE": "green",
+      "OPEN_ACCESS_URL": "http://hdl.handle.net/10492/6426",
       "OPEN_VERSIONS": [
+        "submittedVersion",
         "unknown"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": false,
@@ -11042,7 +11047,7 @@
       "FOUND_BY": "doi",
       "DOI": "10.4119/jsse-3146",
       "IS_OPEN_ACCESS": true,
-      "OPEN_ACCESS_TYPE": "gold",
+      "OPEN_ACCESS_TYPE": "diamond",
       "OPEN_ACCESS_URL": "https://www.jsse.org/index.php/jsse/article/view/3146",
       "OPEN_VERSIONS": [
         "publishedVersion",
@@ -11551,10 +11556,12 @@
       "ID": "https://openalex.org/W3030386431",
       "FOUND_BY": "doi",
       "DOI": "10.1134/s1064229320050026",
-      "IS_OPEN_ACCESS": false,
-      "OPEN_ACCESS_TYPE": "closed",
-      "OPEN_ACCESS_URL": null,
-      "OPEN_VERSIONS": [],
+      "IS_OPEN_ACCESS": true,
+      "OPEN_ACCESS_TYPE": "green",
+      "OPEN_ACCESS_URL": "http://hdl.handle.net/10492/6397",
+      "OPEN_VERSIONS": [
+        "submittedVersion"
+      ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": false,
       "HAS_ESTONIAN_AFFILIATION": true
     },
@@ -11914,7 +11921,8 @@
       "OPEN_ACCESS_TYPE": "diamond",
       "OPEN_ACCESS_URL": "https://doi.org/10.13080/z-a.2018.105.025",
       "OPEN_VERSIONS": [
-        "publishedVersion"
+        "publishedVersion",
+        "submittedVersion"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": true,
       "HAS_ESTONIAN_AFFILIATION": true
@@ -25668,6 +25676,7 @@
       "OPEN_ACCESS_URL": "https://osf.io/hysma/download",
       "OPEN_VERSIONS": [
         "acceptedVersion",
+        "publishedVersion",
         "submittedVersion"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": true,
@@ -35390,7 +35399,7 @@
       "FOUND_BY": "doi",
       "DOI": "10.11576/jsse-5368",
       "IS_OPEN_ACCESS": true,
-      "OPEN_ACCESS_TYPE": "gold",
+      "OPEN_ACCESS_TYPE": "diamond",
       "OPEN_ACCESS_URL": "https://www.jsse.org/index.php/jsse/article/view/5368",
       "OPEN_VERSIONS": [
         "publishedVersion",
@@ -44910,7 +44919,8 @@
       "OPEN_ACCESS_TYPE": "hybrid",
       "OPEN_ACCESS_URL": "https://www.sciencedirect.com/science/article/pii/S0045653522030922/pdf",
       "OPEN_VERSIONS": [
-        "publishedVersion"
+        "publishedVersion",
+        "submittedVersion"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": true,
       "HAS_ESTONIAN_AFFILIATION": true
@@ -45031,7 +45041,8 @@
       "OPEN_ACCESS_TYPE": "gold",
       "OPEN_ACCESS_URL": "https://doi.org/10.2166/nh.2022.057",
       "OPEN_VERSIONS": [
-        "publishedVersion"
+        "publishedVersion",
+        "submittedVersion"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": true,
       "HAS_ESTONIAN_AFFILIATION": true
@@ -49729,9 +49740,10 @@
       "FOUND_BY": "doi",
       "DOI": "10.15159/ar.25.054",
       "IS_OPEN_ACCESS": true,
-      "OPEN_ACCESS_TYPE": "gold",
-      "OPEN_ACCESS_URL": "https://doi.org/10.15159/ar.25.054",
+      "OPEN_ACCESS_TYPE": "green",
+      "OPEN_ACCESS_URL": "http://hdl.handle.net/10492/10080",
       "OPEN_VERSIONS": [
+        "submittedVersion",
         "unknown"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": false,
@@ -49874,9 +49886,10 @@
       "FOUND_BY": "doi",
       "DOI": "10.15159/ar.24.096",
       "IS_OPEN_ACCESS": true,
-      "OPEN_ACCESS_TYPE": "gold",
-      "OPEN_ACCESS_URL": "https://doi.org/10.15159/ar.24.096",
+      "OPEN_ACCESS_TYPE": "green",
+      "OPEN_ACCESS_URL": "http://hdl.handle.net/10492/9521",
       "OPEN_VERSIONS": [
+        "submittedVersion",
         "unknown"
       ],
       "HAS_OPEN_PEER_REVIEWED_VERSION": false,
@@ -52766,7 +52779,7 @@
       "DOI": "10.58036/stss.v17i0.1093",
       "IS_OPEN_ACCESS": true,
       "OPEN_ACCESS_TYPE": "diamond",
-      "OPEN_ACCESS_URL": "https://publications.tlulib.ee/index.php/stss/article/view/841",
+      "OPEN_ACCESS_URL": "https://publications.tlulib.ee/index.php/stss/article/download/841/837",
       "OPEN_VERSIONS": [
         "publishedVersion",
         "submittedVersion",

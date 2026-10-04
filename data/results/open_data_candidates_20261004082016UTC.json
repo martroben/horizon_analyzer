@@ -1335,8 +1335,8 @@
     }
   },
   {
-    "GUID": "55b2a14d-72b6-4749-898d-30960c6cbb3e",
-    "DOI": "10.1109/access.2020.3022818",
+    "GUID": "d08986e6-7ee6-4337-bfe5-6b6ba9b499ac",
+    "DOI": "10.1109/access.2023.3293737",
     "EUROPEPMC": {
       "PMID": null,
       "PMCID": null,
@@ -1354,8 +1354,8 @@
     }
   },
   {
-    "GUID": "d08986e6-7ee6-4337-bfe5-6b6ba9b499ac",
-    "DOI": "10.1109/access.2023.3293737",
+    "GUID": "55b2a14d-72b6-4749-898d-30960c6cbb3e",
+    "DOI": "10.1109/access.2020.3022818",
     "EUROPEPMC": {
       "PMID": null,
       "PMCID": null,
@@ -3019,17 +3019,6 @@
           "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_3_of_Leveraging_large-scale_multi-omics_evidences_to_identify_therapeutic_targets_from_genome-wide_association_studies/27861339/1"
         },
         {
-          "DOI": "10.6084/m9.figshare.27861336.v1",
-          "TITLE": "Additional file 2 of Leveraging large-scale multi-omics evidences to identify therapeutic targets from genome-wide association studies",
-          "TYPE": "Dataset",
-          "PUBLISHER": "figshare",
-          "YEAR": 2024,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Leveraging_large-scale_multi-omics_evidences_to_identify_therapeutic_targets_from_genome-wide_association_studies/27861336/1"
-        },
-        {
           "DOI": "10.6084/m9.figshare.27861339",
           "TITLE": "Additional file 3 of Leveraging large-scale multi-omics evidences to identify therapeutic targets from genome-wide association studies",
           "TYPE": "Dataset",
@@ -3039,6 +3028,17 @@
             "IsSupplementTo"
           ],
           "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_3_of_Leveraging_large-scale_multi-omics_evidences_to_identify_therapeutic_targets_from_genome-wide_association_studies/27861339"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.27861336.v1",
+          "TITLE": "Additional file 2 of Leveraging large-scale multi-omics evidences to identify therapeutic targets from genome-wide association studies",
+          "TYPE": "Dataset",
+          "PUBLISHER": "figshare",
+          "YEAR": 2024,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Leveraging_large-scale_multi-omics_evidences_to_identify_therapeutic_targets_from_genome-wide_association_studies/27861336/1"
         },
         {
           "DOI": "10.6084/m9.figshare.27861336",
@@ -5253,17 +5253,6 @@
           "URL": "https://zenodo.org/record/886325"
         },
         {
-          "DOI": "10.5281/zenodo.886320",
-          "TITLE": "Catch-Eyou Work Package 2 Dataset 2.2A - Aggregation Of Literature",
-          "TYPE": "Dataset",
-          "PUBLISHER": "Zenodo",
-          "YEAR": 2017,
-          "RELATIONS": [
-            "IsCitedBy"
-          ],
-          "URL": "https://zenodo.org/record/886320"
-        },
-        {
           "DOI": "10.5281/zenodo.886321",
           "TITLE": "Catch-Eyou Work Package 2 Dataset 2.2A - Aggregation Of Literature",
           "TYPE": "Dataset",
@@ -5273,6 +5262,17 @@
             "IsCitedBy"
           ],
           "URL": "https://zenodo.org/record/886321"
+        },
+        {
+          "DOI": "10.5281/zenodo.886320",
+          "TITLE": "Catch-Eyou Work Package 2 Dataset 2.2A - Aggregation Of Literature",
+          "TYPE": "Dataset",
+          "PUBLISHER": "Zenodo",
+          "YEAR": 2017,
+          "RELATIONS": [
+            "IsCitedBy"
+          ],
+          "URL": "https://zenodo.org/record/886320"
         }
       ]
     }
@@ -12485,17 +12485,6 @@
     "DATACITE": {
       "RECORDS": [
         {
-          "DOI": "10.6084/m9.figshare.25567964.v1",
-          "TITLE": "Towards seamless environmental prediction – development of Pan-Eurasian EXperiment (PEEX) modelling platform",
-          "TYPE": "Text",
-          "PUBLISHER": "Taylor & Francis",
-          "YEAR": 2024,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://tandf.figshare.com/articles/journal_contribution/Towards_seamless_environmental_prediction_development_of_Pan-Eurasian_EXperiment_PEEX_modelling_platform/25567964/1"
-        },
-        {
           "DOI": "10.6084/m9.figshare.25567964",
           "TITLE": "Towards seamless environmental prediction – development of Pan-Eurasian EXperiment (PEEX) modelling platform",
           "TYPE": "Text",
@@ -12505,6 +12494,17 @@
             "IsSupplementTo"
           ],
           "URL": "https://tandf.figshare.com/articles/journal_contribution/Towards_seamless_environmental_prediction_development_of_Pan-Eurasian_EXperiment_PEEX_modelling_platform/25567964"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.25567964.v1",
+          "TITLE": "Towards seamless environmental prediction – development of Pan-Eurasian EXperiment (PEEX) modelling platform",
+          "TYPE": "Text",
+          "PUBLISHER": "Taylor & Francis",
+          "YEAR": 2024,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://tandf.figshare.com/articles/journal_contribution/Towards_seamless_environmental_prediction_development_of_Pan-Eurasian_EXperiment_PEEX_modelling_platform/25567964/1"
         }
       ]
     }
@@ -15437,17 +15437,6 @@
           "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_1_of_Common_clinical_blood_and_urine_biomarkers_for_ischemic_stroke_an_Estonian_Electronic_Health_Records_database_study/22622447"
         },
         {
-          "DOI": "10.6084/m9.figshare.c.6594092.v1",
-          "TITLE": "Common clinical blood and urine biomarkers for ischemic stroke: an Estonian Electronic Health Records database study",
-          "TYPE": "Collection",
-          "PUBLISHER": "figshare",
-          "YEAR": 2023,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://springernature.figshare.com/collections/Common_clinical_blood_and_urine_biomarkers_for_ischemic_stroke_an_Estonian_Electronic_Health_Records_database_study/6594092/1"
-        },
-        {
           "DOI": "10.6084/m9.figshare.c.6594092",
           "TITLE": "Common clinical blood and urine biomarkers for ischemic stroke: an Estonian Electronic Health Records database study",
           "TYPE": "Collection",
@@ -15457,6 +15446,17 @@
             "IsSupplementTo"
           ],
           "URL": "https://springernature.figshare.com/collections/Common_clinical_blood_and_urine_biomarkers_for_ischemic_stroke_an_Estonian_Electronic_Health_Records_database_study/6594092"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.c.6594092.v1",
+          "TITLE": "Common clinical blood and urine biomarkers for ischemic stroke: an Estonian Electronic Health Records database study",
+          "TYPE": "Collection",
+          "PUBLISHER": "figshare",
+          "YEAR": 2023,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://springernature.figshare.com/collections/Common_clinical_blood_and_urine_biomarkers_for_ischemic_stroke_an_Estonian_Electronic_Health_Records_database_study/6594092/1"
         }
       ]
     }
@@ -17900,6 +17900,17 @@
           "URL": "http://www.ccdc.cam.ac.uk/services/structure_request?id=doi:10.5517/ccdc.csd.cc27gw9x&sid=DataCite"
         },
         {
+          "DOI": "10.5517/ccdc.csd.cc27gw7v",
+          "TITLE": "CCDC 2069877: Experimental Crystal Structure Determination",
+          "TYPE": "Dataset",
+          "PUBLISHER": "Cambridge Crystallographic Data Centre",
+          "YEAR": 2022,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "http://www.ccdc.cam.ac.uk/services/structure_request?id=doi:10.5517/ccdc.csd.cc27gw7v&sid=DataCite"
+        },
+        {
           "DOI": "10.5517/ccdc.csd.cc27gw6t",
           "TITLE": "CCDC 2069876: Experimental Crystal Structure Determination",
           "TYPE": "Dataset",
@@ -17920,17 +17931,6 @@
             "IsSupplementTo"
           ],
           "URL": "http://www.ccdc.cam.ac.uk/services/structure_request?id=doi:10.5517/ccdc.csd.cc27gw8w&sid=DataCite"
-        },
-        {
-          "DOI": "10.5517/ccdc.csd.cc27gw7v",
-          "TITLE": "CCDC 2069877: Experimental Crystal Structure Determination",
-          "TYPE": "Dataset",
-          "PUBLISHER": "Cambridge Crystallographic Data Centre",
-          "YEAR": 2022,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "http://www.ccdc.cam.ac.uk/services/structure_request?id=doi:10.5517/ccdc.csd.cc27gw7v&sid=DataCite"
         },
         {
           "DOI": "10.5517/ccdc.csd.cc27gw5s",
@@ -22559,17 +22559,6 @@
           "URL": "https://figshare.com/articles/dataset/GWAS_summary_statistics_for_major_depression_PGC_MDD2025_/27061255/4"
         },
         {
-          "DOI": "10.6084/m9.figshare.27061255",
-          "TITLE": "GWAS summary statistics for major depression (PGC MDD2025)",
-          "TYPE": "Dataset",
-          "PUBLISHER": "figshare",
-          "YEAR": 2026,
-          "RELATIONS": [
-            "IsDescribedBy"
-          ],
-          "URL": "https://figshare.com/articles/dataset/GWAS_summary_statistics_for_major_depression_PGC_MDD2025_/27061255"
-        },
-        {
           "DOI": "10.6084/m9.figshare.27061255.v5",
           "TITLE": "GWAS summary statistics for major depression (PGC MDD2025)",
           "TYPE": "Dataset",
@@ -22579,6 +22568,17 @@
             "IsDescribedBy"
           ],
           "URL": "https://figshare.com/articles/dataset/GWAS_summary_statistics_for_major_depression_PGC_MDD2025_/27061255/5"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.27061255",
+          "TITLE": "GWAS summary statistics for major depression (PGC MDD2025)",
+          "TYPE": "Dataset",
+          "PUBLISHER": "figshare",
+          "YEAR": 2026,
+          "RELATIONS": [
+            "IsDescribedBy"
+          ],
+          "URL": "https://figshare.com/articles/dataset/GWAS_summary_statistics_for_major_depression_PGC_MDD2025_/27061255"
         },
         {
           "DOI": "10.6084/m9.figshare.27089614.v4",
@@ -22592,17 +22592,6 @@
           "URL": "https://figshare.com/articles/online_resource/Supplementary_Results_for_GWAS_meta-analysis_of_major_depression_PGC_MDD2025_/27089614/4"
         },
         {
-          "DOI": "10.6084/m9.figshare.27089614.v5",
-          "TITLE": "Supplementary Results for GWAS meta-analysis of major depression (PGC MDD2025)",
-          "TYPE": "Other",
-          "PUBLISHER": "figshare",
-          "YEAR": 2026,
-          "RELATIONS": [
-            "IsDescribedBy"
-          ],
-          "URL": "https://figshare.com/articles/online_resource/Supplementary_Results_for_GWAS_meta-analysis_of_major_depression_PGC_MDD2025_/27089614/5"
-        },
-        {
           "DOI": "10.6084/m9.figshare.27089614",
           "TITLE": "Supplementary Results for GWAS meta-analysis of major depression (PGC MDD2025)",
           "TYPE": "Other",
@@ -22612,6 +22601,17 @@
             "IsDescribedBy"
           ],
           "URL": "https://figshare.com/articles/online_resource/Supplementary_Results_for_GWAS_meta-analysis_of_major_depression_PGC_MDD2025_/27089614"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.27089614.v5",
+          "TITLE": "Supplementary Results for GWAS meta-analysis of major depression (PGC MDD2025)",
+          "TYPE": "Other",
+          "PUBLISHER": "figshare",
+          "YEAR": 2026,
+          "RELATIONS": [
+            "IsDescribedBy"
+          ],
+          "URL": "https://figshare.com/articles/online_resource/Supplementary_Results_for_GWAS_meta-analysis_of_major_depression_PGC_MDD2025_/27089614/5"
         },
         {
           "DOI": "10.5281/zenodo.19202099",
@@ -23391,25 +23391,6 @@
     }
   },
   {
-    "GUID": "e1e69ca8-3035-43ee-8859-504ee82e01b7",
-    "DOI": "10.2478/fsmu-2023-0006",
-    "EUROPEPMC": {
-      "PMID": null,
-      "PMCID": null,
-      "IS_OPEN_ACCESS": null,
-      "IS_AUTHOR_MANUSCRIPT": null,
-      "HAS_SUPPLEMENTARY_FILES": null,
-      "LICENSE": null,
-      "ACCESSION_NUMBERS": []
-    },
-    "SCHOLEXPLORER": {
-      "LINKS": []
-    },
-    "DATACITE": {
-      "RECORDS": []
-    }
-  },
-  {
     "GUID": "65fc8ff3-9f5c-4110-8501-158e99cf13fd",
     "DOI": "10.1021/acs.est.3c08488",
     "EUROPEPMC": {
@@ -23450,25 +23431,6 @@
           ]
         }
       ]
-    },
-    "DATACITE": {
-      "RECORDS": []
-    }
-  },
-  {
-    "GUID": "213e0586-7a57-4bd9-91e2-fa9427d7dc07",
-    "DOI": "10.2478/fsmu-2023-0006",
-    "EUROPEPMC": {
-      "PMID": null,
-      "PMCID": null,
-      "IS_OPEN_ACCESS": null,
-      "IS_AUTHOR_MANUSCRIPT": null,
-      "HAS_SUPPLEMENTARY_FILES": null,
-      "LICENSE": null,
-      "ACCESSION_NUMBERS": []
-    },
-    "SCHOLEXPLORER": {
-      "LINKS": []
     },
     "DATACITE": {
       "RECORDS": []
@@ -24069,17 +24031,6 @@
     "DATACITE": {
       "RECORDS": [
         {
-          "DOI": "10.5281/zenodo.17661052",
-          "TITLE": "Dataset for the analysis of farmers' perceived financial and non-financial costs of biodiversity measures by means of Q-methodology",
-          "TYPE": "Dataset",
-          "PUBLISHER": "Zenodo",
-          "YEAR": 2025,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://zenodo.org/doi/10.5281/zenodo.17661052"
-        },
-        {
           "DOI": "10.5281/zenodo.17661051",
           "TITLE": "Dataset for the analysis of farmers' perceived financial and non-financial costs of biodiversity measures by means of Q-methodology",
           "TYPE": "Dataset",
@@ -24089,6 +24040,17 @@
             "IsSupplementTo"
           ],
           "URL": "https://zenodo.org/doi/10.5281/zenodo.17661051"
+        },
+        {
+          "DOI": "10.5281/zenodo.17661052",
+          "TITLE": "Dataset for the analysis of farmers' perceived financial and non-financial costs of biodiversity measures by means of Q-methodology",
+          "TYPE": "Dataset",
+          "PUBLISHER": "Zenodo",
+          "YEAR": 2025,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://zenodo.org/doi/10.5281/zenodo.17661052"
         }
       ]
     }
@@ -24969,17 +24931,6 @@
     "DATACITE": {
       "RECORDS": [
         {
-          "DOI": "10.6084/m9.figshare.24627839.v1",
-          "TITLE": "A model conceptualising trans-disciplinarity within school science education based on a systematic literature review",
-          "TYPE": "Text",
-          "PUBLISHER": "Taylor & Francis",
-          "YEAR": 2023,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://tandf.figshare.com/articles/journal_contribution/A_model_conceptualising_trans-disciplinarity_within_school_science_education_based_on_a_systematic_literature_review/24627839/1"
-        },
-        {
           "DOI": "10.6084/m9.figshare.24627839",
           "TITLE": "A model conceptualising trans-disciplinarity within school science education based on a systematic literature review",
           "TYPE": "Text",
@@ -24989,6 +24940,17 @@
             "IsSupplementTo"
           ],
           "URL": "https://tandf.figshare.com/articles/journal_contribution/A_model_conceptualising_trans-disciplinarity_within_school_science_education_based_on_a_systematic_literature_review/24627839"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.24627839.v1",
+          "TITLE": "A model conceptualising trans-disciplinarity within school science education based on a systematic literature review",
+          "TYPE": "Text",
+          "PUBLISHER": "Taylor & Francis",
+          "YEAR": 2023,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://tandf.figshare.com/articles/journal_contribution/A_model_conceptualising_trans-disciplinarity_within_school_science_education_based_on_a_systematic_literature_review/24627839/1"
         }
       ]
     }
@@ -28204,17 +28166,6 @@
           "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_1_of_Polygenic_and_pharmacogenomic_contributions_to_medication_dosing_a_real-world_longitudinal_biobank_study/29466165"
         },
         {
-          "DOI": "10.6084/m9.figshare.29466168",
-          "TITLE": "Additional file 2 of Polygenic and pharmacogenomic contributions to medication dosing: a real-world longitudinal biobank study",
-          "TYPE": "Dataset",
-          "PUBLISHER": "figshare",
-          "YEAR": 2025,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Polygenic_and_pharmacogenomic_contributions_to_medication_dosing_a_real-world_longitudinal_biobank_study/29466168"
-        },
-        {
           "DOI": "10.6084/m9.figshare.29466168.v1",
           "TITLE": "Additional file 2 of Polygenic and pharmacogenomic contributions to medication dosing: a real-world longitudinal biobank study",
           "TYPE": "Dataset",
@@ -28224,6 +28175,17 @@
             "IsSupplementTo"
           ],
           "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Polygenic_and_pharmacogenomic_contributions_to_medication_dosing_a_real-world_longitudinal_biobank_study/29466168/1"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.29466168",
+          "TITLE": "Additional file 2 of Polygenic and pharmacogenomic contributions to medication dosing: a real-world longitudinal biobank study",
+          "TYPE": "Dataset",
+          "PUBLISHER": "figshare",
+          "YEAR": 2025,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Polygenic_and_pharmacogenomic_contributions_to_medication_dosing_a_real-world_longitudinal_biobank_study/29466168"
         }
       ]
     }
@@ -28659,17 +28621,6 @@
     "DATACITE": {
       "RECORDS": [
         {
-          "DOI": "10.6084/m9.figshare.28416040.v1",
-          "TITLE": "The effects of competition and competitors location on growth and mortality in middle-aged <i>Betula pendula</i> plantations",
-          "TYPE": "Text",
-          "PUBLISHER": "Taylor & Francis",
-          "YEAR": 2025,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://tandf.figshare.com/articles/journal_contribution/The_effects_of_competition_and_competitors_location_on_growth_and_mortality_in_middle-aged_i_Betula_pendula_i_plantations/28416040/1"
-        },
-        {
           "DOI": "10.6084/m9.figshare.28416040",
           "TITLE": "The effects of competition and competitors location on growth and mortality in middle-aged <i>Betula pendula</i> plantations",
           "TYPE": "Text",
@@ -28679,6 +28630,17 @@
             "IsSupplementTo"
           ],
           "URL": "https://tandf.figshare.com/articles/journal_contribution/The_effects_of_competition_and_competitors_location_on_growth_and_mortality_in_middle-aged_i_Betula_pendula_i_plantations/28416040"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.28416040.v1",
+          "TITLE": "The effects of competition and competitors location on growth and mortality in middle-aged <i>Betula pendula</i> plantations",
+          "TYPE": "Text",
+          "PUBLISHER": "Taylor & Francis",
+          "YEAR": 2025,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://tandf.figshare.com/articles/journal_contribution/The_effects_of_competition_and_competitors_location_on_growth_and_mortality_in_middle-aged_i_Betula_pendula_i_plantations/28416040/1"
         }
       ]
     }
@@ -31340,17 +31302,6 @@
           "URL": "https://rs.figshare.com/articles/journal_contribution/Pollen_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174740"
         },
         {
-          "DOI": "10.6084/m9.figshare.24174746",
-          "TITLE": "Dietary stable isotope extended data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
-          "TYPE": "JournalArticle",
-          "PUBLISHER": "The Royal Society",
-          "YEAR": 2023,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://rs.figshare.com/articles/journal_contribution/Dietary_stable_isotope_extended_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174746"
-        },
-        {
           "DOI": "10.6084/m9.figshare.24174746.v1",
           "TITLE": "Dietary stable isotope extended data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
           "TYPE": "JournalArticle",
@@ -31360,6 +31311,17 @@
             "IsSupplementTo"
           ],
           "URL": "https://rs.figshare.com/articles/journal_contribution/Dietary_stable_isotope_extended_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174746/1"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.24174746",
+          "TITLE": "Dietary stable isotope extended data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
+          "TYPE": "JournalArticle",
+          "PUBLISHER": "The Royal Society",
+          "YEAR": 2023,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://rs.figshare.com/articles/journal_contribution/Dietary_stable_isotope_extended_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174746"
         },
         {
           "DOI": "10.6084/m9.figshare.24174749.v1",
@@ -31439,6 +31401,17 @@
           "URL": "https://rs.figshare.com/articles/dataset/Paired_animal_and_human_AMS_dates_from_the_Ardu_II_and_Sope_B_I_burials_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174743/1"
         },
         {
+          "DOI": "10.6084/m9.figshare.24174758",
+          "TITLE": "Pottery organic residue data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
+          "TYPE": "Dataset",
+          "PUBLISHER": "The Royal Society",
+          "YEAR": 2023,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://rs.figshare.com/articles/dataset/Pottery_organic_residue_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174758"
+        },
+        {
           "DOI": "10.6084/m9.figshare.24174755",
           "TITLE": "ZooMS spectra from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
           "TYPE": "Dataset",
@@ -31461,17 +31434,6 @@
           "URL": "https://rs.figshare.com/articles/dataset/Pottery_organic_residue_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174758/1"
         },
         {
-          "DOI": "10.6084/m9.figshare.24174758",
-          "TITLE": "Pottery organic residue data from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
-          "TYPE": "Dataset",
-          "PUBLISHER": "The Royal Society",
-          "YEAR": 2023,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://rs.figshare.com/articles/dataset/Pottery_organic_residue_data_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174758"
-        },
-        {
           "DOI": "10.6084/m9.figshare.24174755.v1",
           "TITLE": "ZooMS spectra from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
           "TYPE": "Dataset",
@@ -31483,17 +31445,6 @@
           "URL": "https://rs.figshare.com/articles/dataset/ZooMS_spectra_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174755/1"
         },
         {
-          "DOI": "10.6084/m9.figshare.24174743.v2",
-          "TITLE": "Paired animal and human AMS dates from the Ardu II and Sope B I burials from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
-          "TYPE": "Dataset",
-          "PUBLISHER": "The Royal Society",
-          "YEAR": 2023,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://rs.figshare.com/articles/dataset/Paired_animal_and_human_AMS_dates_from_the_Ardu_II_and_Sope_B_I_burials_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174743/2"
-        },
-        {
           "DOI": "10.6084/m9.figshare.24174743",
           "TITLE": "Paired animal and human AMS dates from the Ardu II and Sope B I burials from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
           "TYPE": "Dataset",
@@ -31503,6 +31454,17 @@
             "IsSupplementTo"
           ],
           "URL": "https://rs.figshare.com/articles/dataset/Paired_animal_and_human_AMS_dates_from_the_Ardu_II_and_Sope_B_I_burials_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174743"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.24174743.v2",
+          "TITLE": "Paired animal and human AMS dates from the Ardu II and Sope B I burials from Parallel worlds and mixed economies: multi-proxy analysis reveals complex subsistence systems at the Dawn of early farming in the northeast Baltic",
+          "TYPE": "Dataset",
+          "PUBLISHER": "The Royal Society",
+          "YEAR": 2023,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://rs.figshare.com/articles/dataset/Paired_animal_and_human_AMS_dates_from_the_Ardu_II_and_Sope_B_I_burials_from_Parallel_worlds_and_mixed_economies_multi-proxy_analysis_reveals_complex_subsistence_systems_at_the_Dawn_of_early_farming_in_the_northeast_Baltic/24174743/2"
         }
       ]
     }
@@ -31962,28 +31924,6 @@
     "DATACITE": {
       "RECORDS": [
         {
-          "DOI": "10.6084/m9.figshare.32664668",
-          "TITLE": "Additional file 2 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
-          "TYPE": "Dataset",
-          "PUBLISHER": "figshare",
-          "YEAR": 2026,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664668"
-        },
-        {
-          "DOI": "10.6084/m9.figshare.32664671.v1",
-          "TITLE": "Additional file 3 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
-          "TYPE": "JournalArticle",
-          "PUBLISHER": "figshare",
-          "YEAR": 2026,
-          "RELATIONS": [
-            "IsSupplementTo"
-          ],
-          "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_3_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664671/1"
-        },
-        {
           "DOI": "10.6084/m9.figshare.32664662.v1",
           "TITLE": "Additional file 1 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
           "TYPE": "JournalArticle",
@@ -32015,6 +31955,28 @@
             "IsSupplementTo"
           ],
           "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_3_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664671"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.32664668",
+          "TITLE": "Additional file 2 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
+          "TYPE": "Dataset",
+          "PUBLISHER": "figshare",
+          "YEAR": 2026,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://springernature.figshare.com/articles/dataset/Additional_file_2_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664668"
+        },
+        {
+          "DOI": "10.6084/m9.figshare.32664671.v1",
+          "TITLE": "Additional file 3 of Deep learning-based prediction of gene expression from histopathology identifies NR5A1 as a candidate biomarker and druggable target in high-grade serous ovarian carcinoma",
+          "TYPE": "JournalArticle",
+          "PUBLISHER": "figshare",
+          "YEAR": 2026,
+          "RELATIONS": [
+            "IsSupplementTo"
+          ],
+          "URL": "https://springernature.figshare.com/articles/journal_contribution/Additional_file_3_of_Deep_learning-based_prediction_of_gene_expression_from_histopathology_identifies_NR5A1_as_a_candidate_biomarker_and_druggable_target_in_high-grade_serous_ovarian_carcinoma/32664671/1"
         },
         {
           "DOI": "10.6084/m9.figshare.32664662",
